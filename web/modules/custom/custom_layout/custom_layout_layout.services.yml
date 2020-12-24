@@ -1,0 +1,6 @@
+services:
+  custom_layout_layout.section_component_render:
+    class: Drupal\custom_layout_layout\EventSubscriber\SectionComponentRender
+    arguments: []
+    tags:
+      - { name: event_subscriber }

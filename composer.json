@@ -7,39 +7,119 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/font",
+                "version": "v4.13.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/font/releases/font_4.13.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/colorbutton",
+                "version": "v4.13.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.13.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/panelbutton",
+                "version": "v4.13.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.13.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "enyo/dropzone",
+              "version": "5.7.0",
+              "type": "drupal-library",
+              "dist": {
+                "url": "https://github.com/enyo/dropzone/archive/v5.7.0.zip",
+                "type": "zip"
+              }
+            }
         }
     ],
     "require": {
         "php": ">=7.3",
+        "ext-json": "^1.6",
+        "ckeditor/font": "^4.13",
+        "ckeditor/panelbutton": "^4.13",
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/block_class": "^1.1",
+        "drupal/ckeditor_font": "^1.0",
+        "drupal/config_ignore": "^2.2",
+        "drupal/config_installer": "^1.8",
+        "drupal/config_split": "^1.3",
         "drupal/core-composer-scaffold": "^8.8.1",
         "drupal/core-recommended": "^8.8",
+        "drupal/devel": "^4.0",
+        "drupal/entity_clone": "^1.0@beta",
+        "drupal/entity_reference_revisions": "^1.8",
+        "drupal/field_group": "^3.1",
+        "drupal/fontawesome": "^2.17",
+        "drupal/google_tag": "^1.3",
+        "drupal/honeypot": "^1.27",
+        "drupal/jquery_ui_accordion": "^1.0",
+        "drupal/jquery_ui_tooltip": "^1.0",
+        "drupal/layout_builder_modal": "^1.0",
+        "drupal/layout_builder_restrictions": "^2.5",
+        "drupal/mailsystem": "^4.3",
+        "drupal/media_bulk_upload": "^1.0@alpha",
+        "drupal/media_entity_actions": "^2.0@alpha",
+        "drupal/media_library_form_element": "^1.0@alpha",
+        "drupal/media_library_theme_reset": "^1.0",
+        "drupal/menu_block": "^1.6",
+        "drupal/metatag": "^1.13",
+        "drupal/paragraphs": "^1.11",
+        "drupal/pathauto": "^1.6",
+        "drupal/quick_node_clone": "^1.12",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/responsive_favicons": "^1.5",
+        "drupal/simple_sitemap": "^3.5",
+        "drupal/simplenews": "^2.0@beta",
+        "drupal/sitewide_alert": "^1.3",
+        "drupal/smtp": "^1.0",
+        "drupal/svg_image": "^1.14",
+        "drupal/token": "^1.9",
+        "drupal/twig_tweak": "^2.6",
+        "drupal/upgrade_status": "^3.0",
+        "drupal/video_embed_field": "^2.4",
+        "drupal/view_unpublished": "1.x-dev",
+        "drupal/views_ajax_history": "^1.2",
+        "drupal/viewsreference": "^1.4",
+        "drupal/webform": "^5.22",
+        "drupal/zurb_foundation": "6.x-dev",
+        "drush-ops/behat-drush-endpoint": "^9.3",
+        "drush/drush": "^9.2",
+        "enyo/dropzone": "^5.7",
         "pantheon-systems/drupal-integrations": "^8",
-        "pantheon-systems/quicksilver-pushback": "^2",
-        "drush/drush": "^8.4.5",
-        "cweagans/composer-patches": "^1.7",
-        "drush-ops/behat-drush-endpoint": "^9.3"
+        "pantheon-systems/quicksilver-pushback": "^2"
     },
-    "require-dev": {
-        "behat/behat": "^3.1",
-        "behat/mink": "^1.7",
-        "behat/mink-extension": "^2.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-        "dmore/behat-chrome-extension": "^1.3",
-        "drupal/coder": "^8.3.1",
-        "drupal/drupal-extension": "^4.1",
-        "drupal/drupal-driver": "^2.1",
-        "genesis/behat-fail-aid": "^2.1",
-        "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
-        "mikey179/vfsstream": "^1.2",
-        "phpunit/phpunit": "^6.5",
-        "squizlabs/php_codesniffer": "^3.4.0",
-        "symfony/css-selector": "^2.8"
-    },
+    "require-dev": {},
     "conflict": {
-            "drupal/drupal": "*"
+        "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
@@ -51,14 +131,6 @@
             "@prepare-for-pantheon",
             "composer install --optimize-autoloader --no-dev"
         ],
-        "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
-        "code-sniff": [
-            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
-            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom",
-            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
-            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom"
-        ],
-        "unit-test": "echo 'No unit test step defined.'",
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
@@ -72,13 +144,26 @@
     },
     "extra": {
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
-            "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
         },
         "build-env": {
             "install-cms": [
@@ -95,6 +180,31 @@
             },
             "file-mapping": {
                 "[project-root]/.editorconfig": false
+            }
+        },
+        "patches": {
+            "drupal/paragraphs": {
+                "Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2019-08-10/paragraphs-set_langcode_widgets-290139_updated.patch",
+                "Paragraphs do not render: access check for 'view' fail when using layout builder": "https://www.drupal.org/files/issues/2020-07-08/access-controll-issue-3090200-22.patch"
+            },
+            "drupal/core": {
+                "Undefined Index: Region": "https://www.drupal.org/files/issues/2019-05-10/more_strict_check-3053906-1.patch",
+                "Creating a block that uses Ajax adds multiple blocks": "https://www.drupal.org/files/issues/2019-05-04/3042190-3.patch",
+                "Error: Call to a member function getEntityTypeId() on null (Layout Builder)": "https://www.drupal.org/files/issues/2019-06-25/drupal-layout_builder_inline_block_empty_block_error-3049332-8.7.x_0.patch",
+                "Cloned entities don't retain their Inline Block usage": "https://www.drupal.org/files/issues/2020-03-06/3062819-inline-cloned-COMBINED_2.patch",
+                "Support third party settings for components within a section": "https://www.drupal.org/files/issues/2019-12-05/3015152-tps-26.patch",
+                "Add a hook to modify oEmbed resource data": "https://www.drupal.org/files/issues/2019-03-25/media_hook-oembed-resource-data-alter__example.patch",
+                "Conflict with field_group, missing options in sidebar when creating/updating a node": "https://www.drupal.org/files/issues/2019-11-29/claro-fix_node_sidebar_accordion_items-3097407-4--fix-only.patch",
+                "Layout builder incorrectly resolves global contexts values when viewing layouts": "https://www.drupal.org/files/issues/2020-06-19/3099968-35.patch",
+                "Break long text strings in layout edit": "https://www.drupal.org/files/issues/2020-08-10/break-long-text-strings-in-layout-3016507-32.patch",
+                "Nested Paragraphs create multiple drag handles": "https://www.drupal.org/files/issues/2019-11-13/claro-nested_paragraphs_multiple_drag_handles-3092181-5.patch",
+                "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch"
+            },
+            "drupal/block_class": {
+                "Integration with Drupal core's new Layout Builder": "https://www.drupal.org/files/issues/2019-06-28/block_class-support-layout-builder-2998114-45.patch"
+            },
+            "drupal/metatag": {
+                "Add a TypedData plugin to support Search API": "https://www.drupal.org/files/issues/2019-06-14/2901039-32.patch"
             }
         }
     },

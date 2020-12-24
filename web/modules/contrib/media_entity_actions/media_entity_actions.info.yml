@@ -1,0 +1,12 @@
+name: Media Entity Actions
+description: 'Provides Actions plugins to be used with Media in core'
+type: module
+package: Media
+core: 8.x
+dependencies:
+  - drupal:media (>= 8.4.0)
+
+# Information added by Drupal.org packaging script on 2020-12-09
+version: '8.x-2.0-alpha1'
+project: 'media_entity_actions'
+datestamp: 1607516711

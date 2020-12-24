@@ -1,0 +1,22 @@
+uuid: c2864578-c7d7-4292-8528-ecd9cd07ddc1
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - mirrortwin
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: mirrortwin_powered
+theme: mirrortwin
+region: sidebar_first
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

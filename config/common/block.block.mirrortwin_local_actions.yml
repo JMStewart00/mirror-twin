@@ -1,0 +1,20 @@
+uuid: 350e17e0-424c-4d48-86ed-6daa97ca59c7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mirrortwin
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: mirrortwin_local_actions
+theme: mirrortwin
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

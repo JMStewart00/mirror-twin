@@ -1,9 +1,23 @@
 api_version: 1
-web_docroot: true
 php_version: 7.3
+
+# Use the web directory as the docroot
+web_docroot: true
+
+# enforce HTTPS on all domains in Pantheon
+enforce_https: full+subdomains
+
+# Automated workflows
 workflows:
+  # Dev/Multidev, git commits
   sync_code:
     after:
       - type: webphp
-        description: Push changes back to GitHub if needed
-        script: private/scripts/quicksilver/quicksilver-pushback/push-back.php
+        description: Run post-deploy tasks
+        script: private/scripts/post-deploy.php
+  # Test and Live deployments
+  deploy:
+    after:
+      - type: webphp
+        description: Run post-deploy tasks
+        script: private/scripts/post-deploy.php

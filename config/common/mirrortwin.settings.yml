@@ -1,0 +1,13 @@
+features:
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 1
+favicon:
+  use_default: 1
+showcase_link: /showcase
+social_instagram: 'https://www.instagram.com/mirrortwinbrewing/?hl=en'
+social_twitter: ''
+social_behance: ''

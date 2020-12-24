@@ -1,0 +1,20 @@
+uuid: 7558b128-ea00-4b99-81a0-6c3e35851af2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mirrortwin
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: mirrortwin_page_title
+theme: mirrortwin
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

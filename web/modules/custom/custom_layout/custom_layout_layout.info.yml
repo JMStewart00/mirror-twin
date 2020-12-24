@@ -1,0 +1,8 @@
+name: Custom Layout Layout
+description: Custom layout functionality for Custom Layout.
+type: module
+core: 8.x
+package: Custom Layout
+
+dependencies:
+  - drupal:layout_builder

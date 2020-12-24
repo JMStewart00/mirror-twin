@@ -1,0 +1,22 @@
+uuid: 31903f49-d427-4b48-a174-f5aa4bdc3a40
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - mirrortwin
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: mirrortwin_breadcrumbs
+theme: mirrortwin
+region: sidebar_first
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
