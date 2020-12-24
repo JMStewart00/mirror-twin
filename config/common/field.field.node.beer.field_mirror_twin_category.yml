@@ -1,0 +1,29 @@
+uuid: 9501eb92-d2ed-4508-a8d1-a289f0df29ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mirror_twin_category
+    - node.type.beer
+    - taxonomy.vocabulary.mirror_twin_category
+id: node.beer.field_mirror_twin_category
+field_name: field_mirror_twin_category
+entity_type: node
+bundle: beer
+label: 'Mirror Twin Category'
+description: 'Which category does this fall into for Mirror Twin? Flagship, rotating, seasonal, special edition, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mirror_twin_category: mirror_twin_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

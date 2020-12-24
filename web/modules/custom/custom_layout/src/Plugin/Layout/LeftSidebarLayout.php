@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Drupal\custom_layout_layout\Plugin\Layout;
+namespace Drupal\custom_layout\Plugin\Layout;
 
 /**
  * Provides a plugin class for two column layouts.

@@ -1,0 +1,32 @@
+uuid: 964e0550-3a34-4b8d-b2ef-25aacf76a413
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.field_background_image
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+id: block_content.hero_block.field_background_image
+field_name: field_background_image
+entity_type: block_content
+bundle: hero_block
+label: 'Background Media'
+description: 'Add an image, a video (Youtube link or hosted video) to make the background for the hero.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      remote_video: remote_video
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

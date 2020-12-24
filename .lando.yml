@@ -21,9 +21,6 @@ services:
     type: node:10
     globals:
       gulp-cli: latest
-    run:
-      - cd $LANDO_MOUNT && npm install
-      - cd $LANDO_MOUNT && gulp build
 
   phpmyadmin:
     type: phpmyadmin

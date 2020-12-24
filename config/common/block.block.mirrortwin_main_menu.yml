@@ -1,6 +1,6 @@
 uuid: dbc4e983-33da-4bb4-856a-c586ee7f6d23
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -12,8 +12,8 @@ _core:
   default_config_hash: ChCx7DYNUrPTt5uiRdQAPDKJQMc-_SyAQTrZh8H0o-c
 id: mirrortwin_main_menu
 theme: mirrortwin
-region: sidebar_first
-weight: 0
+region: header
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

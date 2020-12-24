@@ -1,6 +1,6 @@
 uuid: 7558b128-ea00-4b99-81a0-6c3e35851af2
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - mirrortwin
@@ -9,7 +9,7 @@ _core:
 id: mirrortwin_page_title
 theme: mirrortwin
 region: content
-weight: -50
+weight: -6
 provider: null
 plugin: page_title_block
 settings:

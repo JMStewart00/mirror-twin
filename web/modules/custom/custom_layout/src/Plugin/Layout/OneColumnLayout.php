@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace Drupal\custom_layout_layout\Plugin\Layout;
+namespace Drupal\custom_layout\Plugin\Layout;
 
-use Drupal\custom_layout_layout\BangAChainLayout;
-use Drupal\custom_layout_layout\Helper\MediaHelperTrait;
+use Drupal\custom_layout\CustomLayout;
+use Drupal\custom_layout\Helper\MediaHelperTrait;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Layout\LayoutDefault;
 use Drupal\Core\Plugin\PluginFormInterface;
@@ -46,7 +46,7 @@ final class OneColumnLayout extends LayoutDefault implements PluginFormInterface
    */
   public function defaultConfiguration(): array {
     return [
-      'background_color' => BangAChainLayout::NO_BACKGROUND_COLOR,
+      'background_color' => CustomLayout::NO_BACKGROUND_COLOR,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
       'hero' => FALSE,
@@ -82,7 +82,7 @@ final class OneColumnLayout extends LayoutDefault implements PluginFormInterface
     ];
 
     $form['background']['background_color'] = [
-      '#type' => 'custom_layout_layout_background_color_radios',
+      '#type' => 'custom_layout_background_color_radios',
       '#plugin_id' => $this->getPluginDefinition()->id(),
       '#default_value' => $this->configuration['background_color'],
     ];
@@ -114,7 +114,7 @@ final class OneColumnLayout extends LayoutDefault implements PluginFormInterface
       ],
     ];
 
-    $form['#attached']['library'][] = 'custom_layout_layout/layout_builder';
+    $form['#attached']['library'][] = 'custom_layout/layout_builder';
 
     return $form;
   }
@@ -143,9 +143,9 @@ final class OneColumnLayout extends LayoutDefault implements PluginFormInterface
    */
   protected function getColumnWidths(): array {
     return [
-      // BangAChainLayout::ROW_WIDTH_50 => $this->t('50%'),
-      // BangAChainLayout::ROW_WIDTH_75 => $this->t('75%'),
-      BangAChainLayout::ROW_WIDTH_100 => $this->t('100%'),
+      // CustomLayout::ROW_WIDTH_50 => $this->t('50%'),
+      // CustomLayout::ROW_WIDTH_75 => $this->t('75%'),
+      CustomLayout::ROW_WIDTH_100 => $this->t('100%'),
     ];
   }
 
@@ -153,7 +153,7 @@ final class OneColumnLayout extends LayoutDefault implements PluginFormInterface
    * {@inheritdoc}
    */
   protected function getDefaultColumnWidth(): string {
-    return BangAChainLayout::ROW_WIDTH_100;
+    return CustomLayout::ROW_WIDTH_100;
   }
 
   /**

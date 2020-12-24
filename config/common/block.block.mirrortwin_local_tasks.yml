@@ -8,8 +8,8 @@ _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
 id: mirrortwin_local_tasks
 theme: mirrortwin
-region: content
-weight: -40
+region: header
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:

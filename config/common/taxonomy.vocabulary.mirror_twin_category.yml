@@ -1,0 +1,8 @@
+uuid: e29f15f0-0f5c-41ec-9612-e9c971059e46
+langcode: en
+status: true
+dependencies: {  }
+name: 'Mirror Twin Category'
+vid: mirror_twin_category
+description: 'Flagship, seasonal, rotating, etc.'
+weight: 0

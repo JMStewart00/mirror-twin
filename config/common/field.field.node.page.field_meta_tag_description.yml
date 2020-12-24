@@ -1,0 +1,19 @@
+uuid: 49fdbcf5-d5f5-4052-be12-8c46180a5221
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tag_description
+    - node.type.page
+id: node.page.field_meta_tag_description
+field_name: field_meta_tag_description
+entity_type: node
+bundle: page
+label: 'Meta Tag Description'
+description: 'This field is required because it''s used by search engines to show a summary of the page. Provide a short description of the page content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,21 @@
+uuid: 47dd8a5c-4456-42a2-8276-b150f3c10a04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.beer
+  module:
+    - metatag
+id: node.beer.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: beer
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

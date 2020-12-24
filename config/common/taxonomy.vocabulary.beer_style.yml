@@ -1,0 +1,8 @@
+uuid: d373af71-a888-4014-ac23-9a71826ebe39
+langcode: en
+status: true
+dependencies: {  }
+name: 'Beer Style'
+vid: beer_style
+description: ''
+weight: 0

@@ -1,0 +1,23 @@
+uuid: cc1745f7-d62b-490f-9b1b-dc835cf2353d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.field_text_position
+  module:
+    - options
+id: block_content.hero_block.field_text_position
+field_name: field_text_position
+entity_type: block_content
+bundle: hero_block
+label: 'Text Position'
+description: 'Where should the text show up on desktop screens.'
+required: false
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

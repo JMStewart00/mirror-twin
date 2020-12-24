@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Drupal\custom_layout_layout\Plugin\Layout;
+namespace Drupal\custom_layout\Plugin\Layout;
 
-use Drupal\custom_layout_layout\Helper\MediaHelperTrait;
+use Drupal\custom_layout\Helper\MediaHelperTrait;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Layout\LayoutDefault;
 use Drupal\Core\Plugin\PluginFormInterface;
@@ -57,7 +57,7 @@ abstract class SidebarBase extends LayoutDefault implements PluginFormInterface 
       ],
     ];
 
-    $form['#attached']['library'][] = 'custom_layout_layout/layout_builder';
+    $form['#attached']['library'][] = 'custom_layout/layout_builder';
 
     return $form;
   }

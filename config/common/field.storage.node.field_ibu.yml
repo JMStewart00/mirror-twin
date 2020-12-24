@@ -1,0 +1,20 @@
+uuid: f6536c21-0d6d-437d-88c9-b34fb682e2fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ibu
+field_name: field_ibu
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

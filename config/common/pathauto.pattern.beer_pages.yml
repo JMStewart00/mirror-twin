@@ -1,0 +1,22 @@
+uuid: efdd71c5-0a7f-4376-86c4-b1c631b43364
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: beer_pages
+label: 'Beer Pages'
+type: 'canonical_entities:node'
+pattern: '[node:field_style:entity:name]/[node:title]'
+selection_criteria:
+  09587aa9-258e-4c25-bb10-7b40722b0503:
+    id: node_type
+    bundles:
+      beer: beer
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 09587aa9-258e-4c25-bb10-7b40722b0503
+selection_logic: and
+weight: -5
+relationships: {  }

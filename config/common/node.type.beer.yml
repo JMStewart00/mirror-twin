@@ -1,0 +1,17 @@
+uuid: 3b7ded37-d580-4697-983f-ec41ebd6f4ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Beer
+type: beer
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

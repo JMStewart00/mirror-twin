@@ -1,0 +1,23 @@
+uuid: 6ebbf50d-f398-4dbe-a6e1-7c127d99cdcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ibu
+    - node.type.beer
+id: node.beer.field_ibu
+field_name: field_ibu
+entity_type: node
+bundle: beer
+label: IBU
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

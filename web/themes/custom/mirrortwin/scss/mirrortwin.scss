@@ -63,8 +63,8 @@
 
 // --- Core ---
 // The following imports Zurb Foundation theme.
-@import 'foundation';
-@import 'motion-ui';
+@import 'foundation.scss';
+@import 'motion-ui.scss';
 
 // --- Components ---
 // If you want all the components, and don't care about
@@ -78,9 +78,9 @@
 @include foundation-typography;
 
 // Grids (Choose one)
-@include foundation-grid;
-//@include foundation-flex-grid;
-//@include foundation-xy-grid-classes;
+// @include foundation-grid;
+@include foundation-flex-grid;
+// @include foundation-xy-grid-classes;
 
 // Generic components
 @include foundation-button;
@@ -123,8 +123,8 @@
 @include foundation-top-bar;
 
 // Helpers
-@include foundation-float-classes;
-//@include foundation-flex-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
 @include foundation-visibility-classes;
 
 // Prototyping Utilities
@@ -148,22 +148,24 @@
 // --- Base ---
 // Drupal-specific styles copied from base theme. (Required)
 @import 'base/drupal';
+
 // Import your mixins early so they can be used by other partials. (optional)
-// @import 'base/mixins';
+@import 'base/mixins';
 // @import 'base/common';
 // @import 'base/elements';
+@import 'base/navigation';
 
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
-//@import 'layout/header';
-//@import 'layout/main';
-//@import 'layout/aside';
-//@import 'layout/footer';
+// @import 'layout/header';
+// @import 'layout/main';
+// @import 'layout/aside';
+@import 'layout/footer';
 
 // --- Modules ---
 // @import 'modules/block';
-// @import 'modules/button';
+@import 'modules/hero';
 
 // --- States ---
 // @import 'states/collapse';

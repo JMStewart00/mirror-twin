@@ -1,0 +1,14 @@
+uuid: 07a9623d-7a9d-4530-9156-bcead2dbfe9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.beer_style
+id: taxonomy_vocabulary_beer_style
+entity_type_id: taxonomy_vocabulary
+entity_id: beer_style
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

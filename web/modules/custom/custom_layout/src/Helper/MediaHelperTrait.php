@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Drupal\custom_layout_layout\Helper;
+namespace Drupal\custom_layout\Helper;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\media\MediaInterface;

@@ -1,0 +1,14 @@
+uuid: c93df2a1-40f1-4b34-9aa5-d1af4c8011df
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.mirror_twin_category
+id: taxonomy_vocabulary_mirror_twin_category
+entity_type_id: taxonomy_vocabulary
+entity_id: mirror_twin_category
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\custom_layout_layout\EventSubscriber;
+namespace Drupal\custom_layout\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\layout_builder\LayoutBuilderEvents;
@@ -36,7 +36,7 @@ class SectionComponentRender implements EventSubscriberInterface {
   public function onBuildRender(SectionComponentBuildRenderArrayEvent $event) {
     $build = $event->getBuild();
     if (!empty($build)) {
-      $build['#custom_layout_layout'] = $event->getComponent()->getThirdPartySettings('custom_layout_layout');
+      $build['#custom_layout'] = $event->getComponent()->getThirdPartySettings('custom_layout');
       $event->setBuild($build);
     }
   }

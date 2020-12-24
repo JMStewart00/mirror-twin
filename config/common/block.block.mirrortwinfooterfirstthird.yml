@@ -1,0 +1,21 @@
+uuid: e5348f56-6a9f-4a51-a936-0d0e9f017ed6
+langcode: en
+status: true
+dependencies:
+  module:
+    - mirror_twin_custom_blocks
+  theme:
+    - mirrortwin
+id: mirrortwinfooterfirstthird
+theme: mirrortwin
+region: footer_first
+weight: 0
+provider: null
+plugin: mirror_twin_footer_first_third
+settings:
+  id: mirror_twin_footer_first_third
+  label: 'Mirror Twin Footer First Third'
+  provider: mirror_twin_custom_blocks
+  label_display: '0'
+  mirror_twin_footer_first_third: null
+visibility: {  }

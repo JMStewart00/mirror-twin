@@ -1,1 +1,32 @@
-// Non-modular or client styles for .l-footer region.
+footer {
+  padding: 40px 0;
+
+  .site-logo img {
+    max-width: rem-calc(150);
+  }
+
+  .large-4 {
+    padding: 0 rem-calc(32);
+
+    &:not(:first-child) {
+      border-left: 1px solid $dark-gray;
+    }
+  }
+
+  .info.address {
+    display: flex;
+    align-items: center;
+
+    address {
+      margin-left: rem-calc(16);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    svg {
+      color: $medium-gray;
+    }
+  }
+}

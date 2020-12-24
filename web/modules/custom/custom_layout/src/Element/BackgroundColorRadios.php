@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Drupal\custom_layout_layout\Element;
+namespace Drupal\custom_layout\Element;
 
-use Drupal\custom_layout_layout\BangAChainLayout;
+use Drupal\custom_layout\CustomLayout;
 use Drupal\Core\Extension\Extension;
 use Drupal\Core\Render\Element\Radios;
 use Drupal\Core\Theme\ThemeManagerInterface;
@@ -15,9 +15,9 @@ use Drupal\Core\Theme\ThemeManagerInterface;
  * This form element inherits configuration from the Radios elements but also
  * adds additional configuration:
  * - #plugin_id: This option is a string and used for
- *   hook_custom_layout_layout_background_colors__HOOK().
+ *   hook_custom_layout_background_colors__HOOK().
  *
- * @FormElement("custom_layout_layout_background_color_radios")
+ * @FormElement("custom_layout_background_color_radios")
  */
 final class BackgroundColorRadios extends Radios {
 
@@ -60,7 +60,7 @@ final class BackgroundColorRadios extends Radios {
 
     $element['#title'] = $this->t('Background Color');
 
-    $element['#default_value'] = $element['#default_value'] ?: BangAChainLayout::NO_BACKGROUND_COLOR;
+    $element['#default_value'] = $element['#default_value'] ?: CustomLayout::NO_BACKGROUND_COLOR;
 
     return $element;
   }
@@ -103,7 +103,7 @@ final class BackgroundColorRadios extends Radios {
    *   An options list of background colors.
    */
   protected function buildBackgroundColorOptions(array $backgroundColors): array {
-    $options = [BangAChainLayout::NO_BACKGROUND_COLOR => $this->t('None')];
+    $options = [CustomLayout::NO_BACKGROUND_COLOR => $this->t('None')];
     foreach ($backgroundColors as $id => $backgroundColor) {
       $classes = implode(' ', [
         'custom_layout-layout__background-color-option-card',
@@ -131,10 +131,10 @@ final class BackgroundColorRadios extends Radios {
 
     $plugin_id = preg_replace('/[^\w]/', '_', $plugin_id);
     $hooks = [];
-    $hooks[] = $theme->getName() . '_custom_layout_layout_background_colors';
+    $hooks[] = $theme->getName() . '_custom_layout_background_colors';
 
     if ($plugin_id) {
-      $hooks[] = $theme->getName() . '_custom_layout_layout_background_colors__' . $plugin_id;
+      $hooks[] = $theme->getName() . '_custom_layout_background_colors__' . $plugin_id;
     }
 
     // Load the theme file.
