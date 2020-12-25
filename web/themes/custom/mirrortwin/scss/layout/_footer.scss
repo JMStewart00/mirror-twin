@@ -5,11 +5,17 @@ footer {
     max-width: rem-calc(150);
   }
 
-  .large-4 {
-    padding: 0 rem-calc(32);
+  .columns {
+    padding: rem-calc(16);
+
+    @include breakpoint(medium up) {
+      padding: 0 rem-calc(32);
+    }
 
     &:not(:first-child) {
-      border-left: 1px solid $dark-gray;
+      @include breakpoint(medium up) {
+        border-left: 1px solid $dark-gray;
+      }
     }
   }
 

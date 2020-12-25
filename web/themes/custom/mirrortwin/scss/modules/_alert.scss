@@ -1,0 +1,21 @@
+.alert {
+  background-color: get-color(alert);
+  color: $white;
+  padding: rvr(1) rvr(2) rvr(0.5);
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: $black !important;
+  }
+
+  button.close {
+    font-size: rem-calc(25);
+    font-weight: 300;
+    line-height: rem-calc(25);
+    position: absolute;
+    right: rem-calc(32);
+    top: rem-calc(16);
+  }
+}

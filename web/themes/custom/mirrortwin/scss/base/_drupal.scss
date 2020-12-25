@@ -123,3 +123,11 @@ body.toolbar-fixed .sticky.is-stuck.is-at-top {
     width: auto;
   }
 }
+
+.block-mirrortwin-local-tasks {
+  .button-group {
+    a {
+      flex: 1 0 auto;
+    }
+  }
+}

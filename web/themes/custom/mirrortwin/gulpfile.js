@@ -161,7 +161,7 @@
   function watchTask(){
       gulp.watch(
           [cssConfig.scssFolder, imgConfig.src],
-          gulp.series(imagesTask,lintTask,cssTask)
+          gulp.series(imagesTask,cssTask)
       );
   }
 
@@ -169,6 +169,6 @@
   exports.default = gulp.series(cssTask);
 
   /**************** watch task ******************/
-  exports.watch = gulp.series(lintTask,cssTask,watchTask);
+  exports.watch = gulp.series(cssTask,watchTask);
 
 })();

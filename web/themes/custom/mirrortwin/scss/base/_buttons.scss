@@ -1,0 +1,74 @@
+.o-btn {
+  cursor: pointer;
+  display: inline-block;
+  padding: rvr(0.5) rvr(1);
+
+  @include hover-focus() {
+    text-decoration: none;
+  }
+
+  &--primary {
+    padding: rvr(0.5) rvr(2.5);
+    background-color: $white;
+    border: 0;
+    color: $black;
+    letter-spacing: rem(0.5);
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in;
+
+    @include hover-focus() {
+      background-color: $dark-gray;
+    }
+  }
+
+  &--secondary {
+    padding: rvr(0.5) rvr(2.5);
+    background-color: $black;
+    border: 0;
+    color: $white;
+    letter-spacing: rem(0.5);
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in;
+
+    @include hover-focus() {
+      background-color: $dark-gray;
+    }
+  }
+
+  &--large {
+    padding: rvr(1) rvr(1.5);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+  &--active {
+    background-color: get-color(primary);
+
+    a {
+      color: $white !important;
+      text-decoration: none;
+    }
+  }
+
+  &.is-disabled {
+    background-color: $light-gray;
+    color: $medium-gray;
+    cursor: not-allowed;
+    pointer-events: all !important;
+
+    @include hover-focus() {
+      background-color: $light-gray;
+      color: $medium-gray;
+    }
+  }
+}
+
+.button {
+  margin: 0;
+}
+
+
+.draw-border {
+  @include btn-border-drawing($black, get-color(warning), 4px, bottom, right);
+}

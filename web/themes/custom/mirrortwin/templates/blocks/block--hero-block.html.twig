@@ -5,9 +5,10 @@
 %}
 
 {% set background_url = file_url(content.field_background_image[0]['#media'].field_media_image.entity.uri.value) %}
+{% set background_style = content.body|render ? "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" ~ background_url ~ ")" : "background-image: url(" ~ background_url ~ ")" %}
 
 
-<div{{ attributes.addClass(classes) }} style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ background_url }})">
+<div{{ attributes.addClass(classes) }} style="{{ background_style }}">
   {{ title_prefix }}
   {{ title_suffix }}
   <div class="marketing-site-hero-content {{'marketing-site-hero-content--' ~ content.field_text_position.0['#markup']}}">
@@ -15,7 +16,7 @@
       {{ content.body }}
     {% endif %}
     {% if content.field_link.0 %}
-      <a href="{{ content.field_link.0['#url'] }}" title="{{ content.field_link.0['#title'] }}" class="o-btn o-btn--primary o-btn--large o-btn--square u-vr__mt--1">
+      <a href="{{ content.field_link.0['#url'] }}" title="{{ content.field_link.0['#title'] }}" class="o-btn o-btn--primary o-btn--large draw-border u-vr__mt--1">
         {{ content.field_link.0['#title'] }}
       </a>
     {% endif %}
