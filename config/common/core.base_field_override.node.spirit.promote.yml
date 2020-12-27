@@ -1,0 +1,22 @@
+uuid: a88fced5-e997-459c-91d3-1ec5d6bf21bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.spirit
+id: node.spirit.promote
+field_name: promote
+entity_type: node
+bundle: spirit
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

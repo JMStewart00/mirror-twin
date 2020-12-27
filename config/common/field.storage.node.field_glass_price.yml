@@ -1,0 +1,20 @@
+uuid: 80ee6f6a-8685-423d-9fa0-92173ef0d2e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_glass_price
+field_name: field_glass_price
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

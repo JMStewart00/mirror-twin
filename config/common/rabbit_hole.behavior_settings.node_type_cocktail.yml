@@ -1,0 +1,14 @@
+uuid: 03bf0d5e-fcdf-497c-8cf4-567448565148
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cocktail
+id: node_type_cocktail
+entity_type_id: node_type
+entity_id: cocktail
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

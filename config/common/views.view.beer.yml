@@ -54,6 +54,10 @@ display:
           offset: 0
       style:
         type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
       row:
         type: 'entity:node'
         options:
@@ -164,7 +168,7 @@ display:
           exposed: false
           expose:
             label: ''
-      title: Beer
+      title: 'All Beer - Alpha Order'
       header: {  }
       footer: {  }
       empty: {  }
@@ -182,12 +186,15 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'All Beer - Alpha Order'
     position: 1
     display_options:
       display_extenders:
         ajax_history: {  }
         simple_sitemap_display_extender: {  }
+      block_category: 'Beer Blocks'
+      block_description: 'All Beer'
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

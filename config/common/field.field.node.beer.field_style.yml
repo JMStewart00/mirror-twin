@@ -10,8 +10,8 @@ id: node.beer.field_style
 field_name: field_style
 entity_type: node
 bundle: beer
-label: Style
-description: ''
+label: Type
+description: 'Beer type. Brown Ale, Witbier, IPA etc. List is managed at <a href="/admin/structure/taxonomy/manage/beer_style/overview" target="_blank">Beer Style</a>.'
 required: false
 translatable: false
 default_value: {  }

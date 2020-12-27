@@ -1,0 +1,23 @@
+uuid: 81a8baca-fe9a-4305-be36-cd17dde37add
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_glass_price
+    - node.type.wine
+id: node.wine.field_glass_price
+field_name: field_glass_price
+entity_type: node
+bundle: wine
+label: 'Glass Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

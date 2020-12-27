@@ -13,6 +13,10 @@
     position: relative;
   }
 
+  &__layout.row {
+    display: grid;
+  }
+
   &-block {
     // Add 48px to the block to prevent empty blocks from being hidden.
     min-height: spacer(2); // 48px;

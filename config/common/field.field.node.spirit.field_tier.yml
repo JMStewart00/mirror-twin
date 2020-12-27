@@ -1,0 +1,21 @@
+uuid: 517291cf-efed-4eda-bae9-ad190818b2ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tier
+    - node.type.spirit
+  module:
+    - options
+id: node.spirit.field_tier
+field_name: field_tier
+entity_type: node
+bundle: spirit
+label: Tier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

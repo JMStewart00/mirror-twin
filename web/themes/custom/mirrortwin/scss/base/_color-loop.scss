@@ -1,0 +1,75 @@
+// @file color-loop.scss
+// color loop styles
+
+// Background Color Map
+// color-name: (
+//  fg: for text/foreground elements,
+//  bg: for solid backgrounds,
+//  link: for link color,
+//  link-hover: for link hover color,
+//  slider-button-background: base background color for slider buttons,
+//  slider-button-background-hover: hover background color for slider buttons,
+//  slider-button-icon: caret color for slider buttons,
+//  slider-pagination: base background color for pagination blocks,
+// )
+$background-color-map: (
+  none: (
+    bg: transparent,
+    fg: $black,
+    link: $link-color,
+    link-hover: $link-hover-color,
+  ),
+
+  white: (
+    bg: $white,
+    fg: $black,
+    link: $link-color,
+    link-hover: $link-hover-color,
+  ),
+
+  dark-gray: (
+    bg: $dark-gray,
+    fg: $white,
+    link: $white,
+    link-hover: $medium-gray,
+  ),
+
+  black: (
+    bg: $black,
+    fg: $white,
+    link: $light-gray,
+    link-hover: $medium-gray,
+  ),
+
+  light-gray: (
+    bg: $light-gray,
+    fg: $black,
+    link: $link-color,
+    link-hover: $black,
+  ),
+
+  medium-gray: (
+    bg: $medium-gray,
+    fg: $black,
+    link: $link-color,
+    link-hover: $black,
+  ),
+
+);
+
+@each $class, $colors in $background-color-map {
+  // Layout styles
+  .t-layout-background--#{$class} {
+    @include traverse-color-map($class);
+  }
+}
+
+// Loop over background colors separately so that components can override
+// their section layout color. If they are included in the same color loop then
+// the color order in the colors array would determine the specificty.
+@each $class, $colors in $background-color-map {
+  // Component styles
+  .t-background--#{$class} {
+    @include traverse-color-map($class);
+  }
+}

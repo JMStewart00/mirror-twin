@@ -1,0 +1,22 @@
+{% set background_class = 't-background--' ~ settings.background_color %}
+
+{% if content %}
+
+  {% if background_class %}
+    <div class="row medium-unstack {{ background_class }}">
+  {% endif %}
+      {% if content.first %}
+        <div {{ region_attributes.first.addClass('columns') }}>
+          {{ content.first }}
+        </div>
+      {% endif %}
+
+      {% if content.second %}
+        <div {{ region_attributes.second.addClass('columns') }}>
+          {{ content.second }}
+        </div>
+      {% endif %}
+	{% if background_class %}
+    </div>
+  {% endif %}
+{% endif %}

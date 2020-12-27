@@ -14,7 +14,7 @@ footer {
 
     &:not(:first-child) {
       @include breakpoint(medium up) {
-        border-left: 1px solid $dark-gray;
+        border-left: 1px solid $medium-gray;
       }
     }
   }

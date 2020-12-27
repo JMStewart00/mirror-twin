@@ -1,0 +1,49 @@
+uuid: 61e302bb-7c94-42b2-912c-2e416a5371bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.spirit.field_price
+    - field.field.node.spirit.field_spirit_category
+    - field.field.node.spirit.field_tier
+    - node.type.spirit
+  module:
+    - options
+    - user
+id: node.spirit.default
+targetEntityType: node
+bundle: spirit
+mode: default
+content:
+  field_price:
+    weight: 101
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_spirit_category:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_tier:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,17 @@
+uuid: 13b0097f-6851-42f9-b23d-5e325e75405c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Wine
+type: wine
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

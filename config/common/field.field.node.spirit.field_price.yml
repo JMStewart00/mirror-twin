@@ -1,0 +1,23 @@
+uuid: 73b476e7-2eec-48a3-8215-f64af25d85b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.spirit
+id: node.spirit.field_price
+field_name: field_price
+entity_type: node
+bundle: spirit
+label: Price
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

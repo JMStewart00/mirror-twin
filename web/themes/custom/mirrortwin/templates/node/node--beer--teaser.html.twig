@@ -1,0 +1,10 @@
+{% extends "node--teaser.html.twig" %}
+
+{% block content %}
+  <div class="c-beer-teaser__photo">
+    {{ content.field_preview_image }}
+  </div>
+  <div class="c-beer-teaser__title u-fw__bold t-background--dark-gray">
+    <h3>{{ label }}</h3>
+  </div>
+{% endblock %}

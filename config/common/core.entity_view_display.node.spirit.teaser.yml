@@ -1,0 +1,26 @@
+uuid: 5af70046-4548-445d-8346-6eafd919d605
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.spirit.field_price
+    - field.field.node.spirit.field_spirit_category
+    - field.field.node.spirit.field_tier
+    - node.type.spirit
+  module:
+    - user
+id: node.spirit.teaser
+targetEntityType: node
+bundle: spirit
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_price: true
+  field_spirit_category: true
+  field_tier: true

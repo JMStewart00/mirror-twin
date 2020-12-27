@@ -1,0 +1,14 @@
+uuid: 250c1e9c-5f39-45ab-b5df-4503ac47dfac
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wine
+id: node_type_wine
+entity_type_id: node_type
+entity_id: wine
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

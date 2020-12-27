@@ -29,7 +29,8 @@
 {%
   set classes = [
     'c-block',
-    plugin_id ? 'c-' ~ plugin_id|clean_class
+    plugin_id ? 'c-' ~ plugin_id|clean_class,
+    'columns'
   ]
 %}
 
@@ -60,9 +61,7 @@
 
   {% block content %}
     {# Add --2col or --3col to enable columns in content section #}
-    <div class="c-block__content">
-      {{ content }}
-    </div>
+    {{ content }}
   {% endblock %}
 
   {% block cta %}
@@ -71,10 +70,9 @@
         <a
           href="{{ cta_url }}"
           title="{{ cta_title }}"
-          class="o-btn o-btn--primary o-btn--large o-btn--icon"
+          class="o-btn o-btn--primary o-btn--large"
         >
           {{ cta_title }}
-          <i class="fas fa-angle-right fa-lg o-icon--amber"></i>
         </a>
       </div>
     {% endif %}

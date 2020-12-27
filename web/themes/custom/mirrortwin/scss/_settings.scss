@@ -61,6 +61,11 @@
 //  56. Xy Grid
 
 @import 'util/util';
+// ## Hosted Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@500;600;700;800&display=swap');
+
+$project-lineheight-base: 1.625;
 
 // 1. Global
 // ---------
@@ -75,20 +80,26 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #cc4b37,
 );
+
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #474747;
 $black: #0f0f0f;
-$white: #f1f1f1;
+$white: #fff;
+$body-color: $black;
+$link-color: $dark-gray;
+$link-hover-color: $medium-gray;
+
 $body-background: $black;
 $body-font-color: $white;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Roboto', Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: normal;
-$global-weight-bold: bold;
+$global-weight-normal: 400;
+$global-weight-semi-bold: 700;
+$global-weight-bold: 700;
 $global-radius: 0;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
@@ -770,7 +781,7 @@ $switch-paddle-transition: all 0.25s ease-out;
 // 50. Table
 // ---------
 
-$table-background: $black;
+$table-background: $dark-gray;
 $table-color-scale: 5%;
 $table-border: 0 solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);

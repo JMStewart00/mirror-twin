@@ -1,0 +1,22 @@
+uuid: cc0dd7bd-e1a1-4d72-9f08-f3a82e14d7bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cocktail
+id: node.cocktail.promote
+field_name: promote
+entity_type: node
+bundle: cocktail
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

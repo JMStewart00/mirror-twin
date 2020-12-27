@@ -1,0 +1,29 @@
+uuid: 912c21ea-471a-485d-a839-616179ee0c0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wine_category
+    - node.type.wine
+    - taxonomy.vocabulary.wine_style
+id: node.wine.field_wine_category
+field_name: field_wine_category
+entity_type: node
+bundle: wine
+label: 'Wine Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wine_style: wine_style
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

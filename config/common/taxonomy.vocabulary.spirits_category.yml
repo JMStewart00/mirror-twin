@@ -1,0 +1,8 @@
+uuid: 8253c492-916a-4506-bcc2-e887f93f2306
+langcode: en
+status: true
+dependencies: {  }
+name: 'Spirits Category'
+vid: spirits_category
+description: ''
+weight: 0

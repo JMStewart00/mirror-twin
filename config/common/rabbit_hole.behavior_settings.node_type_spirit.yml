@@ -1,0 +1,14 @@
+uuid: e43db9e7-252e-47c2-85a0-03ace81216cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.spirit
+id: node_type_spirit
+entity_type_id: node_type
+entity_id: spirit
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

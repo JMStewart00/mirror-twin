@@ -1,0 +1,19 @@
+uuid: 453ff2b9-317a-4a63-978f-20ec6d86a5a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ingredients
+    - node.type.cocktail
+id: node.cocktail.field_ingredients
+field_name: field_ingredients
+entity_type: node
+bundle: cocktail
+label: Ingredients
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

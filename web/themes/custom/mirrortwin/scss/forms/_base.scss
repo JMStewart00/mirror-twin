@@ -1,0 +1,335 @@
+.c-form {
+  .form-checkboxes {
+    .form-item {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    font-weight: $fw-semi-bold;
+    display: block;
+  }
+
+  .form-select {
+    width: 70%;
+    height: 50px;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: $brand-blue;
+    border: none;
+    border-bottom: 2px solid $orange;
+    color: white;
+    padding: 10px;
+    appearance: none;
+    transition: all ease 0.5s;
+
+    @include hover-focus() {
+      color: darken($brand-blue, 20%);
+      background-color: $cyan;
+      border-bottom-color: $brand-blue;
+    }
+
+    /* For IE <= 11 */
+    &::-ms-expand {
+      display: none;
+    }
+
+  }
+
+  &--news-events {
+    flex-basis: 100%;
+    align-self: center;
+    margin: 0 auto spacer(1);
+
+    @include media-breakpoint-up(md) {
+      align-self: flex-start;
+      margin: 0 0 0 auto;
+      flex-basis: 30%;
+    }
+  }
+
+  &__element {
+    position: relative;
+
+    &--search-input {
+      display: flex;
+      flex-grow: 1;
+      padding: rvr(1);
+
+      input {
+        width: 100%;
+        min-width: 0; // prevent firefox overflow issue.
+      }
+    }
+
+    &--news-events {
+      padding: 0;
+    }
+
+    .description {
+      margin-top: rem(8);
+    }
+
+    &.form-item-lang-dropdown-select {
+      display: flex;
+      width: 50%;
+
+      @include media-breakpoint-up(lg) {
+        margin: 0;
+        justify-content: end;
+        width: 75%;
+        margin-left: auto;
+      }
+    }
+  }
+
+  .form-wrapper {
+    margin-top: 0;
+    margin-bottom: rvr(1);
+  }
+
+  legend .fieldset-legend {
+    font-size: rem(24) !important;
+    font-weight: $fw-bold;
+  }
+
+  .fieldset-wrapper {
+    label,
+    .fieldset-legend {
+      display: block;
+      font-size: rem(15);
+      margin-bottom: rem(8);
+      font-weight: $fw-medium;
+    }
+  }
+
+  textarea {
+    border: $border;
+    color: $gray-800;
+    font-weight: $fw-medium;
+    padding: spacer(0.5) spacer(1);
+  }
+
+  &__text {
+    box-sizing: border-box !important;
+    border: $border;
+    font-weight: $fw-medium;
+    color: $gray-800;
+    line-height: 1.5;
+    text-align: left !important; // Prevent number fields from being right aligned
+    height: rem(48);
+    max-width: 100%;
+    min-width: 0;
+    padding: spacer(0.5) spacer(1);
+
+    &--has-addon {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+  }
+
+  // styles implemented from https://css-tricks.com/the-checkbox-hack/
+  &__checkbox {
+    position: absolute;
+    left: rem(-9999);
+
+    + label {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      font-size: rem(16);
+      line-height: 2;
+      margin-bottom: rem(5);
+      padding-left: spacer(2.25);
+
+      @include hover-focus() {
+        font-weight: $fw-bold;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: rem(0);
+        top: rem(2);
+        background: #fff;
+        border: $border;
+        height: rem(25);
+        width: rem(25);
+      }
+
+      &::after {
+        content: '\2713\0020';
+        position: absolute;
+        left: rem(7);
+        top: rem(8);
+        color: $cyan;
+        font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+        line-height: 0.8;
+        transition: all 0.2s;
+      }
+    }
+
+    &:not(:checked) + label::after {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    &:checked + label {
+      color: $brand-blue;
+      font-weight: $fw-bold;
+
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      &::before {
+        background-color: $brand-blue;
+        border: rem(2) solid $cyan;
+      }
+    }
+  }
+
+  &__select {
+    appearance: none;
+    border: $border;
+    border-radius: $border-radius * 2;
+    height: rem(48);
+    width: 100%;
+    padding: spacer(0.8) spacer(1);
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    svg {
+      font-size: rem(25);
+      color: $blue-gray;
+      position: absolute;
+      right: rem(50);
+      top: rem(45);
+    }
+  }
+
+  // styles implemented from a modified version of https://codepen.io/AngelaVelasquez/pen/Eypnq
+  &__radio {
+    position: absolute;
+    visibility: hidden;
+
+    // Text label
+    ~ label {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      font-size: rem(16);
+      line-height: 2;
+      margin-bottom: rem(5);
+      padding-left: spacer(2.25);
+      height: rem(32);
+      width: 100%;
+      z-index: 10;
+    }
+
+    // Outer circle radio element
+    &--fake {
+      display: block;
+      position: absolute;
+      top: rem(2);
+      left: 0;
+      border: $border;
+      border-radius: 100%;
+      background-color: $white;
+      height: rem(25);
+      width: rem(25);
+      z-index: 5;
+      transition: background 0.25s linear;
+
+      // Inner circle
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: rem(6);
+        left: rem(6);
+        border-radius: 100%;
+        background-color: $white;
+        height: rem(11);
+        width: rem(11);
+      }
+    }
+
+    &:checked {
+      + .c-form__radio--fake {
+        background-color: $brand-blue;
+      }
+
+      ~ label {
+        color: $brand-blue;
+        font-weight: $fw-bold;
+      }
+    }
+  }
+
+  // HTML 5 widgets
+  &__date,
+  &__time,
+  &__datetime {
+    border: $border;
+    border-radius: $border-radius;
+    box-sizing: border-box !important;
+    color: $gray-800;
+    font-weight: $fw-medium;
+    height: rem(48);
+    padding: spacer(0.5) spacer(1);
+
+    ~ svg {
+      display: none;
+    }
+  }
+
+  // Upload file
+  &__upload-file {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin-top: rvr(1);
+
+    // Button doesn't get receive hover state so we have to force it
+    @include hover-focus() {
+      .o-btn {
+        color: $white;
+        background-color: $blue-gray;
+      }
+    }
+
+    .o-btn {
+      border-radius: 0;
+      font-size: rem(14);
+      text-transform: uppercase;
+      width: auto;
+    }
+
+    input[type=file] {
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+
+    ~ input[name=file_upload_remove_button] {
+      margin-left: 0;
+    }
+  }
+}
+.address-container-inline > .form-item {
+  @include media-breakpoint-down(md) {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,17 @@
+uuid: eee30cfe-ba0d-4e88-9b96-7a8154157d82
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Cocktail
+type: cocktail
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

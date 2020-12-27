@@ -1,0 +1,18 @@
+uuid: d7a43e67-ff06-4039-b772-67a0d111285b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.spirit
+id: node.spirit.title
+field_name: title
+entity_type: node
+bundle: spirit
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

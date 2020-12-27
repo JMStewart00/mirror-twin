@@ -152,8 +152,11 @@
 
 // Import your mixins early so they can be used by other partials. (optional)
 @import 'base/mixins';
+@import 'base/color-loop';
 @import 'base/buttons';
 @import 'base/navigation';
+@import 'base/typography';
+// @import 'forms/index';
 
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
@@ -164,6 +167,8 @@
 // --- Modules ---
 @import 'modules/alert';
 @import 'modules/hero';
+@import 'modules/node/index';
+@import 'modules/views/index';
 
 // --- Themes ---
 @import 'theme/layout_builder';

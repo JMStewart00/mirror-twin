@@ -1,0 +1,21 @@
+uuid: 1feaf9a4-0b3b-440e-97b3-2f8315a1a30a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dates_available
+    - node.type.beer
+  module:
+    - datetime_range
+id: node.beer.field_dates_available
+field_name: field_dates_available
+entity_type: node
+bundle: beer
+label: 'Dates Available'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

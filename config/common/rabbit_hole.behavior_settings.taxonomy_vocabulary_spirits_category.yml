@@ -1,0 +1,14 @@
+uuid: ace05297-70f0-4816-b342-feb9ed0a9ff8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.spirits_category
+id: taxonomy_vocabulary_spirits_category
+entity_type_id: taxonomy_vocabulary
+entity_id: spirits_category
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

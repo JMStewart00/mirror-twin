@@ -1,0 +1,34 @@
+uuid: 52bb5909-d775-483a-be85-d8e14e15f7fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cocktail.body
+    - field.field.node.cocktail.field_ingredients
+    - field.field.node.cocktail.field_price
+    - node.type.cocktail
+  module:
+    - text
+    - user
+id: node.cocktail.teaser
+targetEntityType: node
+bundle: cocktail
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_ingredients: true
+  field_price: true

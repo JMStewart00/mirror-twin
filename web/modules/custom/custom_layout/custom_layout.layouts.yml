@@ -11,33 +11,54 @@ custom_layout__one_column:
     first:
       label: First
 
-custom_layout__left_sidebar:
-  label: 'Left Sidebar'
-  path: layouts/sidebars
-  template: layout--left-sidebar
-  class: Drupal\custom_layout\Plugin\Layout\LeftSidebarLayout
-  category: 'Sidebars'
-  default_region: main
+custom_layout__two_column:
+  label: 'Two Column'
+  path: layouts/two-column
+  template: layout--two-column
+  class: Drupal\custom_layout\Plugin\Layout\TwoColumnLayout
+  category: 'Columns: 2'
+  default_region: first
   icon_map:
-    - [sidebar, main, main]
+    - [first, second]
   regions:
-    sidebar:
-      label: sidebar
-    main:
-      label: main
+    first:
+      label: First
+    second:
+      label: Second
 
-custom_layout__right_sidebar:
-  label: 'Right Sidebar'
-  path: layouts/sidebars
-  template: layout--right-sidebar
-  class: Drupal\custom_layout\Plugin\Layout\RightSidebarLayout
-  category: 'Sidebars'
-  default_region: main
+custom_layout__three_column:
+  label: 'Three Column'
+  path: layouts/three-column
+  template: layout--three-column
+  class: Drupal\custom_layout\Plugin\Layout\ThreeColumnLayout
+  category: 'Columns: 3'
+  default_region: first
   icon_map:
-    - [main, main, sidebar]
+    - [first, second, third]
   regions:
-    sidebar:
-      label: main
-    main:
-      label: sidebar
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Three
+
+custom_layout__four_column:
+  label: 'Four Column'
+  path: layouts/four-column
+  template: layout--four-column
+  class: Drupal\custom_layout\Plugin\Layout\FourColumnLayout
+  category: 'Columns: 4'
+  default_region: first
+  icon_map:
+    - [first, second, third, fourth]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Three
+    fourth:
+      label: Fourth
 

@@ -1,0 +1,8 @@
+uuid: 9cafba96-a824-4ef4-af3f-ce5d84f41a92
+langcode: en
+status: true
+dependencies: {  }
+name: 'Wine Style'
+vid: wine_style
+description: ''
+weight: 0

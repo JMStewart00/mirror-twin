@@ -2,6 +2,9 @@
   cursor: pointer;
   display: inline-block;
   padding: rvr(0.5) rvr(1);
+  font-family: 'Ruda', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 
   @include hover-focus() {
     text-decoration: none;

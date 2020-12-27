@@ -1,0 +1,22 @@
+uuid: 2d721d87-9c1d-4476-b5e4-509fca91a49a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wine
+id: node.wine.promote
+field_name: promote
+entity_type: node
+bundle: wine
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

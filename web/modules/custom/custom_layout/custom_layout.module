@@ -201,82 +201,43 @@ function custom_layout_form_layout_builder_configure_block_alter(&$form, FormSta
       $top_default_value = $section_component->getThirdPartySetting('custom_layout', 'vertical_spacing_top');
     }
 
-    $bottom_default_value = CustomLayout::VERTICAL_SPACING_BOTTOM_2;
+    $bottom_default_value = CustomLayout::VERTICAL_SPACING_NONE;
     if($section_component->getThirdPartySetting('custom_layout', 'vertical_spacing_bottom')) {
       $bottom_default_value = $section_component->getThirdPartySetting('custom_layout', 'vertical_spacing_bottom');
     }
 
-    // Do not add Heading and CTA to blocks in sidebar region.
-    if ($section_component->getRegion() !== 'sidebar') {
-
-      // Set default value for headings & cta
-      if($section_component->getThirdPartySetting('custom_layout', 'primary_heading')) {
-        $heading_default_value = $section_component->getThirdPartySetting('custom_layout', 'primary_heading');
-      }
-
-      if($section_component->getThirdPartySetting('custom_layout', 'primary_subheading')) {
-        $subheading_default_value = $section_component->getThirdPartySetting('custom_layout', 'primary_subheading');
-      }
-
-      if($section_component->getThirdPartySetting('custom_layout', 'primary_cta_title')) {
-        $link_title_default_value = $section_component->getThirdPartySetting('custom_layout', 'primary_cta_title');
-      }
-
-      if($section_component->getThirdPartySetting('custom_layout', 'primary_cta_url')) {
-        $link_url_default_value = _get_displayable_string_from_entity_id($section_component->getThirdPartySetting('custom_layout', 'primary_cta_url'));
-      }
-
-      // Heading and CTA form elements.
-      $form['settings']['headings_cta'] = [
-        '#type' => 'details',
-        '#title' => t('Block General Fields'),
-        '#open' => TRUE,
-        '#weight' => 1,
-      ];
-
-      $form['settings']['headings_cta']['heading'] = [
-        '#type' => 'textfield',
-        '#title' => t('Heading'),
-        '#default_value' => $heading_default_value,
-        '#size' => 60,
-        '#description' => t('The main heading value for the block. This diplays as the main block title to users.'),
-      ];
-
-      $form['settings']['headings_cta']['subheading'] = [
-        '#type' => 'textfield',
-        '#title' => t('Subheading'),
-        '#default_value' => $subheading_default_value,
-        '#size' => 60,
-        '#description' => t('The subheading value for the block. This diplays as under the block title.'),
-      ];
-
-      $form['settings']['headings_cta']['cta'] = [
-        '#type' => 'details',
-        '#title' => t('Block CTA'),
-        '#open' => TRUE,
-        '#weight' => 30,
-      ];
-
-      $form['settings']['headings_cta']['cta']['title'] = [
-        '#type' => 'textfield',
-        '#title' => t('Link Title'),
-        '#default_value' => $link_title_default_value,
-        '#description' => t("The title of the button link at the bottom of the block."),
-        '#maxlength' => 255
-      ];
-
-      $form['settings']['headings_cta']['cta']['url'] = [
-        '#type' => 'entity_autocomplete',
-        '#target_type' => 'node',
-        '#title' => t('Link URL'),
-        '#attributes' => ['data-autocomplete-first-character-blacklist' => ['/#?']],
-        '#element_validate' => ['_custom_layout_validate_block_link'],
-        '#process_default_value' => FALSE,
-        '#field_prefix' => rtrim(Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString(), '/'),
-        '#default_value' => $link_url_default_value,
-        '#description' => t("The path of the button link at the bottom of the block."),
-      ];
+    // Set default value for headings
+    if($section_component->getThirdPartySetting('custom_layout', 'primary_heading')) {
+      $heading_default_value = $section_component->getThirdPartySetting('custom_layout', 'primary_heading');
     }
+
+    if($section_component->getThirdPartySetting('custom_layout', 'primary_subheading')) {
+      $subheading_default_value = $section_component->getThirdPartySetting('custom_layout', 'primary_subheading');
+    }
+
+    // Heading form elements.
+    $form['settings']['headings_cta'] = [
+      '#type' => 'details',
+      '#title' => t('Block General Fields'),
+      '#open' => TRUE,
+      '#weight' => 1,
+    ];
+
+    $form['settings']['headings_cta']['heading'] = [
+      '#type' => 'textfield',
+      '#title' => t('Heading'),
+      '#default_value' => $heading_default_value,
+      '#size' => 60,
+      '#description' => t('The main heading value for the block. This diplays as the main block title to users.'),
+    ];
+
+    $form['settings']['headings_cta']['subheading'] = [
+      '#type' => 'textfield',
+      '#title' => t('Subheading'),
+      '#default_value' => $subheading_default_value,
+      '#size' => 60,
+      '#description' => t('The subheading value for the block. This diplays as under the block title.'),
+    ];
 
     // Vertical Spacing form elements.
     $form['settings']['vertical_spacing'] = [
@@ -328,18 +289,6 @@ function _custom_layout_layout_builder_add_settings(&$variables, $region_name) {
         $section_component['#primary_subheading'] = $section_component['#custom_layout']['primary_subheading'];
       }
 
-      if (isset($section_component['#custom_layout']['primary_cta_title'])) {
-        $section_component['#primary_cta_title'] = $section_component['#custom_layout']['primary_cta_title'];
-      }
-
-      if (isset($section_component['#custom_layout']['primary_cta_url'])) {
-        if (is_numeric($section_component['#custom_layout']['primary_cta_url'])) {
-          $section_component['#primary_cta_url'] = Url::fromRoute('entity.node.canonical', ['node' => $section_component['#custom_layout']['primary_cta_url']])->toString();
-        } else {
-          $section_component['#primary_cta_url'] = $section_component['#custom_layout']['primary_cta_url'];
-        }
-      }
-
       // Designate block as a Layout Builer block
       $section_component['#lb-block'] = TRUE;
     }
@@ -367,14 +316,10 @@ function custom_layout_form_layout_builder_configure_block_submit($form, FormSta
   if ($headings_cta_classes = $form_state->getValue(['settings', 'headings_cta'])) {
     $section_component->setThirdPartySetting('custom_layout', 'primary_heading', $headings_cta_classes['heading']);
     $section_component->setThirdPartySetting('custom_layout', 'primary_subheading', $headings_cta_classes['subheading']);
-    $section_component->setThirdPartySetting('custom_layout', 'primary_cta_title', $headings_cta_classes['cta']['title']);
-    $section_component->setThirdPartySetting('custom_layout', 'primary_cta_url', $headings_cta_classes['cta']['url']);
   }
   else {
     $section_component->unsetThirdPartySetting('custom_layout', 'primary_heading');
     $section_component->unsetThirdPartySetting('custom_layout', 'primary_subheading');
-    $section_component->unsetThirdPartySetting('custom_layout', 'primary_cta_title');
-    $section_component->unsetThirdPartySetting('custom_layout', 'primary_cta_url');
   }
 }
 
@@ -441,36 +386,8 @@ function custom_layout_entity_operation(EntityInterface $entity) {
   ];
 }
 
-/**
- * Helper function to return entity id as displayable string.
- */
-function _get_displayable_string_from_entity_id($id) {
-  // Handle case where URL is a string.
-  $displayable_string = $id;
-  if (is_numeric($id)) {
-    $entity = \Drupal::entityTypeManager()->getStorage('node')->load($id);
-    $displayable_string = EntityAutocomplete::getEntityLabels([$entity]);
-  }
-
-  return $displayable_string;
-}
-
-/**
- * Helper function to validate a block link.
- */
-function _custom_layout_validate_block_link(&$element, &$form_state, &$form) {
-
-  if (strpos(trim($element['#value']), "/") === 0
-     || strpos(trim($element['#value']), "http") === 0
-  ) {
-    return true;
-  }
-
-  EntityAutocomplete::validateEntityAutocomplete($element, $form_state, $form);
-}
 
 function _custom_layout_block_exlude_list(): array {
-
   return [
     'entity_view:node',
     'entity_view:user',
