@@ -11,7 +11,7 @@ _core:
 id: mirrortwin_breadcrumbs
 theme: mirrortwin
 region: header
-weight: -6
+weight: -5
 provider: null
 plugin: system_breadcrumb_block
 settings:

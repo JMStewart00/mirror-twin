@@ -16,6 +16,7 @@ $marketing-site-hero-height: 65vh;
   max-width: $global-width;
   padding-left: 5%;
   padding-right: 5%;
+  color: $white;
 
   @include breakpoint(medium up) {
     width: 65%;

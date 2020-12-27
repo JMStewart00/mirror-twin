@@ -30,10 +30,10 @@
 }
 
 // Override styles from /core/modules/system/css/components/menu.theme.css
-.top-bar-section ul li {
+.top-bar ul li {
     padding-top: 0;
     a.is-active {
-        color: #FFFFFF;
+      color: #FFFFFF !important;
     }
 }
 
@@ -126,6 +126,8 @@ body.toolbar-fixed .sticky.is-stuck.is-at-top {
 
 .block-mirrortwin-local-tasks {
   .button-group {
+    margin: 0;
+
     a {
       flex: 1 0 auto;
     }

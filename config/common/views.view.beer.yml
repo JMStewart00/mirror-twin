@@ -5,8 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.beer
+    - taxonomy.vocabulary.mirror_twin_category
+  content:
+    - 'taxonomy_term:mirror_twin_category:009f003a-0ec8-4704-89bf-090127b5b5d7'
+    - 'taxonomy_term:mirror_twin_category:e6d1431e-9a61-4bca-8667-314d0167e96d'
   module:
     - node
+    - taxonomy
     - user
 id: beer
 label: Beer
@@ -186,20 +191,204 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: 'All Beer - Alpha Order'
+    display_title: Flagships
     position: 1
     display_options:
       display_extenders:
         ajax_history: {  }
         simple_sitemap_display_extender: {  }
       block_category: 'Beer Blocks'
-      block_description: 'All Beer'
+      block_description: 'Flagship Beers'
       display_description: ''
+      title: Flagship
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            beer: beer
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_mirror_twin_category_target_id:
+          id: field_mirror_twin_category_target_id
+          table: node__field_mirror_twin_category
+          field: field_mirror_twin_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            7: 7
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: mirror_twin_category
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Experimental & Rotating'
+    position: 1
+    display_options:
+      display_extenders:
+        ajax_history: {  }
+        simple_sitemap_display_extender: {  }
+      block_category: 'Beer Blocks'
+      block_description: 'Experimental Beers Block'
+      display_description: ''
+      title: 'Experimental & Rotating'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            beer: beer
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_mirror_twin_category_target_id:
+          id: field_mirror_twin_category_target_id
+          table: node__field_mirror_twin_category
+          field: field_mirror_twin_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            9: 9
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: mirror_twin_category
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
