@@ -10,7 +10,9 @@
    */
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
-      //alert("I'm alive!");
+      $('.menu-icon', context).on('click', (e) => {
+        $('.menu-icon').toggleClass('open');
+      })
     }
   };
 

@@ -11,11 +11,12 @@
   }
 
   button.close {
-    font-size: rem-calc(25);
+    font-size: rem-calc(32);
     font-weight: 300;
-    line-height: rem-calc(25);
+    line-height: rem-calc(32);
     position: absolute;
     right: rem-calc(32);
     top: rem-calc(16);
+    cursor: pointer;
   }
 }

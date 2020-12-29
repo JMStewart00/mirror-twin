@@ -25,11 +25,18 @@
   <div id="top-bar-sticky-container" data-sticky-container>
   {% endif %}
     <div {{ top_bar_attributes }}>
-      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle></button>
-        <div class="title-bar-title">{{ top_bar_menu_text }}</div>
+      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" data-animate>
+        <button class="menu-icon" type="button" data-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="title-bar-title h4">{{ top_bar_menu_text }}</div>
       </div>
-      <nav class="top-bar" id="main-menu" role="navigation">
+      <nav class="top-bar slide-in-down" id="main-menu" role="navigation" data-animate>
         <div class="top-bar-left">
           <a href="{{ path('<front>') }}" rel="home" class="site-logo">
             <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
