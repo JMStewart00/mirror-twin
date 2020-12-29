@@ -75,7 +75,6 @@
     node.isSticky() ? 'c-node--sticky',
     not node.isPublished() ? 'c-node--unpublished',
     view_mode ? 'c-node-' ~ node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
-    'u-vr__my--4'
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
