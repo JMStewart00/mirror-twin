@@ -4,7 +4,23 @@
   <div class="c-beer-teaser__photo">
     {{ content.field_preview_image }}
   </div>
-  <div class="c-beer-teaser__title u-fw__bold t-background--dark-gray">
-    <h3>{{ label }}</h3>
+  <div class="c-beer-teaser__details">
+    <div class="c-beer-teaser__title u-fw__bold">
+      <h3>{{ label }}</h3>
+    </div>
+    <div class="c-beer-teaser__style">
+      <h4>{{content.field_style}}</h4>
+    </div>
+    <div class="c-beer-teaser__props">
+      <div class="c-beer-teaser__prop">
+        <i class="fas fa-percent fa-2x"></i>
+        {{content.field_abv.0['#markup']}} ABV
+      </div>
+      <div class="c-beer-teaser__prop">
+        <i class="fas fa-beer fa-2x"></i>
+        {{content.field_ibu.0['#markup']}} IBUs
+      </div>
+    </div>
+
   </div>
 {% endblock %}

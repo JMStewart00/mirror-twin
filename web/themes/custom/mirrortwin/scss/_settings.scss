@@ -71,7 +71,7 @@ $project-lineheight-base: 1.625;
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1600);
+$global-width: rem-calc(2000);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #1779ba,
@@ -131,8 +131,8 @@ $breakpoint-classes: (small medium large xlarge);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 0,
-  medium: 0,
+  small: 20px,
+  medium: 40px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';

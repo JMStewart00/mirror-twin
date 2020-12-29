@@ -7,23 +7,52 @@
 
     &__photo {
       overflow: hidden;
+
+      .c-field-media-image {
+        display: flex;
+
+        img {
+          margin: auto;
+        }
+      }
     }
 
     &__title {
       text-align: center;
-      padding: rem-calc(12 18);
-      min-height: 125px;
+      padding: rem-calc(12 16);
       display: flex;
-      align-items: center;
       justify-content: center;
 
       h3 {
         margin: 0;
+        padding: 0 rem-calc(32);
       }
     }
 
-    img,
-    a {
+    &__style {
+      text-align: center;
+      padding: rem-calc(0 16 8);
+      display: flex;
+      justify-content: center;
+    }
+
+    &__props {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__prop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 rem-calc(8);
+
+      svg {
+        margin-bottom: rem-calc(8);
+      }
+    }
+
+    * {
       transition: all .2s ease-in-out;
     }
 
