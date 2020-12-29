@@ -1,0 +1,14 @@
+.c-block {
+  padding-left: rvr(1);
+  padding-right: rvr(2);
+
+  @include breakpoint(medium down) {
+    > h2:first-child() {
+      text-align: center;
+    }
+
+    .columns {
+      margin-bottom: rvr(2);
+    }
+  }
+}
