@@ -1,6 +1,6 @@
-.c-views-blockbeer-block-1 {
+.c-block {
   @include breakpoint(medium down) {
-    h2 {
+    > h2:first-child() {
       text-align: center;
     }
 
