@@ -8,4 +8,6 @@ id: front
 label: 'Front page'
 tags:
   canonical_url: '[site:url]'
+  image_src: /themes/custom/mirrortwin/images/brewery.jpg
   shortlink: '[site:url]'
+  title: 'Mirror Twin Brewing'

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.spirit.feeds_item
     - field.field.node.spirit.field_price
     - field.field.node.spirit.field_spirit_category
     - field.field.node.spirit.field_tier
@@ -82,5 +83,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   promote: true
   sticky: true

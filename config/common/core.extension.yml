@@ -1,4 +1,5 @@
 module:
+  address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   aos: 0
@@ -12,6 +13,15 @@ module:
   ckeditor_font: 0
   color: 0
   comment: 0
+  commerce: 0
+  commerce_add_to_cart_link: 0
+  commerce_cart: 0
+  commerce_number_pattern: 0
+  commerce_order: 0
+  commerce_price: 0
+  commerce_product: 0
+  commerce_stock: 0
+  commerce_store: 0
   config: 0
   config_filter: 0
   config_ignore: 0
@@ -27,8 +37,10 @@ module:
   dropzonejs: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   entity_clone: 0
   entity_reference_revisions: 0
+  feeds: 0
   field: 0
   field_group: 0
   field_layout: 0
@@ -41,6 +53,7 @@ module:
   history: 0
   honeypot: 0
   image: 0
+  inline_entity_form: 0
   layout_builder: 0
   layout_builder_modal: 0
   layout_builder_restrictions: 0
@@ -63,6 +76,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  profile: 0
   quickedit: 0
   rabbit_hole: 0
   rdf: 0
@@ -79,6 +93,7 @@ module:
   simplenews: 0
   sitewide_alert: 0
   smtp: 0
+  state_machine: 0
   svg_image: 0
   system: 0
   taxonomy: 0

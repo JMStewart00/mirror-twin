@@ -60,12 +60,12 @@ nav.top-bar {
     }
 
     &::before {
-      top: -5px;
+      top: -8px;
       transform: translateY(-10px);
     }
 
     &::after {
-      bottom: -5px;
+      bottom: -8px;
       transform: translateY(10px);
     }
 
@@ -94,6 +94,17 @@ nav.top-bar {
 .title-bar-title {
   margin-bottom: 0;
   margin-left: rem-calc(8);
+}
+
+.title-bar-logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 50px;
+    margin-right: rem-calc(12);
+  }
 }
 
 .menu-icon {

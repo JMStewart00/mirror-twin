@@ -36,7 +36,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -63,6 +63,10 @@ display:
               field: field_spirit_category
               rendered: true
               rendered_strip: false
+            -
+              field: field_tier
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: false
           override: true
@@ -74,6 +78,7 @@ display:
             title: title
             field_price: field_price
             field_spirit_category: field_spirit_category
+            field_tier: field_tier
           info:
             title:
               sortable: false
@@ -90,6 +95,13 @@ display:
               empty_column: false
               responsive: ''
             field_spirit_category:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tier:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -176,8 +188,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '${{ field_price }}'
             make_link: false
             path: ''
             absolute: false
@@ -239,7 +251,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Spirit Type'
+          label: ''
           exclude: true
           alter:
             alter_text: false
@@ -272,7 +284,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: false
@@ -384,6 +396,30 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts:
+        field_tier_value:
+          id: field_tier_value
+          table: node__field_tier
+          field: field_tier_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        field_spirit_category_target_id:
+          id: field_spirit_category_target_id
+          table: node__field_spirit_category
+          field: field_spirit_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         title:
           id: title
           table: node_field_data
@@ -398,18 +434,6 @@ display:
           exposed: false
           expose:
             label: ''
-        field_tier_value:
-          id: field_tier_value
-          table: node__field_tier
-          field: field_tier_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
       title: Spirits
       header: {  }
       footer: {  }
@@ -417,6 +441,8 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      group_by: false
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:

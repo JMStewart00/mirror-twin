@@ -1,0 +1,84 @@
+uuid: 79be7e00-59a7-4cf0-ac56-5e4bace27345
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.spirit.title
+    - field.field.node.spirit.field_price
+    - field.field.node.spirit.field_spirit_category
+    - field.field.node.spirit.field_tier
+    - node.type.spirit
+  module:
+    - node
+id: spirits_import
+label: 'Spirits Import'
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  langcode: en
+  update_existing: 0
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: spirit
+custom_sources:
+  title:
+    label: Title
+    value: Title
+    machine_name: title
+  price:
+    label: Price
+    value: Price
+    machine_name: price
+  tier:
+    label: Tier
+    value: Tier
+    machine_name: tier
+  spirit:
+    label: Spirit
+    value: Spirit
+    machine_name: spirit
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_price
+    map:
+      value: price
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_tier
+    map:
+      value: tier
+    settings:
+      language: ''
+  -
+    target: field_spirit_category
+    map:
+      target_id: spirit
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'

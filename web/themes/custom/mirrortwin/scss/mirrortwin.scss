@@ -90,7 +90,7 @@
 @include foundation-progress-bar;
 @include foundation-slider;
 @include foundation-switch;
-@include foundation-table;
+// @include foundation-table;
 @include foundation-range-input;
 // Basic components
 @include foundation-badge;
@@ -155,6 +155,7 @@
 @import 'base/color-loop';
 @import 'base/buttons';
 @import 'base/navigation';
+@import 'base/table';
 @import 'base/typography';
 // @import 'forms/index';
 

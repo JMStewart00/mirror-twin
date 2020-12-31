@@ -1,0 +1,23 @@
+uuid: 7a6209b1-cce1-4963-94c9-15f211abced1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.spirit
+  module:
+    - feeds
+id: node.spirit.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: spirit
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

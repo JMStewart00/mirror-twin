@@ -2,10 +2,11 @@ $marketing-site-hero-height: 65vh;
 
 .marketing-site-hero {
   background: top right no-repeat;
-  height: $marketing-site-hero-height;
+  min-height: $marketing-site-hero-height;
   background-size: cover;
   display: flex;
   align-items: center;
+  padding: rvr(3);
 
   @media screen and (min-width: 40em) {
     background-position: center center;
@@ -47,13 +48,20 @@ $marketing-site-hero-height: 65vh;
     }
   }
 
-  h1 {
+  h1,
+  .h1 {
     font-size: 60px;
     font-weight: bold;
   }
 
+  h2,
+  .h2 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
   p {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .button.round {

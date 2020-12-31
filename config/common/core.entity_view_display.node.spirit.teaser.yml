@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.spirit.feeds_item
     - field.field.node.spirit.field_price
     - field.field.node.spirit.field_spirit_category
     - field.field.node.spirit.field_tier
@@ -21,6 +22,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  feeds_item: true
   field_price: true
   field_spirit_category: true
   field_tier: true

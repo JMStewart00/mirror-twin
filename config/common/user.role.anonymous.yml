@@ -15,5 +15,6 @@ permissions:
   - 'search content'
   - 'subscribe to newsletters'
   - 'use text format restricted_html'
+  - 'view commerce_product'
   - 'view media'
   - 'view published sitewide alert entities'

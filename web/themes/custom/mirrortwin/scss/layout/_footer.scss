@@ -2,7 +2,10 @@ footer {
   padding: 40px 0;
 
   .site-logo img {
-    max-width: rem-calc(150);
+    width: rem-calc(250);
+    @include breakpoint(medium up) {
+      margin-left: rem-calc(50);
+    }
   }
 
   .columns {
