@@ -50,14 +50,19 @@ $marketing-site-hero-height: 65vh;
 
   h1,
   .h1 {
-    font-size: 60px;
     font-weight: bold;
+
+    @include breakpoint(medium up) {
+      font-size: 60px;
+    }
   }
 
   h2,
   .h2 {
-    font-size: 50px;
     font-weight: bold;
+    @include breakpoint(medium up) {
+      font-size: 50px;
+    }
   }
 
   p {
