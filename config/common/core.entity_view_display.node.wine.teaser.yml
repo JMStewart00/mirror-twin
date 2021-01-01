@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.wine.feeds_item
     - field.field.node.wine.field_bottle_price
     - field.field.node.wine.field_glass_price
     - field.field.node.wine.field_wine_category
@@ -21,6 +22,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  feeds_item: true
   field_bottle_price: true
   field_glass_price: true
   field_wine_category: true
