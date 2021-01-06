@@ -72,13 +72,14 @@
       text-align: center;
 
       &:first-child {
-        padding: 0 0 rem-calc(16) 0 !important;
+        padding: rem-calc(8) 0 rem-calc(16) 0 !important;
       }
 
       span:first-child {
         font-weight: bold;
         color: get-color(warning);
         font-size: rem-calc(32);
+        line-height: rem-calc(26);
       }
 
       span:nth-child(2) {
