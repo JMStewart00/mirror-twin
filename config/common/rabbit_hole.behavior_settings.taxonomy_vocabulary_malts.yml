@@ -1,0 +1,14 @@
+uuid: be5c5a80-f802-40b4-a816-389843dec0ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.malts
+id: taxonomy_vocabulary_malts
+entity_type_id: taxonomy_vocabulary
+entity_id: malts
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

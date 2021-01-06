@@ -1,0 +1,29 @@
+uuid: cdec6ccb-34c7-460d-8bcc-bddaa9173c1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hops
+    - node.type.beer
+    - taxonomy.vocabulary.hops
+id: node.beer.field_hops
+field_name: field_hops
+entity_type: node
+bundle: beer
+label: Hops
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      hops: hops
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

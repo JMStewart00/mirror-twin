@@ -1,0 +1,14 @@
+uuid: 263e59b8-c747-4b9b-95b3-fe4ec8d0bf55
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.hops
+id: taxonomy_vocabulary_hops
+entity_type_id: taxonomy_vocabulary
+entity_id: hops
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

@@ -5,23 +5,35 @@
 		{{ content.field_preview_image }}
 	</div>
 	<div class="c-beer-teaser__details">
+
     <div class="c-beer-teaser__props">
 			<div class="c-beer-teaser__prop">
 				<span>{{content.field_abv.0['#markup']}}%</span>
 				<span>ALC/VOL</span>
 			</div>
+
 			<div class="c-beer-teaser__prop">
 				<span>{{content.field_ibu.0['#markup']}}</span>
 				<span>IBUs</span>
 			</div>
+
+      {% if content.field_availability|render %}
+        <div class="c-beer-teaser__prop c-beer-teaser__prop--availability">
+          <span>{{content.field_availability}}</span>
+          <span>AVAILABILITY</span>
+        </div>
+      {% endif %}
 		</div>
+
     <div class="c-beer-teaser__main">
       <div class="c-beer-teaser__title u-fw__bold">
         <h3>{{ label }}</h3>
       </div>
+
       <div class="c-beer-teaser__style">
         <h4>{{content.field_style}}</h4>
       </div>
+
       <div class="c-beer-teaser__description">
         {{ content.body }}
       </div>

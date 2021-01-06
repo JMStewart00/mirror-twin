@@ -1,0 +1,29 @@
+uuid: 6509adec-0fd3-4754-8493-09fd410804df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_malts
+    - node.type.beer
+    - taxonomy.vocabulary.malts
+id: node.beer.field_malts
+field_name: field_malts
+entity_type: node
+bundle: beer
+label: Malts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      malts: malts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

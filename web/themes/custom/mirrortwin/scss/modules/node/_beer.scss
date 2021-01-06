@@ -4,6 +4,7 @@
     margin-bottom: rvr(1);
     flex-direction: column;
     flex-wrap: wrap;
+    padding-right: rem-calc(16);
 
     @include breakpoint(small down) {
       width: 80%;
@@ -59,7 +60,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 rem-calc(24) 0 0;
+      padding: 0 rem-calc(24) 0 rem-calc(16);
     }
 
     &__prop {
@@ -84,6 +85,15 @@
         color: $dark-gray;
         font-weight: bold;
         font-size: rem-calc(16);
+      }
+
+      &--availability {
+        span:first-child {
+          padding: rem-calc(6) 0;
+        }
+        .c-field-availability {
+          font-size: rem-calc(20);
+        }
       }
     }
 

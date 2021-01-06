@@ -1,0 +1,8 @@
+uuid: 9da09461-7ff4-41d1-821f-09e30b28e44d
+langcode: en
+status: true
+dependencies: {  }
+name: Availability
+vid: availability
+description: ''
+weight: 0
