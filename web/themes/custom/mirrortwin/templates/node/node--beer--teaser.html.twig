@@ -1,26 +1,31 @@
 {% extends "node--teaser.html.twig" %}
 
 {% block content %}
-  <div class="c-beer-teaser__photo">
-    {{ content.field_preview_image }}
-  </div>
-  <div class="c-beer-teaser__details">
-    <div class="c-beer-teaser__title u-fw__bold">
-      <h3>{{ label }}</h3>
-    </div>
-    <div class="c-beer-teaser__style">
-      <h4>{{content.field_style}}</h4>
-    </div>
+	<div class="c-beer-teaser__photo">
+		{{ content.field_preview_image }}
+	</div>
+	<div class="c-beer-teaser__details">
     <div class="c-beer-teaser__props">
-      <div class="c-beer-teaser__prop">
-        <i class="fas fa-percent fa-2x"></i>
-        {{content.field_abv.0['#markup']}} ABV
+			<div class="c-beer-teaser__prop">
+				<span>{{content.field_abv.0['#markup']}}%</span>
+				<span>ALC/VOL</span>
+			</div>
+			<div class="c-beer-teaser__prop">
+				<span>{{content.field_ibu.0['#markup']}}</span>
+				<span>IBUs</span>
+			</div>
+		</div>
+    <div class="c-beer-teaser__main">
+      <div class="c-beer-teaser__title u-fw__bold">
+        <h3>{{ label }}</h3>
       </div>
-      <div class="c-beer-teaser__prop">
-        <i class="fas fa-beer fa-2x"></i>
-        {{content.field_ibu.0['#markup']}} IBUs
+      <div class="c-beer-teaser__style">
+        <h4>{{content.field_style}}</h4>
+      </div>
+      <div class="c-beer-teaser__description">
+        {{ content.body }}
       </div>
     </div>
-
-  </div>
+	</div>
 {% endblock %}
+
