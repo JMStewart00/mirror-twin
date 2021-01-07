@@ -1,0 +1,7 @@
+.c-view-beer {
+  a {
+    @include hover-focus() {
+      color: $black !important;
+    }
+  }
+}

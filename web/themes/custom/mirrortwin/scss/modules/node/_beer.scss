@@ -8,7 +8,7 @@
 
     @include breakpoint(small down) {
       width: 80%;
-      margin: auto;
+      margin: rvr(1) auto;
     }
 
     @include breakpoint(medium up) {
@@ -16,14 +16,12 @@
       flex-wrap: nowrap;
     }
 
-    a & {
-      @include hover-focus() {
-        color: $black;
-      }
-    }
-
     &__photo {
       overflow: hidden;
+
+      @include breakpoint(small down) {
+        margin-bottom: rvr(1);
+      }
 
       .c-field-media-image {
         display: flex;
@@ -37,10 +35,14 @@
 
     &__details {
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      flex-direction: column-reverse;
       align-items: flex-start;
       flex: 1;
+
+      @include breakpoint(medium up) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
     }
 
     &__title {
@@ -56,21 +58,35 @@
 
     &__props {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 rem-calc(24) 0 rem-calc(16);
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%;
+      flex: 0;
+
+      @include breakpoint(medium up) {
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 rem-calc(24) 0 rem-calc(16);
+      }
     }
 
     &__prop {
-      padding: rem-calc(16) 0;
-      border-bottom: 1px solid $black;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
+      flex-direction: column-reverse;
+      padding: rem-calc(16) 0;
       text-align: center;
 
+      @include breakpoint(medium up) {
+        justify-content: center;
+        flex-direction: column;
+        border-bottom: 1px solid $black;
+      }
+
       &:first-child {
-        padding: rem-calc(8) 0 rem-calc(16) 0 !important;
+        @include breakpoint(medium up) {
+          padding: rem-calc(8) 0 rem-calc(16) 0 !important;
+        }
       }
 
       span:first-child {
@@ -87,11 +103,14 @@
       }
 
       &--availability {
-        span:first-child {
-          padding: rem-calc(6) 0;
-        }
         .c-field-availability {
           font-size: rem-calc(20);
+        }
+
+        @include breakpoint(medium up) {
+          span:first-child {
+            padding: rem-calc(6) 0;
+          }
         }
       }
     }
