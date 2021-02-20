@@ -25,7 +25,7 @@ $sidebar-size-small: 275px;
 
     @include breakpoint(large up) {
       grid-template-areas: 'sidebar main';
-      grid-template-columns: $sidebar-size-small minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) #{$sidebar-size};
       grid-gap: 30px;
     }
   }

@@ -1,4 +1,18 @@
 .c-beer {
+  width: 80%;
+  margin: auto;
+
+  &__prop {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &-label {
+      font-weight: 700;
+      text-transform: capitalize;
+      width: 200px;
+    }
+  }
+
   &-teaser {
     display: flex;
     margin-bottom: rvr(1);

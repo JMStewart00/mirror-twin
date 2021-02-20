@@ -1,0 +1,14 @@
+uuid: ad8cf546-5bbe-43fa-9620-423b9c1f18f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bloody_mary
+id: node_type_bloody_mary
+entity_type_id: node_type
+entity_id: bloody_mary
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

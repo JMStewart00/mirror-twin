@@ -1,0 +1,23 @@
+uuid: 3b0cb6f3-e489-40d5-b7e5-bbe7b5ad90c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.bloody_mary
+id: node.bloody_mary.field_price
+field_name: field_price
+entity_type: node
+bundle: bloody_mary
+label: Price
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

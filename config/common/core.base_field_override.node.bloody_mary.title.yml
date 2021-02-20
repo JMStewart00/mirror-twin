@@ -1,0 +1,18 @@
+uuid: d17726af-cc68-41b8-8e47-8ac072952eeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bloody_mary
+id: node.bloody_mary.title
+field_name: title
+entity_type: node
+bundle: bloody_mary
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

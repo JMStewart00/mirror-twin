@@ -1,11 +1,42 @@
 {% extends "node.html.twig" %}
 
 {% block content %}
-  <div class="c-beer">
-    <div class="c-beer__photo">
-
+  <div class="c-beer l-grid l-grid--sidebar-left u-vr__my--2">
+    <div class="c-beer__photo l-grid__sidebar">
+      {{ content.field_preview_image }}
     </div>
-    <div class="c-beer__info">
+    <div class="c-beer__info l-gri__main">
+      <div class="c-beer__title u-fw__bold">
+        <h1>{{ label }}</h1>
+      </div>
+
+      <div class="c-beer__style">
+        <h4>{{content.field_style}}</h4>
+      </div>
+
+      <div class="c-beer__description u-vr__mb--1">
+        {{ content.body }}
+      </div>
+
+      <div class="c-beer__details">
+        <h3>CHARACTERISTICS</h3>
+        <div class="c-beer__prop">
+          <div class="c-beer__prop-label">ALC/VOL:</div>
+          <div>{{content.field_abv.0['#markup']}}%</div>
+        </div>
+
+        <div class="c-beer__prop">
+          <div class="c-beer__prop-label">IBUs</div>
+          <div>{{content.field_ibu.0['#markup']}}</div>
+        </div>
+
+        {% if content.field_availability|render %}
+          <div class="c-beer__prop c-beer__prop--availability">
+            <div class="c-beer__prop-label">AVAILABILITY</div>
+            <div>{{content.field_availability}}</div>
+          </div>
+        {% endif %}
+      </div>
 
     </div>
   </div>

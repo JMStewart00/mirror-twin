@@ -1,0 +1,22 @@
+uuid: 935ae3af-6d62-4480-89d3-85d8edcc1551
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bloody_mary
+id: node.bloody_mary.promote
+field_name: promote
+entity_type: node
+bundle: bloody_mary
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
