@@ -28,7 +28,7 @@
   },
   "private": true,
   "dependencies": {
-    "autoprefixer": "*",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "gulp-newer": "^1.4.0",
     "gulp-noop": "^1.0.0",

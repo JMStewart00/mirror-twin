@@ -21,52 +21,51 @@
 #}
 
 {% if top_bar %}
-  {% if top_bar_sticky %}
-  <div id="top-bar-sticky-container" data-sticky-container>
-  {% endif %}
-    <div {{ top_bar_attributes }} style="width: 100vw;">
-      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" data-animate>
-        <button class="menu-icon" type="button" data-toggle>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="title-bar-title h4">{{ top_bar_menu_text }}</div>
-        <div class="title-bar-logo">
-          <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-            <img src="/themes/custom/mirrortwin/images/MTB.png" alt="{{ 'Home'|t }}" />
-          </a>
-        </div>
+  <div {{ top_bar_attributes }} style="width: 100vw;">
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" data-animate>
+      <button class="menu-icon" type="button" data-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="title-bar-title h4">{{ top_bar_menu_text }}</div>
+      <div class="title-bar-logo">
+        <a href="{{ path('<front>') }}" rel="home" class="site-logo">
+          <img src="/themes/custom/mirrortwin/images/MTB.png" alt="{{ 'Home'|t }}" />
+        </a>
       </div>
-      <nav class="top-bar slide-in-down" id="main-menu" role="navigation" data-animate>
-        <div class="top-bar-left">
-          <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-            <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
-          </a>
-        </div>
-        <div class="top-bar-right">
-          {{ menus.menu_links(items, attributes, 0, 1) }}
-          {% if top_bar_search %}
-            {{ top_bar_search }}
-          {% endif %}
-          {% if top_bar_languageswitcher %}
-            {{ top_bar_languageswitcher }}
-          {% endif %}
-        </div>
-      </nav>
     </div>
-  {% if top_bar_sticky %}
+    <nav class="top-bar slide-in-down" id="main-menu" role="navigation" data-animate>
+      <div class="top-bar-left">
+        {{ menus.menu_links(items, attributes, 0, 1, 'first') }}
+      </div>
+      <div class="top-bar-middle">
+        <a href="{{ path('<front>') }}" rel="home" class="site-logo">
+          <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
+        </a>
+      </div>
+      <div class="top-bar-right">
+        {{ menus.menu_links(items, attributes, 0, 1, 'second') }}
+      </div>
+    </nav>
   </div>
-  {% endif %}
 {% else %}
   {{ menus.menu_links(items, attributes, 0, 0) }}
 {% endif %}
 
-{% macro menu_links(items, attributes, menu_level, top_bar) %}
+{% macro menu_links(items, attributes, menu_level, top_bar, half) %}
   {% import _self as menus %}
+  {% set itemsCount = (items|length / 2)|round(1, 'ceil') %}
+  {% if half == 'first' %}
+    {% set newItems = items|slice(0, itemsCount) %}
+  {% elseif half == 'second' %}
+    {% set newItems = items|slice(itemsCount) %}
+  {% else %}
+    {% set newItems = items %}
+  {% endif %}
   {% if items %}
     {% if top_bar %}
       {% if menu_level == 0 %}
@@ -81,7 +80,7 @@
         <ul class="menu">
       {% endif %}
     {% endif %}
-    {% for item in items %}
+    {% for item in newItems %}
       {% if top_bar %}
         {%
           set item_classes = [

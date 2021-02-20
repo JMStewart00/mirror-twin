@@ -3,6 +3,7 @@
 namespace Drupal\commerce_order;
 
 use Drupal\commerce\Context;
+use Drupal\commerce_price\Calculator;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Entity\OrderType;
@@ -44,6 +45,13 @@ class OrderRefresh implements OrderRefreshInterface {
   protected $time;
 
   /**
+   * The order preprocessors.
+   *
+   * @var \Drupal\commerce_order\OrderPreProcessorInterface[]
+   */
+  protected $preprocessors = [];
+
+  /**
    * The order processors.
    *
    * @var \Drupal\commerce_order\OrderProcessorInterface[]
@@ -67,6 +75,13 @@ class OrderRefresh implements OrderRefreshInterface {
     $this->chainPriceResolver = $chain_price_resolver;
     $this->currentUser = $current_user;
     $this->time = $time;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function addPreprocessor(OrderPreprocessorInterface $processor) {
+    $this->preprocessors[] = $processor;
   }
 
   /**
@@ -131,6 +146,10 @@ class OrderRefresh implements OrderRefreshInterface {
    * {@inheritdoc}
    */
   public function refresh(OrderInterface $order) {
+    // First invoke order preprocessors if any.
+    foreach ($this->preprocessors as $processor) {
+      $processor->preprocess($order);
+    }
     $current_time = $this->time->getCurrentTime();
     $order->setChangedTime($current_time);
     $order->clearAdjustments();
@@ -166,11 +185,18 @@ class OrderRefresh implements OrderRefreshInterface {
 
     foreach ($order->getItems() as $order_item) {
       if ($order_item->hasTranslationChanges()) {
-        // Remove the order that was set above, to avoid
-        // crashes during the entity save process.
-        $order_item->order_id->entity = NULL;
-        $order_item->setChangedTime($current_time);
-        $order_item->save();
+        // Remove order items which had their quantities set to 0.
+        if (Calculator::compare($order_item->getQuantity(), '0') === 0) {
+          $order->removeItem($order_item);
+          $order_item->delete();
+        }
+        else {
+          // Remove the order that was set above, to avoid
+          // crashes during the entity save process.
+          $order_item->order_id->entity = NULL;
+          $order_item->setChangedTime($current_time);
+          $order_item->save();
+        }
       }
     }
   }

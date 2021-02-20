@@ -16,6 +16,16 @@
       "name": "Samuel Mortensen (samuelmortenson)",
       "homepage": "https://www.drupal.org/u/samuelmortenson",
       "role": "Maintainer"
+    },
+    {
+      "name": "Simone Wood (sim_1)",
+      "homepage": "https://www.drupal.org/u/sim_1",
+      "role": "Co-Maintainer"
+    },
+    {
+      "name": "Dan Feidt (HongPong)",
+      "homepage": "https://www.drupal.org/u/hongpong",
+      "role": "Co-Maintainer"
     }
   ],
   "support": {

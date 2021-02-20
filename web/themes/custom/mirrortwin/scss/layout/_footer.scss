@@ -22,6 +22,17 @@ footer {
     }
   }
 
+  .info.hours {
+    table {
+      margin: 10px 0 0;
+      box-shadow: none;
+
+      tbody {
+        border: none;
+      }
+    }
+  }
+
   .info.address {
     display: flex;
     align-items: center;

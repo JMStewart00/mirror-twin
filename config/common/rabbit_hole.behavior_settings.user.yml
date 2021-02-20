@@ -1,0 +1,12 @@
+uuid: 89b0df45-a6cc-4748-b15e-6a7df2aae2c3
+langcode: en
+status: true
+dependencies: {  }
+id: user
+entity_type_id: user
+entity_id: null
+action: null
+allow_override: null
+redirect: null
+redirect_code: null
+redirect_fallback_action: null
