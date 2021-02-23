@@ -15,12 +15,19 @@ nav.top-bar {
   .top-bar-right {
     flex: 1;
     display: flex;
-    justify-content: center;
   }
 
   .top-bar-middle {
     width: 100px;
     position: relative;
+  }
+
+  .top-bar-left {
+    justify-content: flex-end;
+  }
+
+  .top-bar-right {
+    justify-content: flex-start;
   }
 
   img {
