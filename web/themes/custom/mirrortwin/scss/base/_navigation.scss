@@ -9,7 +9,13 @@ nav.top-bar {
   .top-bar-right,
   .top-bar-middle {
     margin: 0;
-    flex: inherit;
+  }
+
+  .top-bar-left,
+  .top-bar-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
 
   .top-bar-middle {
