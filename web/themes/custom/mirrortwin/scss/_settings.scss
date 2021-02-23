@@ -74,7 +74,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(2000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
+  primary: #ffae00,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
@@ -109,6 +109,21 @@ $global-prototype-breakpoints: false;
 $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
+
+$border-color: $black;
+$border-radius: 10px;
+$border: 1px solid $dark-gray;
+
+$project-transition: all 250ms ease;
+$project-kerning: 0.03125em;
+
+// Focus styles
+$focus-outline-width: 0.125rem;
+$focus-outline-style: solid;
+
+// Drupal admin toolbars
+$toolbar-fixed: 2.4375rem; // 39px
+$toolbar-tray-open: 5.125rem; // 82px
 
 @include add-foundation-colors;
 
@@ -397,7 +412,7 @@ $dropdown-sizes: (
 // -----------------
 
 $dropdownmenu-arrows: true;
-$dropdownmenu-arrow-color: $anchor-color;
+$dropdownmenu-arrow-color: get-color(warning);
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
 $dropdownmenu-min-width: 200px;

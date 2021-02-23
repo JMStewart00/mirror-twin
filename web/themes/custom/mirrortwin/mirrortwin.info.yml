@@ -11,7 +11,10 @@ base theme: zurb_foundation
 # Uncomment these lines and change "mirrortwin" to your theme name if you
 # need to add custom CSS or JS
 libraries:
- - mirrortwin/global
+  - mirrortwin/global
+  - mirrortwin/mmenu-js
+  - mirrortwin/bootstrap-js
+  - mirrortwin/mburger-css
 
 # Regions are output in the page.html.twig
 

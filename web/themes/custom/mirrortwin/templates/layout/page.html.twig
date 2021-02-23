@@ -46,14 +46,6 @@
 
 <div class="off-canvas-wrapper">
   <div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
-    <aside id="left-off-canvas-menu" class="off-canvas left-off-canvas-menu position-left" role="complementary" data-off-canvas>
-      {{ page.left_off_canvas }}
-    </aside>
-
-    <aside id="right-off-canvas-menu" class="off-canvas right-off-canvas-menu position-right" role="complementary" data-off-canvas>
-      {{ page.right_off_canvas }}
-    </aside>
-
     <div class="off-canvas-content" data-off-canvas-content>
       {% if page.meta_header %}
         {% if meta_header_grid %}
@@ -68,12 +60,30 @@
       {% endif %}
 
       <header class="row t-background--black" role="banner" aria-label="{{ 'Site header'|t }}">
-        {% if page.header %}
-          <div class="large-12">
-            {{ page.header }}
-          </div>
-        {% endif %}
+        <div class="c-header-mobile">
+          <a href="#mobile-menu" class="c-header__hamburger mburger mburger--collapse">
+            <b></b>
+            <b></b>
+            <b></b>
+          </a>
+          <a href="{{ path('<front>') }}" rel="home" class="site-logo">
+            <img src="/themes/custom/mirrortwin/images/MTB.png" alt="{{ 'Home'|t }}" />
+          </a>
+        </div>
       </header>
+
+      <nav class="c-mobile-menu" id="mobile-menu">
+        {{ drupal_block('mirrortwin_mobile_menu_block') }}
+      </nav>
+
+      {% if page.header %}
+      <div class="row">
+        <div class="large-12">
+          {{ page.header }}
+        </div>
+      </div>
+      {% endif %}
+
 
       <div class="row">
         {% if show_account_info %}

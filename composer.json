@@ -161,6 +161,10 @@
         ]
     },
     "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"

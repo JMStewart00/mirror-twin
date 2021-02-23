@@ -1,0 +1,8 @@
+name: Mirror Twin Menu
+description: Custom functionality for Mirror Twin menus.
+type: module
+core: 8.x
+package: Mirror Twin
+
+dependencies:
+  - block
