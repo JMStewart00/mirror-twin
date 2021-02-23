@@ -58,7 +58,9 @@
 
     {% for item in newItems %}
       <li{{ item.attributes.addClass(item_classes) }}>
-        {{ link(item.title, item.url) }}
+        <a href="{{ item.url }}" {{ link_attributes.addClass(link_classes) }}>
+          {{ item.title }}
+        </a>
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
