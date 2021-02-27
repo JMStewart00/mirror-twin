@@ -1,0 +1,18 @@
+.modal.age-gate {
+  background-color: $black;
+  color: $white;
+  padding: rvr(2);
+  border: 5px solid $dark-gray;
+  border-radius: 0px;
+  text-align: center;
+  max-width: 600px;
+
+  img {
+    max-width: 150px;
+    margin: auto;
+  }
+
+  .o-btn {
+    margin: rvr(1) rem-calc(16);
+  }
+}

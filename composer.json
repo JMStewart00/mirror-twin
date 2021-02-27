@@ -67,6 +67,18 @@
                 "type": "zip"
               }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "kylefox/jquery-modal",
+              "version": "0.9.1",
+              "type": "drupal-library",
+              "dist": {
+                "url": "https://github.com/kylefox/jquery-modal/archive/v0.9.1.zip",
+                "type": "zip"
+              }
+            }
         }
     ],
     "require": {
@@ -129,6 +141,7 @@
         "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "^9.2",
         "enyo/dropzone": "^5.7",
+        "kylefox/jquery-modal": "^0.9.1",
         "michalsnik/aos": "^2.3",
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2"

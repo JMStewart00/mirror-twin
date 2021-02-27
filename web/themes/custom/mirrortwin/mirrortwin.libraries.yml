@@ -27,3 +27,16 @@ mmenu-js:
     js/mmenu-setup.js: {}
   dependencies:
     - mirrortwin/global-styling
+
+jquery-modal:
+  version: 0.9.1
+  css:
+    theme:
+      /libraries/jquery-modal/jquery.modal.min.css: { weight: -1 }
+  js:
+    /libraries/jquery-modal/jquery.modal.min.js: { weight: -1 }
+    js/age-gate.js: { weight: 0 }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.cookie

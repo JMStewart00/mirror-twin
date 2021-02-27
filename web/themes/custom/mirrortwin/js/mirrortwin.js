@@ -8,7 +8,7 @@
   /**
    * Use this behavior as a template for custom Javascript.
    */
-  Drupal.behaviors.exampleBehavior = {
+  Drupal.behaviors.mirrorTwin = {
     attach: function (context, settings) {
       $('.menu-icon', context).on('click', (e) => {
         $('.menu-icon').toggleClass('open');

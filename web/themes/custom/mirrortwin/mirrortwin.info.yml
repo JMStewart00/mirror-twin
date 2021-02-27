@@ -15,6 +15,7 @@ libraries:
   - mirrortwin/mmenu-js
   - mirrortwin/bootstrap-js
   - mirrortwin/mburger-css
+  - mirrortwin/jquery-modal
 
 # Regions are output in the page.html.twig
 

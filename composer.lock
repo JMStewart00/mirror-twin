@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e3f6c7894077fd5f9d07d0e5ff4715c",
+    "content-hash": "43b1a85fea7294124c45b1469e026a5d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7115,6 +7115,15 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.6.1"
             },
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "kylefox/jquery-modal",
+            "version": "0.9.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kylefox/jquery-modal/archive/v0.9.1.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "laminas/laminas-diactoros",
