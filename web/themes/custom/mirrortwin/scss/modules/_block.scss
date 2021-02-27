@@ -2,6 +2,11 @@
   padding-left: rvr(2);
   padding-right: rvr(2);
 
+  &.c-simple-instagram-block {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   @include breakpoint(medium down) {
     > h2:first-child() {
       text-align: center;
