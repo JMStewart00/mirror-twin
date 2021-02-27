@@ -1,0 +1,25 @@
+uuid: 33472518-be4d-4da0-9308-6fe7a7f2369c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sort_weight
+    - node.type.beer
+id: node.beer.field_sort_weight
+field_name: field_sort_weight
+entity_type: node
+bundle: beer
+label: 'Sort Weight'
+description: 'Weight used to sort team on team member block. Lighter weight float to the top. Heavier weights drop to the bottom.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

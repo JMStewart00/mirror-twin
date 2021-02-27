@@ -1,6 +1,6 @@
 uuid: 82abf0a7-15e8-4d17-ae33-b55913e2a9a8
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - filter.format.full_html

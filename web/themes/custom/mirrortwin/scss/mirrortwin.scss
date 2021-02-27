@@ -177,3 +177,7 @@
 // --- Themes ---
 @import 'theme/layout_builder';
 @import 'theme/utilities';
+
+[data-dropdown-menu] ul {
+  display: none;
+}

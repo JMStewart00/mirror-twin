@@ -1,0 +1,30 @@
+uuid: 9262a9e5-ba2c-48bf-a7a5-579c4793ff53
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.team_member.field_first_name
+    - field.field.node.team_member.field_headshot
+    - field.field.node.team_member.field_last_name
+    - field.field.node.team_member.field_professional_title
+    - field.field.node.team_member.field_sort_weight
+    - node.type.team_member
+  module:
+    - user
+id: node.team_member.teaser
+targetEntityType: node
+bundle: team_member
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_first_name: true
+  field_headshot: true
+  field_last_name: true
+  field_professional_title: true
+  field_sort_weight: true

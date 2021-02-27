@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.beer.body
     - field.field.node.beer.field_abv
+    - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
     - field.field.node.beer.field_hops
@@ -15,7 +16,9 @@ dependencies:
     - field.field.node.beer.field_mirror_twin_category
     - field.field.node.beer.field_preview_image
     - field.field.node.beer.field_release_date
+    - field.field.node.beer.field_sort_weight
     - field.field.node.beer.field_style
+    - field.field.node.beer.field_taste
     - node.type.beer
   module:
     - text
@@ -52,14 +55,6 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_hops:
-    type: entity_reference_label
-    weight: 8
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_ibu:
     type: number_integer
     weight: 4
@@ -68,14 +63,6 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-  field_malts:
-    type: entity_reference_label
-    weight: 9
-    region: content
-    label: hidden
-    settings:
-      link: false
     third_party_settings: {  }
   field_mirror_twin_category:
     type: entity_reference_label
@@ -108,6 +95,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_aroma: true
   field_dates_available: true
+  field_hops: true
+  field_malts: true
   field_meta_tags: true
   field_release_date: true
+  field_sort_weight: true
+  field_taste: true

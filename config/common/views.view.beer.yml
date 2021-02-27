@@ -159,6 +159,18 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts:
+        field_sort_weight_value:
+          id: field_sort_weight_value
+          table: node__field_sort_weight
+          field: field_sort_weight_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         title:
           id: title
           table: node_field_data

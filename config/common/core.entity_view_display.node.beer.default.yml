@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.beer.body
     - field.field.node.beer.field_abv
+    - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
     - field.field.node.beer.field_hops
@@ -14,7 +15,9 @@ dependencies:
     - field.field.node.beer.field_mirror_twin_category
     - field.field.node.beer.field_preview_image
     - field.field.node.beer.field_release_date
+    - field.field.node.beer.field_sort_weight
     - field.field.node.beer.field_style
+    - field.field.node.beer.field_taste
     - node.type.beer
   module:
     - datetime
@@ -36,7 +39,7 @@ content:
     region: content
   field_abv:
     weight: 104
-    label: inline
+    label: hidden
     settings:
       thousand_separator: ''
       decimal_separator: .
@@ -45,11 +48,19 @@ content:
     third_party_settings: {  }
     type: number_decimal
     region: content
+  field_aroma:
+    weight: 113
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_availability:
     weight: 110
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -65,15 +76,15 @@ content:
     region: content
   field_hops:
     weight: 111
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_ibu:
     weight: 105
-    label: inline
+    label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -82,9 +93,9 @@ content:
     region: content
   field_malts:
     weight: 112
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -121,6 +132,15 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_sort_weight:
+    weight: 115
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_style:
     weight: 103
     label: hidden
@@ -128,6 +148,14 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_taste:
+    weight: 114
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   links:
     weight: 100

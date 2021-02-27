@@ -1,0 +1,19 @@
+uuid: d13a830f-7a59-4544-a4e7-73a74ac2134d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_name
+    - node.type.team_member
+id: node.team_member.field_first_name
+field_name: field_first_name
+entity_type: node
+bundle: team_member
+label: 'First Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

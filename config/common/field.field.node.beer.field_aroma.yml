@@ -1,0 +1,19 @@
+uuid: 30a623ca-0f5d-4ed8-92df-b8a565af343b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aroma
+    - node.type.beer
+id: node.beer.field_aroma
+field_name: field_aroma
+entity_type: node
+bundle: beer
+label: Aroma
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.beer.body
     - field.field.node.beer.field_abv
+    - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
     - field.field.node.beer.field_hops
@@ -14,11 +15,14 @@ dependencies:
     - field.field.node.beer.field_mirror_twin_category
     - field.field.node.beer.field_preview_image
     - field.field.node.beer.field_release_date
+    - field.field.node.beer.field_sort_weight
     - field.field.node.beer.field_style
+    - field.field.node.beer.field_taste
     - node.type.beer
   module:
     - datetime
     - datetime_range
+    - field_group
     - field_layout
     - layout_discovery
     - media_library
@@ -30,6 +34,27 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
+  field_group:
+    group_characteristics:
+      children:
+        - field_availability
+        - field_aroma
+        - field_taste
+        - field_abv
+        - field_style
+        - field_ibu
+        - field_hops
+        - field_malts
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Characteristics
 id: node.beer.default
 targetEntityType: node
 bundle: beer
@@ -37,7 +62,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 5
     settings:
       rows: 9
       summary_rows: 3
@@ -52,45 +77,53 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_abv:
-    weight: 8
+    weight: 25
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_aroma:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_availability:
-    weight: 10
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_dates_available:
-    weight: 16
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
   field_hops:
-    weight: 11
+    weight: 28
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_ibu:
-    weight: 9
+    weight: 27
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_malts:
-    weight: 12
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_meta_tags:
-    weight: 13
+    weight: 9
     settings:
       sidebar: true
     third_party_settings: {  }
@@ -103,23 +136,38 @@ content:
     type: options_buttons
     region: content
   field_preview_image:
-    weight: 5
+    weight: 3
     settings:
       media_types: {  }
     third_party_settings: {  }
     type: media_library_widget
     region: content
   field_release_date:
-    weight: 15
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_sort_weight:
+    weight: 30
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_style:
-    weight: 7
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_taste:
+    weight: 24
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   path:
     type: path
@@ -129,7 +177,7 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 17
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -138,12 +186,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 10
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 3
+    weight: 4
     region: content
     settings:
       size: 60

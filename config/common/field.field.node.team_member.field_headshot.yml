@@ -1,0 +1,28 @@
+uuid: 07451d81-8e7b-45c8-9b5e-043117a8687f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headshot
+    - media.type.image
+    - node.type.team_member
+id: node.team_member.field_headshot
+field_name: field_headshot
+entity_type: node
+bundle: team_member
+label: Headshot
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
