@@ -15,13 +15,12 @@
           escapeClose: false,
           clickClose: false,
           showClose: false,
-          fadeDuration: 250,
+          fadeDuration: 500,
           fadeDelay: 0.80
         });
       }
 
-      let over21CookieVal;
-      if (!over21CookieVal) {
+      if (!$.cookie("mirrorTwinAgeGate")) {
         $.cookie("mirrorTwinAgeGate", false);
       }
 
