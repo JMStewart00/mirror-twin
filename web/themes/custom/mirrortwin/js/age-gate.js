@@ -31,6 +31,7 @@
       expiryDate.setMonth(expiryDate.getDay() + 1);
       // On the form submit button click, set a cookie.
       yesBtn.on("click", () => {
+        console.log('clicked');
         $.cookie("mirrorTwinAgeGate", true, { expires: expiryDate });
         $.modal.close();
       });
