@@ -8,6 +8,10 @@ $marketing-site-hero-height: 65vh;
   align-items: center;
   padding: rvr(3);
 
+  .columns & {
+    height: 100%;
+  }
+
   @media screen and (min-width: 40em) {
     background-position: center center;
   }
@@ -74,5 +78,18 @@ $marketing-site-hero-height: 65vh;
     text-transform: uppercase;
     font-size: 12px;
     margin-bottom: 0;
+  }
+
+  &__video {
+    height: auto;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: auto;
+    z-index: -1;
+    object-fit: cover;
   }
 }

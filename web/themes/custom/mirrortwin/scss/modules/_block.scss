@@ -7,6 +7,16 @@
     padding-right: 0px;
   }
 
+  &.c-inline-blockbasic {
+    padding-top: rvr(1);
+    padding-bottom: rvr(1);
+  }
+
+  &__subheading {
+    text-transform: none !important;
+    color: get-color(secondary);
+  }
+
   @include breakpoint(medium down) {
     > h2:first-child() {
       text-align: center;

@@ -4,11 +4,37 @@
   ]
 %}
 
-{% set background_url = file_url(content.field_background_image[0]['#media'].field_media_image.entity.uri.value) %}
-{% set background_style = content.body|render ? "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" ~ background_url ~ ")" : "background-image: url(" ~ background_url ~ ")" %}
+{% set video_background = FALSE %}
+{% set image_background = FALSE %}
+{% set background_url = '' %}
+{% set background_bundle = '' %}
+
+{# check to see if the field is empty or not #}
+{% if content.field_background_image|render is not empty %}
+  {# quick variable to check if field is a video or image #}
+  {% set background_bundle = content.field_background_image[0]['#media'].bundle() %}
+{% endif %}
+
+{# check to see if the field is empty or not #}
+{% if background_bundle %}
+  {# set variables based on the bundle of the field #}
+  {% if background_bundle == 'image' %}
+    {% set image_background = TRUE %}
+    {% set background_url = file_url(content.field_background_image[0]['#media'].field_media_image.entity.uri.value) %}
+    {% set background_style = content.body|render ? "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" ~ background_url ~ ")" : "background-image: url(" ~ background_url ~ ")" %}
+  {% elseif background_bundle == 'video' %}
+    {% set video_background = TRUE %}
+    {% set background_url = file_url(content.field_background_image[0]['#media'].field_media_video_file.entity.uri.value) %}
+  {% endif %}
+
+{% endif %}
 
 
-<div{{ attributes.addClass(classes) }} style="{{ background_style }}">
+{% if video_background %}
+  <div{{ attributes.addClass(classes) }}>
+{% else %}
+  <div{{ attributes.addClass(classes) }} style="{{ background_style }}">
+{% endif %}
   {{ title_prefix }}
   {{ title_suffix }}
   <div class="marketing-site-hero-content {{'marketing-site-hero-content--' ~ content.field_text_position.0['#markup']}}">
@@ -19,6 +45,11 @@
       <a href="{{ content.field_link.0['#url'] }}" title="{{ content.field_link.0['#title'] }}" class="o-btn o-btn--primary o-btn--large draw-border u-vr__mt--1" data-aos="fade-up">
         {{ content.field_link.0['#title'] }}
       </a>
+    {% endif %}
+    {% if video_background %}
+      <video class="marketing-site-hero-content__video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="{{background_url}}" type="video/mp4">
+      </video>
     {% endif %}
   </div>
 </div>

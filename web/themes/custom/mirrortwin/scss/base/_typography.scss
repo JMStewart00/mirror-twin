@@ -26,7 +26,7 @@ h2,
 .h2 {
   font-size: rem-calc(40);
   line-height: (34/24);
-  font-weight: $global-weight-bold;
+  font-weight: $global-weight-semi-bold;
   font-family: 'Ruda', sans-serif;
   text-transform: uppercase;
 }
@@ -35,7 +35,7 @@ h3,
 .h3 {
   font-size: rem-calc(32);
   line-height: 1.25;
-  font-weight: $global-weight-bold;
+  font-weight: $global-weight-semi-bold;
   font-family: 'Ruda', sans-serif;
   text-transform: uppercase;
 }
@@ -44,7 +44,7 @@ h4,
 .h4 {
   font-size: rem-calc(24);
   line-height: 1.25;
-  font-weight: $global-weight-bold;
+  font-weight: $global-weight-semi-bold;
   font-family: 'Ruda', sans-serif;
   text-transform: uppercase;
 }
