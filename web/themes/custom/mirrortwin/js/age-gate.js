@@ -21,7 +21,7 @@
       }
 
       if (!$.cookie("mirrorTwinAgeGate")) {
-        $.cookie("mirrorTwinAgeGate", false);
+        $.cookie("mirrorTwinAgeGate", false, { path: '/' });
       }
 
       const yesBtn = $('#ageGateYes');
@@ -31,8 +31,7 @@
       expiryDate.setMonth(expiryDate.getDay() + 1);
       // On the form submit button click, set a cookie.
       yesBtn.on("click", () => {
-        console.log('clicked');
-        $.cookie("mirrorTwinAgeGate", true, { expires: expiryDate });
+        $.cookie("mirrorTwinAgeGate", true, { expires: expiryDate, path: '/' });
         $.modal.close();
       });
 
