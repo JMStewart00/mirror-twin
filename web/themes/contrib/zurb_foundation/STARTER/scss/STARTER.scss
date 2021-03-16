@@ -78,9 +78,9 @@
 @include foundation-typography;
 
 // Grids (Choose one)
-@include foundation-grid;
+//@include foundation-grid;
 //@include foundation-flex-grid;
-//@include foundation-xy-grid-classes;
+@include foundation-xy-grid-classes;
 
 // Generic components
 @include foundation-button;
@@ -124,7 +124,7 @@
 
 // Helpers
 @include foundation-float-classes;
-//@include foundation-flex-classes;
+@include foundation-flex-classes;
 @include foundation-visibility-classes;
 
 // Prototyping Utilities

@@ -67,11 +67,11 @@ function zurb_foundation_preprocess_menu__main(&$variables) {
     $top_bar_attributes = new Attribute();
 
     if (theme_get_setting('zurb_foundation_top_bar_grid')) {
-      $top_bar_attributes->addClass('row column');
+      $top_bar_attributes->addClass('grid-container');
     }
 
     if (theme_get_setting('zurb_foundation_top_bar_sticky')) {
-      $top_bar_attributes->addClass('sticky', 'large-12');
+      $top_bar_attributes->addClass('sticky');
       $top_bar_attributes->setAttribute('data-sticky', TRUE);
       $top_bar_attributes->setAttribute('data-top-anchor', 'top-bar-sticky-container');
       // 9999999(px) is used as no other bottom anchor stopped the top-bar from

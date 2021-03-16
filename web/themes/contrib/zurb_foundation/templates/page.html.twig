@@ -57,24 +57,23 @@
     <div class="off-canvas-content" data-off-canvas-content>
       {% if page.meta_header %}
         {% if meta_header_grid %}
-          <div class="row">
-            <div class="large-12 columns">
+          <div class="grid-container">
         {% endif %}
         {{ page.meta_header }}
         {% if meta_header_grid %}
-            </div>
           </div>
         {% endif %}
       {% endif %}
 
-      <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
+      <header class="header" role="banner" aria-label="{{ 'Site header'|t }}">
         {% if page.header %}
-          <div class="large-12 columns">
+          <div class="grid-container">
             {{ page.header }}
           </div>
         {% endif %}
       </header>
 
+      {# Depricated and to be removed. See issue 3179537 #}
       <div class="row">
         {% if show_account_info %}
           <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
@@ -109,68 +108,69 @@
           </div>
         {% endif %}
       </div>
+      {# End of section to be removed #}
 
       {% if messages and not zurb_foundation_messages_modal %}
-      <div class="l-messages row">
-        <div class="large-12 columns">
+        <div class="l-messages grid-container">
           {{ messages }}
         </div>
-      </div>
       {% endif %}
 
       {% if page.help %}
-      <div class="l-help row">
-        <div class="large-12 columns">
+        <div class="l-help grid-container">
           {{ page.help }}
         </div>
-      </div>
       {% endif %}
 
-      <div class="row">
-        <main id="main" class="{{ main_grid }} columns" role="main">
-          {% if page.highlighted %}
-            {% apply spaceless %}
-              {{ page.highlighted }}
-            {% endapply %}
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+          <main id="main" class="{{ main_grid }}" role="main">
+            {% if page.highlighted %}
+              {% apply spaceless %}
+                {{ page.highlighted }}
+              {% endapply %}
+            {% endif %}
+            <a id="main-content"></a>
+            {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+            <section>
+              {{ page.content }}
+            </section>
+          </main>
+          {% if page.sidebar_first %}
+            <div id="sidebar-first" class="{{ sidebar_first_grid }} sidebar ">
+              {{ page.sidebar_first }}
+            </div>
           {% endif %}
-          <a id="main-content"></a>
-          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-          <section>
-            {{ page.content }}
-          </section>
-        </main>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
-        {% endif %}
-        {% if page.sidebar_second %}
-          <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
-            {{ page.sidebar_second }}
-          </div>
-        {% endif %}
+          {% if page.sidebar_second %}
+            <div id="sidebar-second" class="{{ sidebar_sec_grid }} sidebar">
+              {{ page.sidebar_second }}
+            </div>
+          {% endif %}
+        </div>
       </div>
       {% if page.footer_first or page.footer_middle or page.footer_last %}
-        <footer class="row">
-          {% if page.footer_first %}
-            <div id="footer-first" class="large-4 columns">
-              {{ page.footer_first }}
-            </div>
-          {% endif %}
-          {% if page.footer_middle %}
-            <div id="footer-middle" class="large-4 columns">
-              {{ page.footer_middle }}
-            </div>
-          {% endif %}
-          {% if page.footer_last %}
-            <div id="footer-last" class="large-4 columns">
-              {{ page.footer_last }}
-            </div>
-          {% endif %}
+        <footer class="grid-container footer" id="footer">
+          <div class="grid-x grid-margin-x">
+            {% if page.footer_first %}
+              <div id="footer-first" class="cell large-4">
+                {{ page.footer_first }}
+              </div>
+            {% endif %}
+            {% if page.footer_middle %}
+              <div id="footer-middle" class="cell large-4">
+                {{ page.footer_middle }}
+              </div>
+            {% endif %}
+            {% if page.footer_last %}
+              <div id="footer-last" class="cell large-4">
+                {{ page.footer_last }}
+              </div>
+            {% endif %}
+          </div>
         </footer>
       {% endif %}
       {% if block_copyright_show %}
-        <div class="bottom-bar callout secondary large-12 columns">
+        <div class="bottom-bar callout secondary grid-x">
           {% if not block_copyright_custom_text %}
             <p>&copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}</p>
           {% else %}

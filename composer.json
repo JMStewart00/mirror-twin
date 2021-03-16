@@ -84,10 +84,10 @@
             "type": "package",
             "package": {
                 "name": "jqueryinstagramfeed/jqueryinstagramfeed",
-                "version": "1.3.2",
+                "version": "3.0.3",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/jsanahuja/jquery.instagramFeed/archive/master.zip",
+                    "url": "https://github.com/jsanahuja/jquery.instagramFeed/archive/3.0.3.zip",
                     "type": "zip"
                 }
             }
@@ -167,7 +167,7 @@
         "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "^9.2",
         "enyo/dropzone": "^5.7",
-        "jqueryinstagramfeed/jqueryinstagramfeed": "^1.3",
+        "jqueryinstagramfeed/jqueryinstagramfeed": "3.0.3",
         "kenwheeler/slick": "1.8.0",
         "kylefox/jquery-modal": "^0.9.1",
         "michalsnik/aos": "^2.3",
