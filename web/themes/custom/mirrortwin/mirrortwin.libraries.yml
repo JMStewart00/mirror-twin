@@ -40,3 +40,23 @@ jquery-modal:
     - core/drupal
     - core/jquery
     - core/jquery.cookie
+
+slick-js:
+  version: 1.8.1
+  css:
+    theme:
+      /libraries/slick/slick/slick.css: {}
+  js:
+    /libraries/slick/slick/slick.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+slider-base:
+  version: 1.0
+  js:
+    js/slider-base.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - mirrortwin/slick-js

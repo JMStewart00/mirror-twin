@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.beer_slider
     - core.entity_view_mode.node.teaser
     - node.type.beer
     - taxonomy.vocabulary.mirror_twin_category
@@ -401,6 +402,76 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  on_tap_slider:
+    display_plugin: block
+    id: on_tap_slider
+    display_title: 'On Tap Slider'
+    position: 1
+    display_options:
+      display_extenders:
+        ajax_history: {  }
+        simple_sitemap_display_extender: {  }
+      block_category: 'Beer Blocks'
+      block_description: 'On Tap Beers Slider'
+      display_description: ''
+      title: 'Currently On Tap'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        style: false
+        row: false
+        css_class: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            beer: beer
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: beer_slider
+      css_class: 'c-slider js-slider'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

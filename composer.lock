@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de7ff40ef4f769951addac54e0ccf4f4",
+    "content-hash": "d75ca7da77478d594c5b0fa32b818c29",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7231,6 +7231,15 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/jsanahuja/jquery.instagramFeed/archive/master.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "kenwheeler/slick",
+            "version": "1.8.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kenwheeler/slick/archive/1.8.0.zip"
             },
             "type": "drupal-library"
         },

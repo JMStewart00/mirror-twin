@@ -18,6 +18,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $link-hover-color,
+    slider-button: $link-color,
+    slider-button-background: $medium-gray
   ),
 
   white: (
@@ -25,6 +27,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $link-hover-color,
+    slider-button: $link-color,
+    slider-button-background: $medium-gray
   ),
 
   dark-gray: (
@@ -32,6 +36,8 @@ $background-color-map: (
     fg: $white,
     link: $white,
     link-hover: $medium-gray,
+    slider-button: $dark-gray,
+    slider-button-background: $light-gray
   ),
 
   black: (
@@ -39,6 +45,8 @@ $background-color-map: (
     fg: $white,
     link: $light-gray,
     link-hover: $medium-gray,
+    slider-button: $link-color,
+    slider-button-background: $light-gray
   ),
 
   light-gray: (
@@ -46,6 +54,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $black,
+    slider-button: $link-color,
+    slider-button-background: $white,
   ),
 
   medium-gray: (
@@ -53,6 +63,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $black,
+    slider-button: $medium-gray,
+    slider-button-background: $white
   ),
 
 );

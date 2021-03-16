@@ -140,5 +140,17 @@
       }
     }
   }
+  // color link hover
+  @if color-palette($bg-color, slider-button) {
+    .c-slider__button svg {
+      color: color-palette($bg-color, slider-button);
+    }
+  }
+  // color link hover
+  @if color-palette($bg-color, slider-button-background) {
+    .c-slider__button {
+      background-color: color-palette($bg-color, slider-button-background);
+    }
+  }
 }
 

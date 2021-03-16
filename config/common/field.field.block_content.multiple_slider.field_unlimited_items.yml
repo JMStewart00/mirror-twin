@@ -1,0 +1,31 @@
+uuid: 6b3ef3fe-3e21-4879-ba7f-7c52f6877882
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_slider
+    - field.storage.block_content.field_unlimited_items
+    - paragraphs.paragraphs_type.slide
+  module:
+    - entity_reference_revisions
+id: block_content.multiple_slider.field_unlimited_items
+field_name: field_unlimited_items
+entity_type: block_content
+bundle: multiple_slider
+label: Slides
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      slide: slide
+    target_bundles_drag_drop:
+      slide:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

@@ -1,0 +1,63 @@
+uuid: f7fcbd2b-05c4-4205-9568-06d0ab008c16
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.beer_slider
+    - field.field.node.beer.body
+    - field.field.node.beer.field_abv
+    - field.field.node.beer.field_aroma
+    - field.field.node.beer.field_availability
+    - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_hops
+    - field.field.node.beer.field_ibu
+    - field.field.node.beer.field_malts
+    - field.field.node.beer.field_meta_tags
+    - field.field.node.beer.field_mirror_twin_category
+    - field.field.node.beer.field_preview_image
+    - field.field.node.beer.field_release_date
+    - field.field.node.beer.field_sort_weight
+    - field.field.node.beer.field_style
+    - field.field.node.beer.field_taste
+    - node.type.beer
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.beer.beer_slider
+targetEntityType: node
+bundle: beer
+mode: beer_slider
+content:
+  field_preview_image:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_abv: true
+  field_aroma: true
+  field_availability: true
+  field_dates_available: true
+  field_hops: true
+  field_ibu: true
+  field_malts: true
+  field_meta_tags: true
+  field_mirror_twin_category: true
+  field_release_date: true
+  field_sort_weight: true
+  field_style: true
+  field_taste: true

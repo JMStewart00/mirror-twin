@@ -1,0 +1,8 @@
+uuid: 779d2432-5af3-409d-a5bc-519cb3f678a1
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_slider
+label: 'Multiple Slider'
+revision: 0
+description: ''

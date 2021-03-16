@@ -1,0 +1,10 @@
+uuid: ce578932-750b-4b97-88bc-7e25192438c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.beer_slider
+label: 'Beer Slider'
+targetEntityType: node
+cache: true

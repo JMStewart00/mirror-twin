@@ -7438,6 +7438,17 @@
         "installation-source": "dist"
     },
     {
+        "name": "kenwheeler/slick",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/kenwheeler/slick/archive/1.8.0.zip"
+        },
+        "type": "drupal-library",
+        "installation-source": "dist"
+    },
+    {
         "name": "kylefox/jquery-modal",
         "version": "0.9.1",
         "version_normalized": "0.9.1.0",
