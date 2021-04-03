@@ -1,0 +1,11 @@
+.o-list {
+  &-inline {
+    &__item {
+      display: inline-block;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+}

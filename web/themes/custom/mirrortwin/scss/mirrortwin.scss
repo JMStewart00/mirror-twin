@@ -152,8 +152,9 @@
 
 // Import your mixins early so they can be used by other partials. (optional)
 @import 'base/mixins';
-@import 'base/color-loop';
 @import 'base/buttons';
+@import 'base/color-loop';
+@import 'base/lists';
 @import 'base/navigation';
 @import 'base/table';
 @import 'base/typography';

@@ -1,8 +1,9 @@
-uuid: 08defeed-5ca2-4d0c-ba58-8fbd94332e8d
+uuid: ddd9494a-81e9-4e26-a682-0fcdd0764a47
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.featured
     - field.field.node.beer.body
     - field.field.node.beer.field_abv
     - field.field.node.beer.field_aroma
@@ -23,13 +24,18 @@ dependencies:
   module:
     - datetime
     - datetime_range
+    - layout_builder
     - metatag
     - text
     - user
-id: node.beer.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.beer.featured
 targetEntityType: node
 bundle: beer
-mode: default
+mode: featured
 content:
   body:
     label: hidden
@@ -69,11 +75,11 @@ content:
     weight: 109
     label: hidden
     settings:
-      separator: '-'
-      format_type: medium
       timezone_override: ''
+      date_format: m/d/y
+      separator: '-'
     third_party_settings: {  }
-    type: daterange_default
+    type: daterange_custom
     region: content
   field_hops:
     weight: 111
@@ -138,10 +144,10 @@ content:
     weight: 108
     label: hidden
     settings:
-      format_type: medium
       timezone_override: ''
+      date_format: m/d/y
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_sort_weight:
     weight: 115

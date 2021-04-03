@@ -13,3 +13,34 @@
     }
   }
 }
+
+.c-view-spirits-anchor-bar {
+  .item-list {
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    li {
+      padding: rem-calc(12) rem-calc(16);
+      background-color: $black;
+      transition: $project-transition;
+      margin: rem-calc(4);
+      font-family: 'Ruda', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: $global-weight-bold;
+      cursor: pointer;
+
+      a {
+        color: get-color(warning) !important;
+      }
+
+      @include hover-focus() {
+        background-color: $dark-gray;
+      }
+    }
+  }
+}

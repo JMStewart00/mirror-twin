@@ -10,7 +10,7 @@ field_name: field_sort_weight
 entity_type: node
 bundle: beer
 label: 'Sort Weight'
-description: 'Weight used to sort team on team member block. Lighter weight float to the top. Heavier weights drop to the bottom.'
+description: 'Weight used to sort beer on beer blocks. Lighter weight float to the top. Heavier weights drop to the bottom.'
 required: false
 translatable: false
 default_value:

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.beer.field_ibu
     - field.field.node.beer.field_malts
     - field.field.node.beer.field_meta_tags
+    - field.field.node.beer.field_mirror_monday
     - field.field.node.beer.field_mirror_twin_category
     - field.field.node.beer.field_preview_image
     - field.field.node.beer.field_release_date
@@ -100,6 +101,7 @@ hidden:
   field_hops: true
   field_malts: true
   field_meta_tags: true
+  field_mirror_monday: true
   field_release_date: true
   field_sort_weight: true
   field_taste: true

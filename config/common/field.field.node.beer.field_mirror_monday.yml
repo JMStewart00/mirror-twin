@@ -1,0 +1,23 @@
+uuid: 9e7860f4-2e8f-4d7f-94d2-a8991788acc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mirror_monday
+    - node.type.beer
+id: node.beer.field_mirror_monday
+field_name: field_mirror_monday
+entity_type: node
+bundle: beer
+label: 'Mirror Monday'
+description: 'Check for Mirror Monday releases.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
