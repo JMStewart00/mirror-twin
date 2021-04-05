@@ -22,6 +22,7 @@
   ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     li {
       padding: rem-calc(12) rem-calc(16);

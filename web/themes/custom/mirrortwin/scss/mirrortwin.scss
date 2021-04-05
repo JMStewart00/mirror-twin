@@ -180,6 +180,11 @@
 @import 'theme/layout_builder';
 @import 'theme/utilities';
 
+// hides menu flash on page load.
 [data-dropdown-menu] ul {
   display: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
