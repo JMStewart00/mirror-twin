@@ -5,11 +5,6 @@
   width: 100%;
   text-align: center;
 
-  @include breakpoint(large up) {
-    flex-direction: row;
-    text-align: left;
-  }
-
   &__wrapper {
     position: relative;
     overflow: hidden;
@@ -22,8 +17,11 @@
 
       h2 {
         font-size: rem-calc(20) !important;
-        text-align: center;
       }
+    }
+
+    h2 {
+      text-align: center;
     }
 
     img {
@@ -45,10 +43,6 @@
     flex: 1;
     z-index: 1;
     position: relative;
-
-    @include breakpoint(large up) {
-      padding-left: rvr(0.5);
-    }
   }
 
   &__photo-overlay {
@@ -57,12 +51,6 @@
     width: 220%;
     left: -60%;
     top: -60%;
-
-    @include breakpoint(large up) {
-      width: 700px;
-      top: -250px;
-      left: -40px;
-    }
 
     img {
       width: 100%;
@@ -82,14 +70,6 @@
     z-index: 1;
     position: relative;
     margin-bottom: rvr(1);
-
-    @include breakpoint(large up) {
-      position: absolute;
-      left: -53px;
-      top: 70px;
-      transform: rotate(-90deg);
-      margin-bottom: 0;
-    }
   }
 
   &__photo {
@@ -97,11 +77,6 @@
     z-index: 1;
     position: relative;
     margin-bottom: rvr(1);
-
-    @include breakpoint(large up) {
-      margin-left: 50px;
-      margin-bottom: 0;
-    }
 
     .c-field-media-image {
       display: flex;
