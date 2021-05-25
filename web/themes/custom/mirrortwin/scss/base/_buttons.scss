@@ -2,8 +2,7 @@
   cursor: pointer;
   display: inline-block;
   padding: rvr(0.5) rvr(1);
-  font-family: 'Ruda', sans-serif;
-  text-transform: uppercase;
+  font-family: 'voltage', sans-serif;
   letter-spacing: 3px;
 
   @include hover-focus() {
@@ -16,7 +15,6 @@
     border: 0;
     color: $black;
     letter-spacing: rem(0.5);
-    text-transform: uppercase;
     transition: background-color 0.2s ease-in;
 
     @include hover-focus() {
@@ -30,7 +28,6 @@
     border: 0;
     color: $white;
     letter-spacing: rem(0.5);
-    text-transform: uppercase;
     transition: background-color 0.2s ease-in;
 
     @include hover-focus() {

@@ -1,0 +1,14 @@
+uuid: f3edd1d4-9bba-4489-98c1-b41c7a2dcd09
+langcode: en
+status: true
+dependencies: {  }
+id: voltage_thin
+label: 'Voltage Thin'
+font_family: voltage
+font_classification:
+  sans-serif: sans-serif
+  serif: '0'
+  slab-serif: '0'
+  handwriting: '0'
+  decorative: '0'
+  monospace: '0'

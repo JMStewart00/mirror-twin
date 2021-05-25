@@ -1,0 +1,14 @@
+uuid: 88cd7022-0dee-4084-a28a-715cab580c7f
+langcode: en
+status: true
+dependencies: {  }
+id: voltage
+label: Voltage
+font_family: voltage
+font_classification:
+  sans-serif: sans-serif
+  serif: '0'
+  slab-serif: '0'
+  handwriting: '0'
+  decorative: '0'
+  monospace: '0'

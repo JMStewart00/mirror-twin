@@ -68,3 +68,6 @@ body.toolbar-fixed .sticky.is-stuck.is-at-top {
     margin-right: 1rem; }
   .node-preview-container select {
     width: auto; }
+
+#edit-comment-body-wrapper {
+  margin: 0 0 0.625rem; }

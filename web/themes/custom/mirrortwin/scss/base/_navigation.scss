@@ -53,11 +53,10 @@ nav.top-bar {
     outline: none;
     color: $white;
     text-decoration: none;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Ruda', sans-serif;
-    font-weight: 700;
+    font-family: 'voltage', sans-serif;
     padding: 0;
+    font-size: rem-calc(24);
 
     &:hover,
     &:focus,

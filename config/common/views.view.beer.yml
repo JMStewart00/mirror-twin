@@ -6,8 +6,11 @@ dependencies:
     - core.entity_view_mode.node.beer_slider
     - core.entity_view_mode.node.teaser
     - node.type.beer
+    - taxonomy.vocabulary.availability
     - taxonomy.vocabulary.mirror_twin_category
   content:
+    - 'taxonomy_term:availability:0b5dfdc0-cc93-42de-a5d3-f04b6309a35c'
+    - 'taxonomy_term:availability:5c0a940c-945a-4883-b509-73f99d7fbc62'
     - 'taxonomy_term:mirror_twin_category:009f003a-0ec8-4704-89bf-090127b5b5d7'
     - 'taxonomy_term:mirror_twin_category:e6d1431e-9a61-4bca-8667-314d0167e96d'
   module:
@@ -405,17 +408,17 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  on_tap_slider:
+  block_3:
     display_plugin: block
-    id: on_tap_slider
-    display_title: 'On Tap Slider'
+    id: block_3
+    display_title: 'Available In Cans Slider'
     position: 1
     display_options:
       display_extenders:
         ajax_history: {  }
         simple_sitemap_display_extender: {  }
       block_category: 'Beer Blocks'
-      block_description: 'On Tap Beers Slider'
+      block_description: 'Canned Beers Slider'
       display_description: ''
       title: 'Currently On Tap'
       defaults:
@@ -425,6 +428,7 @@ display:
         style: false
         row: false
         css_class: false
+        sorts: false
       filters:
         status:
           value: '1'
@@ -451,6 +455,52 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_availability_target_id:
+          id: field_availability_target_id
+          table: node__field_availability
+          field: field_availability_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            - 17
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: availability
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       filter_groups:
         operator: AND
         groups:
@@ -467,11 +517,132 @@ display:
           relationship: none
           view_mode: beer_slider
       css_class: 'c-slider js-slider'
+      sorts: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  on_tap_slider:
+    display_plugin: block
+    id: on_tap_slider
+    display_title: 'On Tap Slider'
+    position: 1
+    display_options:
+      display_extenders:
+        ajax_history: {  }
+        simple_sitemap_display_extender: {  }
+      block_category: 'Beer Blocks'
+      block_description: 'On Tap Beers Slider'
+      display_description: ''
+      title: 'Currently On Tap'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        style: false
+        row: false
+        css_class: false
+        sorts: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            beer: beer
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_availability_target_id:
+          id: field_availability_target_id
+          table: node__field_availability
+          field: field_availability_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            - 18
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: availability
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: beer_slider
+      css_class: 'c-slider js-slider'
+      sorts: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

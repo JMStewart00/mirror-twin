@@ -15,13 +15,14 @@
   &__subheading {
     text-transform: none !important;
     color: get-color(secondary);
+    text-align: center;
+  }
+
+  > h2:first-child() {
+    text-align: center;
   }
 
   @include breakpoint(medium down) {
-    > h2:first-child() {
-      text-align: center;
-    }
-
     .columns {
       margin-bottom: rvr(2);
     }

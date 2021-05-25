@@ -1,0 +1,14 @@
+uuid: f2951abd-a9f7-4f1f-b435-45bea5cd5b93
+langcode: en
+status: true
+dependencies: {  }
+id: voltage_bold
+label: 'Voltage Bold'
+font_family: voltage
+font_classification:
+  sans-serif: sans-serif
+  serif: '0'
+  slab-serif: '0'
+  handwriting: '0'
+  decorative: '0'
+  monospace: '0'

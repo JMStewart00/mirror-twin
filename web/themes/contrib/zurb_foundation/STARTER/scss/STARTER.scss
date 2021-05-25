@@ -59,12 +59,12 @@
 // --- Settings ---
 // This is your _settings.scss file where you can override foundation variables.
 // https://get.foundation/sites/docs/sass.html#the-settings-file
-@import 'settings';
+@import "settings";
 
 // --- Core ---
 // The following imports Zurb Foundation theme.
-@import 'foundation';
-@import 'motion-ui';
+@import "foundation";
+@import "motion-ui";
 
 // --- Components ---
 // If you want all the components, and don't care about
@@ -147,26 +147,26 @@
 
 // --- Base ---
 // Drupal-specific styles copied from base theme. (Required)
-@import 'base/drupal';
+@import "base/drupal";
 // Import your mixins early so they can be used by other partials. (optional)
-// @import 'base/mixins';
-// @import 'base/common';
-// @import 'base/elements';
+// @import "base/mixins";
+// @import "base/common";
+// @import "base/elements";
 
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
-//@import 'layout/header';
-//@import 'layout/main';
-//@import 'layout/aside';
-//@import 'layout/footer';
+//@import "layout/header";
+//@import "layout/main";
+//@import "layout/aside";
+//@import "layout/footer";
 
 // --- Modules ---
-// @import 'modules/block';
-// @import 'modules/button';
+// @import "modules/block";
+// @import "modules/button";
 
 // --- States ---
-// @import 'states/collapse';
+// @import "states/collapse";
 
 // --- Themes ---
-// @import 'theme/button-light';
+// @import "theme/button-light";
