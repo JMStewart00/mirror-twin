@@ -1,0 +1,10 @@
+uuid: 9cb7b137-3cde-4319-a240-f2f83a3e8517
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.featured_beer
+label: 'Featured Beer'
+targetEntityType: media
+cache: true

@@ -2,7 +2,6 @@
   cursor: pointer;
   display: inline-block;
   padding: rvr(0.5) rvr(1);
-  font-family: 'voltage', sans-serif;
   letter-spacing: 3px;
 
   @include hover-focus() {

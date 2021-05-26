@@ -1,24 +1,13 @@
 .c-beer-featured {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
   width: 100%;
-  text-align: center;
+  overflow: hidden;
+
+  @include breakpoint(medium up) {
+    max-height: 450px;
+  }
 
   &__wrapper {
     position: relative;
-    overflow: hidden;
-    margin-top: rvr(2);
-    margin-bottom: rvr(2);
-
-    @include breakpoint(large down) {
-      margin-bottom: rvr(1);
-      margin-top: rvr(1);
-
-      h2 {
-        font-size: rem-calc(20) !important;
-      }
-    }
 
     h2 {
       text-align: center;
@@ -26,8 +15,8 @@
 
     img {
       transition: $project-transition;
+      width: 100%;
     }
-
 
     @include hover-focus() {
       img {
@@ -36,55 +25,16 @@
     }
   }
 
-  &__name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    z-index: 1;
-    position: relative;
-  }
-
-  &__photo-overlay {
-    position: absolute;
-    z-index: 0;
-    width: 220%;
-    left: -60%;
-    top: -60%;
-
-    img {
-      width: 100%;
-      opacity: .2;
-    }
-
-  }
-
-  .c-field-media-image {
-    overflow: hidden;
-  }
-
-  &__released {
+  &__block-label {
+    background-color: $black;
+    box-sizing: border-box;
     color: get-color(warning);
+    left: -8px;
+    margin: 0;
+    position: absolute;
     text-align: center;
-    letter-spacing: 10px;
-    z-index: 1;
-    position: relative;
-    margin-bottom: rvr(1);
-  }
-
-  &__photo {
-    overflow: hidden;
-    z-index: 1;
-    position: relative;
-    margin-bottom: rvr(1);
-
-    .c-field-media-image {
-      display: flex;
-
-      img {
-        width: 200px;
-        margin: auto;
-      }
-    }
+    top: 16px;
+    padding: rem-calc(16) rem-calc(32);
+    z-index: 2;
   }
 }

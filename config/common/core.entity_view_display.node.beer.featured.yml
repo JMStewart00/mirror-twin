@@ -135,8 +135,8 @@ content:
     weight: 102
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: featured_beer
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content

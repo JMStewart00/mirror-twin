@@ -1,0 +1,15 @@
+uuid: 90d03642-0523-49cd-b3d3-ec2891b990d8
+langcode: en
+status: true
+dependencies: {  }
+name: featured_beer_720_x_400
+label: 'Featured Beer (720 x 400)'
+effects:
+  4af1b465-4055-4f63-b3eb-ff765a755f54:
+    uuid: 4af1b465-4055-4f63-b3eb-ff765a755f54
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 400
+      anchor: center-center

@@ -15,7 +15,7 @@
 
 h1,
 .h1 {
-  font-size: rem-calc(56);
+  font-size: rem-calc(80);
   line-height: (46/36);
   font-weight: $global-weight-bold;
   font-family: 'voltage', sans-serif;
@@ -23,7 +23,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: rem-calc(48);
+  font-size: rem-calc(64);
   line-height: (34/24);
   font-weight: $global-weight-semi-bold;
   font-family: 'voltage', sans-serif;
@@ -39,14 +39,18 @@ h3,
 
 h4,
 .h4 {
-  font-size: rem-calc(32);
+  font-size: rem-calc(30);
   line-height: 1.25;
   font-weight: $global-weight-normal;
-  font-family: 'voltage', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }

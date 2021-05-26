@@ -1,24 +1,30 @@
-uuid: b13af85e-98bd-4b9f-a123-9bc155736e5a
+uuid: 192b2aec-ba3b-4055-bd2d-4d691006a3cd
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.featured_beer
     - field.field.media.image.field_media_image
-    - image.style.large
+    - image.style.featured_beer_720_x_400
     - media.type.image
   module:
+    - layout_builder
     - svg_image
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
 _core:
   default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
-id: media.image.default
+id: media.image.featured_beer
 targetEntityType: media
 bundle: image
-mode: default
+mode: featured_beer
 content:
   field_media_image:
     label: visually_hidden
     settings:
-      image_style: large
+      image_style: featured_beer_720_x_400
       image_link: ''
       svg_render_as_image: true
       svg_attributes:
