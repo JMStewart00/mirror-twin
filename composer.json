@@ -145,6 +145,7 @@
         "drupal/media_library_theme_reset": "^1.0",
         "drupal/menu_block": "^1.6",
         "drupal/metatag": "^1.13",
+        "drupal/mimemail": "1.x-dev@dev",
         "drupal/paragraphs": "^1.11",
         "drupal/pathauto": "^1.6",
         "drupal/quick_node_clone": "^1.12",
@@ -262,8 +263,7 @@
                 "Layout builder incorrectly resolves global contexts values when viewing layouts": "https://www.drupal.org/files/issues/2020-06-19/3099968-35.patch",
                 "Break long text strings in layout edit": "https://www.drupal.org/files/issues/2020-08-10/break-long-text-strings-in-layout-3016507-32.patch",
                 "Nested Paragraphs create multiple drag handles": "https://www.drupal.org/files/issues/2019-11-13/claro-nested_paragraphs_multiple_drag_handles-3092181-5.patch",
-                "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch",
-                "Off-canvas style resets are overriding styles (especially SVGs) in Safari and Firefox resulting in display issues": "https://www.drupal.org/files/issues/2019-05-07/off-canvas-style-resets-2958588-13.patch"
+                "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch"
             },
             "drupal/block_class": {
                 "Integration with Drupal core's new Layout Builder": "https://www.drupal.org/files/issues/2019-06-28/block_class-support-layout-builder-2998114-45.patch"

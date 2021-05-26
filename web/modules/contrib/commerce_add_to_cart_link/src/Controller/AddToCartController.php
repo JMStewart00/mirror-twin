@@ -170,7 +170,7 @@ class AddToCartController extends ControllerBase {
       $referer = $request->server->get('HTTP_REFERER');
       $fake_request = Request::create($referer);
       $referer_url = $this->pathValidator->getUrlIfValid($fake_request->getRequestUri());
-      if ($referer_url && $referer_url->isRouted()) {
+      if ($referer_url && $referer_url->isRouted() && $referer_url->getRouteName() !== 'user.login') {
         $referer_url->setAbsolute();
         return new RedirectResponse($referer_url->toString());
       }
