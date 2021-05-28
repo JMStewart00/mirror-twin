@@ -1,12 +1,16 @@
-$marketing-site-hero-height: 65vh;
+$marketing-site-hero-height: 650px;
+$marketing-site-hero-height-max: 850px;
 
 .marketing-site-hero {
   background: top right no-repeat;
   min-height: $marketing-site-hero-height;
+  max-height: $marketing-site-hero-height-max;
   background-size: cover;
   display: flex;
   align-items: center;
-  padding: rvr(3);
+  padding: rvr(4) rvr(3);
+  overflow: hidden;
+  position: relative;
 
   .columns & {
     height: 100%;
@@ -36,6 +40,26 @@ $marketing-site-hero-height: 65vh;
     @include breakpoint(medium up) {
       text-align: center;
       margin: auto;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        right: -10px;
+        width: 150px;
+        height: 250%;
+        background: white;
+        transform-origin: top right;
+        transform: rotate(88deg);
+      }
+
+      &::after {
+        top: 110%;
+      }
+
+      &::before {
+        top: 18px;
+      }
     }
   }
 
