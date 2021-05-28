@@ -7,7 +7,7 @@
   --mm-color-button: #{$black};
   --mm-listitem-size: #{rem-calc(64)};
 
-  top: rem-calc(75) !important;
+  top: rem-calc(60) !important;
 
   // Prevent screen from flashing
   &:not(.mm-menu) {

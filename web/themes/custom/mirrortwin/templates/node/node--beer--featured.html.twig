@@ -77,13 +77,11 @@
   ]
 %}
 
-<div{{attributes.addClass(classes)}}>
+<div class="c-beer-featured__name">{{ label }}</div>
+<a href="{{ url }}">
+  <div{{attributes.addClass(classes)}}>
 		{{ title_prefix }}
 		{{ title_suffix }}
-
-		<div class="c-beer-featured__photo" data-aos="fade-up">
-      <a href="{{ url }}">
-        {{ content.field_preview_image }}
-      </a>
-		</div>
-</div>
+    {{ content.field_preview_image }}
+  </div>
+</a>

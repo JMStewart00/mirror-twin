@@ -3,7 +3,11 @@ nav.top-bar {
   border-bottom: 1px solid white;
   display: flex;
   justify-content: center;
-  padding: rem-calc(16) rem-calc(24);
+  padding: 0 rem-calc(24);
+  margin-top: rvr(2);
+  margin-bottom: rvr(1);
+  border-top: solid 5px $dark-gray;
+  border-bottom: solid 5px $dark-gray;
 
   .top-bar-left,
   .top-bar-right,
@@ -18,7 +22,7 @@ nav.top-bar {
   }
 
   .top-bar-middle {
-    width: 100px;
+    width: 150px;
     position: relative;
   }
 
@@ -36,11 +40,12 @@ nav.top-bar {
     @include breakpoint(medium up) {
       display: block;
       position: absolute;
-      width: 100px;
+      width: 150px;
       z-index: 10;
-      transform: translateY(-28%);
+      transform: translateY(-50%);
       background-color: $black;
       border-radius: 50%;
+      border: solid 5px $dark-gray;
       margin: 0;
     }
   }
