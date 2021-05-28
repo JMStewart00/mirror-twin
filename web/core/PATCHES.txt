@@ -45,7 +45,3 @@ Views file name suggestions often missing from Twig debugging
 Source: https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch
 
 
-Off-canvas style resets are overriding styles (especially SVGs) in Safari and Firefox resulting in display issues
-Source: https://www.drupal.org/files/issues/2019-05-07/off-canvas-style-resets-2958588-13.patch
-
-
