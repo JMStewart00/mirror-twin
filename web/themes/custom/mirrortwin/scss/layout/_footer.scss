@@ -1,6 +1,24 @@
 footer {
   padding: 40px 0;
   margin-top: rvr(2);
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    /* fill vertically */
+    top: 0;
+    bottom: 0;
+    width: 9600px;
+    right: 100%;
+    background: $dark-gray;
+  }
+
+  &:after {
+    width: 320px;
+    left: 100%;
+  }
 
   .site-logo img {
     width: rem-calc(250);
@@ -49,5 +67,26 @@ footer {
     svg {
       color: $medium-gray;
     }
+  }
+}
+
+.copyright {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    /* fill vertically */
+    top: 0;
+    bottom: 0;
+    width: 9600px;
+    right: 100%;
+    background: $black;
+  }
+
+  &:after {
+    width: 320px;
+    left: 100%;
   }
 }

@@ -4,8 +4,7 @@ nav.top-bar {
   display: flex;
   justify-content: center;
   padding: 0 rem-calc(24);
-  margin-top: rvr(2);
-  margin-bottom: rvr(1);
+  margin: rvr(2) -9999rem rvr(1);
   border-top: solid 5px $dark-gray;
   border-bottom: solid 5px $dark-gray;
 
@@ -59,9 +58,11 @@ nav.top-bar {
     color: $white;
     text-decoration: none;
     letter-spacing: 1px;
-    font-family: 'voltage', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
     padding: 0;
-    font-size: rem-calc(24);
+    font-size: rem-calc(18);
 
     &:hover,
     &:focus,
