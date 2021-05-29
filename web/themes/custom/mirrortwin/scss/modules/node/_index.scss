@@ -1,2 +1,21 @@
 @import 'beer/index';
 @import 'cocktails/index';
+
+.c-cocktails-teaser,
+.c-slushee-teaser {
+  &__title {
+    @include breakpoint(medium up) {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__price {
+    @include breakpoint(medium up) {
+      font-size: rem-calc(20);
+      font-weight: 600;
+    }
+  }
+}
