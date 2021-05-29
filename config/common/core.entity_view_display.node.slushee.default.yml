@@ -1,51 +1,47 @@
-uuid: 52bb5909-d775-483a-be85-d8e14e15f7fe
+uuid: 8d06f67a-c1dc-42ca-9229-35196dd0290d
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - field.field.node.cocktail.body
-    - field.field.node.cocktail.field_ingredients
-    - field.field.node.cocktail.field_preview_image
-    - field.field.node.cocktail.field_price
-    - node.type.cocktail
+    - field.field.node.slushee.body
+    - field.field.node.slushee.field_ingredients
+    - field.field.node.slushee.field_preview_image
+    - field.field.node.slushee.field_price
+    - node.type.slushee
   module:
     - text
     - user
-id: node.cocktail.teaser
+id: node.slushee.default
 targetEntityType: node
-bundle: cocktail
-mode: teaser
+bundle: slushee
+mode: default
 content:
   body:
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 1
-    settings:
-      trim_length: 600
+    type: text_default
+    weight: 101
+    settings: {  }
     third_party_settings: {  }
     region: content
   field_ingredients:
-    type: string
-    weight: 4
-    region: content
+    weight: 102
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_preview_image:
-    type: entity_reference_entity_view
-    weight: 2
+    type: string
     region: content
+  field_preview_image:
+    weight: 104
     label: hidden
     settings:
-      link: true
       view_mode: default
+      link: false
     third_party_settings: {  }
-  field_price:
-    type: number_decimal
-    weight: 3
+    type: entity_reference_entity_view
     region: content
+  field_price:
+    weight: 103
     label: hidden
     settings:
       thousand_separator: ''
@@ -53,8 +49,10 @@ content:
       scale: 0
       prefix_suffix: true
     third_party_settings: {  }
+    type: number_decimal
+    region: content
   links:
-    weight: 0
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }

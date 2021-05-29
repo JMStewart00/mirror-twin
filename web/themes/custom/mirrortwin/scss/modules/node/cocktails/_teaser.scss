@@ -1,0 +1,43 @@
+.c-cocktail-teaser {
+  display: flex;
+  margin-bottom: rvr(1);
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  padding: rem-calc(16);
+
+  @include breakpoint(small down) {
+    margin: rvr(1) auto;
+  }
+
+  &__photo {
+    overflow: hidden;
+    margin-bottom: rvr(1);
+
+    .c-field-media-image {
+      display: flex;
+
+      img {
+        width: 300px;
+        margin: auto;
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(28) !important;
+    font-weight: $global-weight-bold;
+    margin-bottom: 0px !important;
+  }
+
+  * {
+    transition: all .2s ease-in-out;
+  }
+
+  @include hover-focus() {
+    img {
+      transform: scale(1.1);
+    }
+  }
+}

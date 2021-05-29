@@ -1,0 +1,19 @@
+uuid: 1f6a135d-f202-4748-8050-3f14e4db4c20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ingredients
+    - node.type.slushee
+id: node.slushee.field_ingredients
+field_name: field_ingredients
+entity_type: node
+bundle: slushee
+label: Ingredients
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,28 @@
+uuid: b5c8fa0a-ed5a-4fd8-b8d4-f00f0944042c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_preview_image
+    - media.type.image
+    - node.type.slushee
+id: node.slushee.field_preview_image
+field_name: field_preview_image
+entity_type: node
+bundle: slushee
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

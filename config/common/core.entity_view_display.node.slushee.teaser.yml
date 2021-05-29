@@ -1,20 +1,20 @@
-uuid: 52bb5909-d775-483a-be85-d8e14e15f7fe
+uuid: ef529172-c9e1-4c8a-bfd8-b59c0a0ab711
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.cocktail.body
-    - field.field.node.cocktail.field_ingredients
-    - field.field.node.cocktail.field_preview_image
-    - field.field.node.cocktail.field_price
-    - node.type.cocktail
+    - field.field.node.slushee.body
+    - field.field.node.slushee.field_ingredients
+    - field.field.node.slushee.field_preview_image
+    - field.field.node.slushee.field_price
+    - node.type.slushee
   module:
     - text
     - user
-id: node.cocktail.teaser
+id: node.slushee.teaser
 targetEntityType: node
-bundle: cocktail
+bundle: slushee
 mode: teaser
 content:
   body:
