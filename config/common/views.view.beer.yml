@@ -410,14 +410,14 @@ display:
   block_3:
     display_plugin: block
     id: block_3
-    display_title: 'Available In Cans Slider'
+    display_title: 'Available In Cans'
     position: 1
     display_options:
       display_extenders:
         ajax_history: {  }
         simple_sitemap_display_extender: {  }
       block_category: 'Beer Blocks'
-      block_description: 'Canned Beers Slider'
+      block_description: 'Canned Beers'
       display_description: ''
       title: 'Currently On Tap'
       defaults:
@@ -543,14 +543,14 @@ display:
   on_tap_slider:
     display_plugin: block
     id: on_tap_slider
-    display_title: 'On Tap Slider'
+    display_title: 'On Tap'
     position: 1
     display_options:
       display_extenders:
         ajax_history: {  }
         simple_sitemap_display_extender: {  }
       block_category: 'Beer Blocks'
-      block_description: 'On Tap Beers Slider'
+      block_description: 'On Tap Beers'
       display_description: ''
       title: 'Currently On Tap'
       defaults:
