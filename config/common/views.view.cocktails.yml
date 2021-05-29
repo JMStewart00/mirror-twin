@@ -3,19 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.beer_slider
+    - core.entity_view_mode.node.featured
     - core.entity_view_mode.node.teaser
     - node.type.beer
     - node.type.cocktail
-    - taxonomy.vocabulary.availability
-    - taxonomy.vocabulary.mirror_twin_category
-  content:
-    - 'taxonomy_term:availability:0b5dfdc0-cc93-42de-a5d3-f04b6309a35c'
-    - 'taxonomy_term:availability:5c0a940c-945a-4883-b509-73f99d7fbc62'
-    - 'taxonomy_term:mirror_twin_category:009f003a-0ec8-4704-89bf-090127b5b5d7'
   module:
+    - datetime
     - node
-    - taxonomy
     - user
 id: cocktails
 label: Cocktails
@@ -59,7 +53,6 @@ display:
       pager:
         type: none
         options:
-          items_per_page: null
           offset: 0
       style:
         type: default
@@ -281,6 +274,140 @@ display:
         operator: AND
         groups:
           1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Featured Cocktails'
+    position: 1
+    display_options:
+      display_extenders:
+        ajax_history: {  }
+        simple_sitemap_display_extender: {  }
+      block_category: 'Cocktails Blocks'
+      block_description: 'Featured Cocktail'
+      display_description: ''
+      title: Flagship
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        sorts: false
+        style: false
+        row: false
+        pager: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            cocktail: cocktail
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      sorts:
+        field_release_date_value:
+          id: field_release_date_value
+          table: node__field_release_date
+          field: field_release_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: day
+          plugin_id: datetime
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: day
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: featured
+      pager:
+        type: some
+        options:
+          items_per_page: 1
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:

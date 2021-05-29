@@ -1,8 +1,9 @@
-uuid: d5fb1a58-87b4-4500-86aa-cb45dfea31d2
+uuid: 4e58cebd-adfc-4074-8343-6c86a0ba0f4c
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.featured
     - field.field.node.cocktail.body
     - field.field.node.cocktail.field_ingredients
     - field.field.node.cocktail.field_preview_image
@@ -10,13 +11,17 @@ dependencies:
     - field.field.node.cocktail.field_release_date
     - node.type.cocktail
   module:
-    - datetime
+    - layout_builder
     - text
     - user
-id: node.cocktail.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.cocktail.featured
 targetEntityType: node
 bundle: cocktail
-mode: default
+mode: featured
 content:
   body:
     label: hidden
@@ -37,7 +42,7 @@ content:
     weight: 104
     label: hidden
     settings:
-      view_mode: featured_beer
+      view_mode: featured_cocktail
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -53,18 +58,10 @@ content:
     third_party_settings: {  }
     type: number_decimal
     region: content
-  field_release_date:
-    weight: 105
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   links:
     weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_release_date: true

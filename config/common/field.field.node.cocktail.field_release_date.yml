@@ -1,0 +1,21 @@
+uuid: ade0cdaa-4e4f-4566-b96a-d213ea5f8342
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_date
+    - node.type.cocktail
+  module:
+    - datetime
+id: node.cocktail.field_release_date
+field_name: field_release_date
+entity_type: node
+bundle: cocktail
+label: 'Featured Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

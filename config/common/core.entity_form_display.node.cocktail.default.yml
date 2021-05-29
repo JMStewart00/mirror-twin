@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.cocktail.field_ingredients
     - field.field.node.cocktail.field_preview_image
     - field.field.node.cocktail.field_price
+    - field.field.node.cocktail.field_release_date
     - node.type.cocktail
   module:
+    - datetime
     - field_layout
     - layout_discovery
     - media_library
@@ -61,6 +63,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_release_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   path:
     type: path

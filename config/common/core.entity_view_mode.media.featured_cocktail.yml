@@ -1,0 +1,10 @@
+uuid: a836a4b5-6df8-4352-9943-294e03b6d1e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.featured_cocktail
+label: 'Featured Cocktail'
+targetEntityType: media
+cache: true

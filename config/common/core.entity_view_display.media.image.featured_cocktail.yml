@@ -1,23 +1,30 @@
-uuid: b13af85e-98bd-4b9f-a123-9bc155736e5a
+uuid: 4c9ac8a7-f573-4e61-93b3-f8a541993942
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.featured_cocktail
     - field.field.media.image.field_media_image
+    - image.style.large_square
     - media.type.image
   module:
+    - layout_builder
     - svg_image
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
 _core:
   default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
-id: media.image.default
+id: media.image.featured_cocktail
 targetEntityType: media
 bundle: image
-mode: default
+mode: featured_cocktail
 content:
   field_media_image:
     label: visually_hidden
     settings:
-      image_style: ''
+      image_style: large_square
       image_link: ''
       svg_render_as_image: true
       svg_attributes:
