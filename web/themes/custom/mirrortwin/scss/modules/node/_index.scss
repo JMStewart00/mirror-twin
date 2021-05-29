@@ -3,17 +3,13 @@
 
 .c-cocktails-teaser,
 .c-slushee-teaser {
-  &__title {
-    @include breakpoint(medium up) {
-      height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   &__price {
-    font-size: rem-calc(20);
+    font-size: rem-calc(24);
     font-weight: 600;
   }
 }
