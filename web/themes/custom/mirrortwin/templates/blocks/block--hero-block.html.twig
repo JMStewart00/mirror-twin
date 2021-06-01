@@ -39,10 +39,12 @@
   {{ title_suffix }}
   <div class="marketing-site-hero-content {{'marketing-site-hero-content--' ~ content.field_text_position.0['#markup']}}">
     {% if content.body|render %}
-      {{ content.body }}
+      <div class="u-vr__mb--1">
+        {{ content.body }}
+      </div>
     {% endif %}
     {% if content.field_link.0 %}
-      <a href="{{ content.field_link.0['#url'] }}" title="{{ content.field_link.0['#title'] }}" class="o-btn o-btn--primary o-btn--large draw-border u-vr__mt--1" data-aos="fade-up">
+      <a href="{{ content.field_link.0['#url'] }}" title="{{ content.field_link.0['#title'] }}" class="o-btn o-btn--primary o-btn--large draw-border" data-aos="fade-up">
         {{ content.field_link.0['#title'] }}
       </a>
     {% endif %}

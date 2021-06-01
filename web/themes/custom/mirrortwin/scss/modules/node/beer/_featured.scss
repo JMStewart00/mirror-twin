@@ -35,6 +35,15 @@
 
     img {
       transition: .35s all ease;
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+    }
+
+    .h3 {
+      line-height: rem-calc(32);
     }
   }
 
@@ -64,9 +73,16 @@
     text-transform: uppercase;
     font-size: rem-calc(20);
     top: 65%;
+    line-height: rem-calc(24);
 
     @include breakpoint(medium up) {
       top: 55%;
+    }
+
+    .c-view-can-drop-latest & {
+      @include breakpoint(medium down) {
+        top: 55%;
+      }
     }
   }
 }
