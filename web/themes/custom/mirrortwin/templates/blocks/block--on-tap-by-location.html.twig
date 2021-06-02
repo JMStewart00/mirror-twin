@@ -1,0 +1,5 @@
+{% extends "block--layout-builder.html.twig" %}
+
+{% block content %}
+  {{ drupal_view('beer', 'on_tap_by_locations', content.field_on_tap_location.0['#plain_text']) }}
+{% endblock %}

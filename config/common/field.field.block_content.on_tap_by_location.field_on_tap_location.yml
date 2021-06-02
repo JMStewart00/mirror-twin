@@ -1,0 +1,29 @@
+uuid: 8665fb50-eeb8-4e9c-a4cb-c92d8723fbc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.on_tap_by_location
+    - field.storage.block_content.field_on_tap_location
+    - taxonomy.vocabulary.on_tap_locations
+id: block_content.on_tap_by_location.field_on_tap_location
+field_name: field_on_tap_location
+entity_type: block_content
+bundle: on_tap_by_location
+label: 'On Tap Location'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      on_tap_locations: on_tap_locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

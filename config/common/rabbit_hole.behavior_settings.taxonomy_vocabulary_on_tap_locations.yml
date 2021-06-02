@@ -1,0 +1,14 @@
+uuid: e0e2e231-5a11-45bd-8b0b-b328c9dd8599
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.on_tap_locations
+id: taxonomy_vocabulary_on_tap_locations
+entity_type_id: taxonomy_vocabulary
+entity_id: on_tap_locations
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

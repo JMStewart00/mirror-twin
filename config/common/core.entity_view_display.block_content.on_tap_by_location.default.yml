@@ -1,0 +1,20 @@
+uuid: b010b480-5840-444f-9d1f-2ec352b06745
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.on_tap_by_location
+    - field.field.block_content.on_tap_by_location.field_on_tap_location
+id: block_content.on_tap_by_location.default
+targetEntityType: block_content
+bundle: on_tap_by_location
+mode: default
+content:
+  field_on_tap_location:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+    region: content
+hidden: {  }

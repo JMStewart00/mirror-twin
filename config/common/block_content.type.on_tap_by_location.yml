@@ -1,0 +1,8 @@
+uuid: bddecfc6-168c-4f8b-a41a-7f8cd7d3cf80
+langcode: en
+status: true
+dependencies: {  }
+id: on_tap_by_location
+label: 'On Tap By Location'
+revision: 0
+description: 'Block of beers separated by the location it''s available.'

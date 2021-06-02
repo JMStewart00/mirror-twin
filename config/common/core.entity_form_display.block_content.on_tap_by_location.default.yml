@@ -1,0 +1,32 @@
+uuid: ef6c83e5-191e-4f63-a110-a5be36e0671b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.on_tap_by_location
+    - field.field.block_content.on_tap_by_location.field_on_tap_location
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: block_content.on_tap_by_location.default
+targetEntityType: block_content
+bundle: on_tap_by_location
+mode: default
+content:
+  field_on_tap_location:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  info: true
