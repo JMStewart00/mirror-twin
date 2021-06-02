@@ -45,9 +45,9 @@ $marketing-site-hero-height-max: 850px;
       &::after {
         content: '';
         position: absolute;
-        right: -10px;
+        right: -100px;
         width: 150px;
-        height: 250%;
+        height: 5000px;
         background: white;
         transform-origin: top right;
         transform: rotate(88deg);
