@@ -46,10 +46,18 @@
 
     {% if heading %} {# if the heading is filled in and there #}
       <h2{{ title_attributes.addClass('c-block__title', 'h1') }}>{{ heading }}</h2>
-    {% elseif label %} {# If "Display Title" is checked display the label  #}
-      <h2>{{ label }}</h2>
+      <div class="icon-divider">
+        <span class="icon">
+          {{ source(directory ~ '/images/hops.svg') }}
+        </span>
+        <span class="icon">
+          {{ source(directory ~ '/images/hops.svg') }}
+        </span>
+        <span class="icon">
+          {{ source(directory ~ '/images/hops.svg') }}
+        </span>
+      </div>
     {% endif %}
-
   {% endblock %}
   {{ title_suffix }}
 
