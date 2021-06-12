@@ -1,0 +1,10 @@
+uuid: 6e602a18-3a04-4f2f-9ba7-742041ef16a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.team_member_square
+label: 'Team Member Square (400 x 400)'
+targetEntityType: media
+cache: true

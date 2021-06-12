@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.on_tap
     - core.entity_view_mode.node.teaser
     - node.type.beer
     - taxonomy.vocabulary.availability
@@ -648,7 +649,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: on_tap
       css_class: ''
       sorts:
         title:

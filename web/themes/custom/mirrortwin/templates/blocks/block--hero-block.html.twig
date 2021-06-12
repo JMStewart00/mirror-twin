@@ -21,7 +21,7 @@
   {% if background_bundle == 'image' %}
     {% set image_background = TRUE %}
     {% set background_url = file_url(content.field_background_image[0]['#media'].field_media_image.entity.uri.value) %}
-    {% set background_style = content.body|render ? "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" ~ background_url ~ ")" : "background-image: url(" ~ background_url ~ ")" %}
+    {% set background_style = content.body|render ? "background-image: url(" ~ background_url ~ ")" : "background-image: url(" ~ background_url ~ ")" %}
   {% elseif background_bundle == 'video' %}
     {% set video_background = TRUE %}
     {% set background_url = file_url(content.field_background_image[0]['#media'].field_media_video_file.entity.uri.value) %}

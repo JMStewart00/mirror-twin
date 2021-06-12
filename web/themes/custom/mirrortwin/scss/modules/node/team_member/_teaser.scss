@@ -1,0 +1,14 @@
+.c-team-member-teaser {
+  text-align: center;
+  padding: rvr(1) rvr(0.5);
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: get-color(secondary);
+  }
+}

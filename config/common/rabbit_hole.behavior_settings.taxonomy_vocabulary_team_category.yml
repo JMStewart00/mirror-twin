@@ -1,0 +1,14 @@
+uuid: 767ea46b-d108-4baa-a625-864c8fa354bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.team_category
+id: taxonomy_vocabulary_team_category
+entity_type_id: taxonomy_vocabulary
+entity_id: team_category
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

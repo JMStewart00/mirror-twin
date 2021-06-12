@@ -1,8 +1,8 @@
 status: 1
-pattern: '[node.field_first_name.value] [node.field_last_name.value]'
+pattern: '[node:field_first_name:value] [node:field_last_name:value]'
 escape: false
 preserve_titles: false
-save: 0
+save: 1
 chunk: '50'
 dependencies:
   config:

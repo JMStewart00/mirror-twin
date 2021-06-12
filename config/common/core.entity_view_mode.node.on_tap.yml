@@ -1,0 +1,10 @@
+uuid: 8cd7aeb0-a892-44ca-8519-ee6383d63989
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.on_tap
+label: 'On Tap'
+targetEntityType: node
+cache: true

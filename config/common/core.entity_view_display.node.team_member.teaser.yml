@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.team_member.body
     - field.field.node.team_member.field_first_name
     - field.field.node.team_member.field_headshot
     - field.field.node.team_member.field_last_name
@@ -17,14 +18,26 @@ targetEntityType: node
 bundle: team_member
 mode: teaser
 content:
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+  field_headshot:
+    type: entity_reference_entity_view
+    weight: 1
     region: content
+    label: hidden
+    settings:
+      view_mode: team_member_square
+      link: false
+    third_party_settings: {  }
+  field_professional_title:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
+  body: true
   field_first_name: true
-  field_headshot: true
   field_last_name: true
-  field_professional_title: true
   field_sort_weight: true
+  links: true

@@ -1,0 +1,8 @@
+uuid: bb114835-23d7-457c-9c43-7c1f5797bf28
+langcode: en
+status: true
+dependencies: {  }
+name: 'Team Category'
+vid: team_category
+description: ''
+weight: 0

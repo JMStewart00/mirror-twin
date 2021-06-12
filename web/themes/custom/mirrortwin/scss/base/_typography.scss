@@ -15,26 +15,38 @@
 
 h1,
 .h1 {
-  font-size: rem-calc(72);
+  font-size: rem-calc(50);
   line-height: (46/36);
   font-weight: $global-weight-bold;
   font-family: 'voltage', sans-serif;
+
+  @include breakpoint(medium up) {
+    font-size: rem-calc(72);
+  }
 }
 
 h2,
 .h2 {
-  font-size: rem-calc(64);
+  font-size: rem-calc(40);
   line-height: (34/24);
   font-weight: $global-weight-semi-bold;
   font-family: 'voltage', sans-serif;
+
+  @include breakpoint(medium up) {
+    font-size: rem-calc(64);
+  }
 }
 
 h3,
 .h3 {
-  font-size: rem-calc(40);
+  font-size: rem-calc(32);
   line-height: 1.25;
   font-weight: $global-weight-semi-bold;
   font-family: 'voltage', sans-serif;
+
+  @include breakpoint(medium up) {
+    font-size: rem-calc(40);
+  }
 }
 
 h4,

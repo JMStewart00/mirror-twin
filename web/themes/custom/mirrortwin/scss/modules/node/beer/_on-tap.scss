@@ -1,0 +1,30 @@
+.c-beer-on-tap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 1.5rem;
+  align-content: center;
+  text-align: center;
+
+  @include breakpoint(medium up) {
+    width: 600px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__label {
+    font-weight: $global-weight-bold;
+  }
+
+  &__style {
+    @include breakpoint(medium up) {
+      margin-left: rvr(1);
+    }
+  }
+
+  &__abv {
+    @include breakpoint(medium up) {
+      margin-left: rvr(1);
+    }
+  }
+}

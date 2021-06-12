@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.team_member.body
     - field.field.node.team_member.field_first_name
     - field.field.node.team_member.field_headshot
     - field.field.node.team_member.field_last_name
@@ -14,6 +15,7 @@ dependencies:
     - layout_discovery
     - media_library
     - path
+    - text
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -24,6 +26,16 @@ targetEntityType: node
 bundle: team_member
 mode: default
 content:
+  body:
+    weight: 127
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
   created:
     type: datetime_timestamp
     weight: 10
