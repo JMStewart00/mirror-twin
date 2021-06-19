@@ -1,38 +1,48 @@
 .columns-2 {
   &--left {
+    padding-right: rvr(2);
+    padding-left: rvr(2);
     @include breakpoint(large up) {
-      padding-right: rvr(1.5) !important;
-      padding-left: rvr(3) !important;
+      padding-right: rvr(1) !important;
+      padding-left: rvr(2) !important;
     }
   }
 
   &--right {
+    padding-right: rvr(2);
+    padding-left: rvr(2);
     @include breakpoint(large up) {
-      padding-left: rvr(1.5) !important;
-      padding-right: rvr(3) !important;
+      padding-left: rvr(1) !important;
+      padding-right: rvr(2) !important;
     }
   }
 }
 
 .columns-3 {
   &--left {
+    padding-right: rvr(2);
+    padding-left: rvr(2);
     @include breakpoint(large up) {
-      padding-right: rvr(1.5) !important;
-      padding-left: rvr(3) !important;
+      padding-right: rvr(1) !important;
+      padding-left: rvr(2) !important;
     }
   }
 
   &--middle {
+    padding-right: rvr(2);
+    padding-left: rvr(2);
     @include breakpoint(large up) {
-      padding-right: rvr(1.5) !important;
-      padding-left: rvr(1.5) !important;
+      padding-right: rvr(1) !important;
+      padding-left: rvr(1) !important;
     }
   }
 
   &--right {
+    padding-right: rvr(2);
+    padding-left: rvr(2);
     @include breakpoint(large up) {
-      padding-left: rvr(1.5) !important;
-      padding-right: rvr(3) !important;
+      padding-left: rvr(1) !important;
+      padding-right: rvr(2) !important;
     }
   }
 }
