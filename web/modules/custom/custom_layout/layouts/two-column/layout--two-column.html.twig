@@ -6,13 +6,13 @@
     <div class="row large-unstack {{ background_class }}">
   {% endif %}
       {% if content.first %}
-        <div {{ region_attributes.first.addClass('columns') }}>
+        <div {{ region_attributes.first.addClass('columns columns-2--left') }}>
           {{ content.first }}
         </div>
       {% endif %}
 
       {% if content.second %}
-        <div {{ region_attributes.second.addClass('columns') }}>
+        <div {{ region_attributes.second.addClass('columns columns-2--right') }}>
           {{ content.second }}
         </div>
       {% endif %}

@@ -1,0 +1,8 @@
+uuid: a11d051b-b638-4e80-bb37-84964705ba5c
+langcode: en
+status: true
+dependencies: {  }
+id: banner_promo
+label: 'Banner Promo'
+revision: 0
+description: ''

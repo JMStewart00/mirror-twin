@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '05eca99cd02fb82c041ae8008aaea8e52e4c3646',
+    'reference' => '70dde65a3c626652757bb05d7411463f4fa91a8f',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -189,12 +189,12 @@
     ),
     'cweagans/composer-patches' => 
     array (
-      'pretty_version' => '1.7.0',
-      'version' => '1.7.0.0',
+      'pretty_version' => '1.7.1',
+      'version' => '1.7.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ae02121445ad75f4eaff800cc532b5e6233e2ddf',
+      'reference' => '9888dcc74993c030b75f3dd548bb5e20cdbd740c',
     ),
     'dflydev/dot-access-data' => 
     array (
@@ -261,12 +261,12 @@
     ),
     'drupal-ckeditor-libraries-group/font' => 
     array (
-      'pretty_version' => '4.16.0',
-      'version' => '4.16.0.0',
+      'pretty_version' => '4.16.1',
+      'version' => '4.16.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b7761af6f97f08bf632450ba8fc0510782fb7564',
+      'reference' => 'b805d4ce394eab9d605358321d35e4fc8d5a15be',
     ),
     'drupal/action' => 
     array (
@@ -797,12 +797,12 @@
     ),
     'drupal/ctools' => 
     array (
-      'pretty_version' => '3.6.0',
-      'version' => '3.6.0.0',
+      'pretty_version' => '3.7.0',
+      'version' => '3.7.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-3.6',
+      'reference' => '8.x-3.7',
     ),
     'drupal/datetime' => 
     array (
@@ -955,12 +955,12 @@
     ),
     'drupal/fontawesome' => 
     array (
-      'pretty_version' => '2.18.0',
-      'version' => '2.18.0.0',
+      'pretty_version' => '2.19.0',
+      'version' => '2.19.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-2.18',
+      'reference' => '8.x-2.19',
     ),
     'drupal/fontyourface' => 
     array (
@@ -1490,12 +1490,12 @@
     ),
     'drupal/state_machine' => 
     array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
+      'pretty_version' => '1.2.0',
+      'version' => '1.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-1.0',
+      'reference' => '8.x-1.2',
     ),
     'drupal/statistics' => 
     array (
@@ -1596,12 +1596,12 @@
     ),
     'drupal/upgrade_status' => 
     array (
-      'pretty_version' => '3.5.0',
-      'version' => '3.5.0.0',
+      'pretty_version' => '3.6.0',
+      'version' => '3.6.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-3.5',
+      'reference' => '8.x-3.6',
     ),
     'drupal/user' => 
     array (
@@ -1638,12 +1638,12 @@
     ),
     'drupal/views_ajax_history' => 
     array (
-      'pretty_version' => '1.5.0',
-      'version' => '1.5.0.0',
+      'pretty_version' => '1.6.0',
+      'version' => '1.6.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-1.5',
+      'reference' => '8.x-1.6',
     ),
     'drupal/views_ui' => 
     array (
@@ -1978,7 +1978,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '05eca99cd02fb82c041ae8008aaea8e52e4c3646',
+      'reference' => '70dde65a3c626652757bb05d7411463f4fa91a8f',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (
@@ -2036,21 +2036,21 @@
     ),
     'phpmailer/phpmailer' => 
     array (
-      'pretty_version' => 'v6.4.1',
-      'version' => '6.4.1.0',
+      'pretty_version' => 'v6.5.0',
+      'version' => '6.5.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
+      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
     'phpstan/phpstan' => 
     array (
-      'pretty_version' => '0.12.88',
-      'version' => '0.12.88.0',
+      'pretty_version' => '0.12.90',
+      'version' => '0.12.90.0',
       'aliases' => 
       array (
       ),
-      'reference' => '464d1a81af49409c41074aa6640ed0c4cbd9bb68',
+      'reference' => 'f0e4b56630fc3d4eb5be86606d07212ac212ede4',
     ),
     'phpstan/phpstan-deprecation-rules' => 
     array (
@@ -2223,21 +2223,21 @@
     ),
     'symfony/filesystem' => 
     array (
-      'pretty_version' => 'v4.4.22',
-      'version' => '4.4.22.0',
+      'pretty_version' => 'v4.4.25',
+      'version' => '4.4.25.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f0f06656a18304cdeacb2c4c0113a2b78a2b4c2a',
+      'reference' => '2d926ebd76f52352deb3c9577d8c1d4b96eae429',
     ),
     'symfony/finder' => 
     array (
-      'pretty_version' => 'v4.4.24',
-      'version' => '4.4.24.0',
+      'pretty_version' => 'v4.4.25',
+      'version' => '4.4.25.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a96bc19ed87c88eec78e1a4c803bdc1446952983',
+      'reference' => 'ed33314396d968a8936c95f5bd1b88bd3b3e94a3',
     ),
     'symfony/http-foundation' => 
     array (
@@ -2394,12 +2394,12 @@
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v4.4.22',
-      'version' => '4.4.22.0',
+      'pretty_version' => 'v4.4.25',
+      'version' => '4.4.25.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c194bcedde6295f3ec3e9eba1f5d484ea97c41a7',
+      'reference' => '31ea689a8e7d2410016b0d25fc15a1ba05a6e2e0',
     ),
     'symfony/yaml' => 
     array (

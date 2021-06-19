@@ -1,0 +1,22 @@
+uuid: a825b977-b99a-4074-8735-9015f31f9b66
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_component
+    - field.field.block_content.image_component.field_image
+id: block_content.image_component.default
+targetEntityType: block_content
+bundle: image_component
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -10,16 +10,7 @@
   }
 }
 
-.c-views-blocklatest-mirror-monday-block-1 {
-  @include breakpoint(large up) {
-    padding-right: rvr(1.5) !important;
-    padding-left: rvr(3) !important;
-  }
-}
-
+.c-views-blocklatest-mirror-monday-block-1,
 .c-views-blockcan-drop-latest-block-1 {
-  @include breakpoint(large up) {
-    padding-left: rvr(1.5) !important;
-    padding-right: rvr(3) !important;
-  }
+  padding: 0;
 }

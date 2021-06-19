@@ -163,12 +163,14 @@
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
+@import 'layout/columns';
 @import 'layout/footer';
 @import 'layout/grid';
 @import 'layout/mobile';
 
 // --- Modules ---
 @import 'modules/alert';
+@import 'modules/banner';
 @import 'modules/block';
 @import 'modules/hero';
 @import 'modules/modal';
@@ -187,4 +189,15 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.block-mirrortwin-help {
+  margin-top: rvr(3);
+  text-align: center;
+}
+
+.block-mirrortwin-content {
+  #edit-actions {
+    text-align: center;
+  }
 }

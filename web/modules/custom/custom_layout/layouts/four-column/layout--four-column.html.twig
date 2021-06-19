@@ -5,16 +5,16 @@
     <div class="row medium-unstack {{ background_class }}">
   {% endif %}
 
-    <div {{ region_attributes.first.addClass('columns') }}>
+    <div {{ region_attributes.first.addClass('columns columns-4--left') }}>
       {{ content.first }}
     </div>
-    <div {{ region_attributes.second.addClass('columns') }}>
+    <div {{ region_attributes.second.addClass('columns columns-4--middle-left') }}>
       {{ content.second }}
     </div>
-    <div {{ region_attributes.third.addClass('columns') }}>
+    <div {{ region_attributes.third.addClass('columns columns-4--middle-right') }}>
       {{ content.third }}
     </div>
-    <div {{ region_attributes.fourth.addClass('columns') }}>
+    <div {{ region_attributes.fourth.addClass('columns columns-4--right') }}>
       {{ content.fourth }}
     </div>
 

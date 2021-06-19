@@ -1,0 +1,37 @@
+uuid: fa385a6e-43fb-43cf-a111-1da9ced578ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_promo
+    - field.field.block_content.banner_promo.field_background_image
+    - field.field.block_content.banner_promo.field_link
+  module:
+    - link
+id: block_content.banner_promo.default
+targetEntityType: block_content
+bundle: banner_promo
+mode: default
+content:
+  field_background_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

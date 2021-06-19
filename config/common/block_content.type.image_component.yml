@@ -1,0 +1,8 @@
+uuid: 6e3230dc-8515-4553-9ff0-0292eb3d9ee6
+langcode: en
+status: true
+dependencies: {  }
+id: image_component
+label: 'Image Component'
+revision: 0
+description: 'Add a standalone image. Typical for two column setups'

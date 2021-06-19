@@ -1,0 +1,23 @@
+uuid: 84b29e29-0c2d-47ce-8a44-a90a7e818266
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_promo
+    - field.storage.block_content.field_link
+  module:
+    - link
+id: block_content.banner_promo.field_link
+field_name: field_link
+entity_type: block_content
+bundle: banner_promo
+label: Link
+description: 'If this is filled out, the banner image will link to the page. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

@@ -27,7 +27,30 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
-      whitelisted_blocks: {  }
+      whitelisted_blocks:
+        'Chaos Tools': {  }
+        Commerce: {  }
+        'Content fields': {  }
+        'Custom block types':
+          - banner_promo
+          - basic
+          - hero_block
+          - image_component
+          - on_tap_by_location
+        Devel: {  }
+        Forms: {  }
+        Help: {  }
+        'Lists (Views)':
+          - 'views_block:bloody_marys-block_1'
+          - 'views_block:spirits_anchor_bar-block_1'
+        Menus: {  }
+        'Mirror Twin Custom Blocks': {  }
+        'Mirror Twin Menu': {  }
+        Simplenews: {  }
+        System: {  }
+        User: {  }
+        Webform: {  }
+        core: {  }
       blacklisted_blocks: {  }
       allowed_layouts: {  }
 _core:
