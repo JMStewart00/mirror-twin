@@ -11,6 +11,7 @@
   @include breakpoint(medium up) {
     flex-direction: row;
     justify-content: center;
+    margin-bottom: rvr(0.5);
   }
 
   &__label {
