@@ -2,6 +2,8 @@
   position: relative;
 
   .c-field-background-image {
+    overflow: hidden;
+
     &::after {
       content: '';
       position: absolute;
@@ -10,10 +12,13 @@
       transition: $project-transition;
 
       @include breakpoint(large up) {
-        box-shadow: inset 0px 0px 100px rgba(0,0,0,.5);
+        box-shadow: inset 0px 0px 75px rgba(0,0,0,.5);
       }
     }
 
+    img {
+      transition: $project-transition;
+    }
   }
 
   &--linked {
@@ -22,8 +27,12 @@
         box-shadow: inset 0px 0px 10px rgba(0,0,0,.2);
 
         @include breakpoint(large up) {
-          box-shadow: inset 0px 0px 90px rgba(0,0,0,.2);
+          box-shadow: inset 0px 0px 60px rgba(0,0,0,.2);
         }
+      }
+
+      img {
+        transform: scale(1.1);
       }
     }
   }
