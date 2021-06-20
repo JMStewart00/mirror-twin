@@ -2,7 +2,7 @@
   position: relative;
 
   .c-field-background-image {
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
@@ -14,14 +14,15 @@
       }
     }
 
-    &--linked {
-      @include hover-focus() {
-        &:after {
-          box-shadow: inset 0px 0px 10px rgba(0,0,0,.2);
+  }
 
-          @include breakpoint(large up) {
-            box-shadow: inset 0px 0px 90px rgba(0,0,0,.2);
-          }
+  &--linked {
+    @include hover-focus() {
+      .c-field-background-image::after {
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,.2);
+
+        @include breakpoint(large up) {
+          box-shadow: inset 0px 0px 90px rgba(0,0,0,.2);
         }
       }
     }
