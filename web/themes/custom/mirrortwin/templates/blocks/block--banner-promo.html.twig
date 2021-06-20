@@ -6,16 +6,18 @@
   ]
 %}
 
-{% if content.field_link.0 %}
-<a href="{{ content.field_link.0['#url'] }}">
-{% endif %}
   <div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {{ title_suffix }}
-    {{ content.field_background_image }}
+
+    {% if content.field_link.0 %}
+    <a href="{{ content.field_link.0['#url'] }}">
+    {% endif %}
+      {{ content.field_background_image }}
+    {% if content.field_link.0 %}
+      </a>
+    {% endif %}
+
   </div>
-{% if content.field_link.0 %}
-  </a>
-{% endif %}
 
 
