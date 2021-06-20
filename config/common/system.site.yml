@@ -1,6 +1,6 @@
 uuid: 794b3f92-c447-450e-bec9-3b6cab6d8585
 name: 'Mirror Twin Brewing'
-mail: jmstewart00@gmail.com
+mail: no-reply@mirrortwinbrewing.com
 slogan: ''
 page:
   403: ''
@@ -12,3 +12,4 @@ langcode: en
 default_langcode: en
 _core:
   default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+mail_notification: no-reply@mirrortwinbrewing.com

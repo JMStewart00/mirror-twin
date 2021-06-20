@@ -136,6 +136,7 @@
       </div>
       {% endif %}
 
+      {% block content %}
       <div class="row">
         <main id="main" class="{{ main_grid }} columns" role="main">
           {% if page.highlighted %}
@@ -160,6 +161,8 @@
           </div>
         {% endif %}
       </div>
+      {% endblock %}
+
       {% if page.footer_first or page.footer_middle or page.footer_last %}
         <footer class="row medium-unstack t-background--dark-gray">
           {% if page.footer_first %}

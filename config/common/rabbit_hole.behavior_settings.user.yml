@@ -6,7 +6,7 @@ id: user
 entity_type_id: user
 entity_id: null
 action: null
-allow_override: null
-redirect: null
-redirect_code: null
-redirect_fallback_action: null
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied
