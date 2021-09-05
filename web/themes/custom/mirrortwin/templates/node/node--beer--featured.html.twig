@@ -76,12 +76,13 @@
     'c-' ~ node.bundle|clean_class ~ '-' ~ view_mode|clean_class,
   ]
 %}
-
-<div class="c-beer-featured__name">{{ label }}</div>
-<a href="{{ url }}">
-  <div{{attributes.addClass(classes)}}>
-		{{ title_prefix }}
-		{{ title_suffix }}
-    {{ content.field_preview_image }}
-  </div>
-</a>
+<div class="column">
+  <div class="c-beer-featured__name">{{ label }}</div>
+  <a href="{{ url }}">
+    <div{{attributes.addClass(classes)}}>
+      {{ title_prefix }}
+      {{ title_suffix }}
+      {{ content.field_preview_image }}
+    </div>
+  </a>
+</div>
