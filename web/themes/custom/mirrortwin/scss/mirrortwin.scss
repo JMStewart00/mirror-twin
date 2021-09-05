@@ -158,7 +158,7 @@
 @import 'base/navigation';
 @import 'base/table';
 @import 'base/typography';
-// @import 'forms/index';
+@import 'forms/index';
 
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
@@ -172,6 +172,7 @@
 @import 'modules/alert';
 @import 'modules/banner';
 @import 'modules/block';
+@import 'modules/commerce';
 @import 'modules/hero';
 @import 'modules/modal';
 @import 'modules/slider';

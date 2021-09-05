@@ -1,0 +1,19 @@
+uuid: 1095c117-ba95-44cc-a306-3205b510ec30
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_autosku
+third_party_settings:
+  commerce_autosku:
+    mode: enabled
+    plugin: token
+    configuration:
+      pattern: '[random:number]'
+id: default
+label: Default
+orderItemType: default
+generateTitle: false
+traits:
+  - maximum_order_quantity
+locked: false

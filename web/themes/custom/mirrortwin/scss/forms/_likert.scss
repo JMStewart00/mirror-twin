@@ -5,12 +5,12 @@
     border: $border;
 
     thead {
-      background-color: $blue-gray;
+      background-color: get-color(primary);
 
       th {
         color: $white;
         font-size: rem(15);
-        font-weight: $fw-medium;
+        font-weight: 500;
         padding: spacer(0.75) rem(4);
       }
     }
@@ -18,7 +18,7 @@
     tbody {
       // Zebra stripe
       tr.odd {
-        background-color: $gray-200;
+        background-color: get-color(secondary);
       }
 
       td {

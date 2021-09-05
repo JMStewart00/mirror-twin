@@ -15,8 +15,8 @@
 
 h1,
 .h1 {
-  font-size: rem-calc(50);
-  line-height: (46/36);
+  font-size: rem-calc(46);
+  line-height: 1;
   font-weight: $global-weight-bold;
   font-family: 'voltage', sans-serif;
 
@@ -39,7 +39,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: rem-calc(32);
+  font-size: rem-calc(32) !important;
   line-height: 1.25;
   font-weight: $global-weight-semi-bold;
   font-family: 'voltage', sans-serif;

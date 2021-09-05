@@ -119,6 +119,10 @@
         "drupal/ckeditor_font": "^1.0",
         "drupal/commerce": "^2.21",
         "drupal/commerce_add_to_cart_link": "^2.0",
+        "drupal/commerce_autosku": "2.x-dev@dev",
+        "drupal/commerce_cart_flyout": "^1.8",
+        "drupal/commerce_product_limits": "^1.0",
+        "drupal/commerce_square": "^1.4",
         "drupal/commerce_stock": "^1.0@alpha",
         "drupal/config_ignore": "^2.2",
         "drupal/config_installer": "^1.8",
@@ -176,7 +180,6 @@
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2"
     },
-    "require-dev": {},
     "conflict": {
         "drupal/drupal": "*"
     },

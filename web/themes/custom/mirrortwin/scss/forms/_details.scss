@@ -9,7 +9,7 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    background-color: $gray-200;
+    background-color: get-color(secondary);
     padding: 0 0 0 spacer(2);
 
     &::-webkit-details-marker {
@@ -18,7 +18,7 @@
 
     .h3 {
       margin-bottom: 0;
-      color: $brand-blue;
+      color: get-color(primary);
     }
   }
 
@@ -28,10 +28,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $brand-blue;
+    color: get-color(primary);
     background-color: $white;
     border-left: 1px solid $border-color;
-    margin-left: $spacer;
+    margin-left: rem-calc(16);
 
     .fa-minus {
       display: none;

@@ -1,0 +1,13 @@
+name: Commerce Square
+type: module
+description: 'Provides Commerce integration for Square Connect.'
+package: Commerce (contrib)
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - commerce:commerce
+  - commerce:commerce_payment
+
+# Information added by Drupal.org packaging script on 2021-01-13
+version: '8.x-1.4'
+project: 'commerce_square'
+datestamp: 1610553101

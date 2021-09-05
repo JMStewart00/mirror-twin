@@ -63,7 +63,9 @@
 
   {% if rows %}
     <div{{create_attribute().addClass(classes)}}>
-      {{ rows }}
+      <div class="column">
+        {{ rows }}
+      </div>
     </div>
   {% elseif empty %}
     <div class="view-empty">

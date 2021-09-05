@@ -1,0 +1,12 @@
+uuid: e1239c48-66f7-4759-bd3b-8f552c9be8e6
+langcode: en
+status: true
+dependencies: {  }
+id: beer
+label: Beer
+description: ''
+variationType: default
+multipleVariations: true
+injectVariationFields: true
+traits: {  }
+locked: false

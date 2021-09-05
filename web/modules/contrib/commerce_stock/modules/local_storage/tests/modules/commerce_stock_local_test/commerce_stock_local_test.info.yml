@@ -7,7 +7,7 @@ dependencies:
   - commerce_stock:commerce_stock_local
   - commerce_stock:commerce_stock_field
 
-# Information added by Drupal.org packaging script on 2020-11-17
-version: '8.x-1.0-alpha5'
+# Information added by Drupal.org packaging script on 2021-06-28
+version: '8.x-1.0-alpha6'
 project: 'commerce_stock'
-datestamp: 1605624597
+datestamp: 1624900198

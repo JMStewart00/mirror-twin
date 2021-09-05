@@ -11,6 +11,7 @@ $marketing-site-hero-height-max: 850px;
   padding: rvr(5) rvr(3) rvr(4);
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   &::before {
     content: '';

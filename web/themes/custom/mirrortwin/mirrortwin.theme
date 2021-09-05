@@ -156,7 +156,7 @@ function mirrortwin_preprocess_input(&$variables) {
         $variables['attributes']['class'][] = 'c-form__datetime';
         break;
       case 'submit':
-        $variables['attributes']['class'][] = 'o-btn o-btn--secondary';
+        $variables['attributes']['class'][] = 'o-btn o-btn--primary';
         break;
     }
   }

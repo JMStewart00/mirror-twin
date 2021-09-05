@@ -10,22 +10,13 @@
  * @ingroup themeable
  */
 #}
-{% set background_class = 't-background--' ~ settings.background_color %}
+{% set classes = [
+  't-background--' ~ settings.background_color,
+  'row'
+] %}
+
 {% if content %}
-  {% if background_class %}
-    <div class="{{ background_class }}">
-  {% endif %}
-    {% if settings.hero %}
-    {# If the hero mode is enabled remove container. #}
-      <div{{ attributes }}>
-        {{ content.first }}
-      </div>
-    {% else %}
-      <div{{ attributes.addClass('row') }}>
-        {{ content.first }}
-      </div>
-    {% endif %}
-  {% if background_class %}
-    </div>
-  {% endif %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content.first }}
+  </div>
 {% endif %}

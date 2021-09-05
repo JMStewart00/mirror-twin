@@ -45,3 +45,7 @@ Views file name suggestions often missing from Twig debugging
 Source: https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch
 
 
+Correct reporting of MariaDB version
+Source: https://www.drupal.org/files/issues/2021-05-18/3213482-9.patch
+
+

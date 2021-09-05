@@ -1,20 +1,19 @@
 .o-btn {
   cursor: pointer;
   display: inline-block;
-  padding: rvr(0.5) rvr(1);
-  letter-spacing: 3px;
+  padding: rvr(0.5) rvr(1.5);
+  transition: background-color 0.2s ease-in;
+  text-transform: uppercase;
 
   @include hover-focus() {
     text-decoration: none;
   }
 
   &--primary {
-    padding: rvr(0.5) rvr(2.5);
     background-color: $white;
     border: 0;
     color: $black;
-    letter-spacing: rem(0.5);
-    transition: background-color 0.2s ease-in;
+    border: 2px solid $black;
 
     @include hover-focus() {
       background-color: $dark-gray;
@@ -22,12 +21,9 @@
   }
 
   &--secondary {
-    padding: rvr(0.5) rvr(2.5);
     background-color: $black;
     border: 0;
-    color: $white;
-    letter-spacing: rem(0.5);
-    transition: background-color 0.2s ease-in;
+    color: $white !important;
 
     @include hover-focus() {
       background-color: $dark-gray;
@@ -40,9 +36,8 @@
     font-weight: bold;
   }
 
-
   &--active {
-    background-color: get-color(primary);
+    background-color: get-color(tertiary);
 
     a {
       color: $white !important;
@@ -65,9 +60,12 @@
 
 .button {
   margin: 0;
+
+  .success {
+    @extend .o-btn;
+  }
 }
 
-
 .draw-border {
-  @include btn-border-drawing($black, get-color(warning), 4px, bottom, right);
+  @include btn-border-drawing($black, get-color(tertiary), 4px, bottom, right);
 }

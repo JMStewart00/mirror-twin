@@ -16,12 +16,23 @@ module:
   comment: 0
   commerce: 0
   commerce_add_to_cart_link: 0
+  commerce_autosku: 0
   commerce_cart: 0
+  commerce_cart_api: 0
+  commerce_cart_flyout: 0
+  commerce_checkout: 0
   commerce_number_pattern: 0
   commerce_order: 0
+  commerce_payment: 0
   commerce_price: 0
   commerce_product: 0
+  commerce_product_limits: 0
+  commerce_square: 0
   commerce_stock: 0
+  commerce_stock_enforcement: 0
+  commerce_stock_field: 0
+  commerce_stock_local: 0
+  commerce_stock_ui: 0
   commerce_store: 0
   config: 0
   config_filter: 0
@@ -73,6 +84,7 @@ module:
   metatag: 0
   mimemail: 0
   mirror_twin_custom_blocks: 0
+  mirror_twin_views: 0
   mirrortwin_menu: 0
   node: 0
   options: 0
@@ -85,10 +97,12 @@ module:
   rdf: 0
   responsive_favicons: 0
   responsive_image: 0
+  rest: 0
   rh_node: 0
   rh_taxonomy: 0
   rh_user: 0
   search: 0
+  serialization: 0
   shortcut: 0
   simple_sitemap: 0
   simple_sitemap_engines: 0

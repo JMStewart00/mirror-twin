@@ -74,10 +74,10 @@ $global-font-size: 100%;
 $global-width: rem-calc(1440);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #ffae00,
+  primary: #000,
   secondary: #767676,
+  tertiary: #ffae00,
   success: #3adb76,
-  warning: #ffae00,
   alert: #cc4b37,
 );
 
@@ -147,8 +147,8 @@ $breakpoint-classes: (small medium large xlarge);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 0,
-  medium: 0,
+  small: 20px,
+  medium: 30px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
@@ -413,7 +413,7 @@ $dropdown-sizes: (
 // -----------------
 
 $dropdownmenu-arrows: true;
-$dropdownmenu-arrow-color: get-color(warning);
+$dropdownmenu-arrow-color: get-color(tertiary);
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
 $dropdownmenu-min-width: 200px;
@@ -423,7 +423,7 @@ $dropdownmenu-padding: $global-menu-padding;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
 $dropdownmenu-border: 1px solid $medium-gray;
-$dropdown-menu-item-color-active: get-color(primary);
+$dropdown-menu-item-color-active: get-color(tertiary);
 $dropdown-menu-item-background-active: transparent;
 
 // 19. Flexbox Utilities
@@ -500,7 +500,7 @@ $menu-nested-margin: $global-menu-nested-margin;
 $menu-items-padding: $global-menu-padding;
 $menu-simple-margin: 1rem;
 $menu-item-color-active: $white;
-$menu-item-background-active: get-color(primary);
+$menu-item-background-active: get-color(tertiary);
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-state-back-compat: true;

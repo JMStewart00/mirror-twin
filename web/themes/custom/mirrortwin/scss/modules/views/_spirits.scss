@@ -35,7 +35,7 @@
       cursor: pointer;
 
       a {
-        color: get-color(warning) !important;
+        color: get-color(tertiary) !important;
       }
 
       @include hover-focus() {

@@ -11,7 +11,7 @@
       .select2-selection__rendered {
         line-height: rem(48);
         color: $body-color;
-        padding: 0 $spacer;
+        padding: 0 rem-calc(16);
       }
 
       .select2-selection__arrow {
@@ -19,7 +19,7 @@
         right: rem(16);
 
         b {
-          border-color: $brand-blue transparent transparent transparent;
+          border-color: get-color(primary) transparent transparent transparent;
           border-width: rem(6) rem(5) 0 rem(5);
         }
       }
@@ -32,7 +32,7 @@
       border: $border;
 
       .select2-selection__rendered {
-        padding: rem(4) $spacer;
+        padding: rem(4) rem-calc(16);
       }
 
       // Multiple does not have an arrow by default - we add it with a pseduo element
@@ -41,7 +41,7 @@
         position: absolute;
         right: 16px;
         top: 42%;
-        border-color: $brand-blue transparent transparent transparent;
+        border-color: get-color(primary) transparent transparent transparent;
         border-width: rem(6) rem(5) 0 rem(5);
         border-style: solid;
       }
@@ -54,14 +54,14 @@
     // Flip the triangle
     .select2-selection__arrow {
       b {
-        border-color: transparent transparent $brand-blue transparent !important;
+        border-color: transparent transparent get-color(primary) transparent !important;
         border-width: 0 rem(5) rem(6) rem(5) !important;
       }
     }
 
     // Multiple does not have an arrow by default - we add it with a pseduo element
     .select2-selection--multiple::after {
-      border-color: transparent transparent $brand-blue transparent !important;
+      border-color: transparent transparent get-color(primary) transparent !important;
       border-width: 0 rem(5) rem(6) rem(5) !important;
     }
 
@@ -83,18 +83,18 @@
     // Individual option styling
     .select2-results {
       &__option {
-        padding: rem(6) $spacer;
+        padding: rem(6) rem-calc(16);
 
         &--highlighted {
           background-color: $white !important;
-          color: $brand-blue !important;
-          font-weight: $fw-bold;
+          color: get-color(primary) !important;
+          font-weight: 800;
         }
 
         &[aria-selected='true'] {
-          background-color: $gray-200 !important;
-          color: $brand-blue !important;
-          font-weight: $fw-bold;
+          background-color: get-color(secondary) !important;
+          color: get-color(primary) !important;
+          font-weight: 800;
         }
 
         &:last-child {
@@ -112,7 +112,7 @@
     }
 
     .select2-selection {
-      border-color: $brand-blue !important;
+      border-color: get-color(primary) !important;
     }
   }
 

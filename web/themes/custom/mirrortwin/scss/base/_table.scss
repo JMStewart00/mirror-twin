@@ -5,7 +5,11 @@ table {
   min-width: 300px;
   width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  max-width: 800px;
+  max-width: 1000px;
+
+  .row & {
+    margin: auto;
+  }
 
   tbody {
     background-color: transparent;
