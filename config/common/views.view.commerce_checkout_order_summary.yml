@@ -1,4 +1,4 @@
-uuid: 5318e820-759f-4fa1-9a0d-989dc9eb8e2d
+uuid: c7650d02-6c53-47e5-a0b1-cdb7972e88fd
 langcode: en
 status: true
 dependencies:
@@ -127,7 +127,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false

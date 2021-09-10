@@ -1,16 +1,16 @@
-uuid: 9b6e7093-fa6f-427d-8a90-8e2e23d412c6
+uuid: 2443c536-7be9-4b29-a224-f5ac0ec2cbca
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_type.beer
+    - commerce_product.commerce_product_type.pre_order_beer
     - field.storage.commerce_product.body
   module:
     - text
-id: commerce_product.beer.body
+id: commerce_product.pre_order_beer.body
 field_name: body
 entity_type: commerce_product
-bundle: beer
+bundle: pre_order_beer
 label: Body
 description: ''
 required: false

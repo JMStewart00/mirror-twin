@@ -1,16 +1,7 @@
 uuid: e29c9089-e4e4-4ecd-bdd2-011e28d8a006
 langcode: en
 status: true
-dependencies:
-  module:
-    - commerce_cart
-third_party_settings:
-  commerce_cart:
-    cart_form_view: commerce_cart_form
-    cart_block_view: commerce_cart_block
-    cart_expiration:
-      unit: hour
-      number: 6
+dependencies: {  }
 _core:
   default_config_hash: bROz7kd1J83kDf06qdZztYFSezi6UrfwftyJo53rNt4
 label: Default
@@ -20,6 +11,6 @@ numberPattern: order_default
 refresh_mode: customer
 refresh_frequency: 300
 sendReceipt: true
-receiptBcc: info@mirrortwinbrewing.com
+receiptBcc: ''
 traits: {  }
 locked: false

@@ -17,6 +17,7 @@
 
     @include hover-focus() {
       background-color: $dark-gray;
+      color: $white;
     }
   }
 

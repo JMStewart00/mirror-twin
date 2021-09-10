@@ -2455,11 +2455,11 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/commerce_autosku.git",
-                "reference": "72116232ce0c4f9f5ae68df0de6954ffb1622c02"
+                "reference": "e8add793e3059b22c32deb1c2f9f4955da4bdd76"
             },
             "require": {
                 "drupal/commerce_product": "*",
-                "drupal/core": "~8.0",
+                "drupal/core": "^8 || ^9",
                 "drupal/token": "*"
             },
             "type": "drupal-module",

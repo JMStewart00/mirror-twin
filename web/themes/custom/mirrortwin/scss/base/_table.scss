@@ -58,5 +58,11 @@ table {
   tbody tr:last-of-type {
     border-bottom: 2px solid $dark-gray;
   }
+
+  tfoot {
+    td {
+      text-align: center;
+    }
+  }
 }
 

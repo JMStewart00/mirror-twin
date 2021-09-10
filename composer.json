@@ -191,16 +191,19 @@
         ]
     },
     "scripts": {
+        "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
         "build-assets": [
             "@prepare-for-pantheon",
             "composer install --optimize-autoloader --no-dev"
         ],
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "@remove-git-submodules"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "@remove-git-submodules"
         ],
         "post-create-project-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"

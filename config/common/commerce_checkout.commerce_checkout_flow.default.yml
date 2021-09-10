@@ -1,4 +1,4 @@
-uuid: 18760a25-b292-41b8-bdd2-314e301f61bf
+uuid: 5a6de374-b7b6-4573-820c-27718bcf3707
 langcode: en
 status: true
 dependencies:
@@ -15,7 +15,7 @@ configuration:
   panes:
     login:
       allow_guest_checkout: true
-      allow_registration: true
+      allow_registration: false
       step: login
       weight: 0
     contact_information:

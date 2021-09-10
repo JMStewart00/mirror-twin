@@ -1,70 +1,64 @@
-uuid: 4894e5b6-e693-40be-bd35-b284fdcbdfc9
+uuid: 6319adaa-dac6-4dd4-93a1-6e5b8796e438
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.default
-    - field.field.commerce_product_variation.default.field_description
-    - field.field.commerce_product_variation.default.field_image
-    - field.field.commerce_product_variation.default.field_stock_level
-    - field.field.commerce_product_variation.default.maximum_order_quantity
+    - commerce_product.commerce_product_variation_type.pre_order_beer
+    - field.field.commerce_product_variation.pre_order_beer.field_stock_level
+    - field.field.commerce_product_variation.pre_order_beer.maximum_order_quantity
   module:
     - commerce_price
     - commerce_stock_field
     - field_layout
     - layout_discovery
-    - media_library
-    - text
 third_party_settings:
   field_layout:
     id: layout_onecol
     settings:
       label: ''
-id: commerce_product_variation.default.default
+id: commerce_product_variation.pre_order_beer.default
 targetEntityType: commerce_product_variation
-bundle: default
+bundle: pre_order_beer
 mode: default
 content:
-  field_description:
-    weight: 2
-    settings:
-      rows: 2
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
+  commerce_stock_always_in_stock:
+    type: boolean_checkbox
+    weight: 5
     region: content
-  field_image:
-    type: media_library_widget
-    weight: 1
     settings:
-      media_types: {  }
+      display_label: true
     third_party_settings: {  }
-    region: content
   field_stock_level:
-    weight: 4
+    weight: 91
     settings:
+      custom_transaction_note: false
       default_transaction_note: 'Transaction issued by stock level field.'
       step: '1'
-      custom_transaction_note: false
     third_party_settings: {  }
-    type: commerce_stock_level_absolute
+    type: commerce_stock_level_simple_transaction
     region: content
+  list_price:
+    type: commerce_list_price
+    weight: -1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   maximum_order_quantity:
     type: number
-    weight: 5
+    weight: 1
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   price:
     type: commerce_price_default
-    weight: 3
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   sku:
     type: string_textfield
-    weight: 6
+    weight: -4
     region: content
     settings:
       size: 60
@@ -74,19 +68,17 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 90
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  commerce_stock_always_in_stock: true
   created: true
-  list_price: true
   uid: true

@@ -1,11 +1,11 @@
-uuid: e1239c48-66f7-4759-bd3b-8f552c9be8e6
+uuid: 6e25d0c1-c6c5-4207-942b-b84096604130
 langcode: en
 status: true
 dependencies: {  }
-id: beer
-label: Beer
+id: pre_order_beer
+label: 'Pre-Order Beer'
 description: ''
-variationType: default
+variationType: pre_order_beer
 multipleVariations: true
 injectVariationFields: true
 traits: {  }

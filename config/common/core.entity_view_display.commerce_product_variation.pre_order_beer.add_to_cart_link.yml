@@ -1,0 +1,33 @@
+uuid: 45759b3d-cbfc-4807-8ca8-18931b6a08ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.pre_order_beer
+    - core.entity_view_mode.commerce_product_variation.add_to_cart_link
+    - field.field.commerce_product_variation.pre_order_beer.field_stock_level
+    - field.field.commerce_product_variation.pre_order_beer.maximum_order_quantity
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: commerce_product_variation.pre_order_beer.add_to_cart_link
+targetEntityType: commerce_product_variation
+bundle: pre_order_beer
+mode: add_to_cart_link
+content:
+  add_to_cart_link:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_stock_level: true
+  list_price: true
+  maximum_order_quantity: true
+  price: true
+  product_id: true
+  sku: true
+  title: true
