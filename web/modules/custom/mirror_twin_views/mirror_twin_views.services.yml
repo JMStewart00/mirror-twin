@@ -1,6 +1,6 @@
-services:
-  mirror_twin_views.local_stock_transaction_subscriber:
-    class: Drupal\mirror_twin_views\EventSubscriber\LocalStockTransactionSubscriber
-    arguments: [ '@commerce_stock.local_stock_service' ]
-    tags:
-      - { name: event_subscriber }
+# services:
+#   mirror_twin_views.local_stock_transaction_subscriber:
+#     class: Drupal\mirror_twin_views\EventSubscriber\LocalStockTransactionSubscriber
+#     arguments: [ '@commerce_stock.local_stock_service' ]
+#     tags:
+#       - { name: event_subscriber }
