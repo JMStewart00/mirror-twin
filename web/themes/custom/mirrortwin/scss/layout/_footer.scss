@@ -1,6 +1,12 @@
 footer {
-  padding: 40px 0;
+  padding: 40px;
+  text-align: center;
   position: relative;
+
+  @include breakpoint(medium up) {
+    text-align: left;
+    padding: 40px 0;
+  }
 
   &:before,
   &:after {
@@ -54,6 +60,11 @@ footer {
   .info.address {
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    @include breakpoint(medium up) {
+      justify-content: flex-start;
+    }
 
     address {
       margin-left: rem-calc(16);

@@ -10,8 +10,12 @@
     &-label {
       font-weight: 700;
       text-transform: capitalize;
-      width: 200px;
       color: get-color(tertiary);
+      width: 125px;
+
+      @include breakpoint(medium up) {
+        width: 200px;
+      }
     }
   }
 }
