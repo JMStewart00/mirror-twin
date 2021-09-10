@@ -113,6 +113,10 @@
   // color foreground color
   @if color-palette($bg-color, fg) {
     color: color-palette($bg-color, fg);
+
+    .icon g {
+      fill: color-palette($bg-color, fg);
+    }
   }
 
   // color heading colors
