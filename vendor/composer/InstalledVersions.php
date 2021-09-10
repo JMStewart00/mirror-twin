@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'dedeb2a6331d0c29ed99596043d2bd2229ff9868',
+    'reference' => '7cba811cf4869f54697f585a7c9595d58ef5fb01',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -2059,7 +2059,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'dedeb2a6331d0c29ed99596043d2bd2229ff9868',
+      'reference' => '7cba811cf4869f54697f585a7c9595d58ef5fb01',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (
