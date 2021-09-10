@@ -81,7 +81,11 @@
 <div{{attributes.addClass(classes)}} data-aos="fade-up">
   {{ title_prefix }}
   {{ title_suffix }}
-  {{ content.field_headshot }}
+  {% if content.field_headshot|render %}
+    {{ content.field_headshot }}
+  {% else %}
+    <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" style="width: 325px; background-color: black;"/>
+  {% endif %}
   <h3>{{ label.0['#context'].value }}</h3>
   <h4>{{ content.field_professional_title.0['#context'].value }}</h4>
 </div>
