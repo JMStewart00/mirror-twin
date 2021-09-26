@@ -326,7 +326,18 @@ display:
       title: 'Available Beer for Order'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<h2 class="text-align-center">We''re out. We''re sorry. We''re working on it! Check back soon!</h2>'
+          plugin_id: text_custom
       relationships:
         commerce_stock_location_level:
           id: commerce_stock_location_level
@@ -346,9 +357,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
       tags:
+        - 'config:core.entity_view_display.commerce_product_variation.default.summary'
         - 'config:core.entity_view_display.commerce_product_variation.pre_order_beer.add_to_cart_link'
         - 'config:core.entity_view_display.commerce_product_variation.pre_order_beer.default'
-        - 'config:core.entity_view_display.commerce_product_variation.default.summary'
   block_1:
     display_plugin: block
     id: block_1
