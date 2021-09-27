@@ -1,9 +1,13 @@
+{# Set background color #}
+{% set bg_color = paragraph.field_background_color.value ? 'bg-' ~ paragraph.field_background_color.value|clean_class : 'bg-none' %}
+
 {% set classes = [
   'l-section',
   'l-section--align-' ~ paragraph.field_horizontal_alignment.value,
   'l-section--' ~ paragraph.field_section_width.value,
   'columns',
   'small-12',
+  bg_color
 ] %}
 
 <div{{ attributes.addClass(classes) }}>

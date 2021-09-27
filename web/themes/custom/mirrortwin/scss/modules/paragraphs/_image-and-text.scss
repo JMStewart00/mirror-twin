@@ -1,6 +1,7 @@
 .c-image-and-text {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
   max-width: 550px; // don't exceed width of photo on smaller screens
 
   @include breakpoint(large up) {
@@ -26,11 +27,16 @@
 
   &__text {
     align-self: center;
-    width: 50%;
     padding: rem-calc(32);
+
+    @include breakpoint(large up) {
+      width: 50%;
+    }
   }
 
   &__image {
-    width: 50%
+    @include breakpoint(large up) {
+      width: 50%;
+    }
   }
 }

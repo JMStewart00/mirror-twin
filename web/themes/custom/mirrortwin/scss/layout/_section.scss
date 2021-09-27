@@ -1,19 +1,28 @@
 .l-section {
   &__content {
+    width: 100%;
     .l-section--100 & {
-      width: 100%;
+      @include breakpoint(large up) {
+        width: 100%;
+      }
     }
 
     .l-section--75 & {
-      width: 75%;
+      @include breakpoint(large up) {
+        width: 75%;
+      }
     }
 
     .l-section--67 & {
-      width: 67%;
+      @include breakpoint(large up) {
+        width: 67%;
+      }
     }
 
     .l-section--50 & {
-      width: 50%;
+      @include breakpoint(large up) {
+        width: 50%;
+      }
     }
 
     .l-section--align-left & {
