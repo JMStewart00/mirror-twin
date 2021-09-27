@@ -8,6 +8,9 @@ base theme: zurb_foundation
 # Image appears on admin/appearance
 # screenshot: images/screenshot.jpg
 
+ckeditor_stylesheets:
+  - /css/mirrortwin.css
+
 # Uncomment these lines and change "mirrortwin" to your theme name if you
 # need to add custom CSS or JS
 libraries:

@@ -212,6 +212,7 @@ permissions:
   - 'update own customer profile'
   - 'update own pre_order_beer commerce_product'
   - 'use advanced search'
+  - 'use text format basic_html'
   - 'use upload_images bulk upload form'
   - 'view all media revisions'
   - 'view all sitewide alert revisions'

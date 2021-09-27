@@ -167,6 +167,7 @@
 @import 'layout/footer';
 @import 'layout/grid';
 @import 'layout/mobile';
+@import 'layout/section';
 
 // --- Modules ---
 @import 'modules/alert';
@@ -177,6 +178,7 @@
 @import 'modules/modal';
 @import 'modules/slider';
 @import 'modules/node/index';
+@import 'modules/paragraphs/index';
 @import 'modules/views/index';
 
 // --- Themes ---
@@ -200,5 +202,23 @@ html {
 .block-mirrortwin-content {
   #edit-actions {
     text-align: center;
+  }
+}
+
+.icon-divider {
+  display: flex;
+  justify-content: center;
+  margin-bottom: rvr(1);
+
+  .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

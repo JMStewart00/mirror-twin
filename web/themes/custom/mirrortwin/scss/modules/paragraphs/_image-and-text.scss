@@ -1,0 +1,36 @@
+.c-image-and-text {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 550px; // don't exceed width of photo on smaller screens
+
+  @include breakpoint(large up) {
+    flex-wrap: nowrap;
+    max-width: 100%;
+  }
+
+  &--right {
+    flex-direction: column;
+
+    @include breakpoint(large up) {
+      flex-direction: row;
+    }
+  }
+
+  &--left {
+    flex-direction: column;
+
+    @include breakpoint(large up) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__text {
+    align-self: center;
+    width: 50%;
+    padding: rem-calc(32);
+  }
+
+  &__image {
+    width: 50%
+  }
+}

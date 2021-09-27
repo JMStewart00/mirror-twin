@@ -31,22 +31,4 @@
       margin-bottom: rvr(2);
     }
   }
-
-  .icon-divider {
-    display: flex;
-    justify-content: center;
-    margin-bottom: rvr(1);
-
-    .icon {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      overflow: hidden;
-
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
 }

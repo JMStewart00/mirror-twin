@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c3fb229ed6e64384de8b4883b22f53372bbb9183',
+    'reference' => 'a1d4ecebef90ca24a4891f3b94626b6dd824df54',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -1432,6 +1432,15 @@ private static $installed = array (
         0 => '8.9.19',
       ),
     ),
+    'drupal/redirect' => 
+    array (
+      'pretty_version' => '1.6.0',
+      'version' => '1.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.6',
+    ),
     'drupal/responsive_favicons' => 
     array (
       'pretty_version' => '1.6.0',
@@ -2046,7 +2055,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c3fb229ed6e64384de8b4883b22f53372bbb9183',
+      'reference' => 'a1d4ecebef90ca24a4891f3b94626b6dd824df54',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (

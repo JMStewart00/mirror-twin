@@ -15,9 +15,15 @@ settings:
     rows:
       -
         -
+          name: 'Block Formatting'
+          items:
+            - Format
+            - Styles
+        -
           name: Formatting
           items:
             - Bold
+            - Underline
             - Italic
             - JustifyLeft
             - JustifyCenter
@@ -27,25 +33,27 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
+            - DrupalImage
+            - DrupalMediaLibrary
         -
           name: Lists
           items:
             - BulletedList
             - NumberedList
         -
-          name: 'Block Formatting'
-          items:
-            - Styles
-            - PasteFromWord
-        -
           name: Tools
           items:
+            - Undo
+            - Redo
             - Source
+            - Paste
+            - PasteText
+            - PasteFromWord
   plugins:
     language:
       language_list: un
     stylescombo:
-      styles: "p.lead|Para lead\r\nspan.h1|Header1\r\nspan.h2|Header2\r\nspan.h3|Header3\r\nspan.h4|Header4\r\nspan.u-fs__small|Small Text\r\nspan.u-fs__base|Body Text\r\nspan.u-fs__17|Semi-Large Text\r\nspan.u-color__black|Black Text\r\nspan.u-color__white|White Text\r\nspan.u-color__teal|Teal text\r\nspan.u-color__blue|Blue text\r\nspan.language|Language\r\na.o-btn.o-btn--primary.o-btn--icon|Button primary\r\na.o-btn.o-btn--secondary|Button secondary"
+      styles: "p.lead|Para lead\r\nspan.h1|Header1\r\nspan.h2|Header2\r\nspan.h3|Header3\r\nspan.h4|Header4\r\nspan.u-fs__small|Small Text\r\nspan.u-fs__base|Body Text\r\nspan.u-fs__17|Semi-Large Text\r\nspan.u-color__black|Black Text\r\nspan.u-color__white|White Text\r\nspan.language|Language\r\na.o-btn.o-btn--primary.o-btn--icon|Button primary\r\na.o-btn.o-btn--secondary|Button secondary"
     font:
       font_names: ''
       font_sizes: ''

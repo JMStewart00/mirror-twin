@@ -46,6 +46,8 @@
 
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {{ title_suffix }}
     <a href="{{ content.field_link.0['#url_title'] }}">
       {{content.field_media}}
     </a>

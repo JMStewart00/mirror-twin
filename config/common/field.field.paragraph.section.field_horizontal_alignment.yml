@@ -1,0 +1,23 @@
+uuid: 07b1dc01-4a05-4665-8258-9267f0337e2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_horizontal_alignment
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_horizontal_alignment
+field_name: field_horizontal_alignment
+entity_type: paragraph
+bundle: section
+label: 'Horizontal Alignment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

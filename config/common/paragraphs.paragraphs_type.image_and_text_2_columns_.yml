@@ -1,0 +1,10 @@
+uuid: 086648cc-0c26-4d40-989b-7a8c3ca1f459
+langcode: en
+status: true
+dependencies: {  }
+id: image_and_text_2_columns_
+label: 'Image and Text (2 Columns)'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

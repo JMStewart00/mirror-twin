@@ -1,0 +1,33 @@
+uuid: acfec163-bbf0-4b92-9dda-af62467b4fdf
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_section_width
+field_name: field_section_width
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '100'
+      label: 100%
+    -
+      value: '75'
+      label: 75%
+    -
+      value: '67'
+      label: 67%
+    -
+      value: '50'
+      label: 50%
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

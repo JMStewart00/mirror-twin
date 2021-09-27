@@ -1,0 +1,23 @@
+uuid: 6977df43-29ac-451b-b9a0-ea780ba6f103
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_width
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_section_width
+field_name: field_section_width
+entity_type: paragraph
+bundle: section
+label: 'Section Width'
+description: 'How much of the screen width should the section span? On mobile screens the section will be 100% width.'
+required: true
+translatable: false
+default_value:
+  -
+    value: '100'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
