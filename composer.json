@@ -187,6 +187,10 @@
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "symfony/phpunit-bridge": "^4.0"
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
