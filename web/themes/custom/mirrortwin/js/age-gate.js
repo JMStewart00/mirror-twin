@@ -10,7 +10,7 @@
    */
   Drupal.behaviors.ageGate = {
     attach: function (context, settings) {
-      $(body, context).once('age-gate').each(function () {
+      $('#ageGate', context).once('age-gate').each(function () {
 
         if (!$.cookie("mirrorTwinAgeGate") || $.cookie("mirrorTwinAgeGate") === 'false') {
           $("#ageGate").modal({
