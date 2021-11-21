@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '57cc98f08448e083dbdc76e335ad2fa540ad1e9a',
+    'reference' => '37cb4a0fbd6eec823c478a28b8c2dd93cc2a7d54',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -2089,7 +2089,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '57cc98f08448e083dbdc76e335ad2fa540ad1e9a',
+      'reference' => '37cb4a0fbd6eec823c478a28b8c2dd93cc2a7d54',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (

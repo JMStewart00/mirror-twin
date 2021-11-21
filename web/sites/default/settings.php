@@ -88,3 +88,5 @@ if (defined('PANTHEON_ENVIRONMENT')) {
 if (isset($_ENV['AH_SITE_GROUP'], $_ENV['AH_SITE_ENVIRONMENT'])) {
   $config['system.file']['path']['temporary'] = "/mnt/tmp/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}";
 }
+
+$settings['update_free_access'] = TRUE;
