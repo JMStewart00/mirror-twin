@@ -140,7 +140,7 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
           $link = Link::fromTextAndUrl($date, new Url('entity.sitewide_alert.revision', [
             'sitewide_alert' => $sitewide_alert->id(),
             'sitewide_alert_revision' => $vid,
-          ]));
+          ]))->toString();
         }
         else {
           $link = $sitewide_alert->toLink($date)->toString();

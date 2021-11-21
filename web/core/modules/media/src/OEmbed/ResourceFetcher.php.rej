@@ -1,0 +1,10 @@
+--- modules/media/src/OEmbed/ResourceFetcher.php
++++ modules/media/src/OEmbed/ResourceFetcher.php
+@@ -7,6 +7,7 @@
+ use Drupal\Core\Cache\UseCacheBackendTrait;
+ use GuzzleHttp\ClientInterface;
+ use GuzzleHttp\Exception\RequestException;
++use Drupal\Core\Extension\ModuleHandlerInterface;
+ 
+ /**
+  * Fetches and caches oEmbed resources.

@@ -3,6 +3,7 @@
 use Drupal\Component\Utility\Html;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Language\LanguageInterface;
 
 /**
  * Load template files
@@ -150,7 +151,7 @@ function zurb_foundation_preprocess_field(&$variables) {
  */
 function zurb_foundation_preprocess_html(&$variables) {
   /* @var Drupal\Core\Language\LanguageInterface */
-  $language = \Drupal::languageManager()->getCurrentLanguage();
+  $language = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT);
   $site_language = $language->getId();
   $request = \Drupal::request();
 

@@ -1,4 +1,3 @@
-
 sitewide_alert.sitewide_alerts_controller_load:
   path: '/sitewide_alert/load'
   defaults:
@@ -6,7 +5,8 @@ sitewide_alert.sitewide_alerts_controller_load:
     _title: 'load'
   requirements:
     _permission: 'access content'
-sitewide_alert.sitewide_alert_config_form:
+
+entity.sitewide_alert.config_form:
   path: '/admin/config/sitewide_alerts'
   defaults:
     _form: '\Drupal\sitewide_alert\Form\SitewideAlertConfigForm'

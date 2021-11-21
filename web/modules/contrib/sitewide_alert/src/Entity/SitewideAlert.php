@@ -31,7 +31,6 @@ use Drupal\user\UserInterface;
  *     "list_builder" = "Drupal\sitewide_alert\SitewideAlertListBuilder",
  *     "views_data" = "Drupal\sitewide_alert\Entity\SitewideAlertViewsData",
  *     "translation" = "Drupal\sitewide_alert\SitewideAlertTranslationHandler",
- *
  *     "form" = {
  *       "default" = "Drupal\sitewide_alert\Form\SitewideAlertForm",
  *       "add" = "Drupal\sitewide_alert\Form\SitewideAlertForm",
@@ -62,7 +61,7 @@ use Drupal\user\UserInterface;
  *   revision_metadata_keys = {
  *     "revision_user" = "revision_user",
  *     "revision_created" = "revision_created",
- *     "revision_log_message" = "revision_log",
+ *     "revision_log_message" = "revision_log_message",
  *   },
  *   links = {
  *     "canonical" = "/admin/content/sitewide_alert/{sitewide_alert}",
@@ -76,7 +75,7 @@ use Drupal\user\UserInterface;
  *     "translation_revert" = "/admin/content/sitewide_alert/{sitewide_alert}/revisions/{sitewide_alert_revision}/revert/{langcode}",
  *     "collection" = "/admin/content/sitewide_alert",
  *   },
- *   field_ui_base_route = "sitewide_alert.settings",
+ *   field_ui_base_route = "entity.sitewide_alert.config_form",
  *   constraints = {
  *     "ScheduledDateProvided" = {}
  *   }
@@ -218,6 +217,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
+        'region' => 'hidden',
         'type' => 'entity_reference_autocomplete',
         'weight' => 5,
         'settings' => [
@@ -226,6 +226,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
           'autocomplete_type' => 'tags',
           'placeholder' => '',
         ],
+      ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', FALSE);
@@ -243,6 +246,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
         'type' => 'string_textfield',
         'weight' => -15,
       ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE)
       ->setRequired(TRUE);
@@ -252,7 +258,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ->setDescription(t('If selected this Sitewide Alert will be active and will show if all other conditions are met.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
-        'weight' => 99,
+        'weight' => -1,
       ]);
 
     $fields['style'] = BaseFieldDefinition::create('list_string')
@@ -265,6 +271,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
         'type' => 'options_select',
         'weight' => -14,
       ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE)
       ->setRequired(TRUE);
@@ -276,6 +285,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
         'weight' => -10,
+      ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE);
@@ -303,6 +315,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
           'rows' => 4,
         ],
       ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE)
       ->setRequired(FALSE);
@@ -319,6 +334,9 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
           'on_label' => 'Hide for the listed pages',
           'off_label' => 'Show for the listed pages',
         ],
+      ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE);
@@ -346,7 +364,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
+      ->setRequired(FALSE);
 
     $fields['scheduled_alert'] = BaseFieldDefinition::create('boolean')
       ->setLabel(new TranslatableMarkup('Schedule Alert'))
@@ -356,19 +374,25 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
         'type' => 'boolean_checkbox',
         'weight' => -8,
       ])
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
       ->setDisplayConfigurable('form', FALSE)
       ->setDisplayConfigurable('view', FALSE);
 
     $fields['scheduled_date'] = BaseFieldDefinition::create('daterange')
-      ->setLabel(new TranslatableMarkup('Date'))
+      ->setLabel(new TranslatableMarkup('Scheduled Date'))
       ->setDescription(t('This defines when this Sitewide Alert be scheduled to show.'))
       ->setRequired(FALSE)
       ->setDisplayOptions('form', [
         'type' => 'daterange_default',
         'weight' => -7,
       ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayConfigurable('view', FALSE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))

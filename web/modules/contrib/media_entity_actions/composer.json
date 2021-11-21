@@ -1,0 +1,12 @@
+{
+  "name": "drupal/media_entity_actions",
+  "description": "Provides Actions plugins to be used with Media in core.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/media_entity_actions",
+  "support": {
+    "issues": "https://drupal.org/project/issues/media_entity_actions",
+    "source": "https://git.drupalcode.org/project/media_entity_actions"
+  }
+}

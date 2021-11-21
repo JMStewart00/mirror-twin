@@ -1,8 +1,8 @@
 name: Mirror Twin Menu
 description: Custom functionality for Mirror Twin menus.
 type: module
-core: 8.x
-package: Mirror Twin
+core_version_requirement: ^8 || 9
+package: MTB
 
 dependencies:
   - block

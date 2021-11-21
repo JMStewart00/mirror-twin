@@ -3,7 +3,7 @@ Sitewide Alert
 
 The Sitewide Alert module provides you with the ability to show alerts at the top of your site.
 
-This module can be used for showing alerts to your visitors to inform them of planned maintenance periods, shipping 
+This module can be used for showing alerts to your visitors to inform them of planned maintenance periods, shipping
 delays, flash sales, and more. How you use it is up to you.
 
 Features / Design Decisions
@@ -11,12 +11,11 @@ Features / Design Decisions
 
 - Alerts are rendered at the top of the site regardless of theme used (no block configuration).
 - Multiple alerts can be displayed at once.
-- Alerts can have different styles. The number and type of styles are configurable. For example, you can create a very 
+- Alerts can have different styles. The number and type of styles are configurable. For example, you can create a very
 important alert that is red and a subtle one that is white.
 - Alerts can be (optionally) dismissed by visitors so they are not notified again.
 - Alerts can be displayed on all pages (including administrative pages) or can be limited to a subset of pages.
-- Alerts are loaded and displayed using a React component that will display new alerts immediately, even if a visitor 
-is already on the page.
+- Alerts are loaded using callbacks that will display new alerts immediately, even if a visitor is already on the page.
 - Alerts were designed to avoid breaking your full page and dynamic caches.
 - Alerts can be scheduled to show and hide at specific times.
 
@@ -28,12 +27,12 @@ We recommend installing the Sitewide Alert module via Composer. See [Installing 
 Configuration
 ---------------------------
 
-Once installed Sitewide Alert is ready to use. However some customization is likely necessary.
+Once installed Sitewide Alert is ready to use. However, some customization is likely necessary.
 
-Upon installation there is only one Alert Style (Default). This can be extended by navigating to /admin/config/sitewide_alerts 
-and defining new Alert Style types. Define each key|value pair on its own line.
+Upon installation there is only one Alert Style (Default). This can be extended by navigating to /admin/config/sitewide_alerts
+and defining new Alert Style types. Define each key|value pair on its own line. These classes can be used by your theme.
 
-To show Sitewide Alerts on administrative pages navigate to /admin/config/sitewide_alerts and select the 
+To show Sitewide Alerts on administrative pages navigate to /admin/config/sitewide_alerts and select the
 "Show on Administrative Pages" checkbox.
 
 Generating a Sitewide Alert
@@ -53,13 +52,13 @@ Navigate to /admin/content/sitewide_alert and click the "Add New Sitewide Alert"
     * Select this checkbox if alert should only appear during a specific time period.
 * PAGE VISIBILITY
    * Limit by Page
-       * Select this checkbox if alert should only appear on specific pages. Use the "Pages" input field to specify 
+       * Select this checkbox if alert should only appear on specific pages. Use the "Pages" input field to specify
        pages by using their paths.
 
 Styling Sidewide Alerts
 ---------------------------
 
-Sitewide Alerts receive a wrapping class that can be used to apply specific styles. For each entry added to the Alert 
+Sitewide Alerts receive a wrapping class that can be used to apply specific styles. For each entry added to the Alert
 Style field a corresponding HTML class is added to the element's wrapper. The class is created by concatenating "alert-"]
 with each key defined under Alert Style. Use these classes to apply different styles to each type of alert needed.
 

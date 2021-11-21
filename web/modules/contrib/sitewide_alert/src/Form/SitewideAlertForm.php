@@ -56,12 +56,41 @@ class SitewideAlertForm extends ContentEntityForm {
   }
 
   /**
+   * Order form elements.
+   *
+   * @param array $formKeys
+   *   Form keys to set the order of.
+   * @param array $form
+   *   The form array.
+   * @param int $offsetWeight
+   *   The amount to offset each weight.
+   *
+   * @return array
+   *   The modified form.
+   */
+  private static function orderFormElements(array $formKeys, array $form, int $offsetWeight = 0): array {
+    foreach ($formKeys as $i => $formKey) {
+      if (isset($form[$formKey])) {
+        $form[$formKey]['#weight'] = $i + $offsetWeight;
+      }
+    }
+    return $form;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     /* @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $entity */
     $entity = $this->entity;
     $form = parent::buildForm($form, $form_state);
+
+    // Make the scheduled alert dates conditional on the checkbox.
+    $form['scheduled_date']['#states'] = [
+      'visible' => [
+        ':input[name="scheduled_alert[value]"]' => ['checked' => TRUE]
+      ],
+    ];
 
     // Authoring information for administrators.
     if (isset($form['user_id'])) {
@@ -78,13 +107,6 @@ class SitewideAlertForm extends ContentEntityForm {
 
       $form['user_id']['#group'] = 'author';
     }
-
-    // Make the scheduled alert dates conditional on the checkbox.
-    $form['scheduled_date']['#states'] = [
-      'visible' => [
-        ':input[name="scheduled_alert[value]"]' => ['checked' => TRUE]
-      ],
-    ];
 
     // Allow the editor to disable previous dismissals.
     if (!$entity->isNew()) {
@@ -103,36 +125,82 @@ class SitewideAlertForm extends ContentEntityForm {
       ];
     }
 
-    // Organize the limit by pages options.
-    $form['limit_by_pages_fieldset'] = [
-      '#type' => 'fieldset',
+    // Group the dismissible options.
+    $form['dismissible_options'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Dismissible'),
+      '#open' => $entity->isDismissible(),
+      '#group' => 'advanced',
+      '#attributes' => [
+        'class' => ['sitewide-alert--form--dismissible-options'],
+      ],
+    ];
+    $form['dismissible']['#group'] = 'dismissible_options';
+    $form['dismissible_ignore_previous']['#group'] = 'dismissible_options';
+
+
+    // Group scheduling fields.
+    $form['scheduling_options'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Scheduling'),
+      '#open' => $entity->isScheduled(),
+      '#group' => 'advanced',
+      '#attributes' => [
+        'class' => ['sitewide-alert--form--scheduling-options'],
+      ],
+    ];
+    $form['scheduled_alert']['#group'] = 'scheduling_options';
+    $form['scheduled_date']['#group'] = 'scheduling_options';
+
+    // Group the page visibility options.
+    $form['page_visibility_options'] = [
+      '#type' => 'details',
       '#title' => $this->t('Page Visibility'),
-      '#description' => $this->t('Limit the alert to only show on some of pages.'),
+      '#description' => $this->t('Limit the alert to only show on some pages.'),
+      '#open' => !empty($entity->getPagesToShowOn()),
+      '#group' => 'advanced',
+      '#attributes' => [
+        'class' => ['sitewide-alert--form--page-visibility-options'],
+      ],
     ];
 
-    $form['limit_by_pages_fieldset']['limit_alert_by_pages'] = [
+    $form['limit_alert_by_pages'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Limit by Page'),
       '#default_value' => !empty($entity->getPagesToShowOn()),
       '#return_value' => TRUE,
       '#weight' => -10,
+      '#group' => 'page_visibility_options',
     ];
 
-    $form['limit_by_pages_fieldset']['limit_to_pages'] = $form['limit_to_pages'];
-    unset($form['limit_to_pages']);
-    $form['limit_by_pages_fieldset']['limit_to_pages']['#states'] = [
+    $form['limit_to_pages']['#group'] = 'page_visibility_options';
+    $form['limit_to_pages_negate']['#group'] = 'page_visibility_options';
+    $form['limit_to_pages']['#states'] = [
+      'visible' => [
+        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE]
+      ],
+    ];
+    $form['limit_to_pages_negate']['#states'] = [
       'visible' => [
         ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE]
       ],
     ];
 
-    $form['limit_by_pages_fieldset']['limit_to_pages_negate'] = $form['limit_to_pages_negate'];
-    unset($form['limit_to_pages_negate']);
-    $form['limit_by_pages_fieldset']['limit_to_pages_negate']['#states'] = [
-      'visible' => [
-        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE]
-      ],
-    ];
+
+    // Order the advanced form elements.
+    $form = self::orderFormElements([
+      'dismissible_options',
+      'scheduling_options',
+      'page_visibility_options',
+      'page_visibility_options',
+      'revision_information',
+      'author',
+    ], $form);
+
+    // Set the active element to the end.
+    $form['status']['#group'] = 'footer';
+
+    $form['#attached']['library'][] = 'sitewide_alert/form';
 
     return $form;
   }
@@ -155,7 +223,7 @@ class SitewideAlertForm extends ContentEntityForm {
     }
 
     // Save as a new revision if requested to do so.
-    if (!$form_state->isValueEmpty('new_revision') && $form_state->getValue('new_revision') != FALSE) {
+    if (!$form_state->isValueEmpty('revision') && $form_state->getValue('revision') != FALSE) {
       $entity->setNewRevision();
 
       // If a new revision is created, save the current user as revision author.

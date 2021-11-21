@@ -1,5 +1,5 @@
 name: Mirror Twin Views
 description: Views Helpers for the Mirror Twin site
-package: Mirror Twin
 type: module
-core: 8.x
+core_version_requirement: ^8 || 9
+package: MTB

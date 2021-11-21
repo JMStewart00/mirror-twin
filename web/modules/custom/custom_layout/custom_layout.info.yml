@@ -1,8 +1,8 @@
 name: Custom Layout Layout
 description: Custom layout functionality for Custom Layout.
 type: module
-core: 8.x
-package: Custom Layout
+core_version_requirement: ^8 || 9
+package: MTB
 
 dependencies:
   - drupal:layout_builder

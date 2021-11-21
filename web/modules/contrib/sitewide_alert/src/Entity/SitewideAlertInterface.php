@@ -158,6 +158,14 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
   public function setDismissibleIgnoreBeforeTime($timestamp): self;
 
   /**
+   * Gets the style of the alert.
+   *
+   * @return string
+   *   The style.
+   */
+  public function getStyle(): string;
+
+  /**
    * Gets the style class to use for the alert.
    *
    * @return string

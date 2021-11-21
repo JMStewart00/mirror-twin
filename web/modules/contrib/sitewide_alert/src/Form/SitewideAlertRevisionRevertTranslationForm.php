@@ -2,6 +2,7 @@
 
 namespace Drupal\sitewide_alert\Form;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -32,6 +33,13 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
   protected $languageManager;
 
   /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
    * Constructs a new SitewideAlertRevisionRevertTranslationForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
@@ -40,10 +48,13 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
    *   The date formatter service.
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
    */
-  public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter, LanguageManagerInterface $language_manager) {
+  public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter, LanguageManagerInterface $language_manager, TimeInterface $time) {
     parent::__construct($entity_storage, $date_formatter);
     $this->languageManager = $language_manager;
+    $this->time = $time;
   }
 
   /**
@@ -53,7 +64,9 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
     return new static(
       $container->get('entity_type.manager')->getStorage('sitewide_alert'),
       $container->get('date.formatter'),
-      $container->get('language_manager')
+      $container->get('language_manager'),
+      $container->get('datetime.time')
+
     );
   }
 
@@ -110,7 +123,7 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
 
     $latest_revision_translation->setNewRevision();
     $latest_revision_translation->isDefaultRevision(TRUE);
-    $revision->setRevisionCreationTime(REQUEST_TIME);
+    $revision->setRevisionCreationTime($this->time->getRequestTime());
 
     return $latest_revision_translation;
   }

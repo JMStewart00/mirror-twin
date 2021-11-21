@@ -182,7 +182,7 @@ class SitewideAlertManager {
    * @return \DateTime
    *   The DateTime of the current request.
    */
-  private function requestDateTime() {
+  protected function requestDateTime() {
     if (! $this->requestDateTime) {
       $this->requestDateTime = new \DateTime();
       $this->requestDateTime->setTimestamp($this->time->getRequestTime());

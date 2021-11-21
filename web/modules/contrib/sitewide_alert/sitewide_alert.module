@@ -5,6 +5,7 @@
  * Contains sitewide_alert.module.
  */
 
+use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -21,6 +22,65 @@ function sitewide_alert_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function sitewide_alert_theme() {
+  return [
+    'sitewide_alert' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares sitewide alert variables for twig template.
+ */
+function template_preprocess_sitewide_alert(&$variables) {
+  /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $sitewideAlert */
+  $sitewideAlert = $variables['elements']['#sitewide_alert'];
+  $variables['sitewide_alert'] = $sitewideAlert;
+
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  $variables['label'] = $sitewideAlert->label();
+
+  $variables['id'] = $sitewideAlert->id();
+  $variables['uuid'] = $sitewideAlert->uuid();
+  $variables['is_dismissible'] = $sitewideAlert->isDismissible();
+  $variables['style'] = $sitewideAlert->getStyle();
+  $variables['style_class'] = $sitewideAlert->getStyleClass();
+
+  $variables['attributes']['class'] = [
+    'sitewide-alert',
+    'alert',
+    $sitewideAlert->getStyleClass(),
+  ];
+
+  // The data-uuid attribute is needed for the dynamic loading via JS to work.
+  $variables['attributes']['data-uuid'] = $sitewideAlert->uuid();
+
+  // Helpful $content variable for template.
+  $variables['content'] = [];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function sitewide_alert_theme_suggestions_sitewide_alert(array $variables) {
+  $suggestions = [];
+  /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $sitewideAlert */
+  $sitewideAlert = $variables['elements']['#sitewide_alert'];
+
+  $suggestions[] = 'sitewide_alert__' . $sitewideAlert->getStyle();
+  $suggestions[] = 'sitewide_alert__' . ($sitewideAlert->isDismissible() ? 'dismissible' : 'notdismissible');
+  $suggestions[] = 'sitewide_alert__' . $sitewideAlert->getStyle() . '__' . ($sitewideAlert->isDismissible() ? 'dismissible' : 'notdismissible');
+
+  return $suggestions;
 }
 
 /**

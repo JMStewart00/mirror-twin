@@ -1,50 +1,26 @@
-nav.top-bar {
+.top-bar {
   position: relative;
-  border-bottom: 1px solid white;
   display: flex;
-  justify-content: center;
-  padding: 0 rem-calc(24);
-  margin: rvr(2) -9999rem 0;
-  border-top: solid 5px $dark-gray;
-  border-bottom: solid 5px $dark-gray;
+  justify-content: flex-start;
+  padding: rem-calc(16) rem-calc(24) rem-calc(16) rem-calc(175);
+  margin: 0;
 
-  .top-bar-left,
-  .top-bar-right,
-  .top-bar-middle {
-    margin: 0;
-  }
-
-  .top-bar-left,
-  .top-bar-right {
-    flex: 1;
-    display: flex;
-  }
-
-  .top-bar-middle {
-    width: 150px;
-    position: relative;
-  }
-
-  .top-bar-left {
-    justify-content: flex-end;
-  }
-
-  .top-bar-right {
-    justify-content: flex-start;
+  &__cart {
+    margin-left: auto;
   }
 
   img {
     display: none;
 
     @include breakpoint(medium up) {
-      display: block;
       position: absolute;
-      width: 150px;
+      left: rem-calc(32);
+      top: rem-calc(16);
       z-index: 10;
-      transform: translateY(-50%);
-      background-color: $black;
-      border-radius: 50%;
-      border: solid 5px $dark-gray;
+
+      display: block;
+
+      width: rem-calc(150);
       margin: 0;
     }
   }
@@ -53,7 +29,7 @@ nav.top-bar {
     background: none;
     position: relative;
     display: inline-block;
-    margin: 15px 25px;
+    margin: 0 rem-calc(10) !important;
     outline: none;
     color: $white;
     text-decoration: none;

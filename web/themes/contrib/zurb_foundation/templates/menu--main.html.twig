@@ -24,26 +24,28 @@
   {% if top_bar_sticky %}
   <div id="top-bar-sticky-container" data-sticky-container>
   {% endif %}
-    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle></button>
-      <div class="title-bar-title">{{ top_bar_menu_text }}</div>
+    <div {{ top_bar_attributes }}>
+      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">{{ top_bar_menu_text }}</div>
+      </div>
+      <nav class="top-bar" id="main-menu" role="navigation">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">{{ site_name }}</li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          {{ menus.menu_links(items, attributes, 0, 1) }}
+          {% if top_bar_search %}
+            {{ top_bar_search }}
+          {% endif %}
+          {% if top_bar_languageswitcher %}
+            {{ top_bar_languageswitcher }}
+          {% endif %}
+        </div>
+      </nav>
     </div>
-    <nav class="top-bar" id="main-menu" role="navigation">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">{{ site_name }}</li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        {{ menus.menu_links(items, attributes, 0, 1) }}
-        {% if top_bar_search %}
-          {{ top_bar_search }}
-        {% endif %}
-        {% if top_bar_languageswitcher %}
-          {{ top_bar_languageswitcher }}
-        {% endif %}
-      </div>
-    </nav>
   {% if top_bar_sticky %}
   </div>
   {% endif %}

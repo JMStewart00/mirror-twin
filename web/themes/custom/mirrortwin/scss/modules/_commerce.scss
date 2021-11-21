@@ -40,22 +40,14 @@
 }
 
 .block-commerce-cart-flyout {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 75px;
-  height: 75px;
+  width: rem-calc(55);
+  height: rem-calc(55);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
-  background-color: $white;
-  box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-  border: 1px solid get-color(tertiary);
   transition: $project-transition;
 
   @include hover-focus() {
-    background-color: get-color(secondary);
     box-shadow: 8px 8px 8px rgba(0,0,0,.7);
   }
 }
@@ -65,7 +57,7 @@
     position: relative;
 
     svg {
-      color: get-color(primary);
+      color: $white;
     }
   }
 
@@ -76,7 +68,7 @@
     border-radius: 50%;
     position: absolute;
     top: -3px;
-    left: 12px;
+    left: 14px;
     text-align: center;
     color: get-color(primary);
     font-size: rem-calc(14);

@@ -19,7 +19,7 @@ use Drupal\Core\Theme\ThemeManagerInterface;
  *
  * @FormElement("custom_layout_background_color_radios")
  */
-final class BackgroundColorRadios extends Radios {
+class BackgroundColorRadios extends Radios {
 
   /**
    * The theme manager.

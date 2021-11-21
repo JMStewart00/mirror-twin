@@ -1,8 +1,12 @@
-# Sitewide Alert routing definition
 sitewide_alert.settings_tab:
-  route_name: sitewide_alert.settings
+  route_name: entity.sitewide_alert.config_form
   title: 'Settings'
-  base_route: sitewide_alert.settings
+  base_route: entity.sitewide_alert.config_form
+
+entity.sitewide_alert.collection:
+  base_route: system.admin_content
+  route_name: entity.sitewide_alert.collection
+  title: 'Sitewide alerts'
 
 entity.sitewide_alert.canonical:
   route_name: entity.sitewide_alert.canonical

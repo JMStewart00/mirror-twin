@@ -68,16 +68,16 @@ class SitewideAlertsController extends ControllerBase {
     $viewBuilder = $this->entityTypeManager()->getViewBuilder('sitewide_alert');
 
     foreach ($sitewideAlerts as $sitewideAlert) {
-      $message = $viewBuilder->view($sitewideAlert);
+      $alertView = $viewBuilder->view($sitewideAlert);
 
       $sitewideAlertsJson['sitewideAlerts'][] = [
         'uuid' => $sitewideAlert->uuid(),
-        'message' => $this->renderer->renderPlain($message),
         'dismissible' => $sitewideAlert->isDismissible(),
         'dismissalIgnoreBefore' => $sitewideAlert->getDismissibleIgnoreBeforeTime(),
         'styleClass' => $sitewideAlert->getStyleClass(),
         'showOnPages' => $sitewideAlert->getPagesToShowOn(),
         'negateShowOnPages' => $sitewideAlert->shouldNegatePagesToShowOn(),
+        'renderedAlert' => $this->renderer->renderPlain($alertView),
       ];
     }
 

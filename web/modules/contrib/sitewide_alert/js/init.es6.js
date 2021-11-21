@@ -1,190 +1,162 @@
-// import React from 'react';
-// import ReactDom from 'react-dom';
-(function(Drupal, drupalSettings) {
-  // window.sitewideAlert = sitewideAlert || {};
-  // const { SitewideAlert } = ./components/SitewideAlert.js;
+(function(Drupal, drupalSettings, once) {
+  const sitewideAlertsId = 'sitewide-alert';
 
-  class SitewideAlert extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        dismissed: this.alertWasDismissed(props.dismissalIgnoreBefore),
-        showOnThisPage: this.shouldShowOnThisPage(props.showOnPages, props.negateShowOnPages)
-      };
-      this.dismissAlert = this.dismissAlert.bind(this);
-      this.alertWasDismissed = this.alertWasDismissed.bind(this);
-      this.shouldShowOnThisPage = this.shouldShowOnThisPage.bind(this);
-    }
-
-    componentDidUpdate(prevProps) {
-      if (
-        this.props.dismissalIgnoreBefore !== prevProps.dismissalIgnoreBefore ||
-        this.props.showOnPages !== prevProps.showOnPages ||
-        this.props.negateShowOnPages !== prevProps.negateShowOnPages
-      ) {
-        this.setState({
-          dismissed: this.alertWasDismissed(this.props.dismissalIgnoreBefore),
-          showOnThisPage: this.shouldShowOnThisPage(this.props.showOnPages, this.props.negateShowOnPages)
-        });
-      }
-    }
-
-    shouldShowOnThisPage(pages = [], negate = true) {
-      if (pages.length === 0) {
-        return true;
-      }
-
-      let pagePathMatches = false;
-      const currentPath = window.location.pathname;
-
-      for (let i = 0; i < pages.length; i++) {
-        const baseUrl = drupalSettings.path.baseUrl.slice(0, -1);
-        const page = baseUrl + pages[i];
-        // Check if we have to deal with a wild card.
-        if (page.charAt(page.length - 1) === '*') {
-          if (currentPath.startsWith(page.substring(0, page.length - 1))) {
-            pagePathMatches = true;
-            break;
-          }
-        } else if (page === currentPath) {
-          pagePathMatches = true;
-          break;
-        }
-      }
-
-      return negate ? !pagePathMatches : pagePathMatches;
-    }
-
-    alertWasDismissed(ignoreDismissalBefore) {
-      if (!('alert-dismissed-' + this.props.uuid in window.localStorage)) {
-        return false;
-      }
-
-      const dismissedAtTimestamp = Number(
-        window.localStorage.getItem('alert-dismissed-' + this.props.uuid),
-      );
-
-      // If the visitor has already dismissed the alert but we are supposed to ignore dismissals before a set date.
-      if (dismissedAtTimestamp < ignoreDismissalBefore) {
-        return false;
-      }
-
+  const shouldShowOnThisPage = (pages = [], negate = true) => {
+    if (pages.length === 0) {
       return true;
     }
 
-    dismissAlert() {
-      window.localStorage.setItem('alert-dismissed-' + this.props.uuid, String(Math.round((new Date()).getTime() / 1000)));
-      this.setState({
-        dismissed: true,
-        showOnThisPage: this.state.showOnThisPage,
-      });
+    let pagePathMatches = false;
+    const currentPath = window.location.pathname;
+
+    for (let i = 0; i < pages.length; i++) {
+      const baseUrl = drupalSettings.path.baseUrl.slice(0, -1);
+      const page = baseUrl + pages[i];
+      // Check if we have to deal with a wild card.
+      if (page.charAt(page.length - 1) === '*') {
+        if (currentPath.startsWith(page.substring(0, page.length - 1))) {
+          pagePathMatches = true;
+          break;
+        }
+      } else if (page === currentPath) {
+        pagePathMatches = true;
+        break;
+      }
     }
 
-    render() {
-      // Prevent the alert from showing if it has been dismissed.
-      if (this.props.dismissible && this.state.dismissed) {
-        return null;
-      }
+    return negate ? !pagePathMatches : pagePathMatches;
+  };
 
-      if (!this.state.showOnThisPage) {
-        return null;
-      }
+  const alertWasDismissed = alert => {
+    if (!(`alert-dismissed-${alert.uuid}` in window.localStorage)) {
+      return false;
+    }
 
-      // Set alert classes.
-      let alertClasses = 'sitewide-alert alert';
-      if (this.props.styleClass !== '') {
-        alertClasses += ' ' + this.props.styleClass;
-      }
+    const dismissedAtTimestamp = Number(
+      window.localStorage.getItem(`alert-dismissed-${alert.uuid}`),
+    );
 
-      return (
-        <div className={alertClasses} role="alert">
-          {/* The inner HTML was already processed for XSS by Drupal's render method. */}
-          <span dangerouslySetInnerHTML={{__html: this.props.message}}/>
-          {this.props.dismissible && <button className="close" onClick={this.dismissAlert} aria-label="Close"><span aria-hidden="true">&times;</span></button>}
-        </div>
+    // If the visitor has already dismissed the alert but we are supposed to ignore dismissals before a set date.
+    if (dismissedAtTimestamp < alert.dismissalIgnoreBefore) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const dismissAlert = alert => {
+    window.localStorage.setItem(
+      `alert-dismissed-${alert.uuid}`,
+      String(Math.round(new Date().getTime() / 1000)),
+    );
+    const alertElement = document.querySelector(`[data-uuid="${alert.uuid}"]`);
+    alertElement.remove();
+  };
+
+  const buildAlertElement = alert => {
+    const alertElement = document.createElement('div');
+    alertElement.innerHTML = alert.renderedAlert;
+
+    if (alert.dismissible) {
+      const dismissButtons = alertElement.getElementsByClassName('js-dismiss-button');
+      for (let i = 0; i < dismissButtons.length; i++) {
+        dismissButtons[i].addEventListener('click', () => dismissAlert(alert));
+      }
+    }
+
+    return alertElement.firstElementChild;
+  }
+
+  const fetchAlerts = () => {
+    return fetch(
+      `${window.location.origin +
+      drupalSettings.path.baseUrl +
+      drupalSettings.path.pathPrefix}sitewide_alert/load`,
+    )
+      .then(res => res.json())
+      .then(
+        result => result.sitewideAlerts,
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          console.error(error);
+        },
       );
-    }
-  }
+  };
 
-  class SitewideAlerts extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        error: null,
-        isLoaded: false,
-        sitewideAlerts: [],
-      };
-    }
+  const removeStaleAlerts = alerts => {
+    const root = document.getElementById(sitewideAlertsId);
+    const existingAlerts = root.querySelectorAll('[data-uuid]');
 
-    componentDidMount() {
-      this.getAlerts();
-      if(drupalSettings.sitewideAlert.automaticRefresh === true) {
-        this.interval = setInterval(() => {
-          this.getAlerts();
-        }, (drupalSettings.sitewideAlert.refreshInterval < 1000) ? 1000 : drupalSettings.sitewideAlert.refreshInterval);
-      }
-    }
+    // We have to convert and filter existing alerts based on newly fetched alerts.
+    // This can be done by comparing uuids.
+    // If the uuid can't be found in fetched alerts,
+    // the alert with the same uuid should be removed.
+    const alertsToBeRemoved = Array.from(existingAlerts).filter(
+      alert => !alerts.includes(alert.getAttribute('data-uuid')),
+    );
 
-    componentWillUnmount() {
-      clearInterval(this.interval);
-    }
+    alertsToBeRemoved.forEach(alert => alert.remove());
+  };
 
-    getAlerts() {
-      fetch(window.location.origin + drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix + 'sitewide_alert/load')
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              sitewideAlerts: result.sitewideAlerts,
-            });
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error,
-            });
-          },
+  const initAlerts = () => {
+    const root = document.getElementById(sitewideAlertsId);
+    // Fetch alerts and prepare rendering.
+    fetchAlerts().then(alerts => {
+      removeStaleAlerts(alerts);
+      alerts.forEach(alert => {
+        // Check if alert has been dimissed.
+        const dismissed = alertWasDismissed(alert);
+        // Check if current page is one of the pages the alert should be shown on or not.
+        const showOnThisPage = shouldShowOnThisPage(
+          alert.showOnPages,
+          alert.negateShowOnPages,
         );
-    }
 
-    render() {
-      const { error, isLoaded, sitewideAlerts } = this.state;
-      if (error) {
-        console.log('Unable to to load alerts.');
-        return <div/>;
-      } else if (!isLoaded) {
-        return <div/>;
-      } else {
-        return (
-          <div>
-            {sitewideAlerts.map(sitewideAlert => (
-              <SitewideAlert
-                key={sitewideAlert.uuid}
-                uuid={sitewideAlert.uuid}
-                message={sitewideAlert.message}
-                styleClass={sitewideAlert.styleClass}
-                dismissible={sitewideAlert.dismissible}
-                dismissalIgnoreBefore={sitewideAlert.dismissalIgnoreBefore}
-                showOnPages={sitewideAlert.showOnPages}
-                negateShowOnPages={sitewideAlert.negateShowOnPages}
-              />
-            ))}
-          </div>
+        // Check for existing alert element.
+        const existingAlertElement = root.querySelector(
+          `[data-uuid="${alert.uuid}"]`,
         );
-      }
-    }
-  }
+
+        if (showOnThisPage && !dismissed) {
+          const renderableAlertElement = buildAlertElement(alert);
+          // To prevent an alert from being rendered multiple times
+          // replace the old alert with the new one when new alerts are being fetched.
+          existingAlertElement
+            ? root.replaceChild(renderableAlertElement, existingAlertElement)
+            : root.appendChild(renderableAlertElement);
+          return;
+        }
+
+        // Remove alert if it is on the page and should no longer be.
+        if ((dismissed || !showOnThisPage) && existingAlertElement) {
+          existingAlertElement.remove();
+        }
+      });
+    });
+  };
 
   Drupal.behaviors.sitewide_alert_init = {
     attach: (context, settings) => {
-      ReactDOM.render(
-        <SitewideAlerts />,
-        document.getElementById('sitewide-alert'),
-      );
+      once('sitewide_alerts_init', `#${  sitewideAlertsId}`, context).forEach(element => {
+        // On load.
+        initAlerts();
+
+        if (drupalSettings.sitewideAlert.automaticRefresh === true) {
+          const interval = setInterval(
+            () => initAlerts(),
+            drupalSettings.sitewideAlert.refreshInterval < 1000
+              ? 1000
+              : drupalSettings.sitewideAlert.refreshInterval,
+          );
+          // Clear interval if automatic refresh has been turned off.
+          // Only do this if an interval has previously been set.
+          if (!drupalSettings.sitewideAlert.automaticRefresh) {
+            clearInterval(interval);
+          }
+        }
+      });
     },
   };
-})(Drupal, drupalSettings);
+})(Drupal, drupalSettings, once);

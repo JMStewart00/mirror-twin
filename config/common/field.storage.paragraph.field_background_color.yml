@@ -1,0 +1,33 @@
+uuid: 8182b23a-d261-4083-8d43-75f3084b4cbb
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_background_color
+field_name: field_background_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: black
+      label: Black
+    -
+      value: dark-gray
+      label: 'Dark Gray'
+    -
+      value: light-gray
+      label: 'Light Gray'
+    -
+      value: gray-black
+      label: 'Gray to Black Gradient'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

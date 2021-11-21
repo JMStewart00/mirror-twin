@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.section.field_background_color
     - field.field.paragraph.section.field_horizontal_alignment
     - field.field.paragraph.section.field_paragraphs
     - field.field.paragraph.section.field_section_width
@@ -23,6 +24,12 @@ targetEntityType: paragraph
 bundle: section
 mode: default
 content:
+  field_background_color:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_horizontal_alignment:
     weight: 3
     settings: {  }

@@ -8,10 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Stack' => array($vendorDir . '/stack/builder/src'),
-    'EasyRdf_' => array($vendorDir . '/easyrdf/easyrdf/lib'),
     'Drupal\\Tests\\Driver' => array($vendorDir . '/drupal/drupal-driver/tests'),
     'Drupal\\Driver' => array($vendorDir . '/drupal/drupal-driver/src'),
-    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Dflydev\\DotAccessData' => array($vendorDir . '/dflydev/dot-access-data/src'),
     'Console' => array($vendorDir . '/pear/console_getopt'),
     'Archive_Tar' => array($vendorDir . '/pear/archive_tar'),

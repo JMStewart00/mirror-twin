@@ -5,12 +5,11 @@
 				"targets": {
 					"browsers": [
 						"last 2 versions",
-						"IE >= 9"
+						"IE >= 11"
 					]
 				}
 			}
 		],
-    "stage-0",
-    "react" 
+    "stage-0"
   ]
 }

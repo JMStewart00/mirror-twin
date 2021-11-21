@@ -2,6 +2,7 @@
 
 namespace Drupal\sitewide_alert\Form;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\ConfirmFormBase;
@@ -40,16 +41,26 @@ class SitewideAlertRevisionRevertForm extends ConfirmFormBase {
   protected $dateFormatter;
 
   /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
    * Constructs a new SitewideAlertRevisionRevertForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   The Sitewide Alert storage.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
    */
-  public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter) {
+  public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter, TimeInterface $time) {
     $this->SitewideAlertStorage = $entity_storage;
     $this->dateFormatter = $date_formatter;
+    $this->time = $time;
   }
 
   /**
@@ -58,7 +69,8 @@ class SitewideAlertRevisionRevertForm extends ConfirmFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity_type.manager')->getStorage('sitewide_alert'),
-      $container->get('date.formatter')
+      $container->get('date.formatter'),
+      $container->get('datetime.time')
     );
   }
 
@@ -118,7 +130,7 @@ class SitewideAlertRevisionRevertForm extends ConfirmFormBase {
     $original_revision_timestamp = $this->revision->getRevisionCreationTime();
 
     $this->revision = $this->prepareRevertedRevision($this->revision, $form_state);
-    $this->revision->revision_log = $this->t('Copy of the revision from %date.', [
+    $this->revision->revision_log_message = $this->t('Copy of the revision from %date.', [
       '%date' => $this->dateFormatter->format($original_revision_timestamp),
     ]);
     $this->revision->save();
@@ -145,7 +157,7 @@ class SitewideAlertRevisionRevertForm extends ConfirmFormBase {
   protected function prepareRevertedRevision(SitewideAlertInterface $revision, FormStateInterface $form_state) {
     $revision->setNewRevision();
     $revision->isDefaultRevision(TRUE);
-    $revision->setRevisionCreationTime(REQUEST_TIME);
+    $revision->setRevisionCreationTime($this->time->getRequestTime());
 
     return $revision;
   }

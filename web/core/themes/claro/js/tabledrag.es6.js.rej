@@ -1,0 +1,11 @@
+--- themes/claro/js/tabledrag.es6.js
++++ themes/claro/js/tabledrag.es6.js
+@@ -550,7 +550,7 @@
+       const self = this;
+       const $item = $(item);
+       const $firstCell = $item
+-        .find('td:first-of-type')
++        .children('td:first-of-type')
+         .wrapInner(Drupal.theme.tableDragCellContentWrapper())
+         .wrapInner(
+           $(Drupal.theme('tableDragCellItemsWrapper')).addClass(

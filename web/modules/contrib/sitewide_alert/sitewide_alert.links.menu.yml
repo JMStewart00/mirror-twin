@@ -1,4 +1,3 @@
-
 # Sitewide Alert menu items definition
 entity.sitewide_alert.collection:
   title: 'Sitewide alerts'
@@ -7,9 +6,8 @@ entity.sitewide_alert.collection:
   parent: system.admin_content
   weight: 100
 
-sitewide_alert.sitewide_alert_config_form:
-  title: 'Sitewide Alert Settings'
-  route_name: sitewide_alert.sitewide_alert_config_form
+entity.sitewide_alert.config_form:
+  title: 'Sitewide Alerts'
+  route_name: entity.sitewide_alert.config_form
   description: 'Manage settings for Sitewide Alerts'
   parent: system.admin_config_ui
-  weight: 99

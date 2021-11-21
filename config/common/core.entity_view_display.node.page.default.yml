@@ -27,6 +27,7 @@ third_party_settings:
           background_color: none
           class: null
           hero: false
+          context_mapping: {  }
         components:
           58fc9c00-f12e-46f2-a122-ffb1373f3a7d:
             uuid: 58fc9c00-f12e-46f2-a122-ffb1373f3a7d
