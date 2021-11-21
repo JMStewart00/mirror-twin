@@ -60,3 +60,15 @@ slider-base:
     - core/drupal
     - core/jquery
     - mirrortwin/slick-js
+
+sticky-kit:
+  version: 1
+  js:
+    /libraries/sticky-kit/sticky-kit.min.js: {}
+
+sticky-nav:
+  version: 1
+  js:
+    js/sticky-nav.js: {}
+  dependencies:
+    - mirrortwin/sticky-kit

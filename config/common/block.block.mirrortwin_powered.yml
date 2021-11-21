@@ -10,7 +10,7 @@ _core:
   default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
 id: mirrortwin_powered
 theme: mirrortwin
-region: footer_last
+region: header
 weight: -6
 provider: null
 plugin: system_powered_by_block

@@ -13,6 +13,10 @@
             "url": "https://packages.drupal.org/8"
         },
         "1": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "2": {
             "type": "package",
             "package": {
                 "name": "ckeditor/font",
@@ -24,7 +28,7 @@
                 }
             }
         },
-        "2": {
+        "3": {
             "type": "package",
             "package": {
                 "name": "ckeditor/colorbutton",
@@ -36,7 +40,7 @@
                 }
             }
         },
-        "3": {
+        "4": {
             "type": "package",
             "package": {
                 "name": "ckeditor/panelbutton",
@@ -48,7 +52,7 @@
                 }
             }
         },
-        "4": {
+        "5": {
             "type": "package",
             "package": {
                 "name": "enyo/dropzone",
@@ -60,7 +64,7 @@
                 }
             }
         },
-        "5": {
+        "6": {
             "type": "package",
             "package": {
                 "name": "michalsnik/aos",
@@ -72,7 +76,7 @@
                 }
             }
         },
-        "6": {
+        "7": {
             "type": "package",
             "package": {
                 "name": "kylefox/jquery-modal",
@@ -84,7 +88,7 @@
                 }
             }
         },
-        "7": {
+        "8": {
             "type": "package",
             "package": {
                 "name": "jqueryinstagramfeed/jqueryinstagramfeed",
@@ -96,7 +100,7 @@
                 }
             }
         },
-        "8": {
+        "9": {
             "type": "package",
             "package": {
                 "name": "kenwheeler/slick",
@@ -163,7 +167,7 @@
         "drupal/redirect": "^1.6",
         "drupal/responsive_favicons": "^1.5",
         "drupal/simple_instagram_feed": "^3.6",
-        "drupal/simple_sitemap": "^4.0",
+        "drupal/simple_sitemap": "^3.5",
         "drupal/simplenews": "^2.0@beta",
         "drupal/sitewide_alert": "^2.0",
         "drupal/smtp": "^1.0",
@@ -184,6 +188,7 @@
         "kenwheeler/slick": "1.8.0",
         "kylefox/jquery-modal": "^0.9.1",
         "michalsnik/aos": "^2.3",
+        "npm-asset/sticky-kit": "^1.1",
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2"
     },

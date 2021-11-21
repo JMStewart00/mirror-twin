@@ -1,0 +1,27 @@
+uuid: 2ed76520-deef-4a83-aa01-caa4febbb7cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - custom_layout
+    - mirror_twin_custom_blocks
+  theme:
+    - mirrortwin
+third_party_settings:
+  custom_layout:
+    vertical_spacing:
+      top: u-vr__mt--2
+      bottom: u-vr__mb--2
+id: righthalffooterblock
+theme: mirrortwin
+region: footer_second
+weight: 0
+provider: null
+plugin: mirror_twin_right_half
+settings:
+  id: mirror_twin_right_half
+  label: '723 National'
+  provider: mirror_twin_custom_blocks
+  label_display: visible
+  content: "<p>723 National Ave<br />\r\nLexington, KY 40502</p>\r\n\r\n<p>Monday-Thursday<br />\r\n4PM - 11PM</p>\r\n\r\n<p>Friday-Sunday<br />\r\n11AM - 11PM</p>\r\n"
+visibility: {  }

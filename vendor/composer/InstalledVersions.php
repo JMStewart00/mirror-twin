@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '71f9222f9f643e91233656cc083662ef48590ff6',
+    'reference' => 'f23bebaa557c4ebc0d2959de089f2a22d27c227a',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -1573,12 +1573,12 @@ private static $installed = array (
     ),
     'drupal/simple_sitemap' => 
     array (
-      'pretty_version' => '4.0.0',
-      'version' => '4.0.0.0',
+      'pretty_version' => '3.11.0',
+      'version' => '3.11.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '4.0.0',
+      'reference' => '8.x-3.11',
     ),
     'drupal/simplenews' => 
     array (
@@ -2101,6 +2101,15 @@ private static $installed = array (
       ),
       'reference' => '63a79e8daa781cac14e5195e63ed8ae231dd10fd',
     ),
+    'npm-asset/sticky-kit' => 
+    array (
+      'pretty_version' => '1.1.3',
+      'version' => '1.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => NULL,
+    ),
     'orno/di' => 
     array (
       'replaced' => 
@@ -2124,7 +2133,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '71f9222f9f643e91233656cc083662ef48590ff6',
+      'reference' => 'f23bebaa557c4ebc0d2959de089f2a22d27c227a',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (

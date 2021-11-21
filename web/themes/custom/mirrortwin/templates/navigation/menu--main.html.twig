@@ -23,7 +23,7 @@
     <div class="top-bar" id="main-menu" role="navigation" data-animate>
       <div class="top-bar__logo">
         <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-          <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
+          {% include base_path ~ directory ~ '/templates/media/hops.svg.twig' %}
         </a>
       </div>
       <div class="top-bar__menu">

@@ -1,102 +1,60 @@
-footer {
-  padding: 40px;
-  text-align: center;
-  position: relative;
+.c-footer {
+  &__left {
+    position: relative;
 
-  @include breakpoint(medium up) {
-    text-align: left;
-    padding: 40px 0;
-  }
-
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    /* fill vertically */
-    top: 0;
-    bottom: 0;
-    width: 9600px;
-    right: 100%;
-    background: $dark-gray;
-  }
-
-  &:after {
-    width: 320px;
-    left: 100%;
-  }
-
-  .site-logo img {
-    width: rem-calc(250);
-    @include breakpoint(medium up) {
-      margin-left: rem-calc(50);
-    }
-  }
-
-  .columns {
-    padding: rem-calc(16);
-
-    @include breakpoint(medium up) {
-      padding: 0 rem-calc(32);
-    }
-
-    &:not(:first-child) {
+    &::after {
       @include breakpoint(medium up) {
-        border-left: 1px solid $medium-gray;
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "";
+        display: block;
+        clear: both;
+        height: 100%;
+        width: 8px;
+        background-color: $white;
       }
     }
   }
 
-  .info.hours {
-    table {
-      margin: 10px 0 0;
-      box-shadow: none;
-
-      tbody {
-        border: none;
-      }
-    }
-  }
-
-  .info.address {
+  &__hours {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center !important;
 
-    @include breakpoint(medium up) {
-      justify-content: flex-start;
-    }
-
-    address {
-      margin-left: rem-calc(16);
+    h3 {
+      font-size: rem-calc(24);
+      margin-bottom: rem-calc(24);
     }
 
     p {
-      margin-bottom: 0;
-    }
-
-    svg {
-      color: $medium-gray;
+      margin-bottom: rem-calc(12);
     }
   }
-}
 
-.copyright {
-  position: relative;
+  &__bottom {
+    position: relative;
 
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    /* fill vertically */
-    top: 0;
-    bottom: 0;
-    width: 9600px;
-    right: 100%;
-    background: $black;
+    .columns {
+      @include breakpoint(medium down) {
+        margin-bottom: rem-calc(24);
+      }
+    }
   }
 
-  &:after {
-    width: 320px;
-    left: 100%;
+  &__logo {
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  &__icon {
+    margin: 0 rem-calc(4);
   }
 }

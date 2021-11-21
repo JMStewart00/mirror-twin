@@ -59,15 +59,15 @@
         {% endif %}
       {% endif %}
 
-      <header class="row t-background--black" role="banner" aria-label="{{ 'Site header'|t }}">
+      <header class="row t-background--black c-header-mobile-wrapper" role="banner" aria-label="{{ 'Site header'|t }}">
         <div class="c-header-mobile">
           <a href="#mobile-menu" class="c-header__hamburger mburger mburger--collapse">
             <b></b>
             <b></b>
             <b></b>
           </a>
-          <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-            <img src="/themes/custom/mirrortwin/images/logo.png" alt="{{ 'Home'|t }}" />
+          <a href="{{ path('<front>') }}" rel="home" class="site-logo site-log--mobile">
+            {% include base_path ~ directory ~ '/templates/media/hops.svg.twig' %}
           </a>
         </div>
       </header>
@@ -163,34 +163,57 @@
       </div>
       {% endblock %}
 
-      {% if page.footer_first or page.footer_middle or page.footer_last %}
-        <footer class="row medium-unstack t-background--dark-gray">
+      <footer class="c-footer">
+      {% if page.footer_first or page.footer_second %}
+        <div class="t-background--dark-gray u-vr__py--2 u-vr__px--2">
+          <div class="c-footer__top row u-vr__mb--2 align-center">
+            <h2>Location and hours</h2>
+          </div>
+          <div class="row medium-unstack align-center">
           {% if page.footer_first %}
-            <div id="footer-first" class="columns">
+            <div id="footer-first" class="c-footer__left columns medium-4 medium-centered">
               {{ page.footer_first }}
             </div>
           {% endif %}
-          {% if page.footer_middle %}
-            <div id="footer-middle" class="columns">
-              {{ page.footer_middle }}
+          {% if page.footer_second %}
+            <div id="footer-middle" class="c-footer__right columns medium-4 medium-centered">
+              {{ page.footer_second }}
             </div>
           {% endif %}
-          {% if page.footer_last %}
-            <div id="footer-last" class="columns">
-              {{ page.footer_last }}
-            </div>
-          {% endif %}
-        </footer>
-      {% endif %}
-      {% if block_copyright_show %}
-        <div class="row align-center t-background--black u-vr__py--1 copyright">
-          {% if not block_copyright_custom_text %}
-            <p>&copy; {{ "now"|date('Y') }} {{"Mirror Twin Brewing"}} {{ 'All rights reserved.'|t }}</p>
-          {% else %}
-            {{ block_copyright }}
-          {% endif %}
+          </div>
         </div>
       {% endif %}
+      {% if block_copyright_show %}
+        <div class="c-footer__bottom row align-middle t-background--black u-vr__py--2">
+          <div class="columns small-12 medium-5">
+            <div class="row">
+              <div class="columns small-12 medium-3 text-center">
+                <a href="https://www.facebook.com/Mirrortwinbrewingco" target="_blank">
+                  <i class="fab fa-facebook fa-2x c-footer__icon"></i>
+                </a>
+                <a href="https://instagram.com/mirrortwinbrewing" target="_blank">
+                  <i class="fab fa-instagram fa-2x c-footer__icon"></i>
+                </a>
+              </div>
+              <div class="columns small-12 medium-3 text-center"><a href="tel:8594478146">(859) 447-8146</a></div>
+              <div class="columns small-12 medium-6 text-center"><a href="mailto:hr@mirrortwinbrewing.com">hr@mirrortwinbrewing.com</a></div>
+            </div>
+          </div>
+          <div class="c-footer__logo columns small-12 medium-2">
+            <a href="{{ path('<front>') }}" rel="home" class="site-logo">
+              <img src="{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
+            </a>
+          </div>
+          <div class="columns small-12 medium-5 align-center text-center">
+            {% if not block_copyright_custom_text %}
+              <p>&copy; {{ "now"|date('Y') }} {{"Mirror Twin Brewing"}} {{ 'All rights reserved.'|t }}</p>
+            {% else %}
+              {{ block_copyright }}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      </footer>
     </div>
   </div>
     <!-- Modal HTML embedded directly into document -->
@@ -208,3 +231,5 @@
 
   </div>
 </div>
+
+{{ attach_library('mirrortwin/sticky-nav' )}}

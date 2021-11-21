@@ -1,0 +1,15 @@
+
+{%
+  set classes = [
+    'c-footer__hours',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h3 {{ title_attributes }}>{{ label }}</h3>
+  {% endif %}
+  {{ title_suffix }}
+  {{ content['#markup']|raw }}
+</div>

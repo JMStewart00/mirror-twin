@@ -1,0 +1,14 @@
+uuid: f5d63534-0afe-4301-b62a-533ab117aea7
+langcode: en
+status: true
+dependencies: {  }
+id: s_s_nickson
+label: 'S&S Nickson'
+font_family: ssnickson
+font_classification:
+  sans-serif: sans-serif
+  serif: '0'
+  slab-serif: '0'
+  handwriting: '0'
+  decorative: '0'
+  monospace: '0'
