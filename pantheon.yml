@@ -1,5 +1,5 @@
 api_version: 1
-php_version: 7.3
+php_version: 7.4
 
 # Use the web directory as the docroot
 web_docroot: true
