@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.flagship
     - core.entity_view_mode.node.on_tap
     - core.entity_view_mode.node.teaser
     - node.type.beer
@@ -71,7 +72,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: flagship
       fields:
         title:
           id: title
@@ -189,6 +190,18 @@ display:
           exposed: false
           expose:
             label: ''
+        field_style_target_id:
+          id: field_style_target_id
+          table: node__field_style
+          field: field_style_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'All Beer - Alpha Order'
       header: {  }
       footer: {  }

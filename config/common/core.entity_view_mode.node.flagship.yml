@@ -1,0 +1,10 @@
+uuid: d9a31c89-c44c-43c4-b717-7d753c00647c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.flagship
+label: Flagship
+targetEntityType: node
+cache: true

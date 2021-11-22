@@ -1,0 +1,16 @@
+{% extends "node--teaser.html.twig" %}
+
+{% block content %}
+	<div class="c-beer-flagship__photo">
+		{{ content.field_preview_image }}
+	</div>
+
+  <div class="c-beer-flagship__title h3">
+    {{ label.0['#context'].value }}
+  </div>
+
+  <div class="c-beer-flagship__style">
+    {{content.field_style}}
+  </div>
+{% endblock %}
+
