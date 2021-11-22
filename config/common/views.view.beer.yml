@@ -72,7 +72,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: flagship
+          view_mode: teaser
       fields:
         title:
           id: title
@@ -234,6 +234,8 @@ display:
         title: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
       filters:
         status:
           value: '1'
@@ -310,6 +312,17 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: flagship
     cache_metadata:
       max-age: -1
       contexts:
