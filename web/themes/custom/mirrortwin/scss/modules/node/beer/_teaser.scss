@@ -1,43 +1,29 @@
 .c-beer-teaser {
   display: flex;
-  margin-bottom: rvr(1);
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-content: center;
-  text-align: center;
-  padding: rem-calc(16);
-
-  @include breakpoint(small down) {
-    margin: rvr(1) auto;
-  }
-
-  &__photo {
-    overflow: hidden;
-    margin-bottom: rvr(1);
-
-    .c-field-media-image {
-      display: flex;
-
-      img {
-        width: 300px;
-        margin: auto;
-      }
-    }
-  }
+  text-align: left;
 
   &__title {
     font-size: rem-calc(28) !important;
-    font-weight: $global-weight-bold;
+    font-family: 'Bebas Neue', cursive !important;
     margin-bottom: 0px !important;
+    color: get-color(primary) !important;
+  }
+
+  &__style {
+    display: flex;
+    flex-flow: row nowrap;
+
+    margin-bottom: rem-calc(16);
+
+    font-size: rem-calc(24) !important;
+    font-family: 'Bebas Neue', cursive;
+    color: get-color(secondary);
   }
 
   * {
     transition: all .2s ease-in-out;
-  }
-
-  @include hover-focus() {
-    img {
-      transform: scale(1.1);
-    }
   }
 }
