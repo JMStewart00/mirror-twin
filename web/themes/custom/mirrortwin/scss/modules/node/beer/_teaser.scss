@@ -6,8 +6,9 @@
   text-align: left;
 
   &__title {
-    font-size: rem-calc(28) !important;
+    font-size: rem-calc(32) !important;
     font-family: 'Bebas Neue', cursive !important;
+    line-height: 1;
     margin-bottom: 0px !important;
     color: get-color(primary) !important;
   }
@@ -16,10 +17,11 @@
     display: flex;
     flex-flow: row nowrap;
 
-    margin-bottom: rem-calc(16);
+    margin-bottom: rem-calc(10);
 
-    font-size: rem-calc(24) !important;
+    font-size: rem-calc(28) !important;
     font-family: 'Bebas Neue', cursive;
+    line-height: 1;
     color: get-color(secondary);
   }
 
