@@ -17,8 +17,8 @@ h1,
 .h1 {
   font-size: rem-calc(46);
   line-height: 1;
-  font-weight: $global-weight-bold;
-  font-family: 'ssnickson', sans-serif;
+  font-weight: $global-weight-normal;
+  font-family: $font-family-ssnickson;
 
   @include breakpoint(medium up) {
     font-size: rem-calc(72);
@@ -29,8 +29,8 @@ h2,
 .h2 {
   font-size: rem-calc(40);
   line-height: (34/24);
-  font-weight: $global-weight-semi-bold;
-  font-family: 'ssnickson', sans-serif;
+  font-weight: $global-weight-normal;
+  font-family: $font-family-ssnickson;
 
   @include breakpoint(medium up) {
     font-size: rem-calc(64);
@@ -41,8 +41,8 @@ h3,
 .h3 {
   font-size: rem-calc(32) !important;
   line-height: 1.25;
-  font-weight: $global-weight-semi-bold;
-  font-family: 'ssnickson', sans-serif;
+  font-weight: $global-weight-normal;
+  font-family: $font-family-ssnickson;
 
   @include breakpoint(medium up) {
     font-size: rem-calc(40);

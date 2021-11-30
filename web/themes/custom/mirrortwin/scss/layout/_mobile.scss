@@ -14,6 +14,13 @@
     display: none;
   }
 
+  a {
+    color: $black !important;
+    font-family: $font-family-ssnickson !important;
+    font-size: rem-calc(35) !important;
+    font-weight: 300;
+  }
+
   // Push the menu futher down when logged into admin
   .toolbar-vertical & {
     top: 97 !important;
@@ -71,6 +78,9 @@
 
     a {
       color: $black !important;
+      font-family: $font-family-ssnickson !important;
+      font-size: rem-calc(35) !important;
+      font-weight: 300;
     }
 
     .mm-btn_prev::before {
