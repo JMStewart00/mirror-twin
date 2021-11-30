@@ -1,5 +1,7 @@
 .l-section {
   position: relative;
+  padding-top: rvr(2);
+  padding-bottom: rvr(2);
 
   &::before,
   &::after {

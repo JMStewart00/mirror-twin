@@ -78,8 +78,8 @@ third_party_settings:
             weight: 0
             third_party_settings:
               custom_layout:
-                vertical_spacing_top: u-vr__mt--2
-                vertical_spacing_bottom: u-vr__mb--2
+                vertical_spacing_top: none
+                vertical_spacing_bottom: none
                 primary_heading: ''
                 primary_subheading: ''
         third_party_settings: {  }
