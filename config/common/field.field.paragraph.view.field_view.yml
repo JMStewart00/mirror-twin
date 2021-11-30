@@ -1,0 +1,76 @@
+uuid: 8b1e7fcf-31d7-4df1-bd05-172ed775970c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view
+    - paragraphs.paragraphs_type.view
+  module:
+    - viewsreference
+id: paragraph.view.field_view
+field_name: field_view
+entity_type: paragraph
+bundle: view
+label: View
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    block: block
+    default: 0
+    page: 0
+    feed: 0
+    embed: 0
+  preselect_views:
+    available_beer_for_order: 0
+    beer: 0
+    block_content: 0
+    bloody_marys: 0
+    can_drop_latest: 0
+    cocktails: 0
+    comment: 0
+    comments_recent: 0
+    commerce_carts: 0
+    commerce_cart_block: 0
+    commerce_cart_form: 0
+    commerce_checkout_order_summary: 0
+    commerce_orders: 0
+    commerce_order_item_table: 0
+    commerce_products: 0
+    commerce_stores: 0
+    commerce_user_orders: 0
+    content: 0
+    content_recent: 0
+    feeds_feed: 0
+    files: 0
+    fontyourface_font_manager: 0
+    frontpage: 0
+    latest_mirror_monday: 0
+    media: 0
+    media_library: 0
+    profiles: 0
+    redirect: 0
+    slushees: 0
+    spirits: 0
+    spirits_anchor_bar: 0
+    taxonomy_term: 0
+    team_members: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+    wine: 0
+  enabled_settings:
+    argument: 0
+    limit: 0
+    offset: 0
+    pager: 0
+    title: 0
+field_type: viewsreference

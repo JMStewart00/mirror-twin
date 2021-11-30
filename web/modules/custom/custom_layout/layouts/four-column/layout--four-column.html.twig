@@ -1,8 +1,8 @@
-{% set background_class = 't-background--' ~ settings.background_color %}
+
 {% if content %}
 
   {% if background_class %}
-    <div class="row medium-unstack {{ background_class }}">
+    <div class="row medium-unstack">
   {% endif %}
 
     <div {{ region_attributes.first.addClass('columns columns-4--left') }}>

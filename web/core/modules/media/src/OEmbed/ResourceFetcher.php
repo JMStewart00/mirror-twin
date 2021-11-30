@@ -30,13 +30,6 @@ class ResourceFetcher implements ResourceFetcherInterface {
   protected $providers;
 
   /**
-   * The module handler service.
-   *
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
-   */
-  protected $moduleHandler;
-
-  /**
    * Constructs a ResourceFetcher object.
    *
    * @param \GuzzleHttp\ClientInterface $http_client
@@ -46,12 +39,11 @@ class ResourceFetcher implements ResourceFetcherInterface {
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    *   (optional) The cache backend.
    */
-  public function __construct(ClientInterface $http_client, ProviderRepositoryInterface $providers, ModuleHandlerInterface $moduleHandler, CacheBackendInterface $cache_backend = NULL) {
+  public function __construct(ClientInterface $http_client, ProviderRepositoryInterface $providers, CacheBackendInterface $cache_backend = NULL) {
     $this->httpClient = $http_client;
     $this->providers = $providers;
     $this->cacheBackend = $cache_backend;
     $this->useCaches = isset($cache_backend);
-    $this->moduleHandler = $moduleHandler;
   }
 
   /**
@@ -89,8 +81,6 @@ class ResourceFetcher implements ResourceFetcherInterface {
     if (empty($data) || !is_array($data)) {
       throw new ResourceException('The oEmbed resource could not be decoded.', $url);
     }
-
-    $this->moduleHandler->alter('oembed_resource_data', $data, $url);
 
     $this->cacheSet($cache_id, $data);
 

@@ -82,14 +82,32 @@ $foundation-palette: (
   alert: #cc4b37,
 );
 
+$white: #FFFFFF;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
+$text-gray: #888888;
 $dark-gray: #474747;
 $black: #0f0f0f;
 $white: #fff;
 $body-color: $black;
 $link-color: $dark-gray;
 $link-hover-color: $medium-gray;
+
+$font-family-bebas: 'Bebas Neue', cursive;
+
+$headings: '
+  h1,
+  .h1,
+  h2,
+  .h2,
+';
+
+$subheadings: '
+  h3,
+  .h3,
+  h4,
+  .h4,
+';
 
 $body-background: $white;
 $body-font-color: $black;

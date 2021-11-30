@@ -1,6 +1,6 @@
 uuid: 301ba776-dffc-4c8f-b72b-81b57d48ecc3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.media.team_member_square

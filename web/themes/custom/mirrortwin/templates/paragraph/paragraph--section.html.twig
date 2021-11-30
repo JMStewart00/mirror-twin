@@ -1,5 +1,5 @@
 {# Set background color #}
-{% set bg_color = paragraph.field_background_color.value ? 'bg-' ~ paragraph.field_background_color.value|clean_class : 'bg-none' %}
+{% set bg_color = paragraph.field_background_color.value ? 't-background--' ~ paragraph.field_background_color.value|clean_class : 't-background--none' %}
 
 {% set classes = [
   'l-section',
@@ -14,22 +14,11 @@
   <div class="l-section__content">
   {% if content.field_title|render %}
     <h2 class='c-block__title h1'>{{ content.field_title }}</h2>
-    <div class="icon-divider">
-      <span class="icon">
-        {{ source(directory ~ '/images/hops.svg') }}
-      </span>
-      <span class="icon">
-        {{ source(directory ~ '/images/hops.svg') }}
-      </span>
-      <span class="icon">
-        {{ source(directory ~ '/images/hops.svg') }}
-      </span>
-    </div>
 
     {% if content.field_subheading %}
       <div class="c-block__subheading u-vr__mb--1">{{ content.field_subheading }}</div>
     {% endif %}
   {% endif %}
-  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width') }}
+  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width', 'field_background_color') }}
   </div>
 </div>

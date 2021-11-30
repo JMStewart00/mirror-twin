@@ -1,0 +1,16 @@
+uuid: 38dbc4c2-bab9-4e90-ba0a-cc16ee60c388
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_750w
+label: responsive_750w
+effects:
+  a9d326e6-5da7-49c6-a801-d9a112912116:
+    uuid: a9d326e6-5da7-49c6-a801-d9a112912116
+    id: image_scale
+    weight: null
+    data:
+      width: 750
+      height: null
+      upscale: true
+pipeline: __default__

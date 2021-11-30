@@ -1,6 +1,6 @@
 uuid: 9e995749-bb06-4d72-97ec-9596ec203598
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.media.banner

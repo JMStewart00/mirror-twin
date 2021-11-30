@@ -19,19 +19,19 @@ bundle: section
 mode: default
 content:
   field_background_color:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_horizontal_alignment:
+    type: list_key
     weight: 4
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_horizontal_alignment:
     type: list_key
+    weight: 3
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     weight: 2
@@ -42,12 +42,12 @@ content:
     third_party_settings: {  }
     region: content
   field_section_width:
-    weight: 3
+    type: list_key
+    weight: 5
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_key
-    region: content
   field_subheading:
     weight: 1
     label: hidden

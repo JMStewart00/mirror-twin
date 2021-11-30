@@ -108,6 +108,15 @@
   // color background color
   @if color-palette($bg-color, bg) {
     background-color: color-palette($bg-color, bg);
+
+    &.l-section {
+      &::before,
+      &::after {
+        @include breakpoint(medium up) {
+          background-color: color-palette($bg-color, bg);
+        }
+      }
+    }
   }
 
   // color foreground color
@@ -123,6 +132,13 @@
   @if color-palette($bg-color, headings) {
     #{$headings} {
       color: color-palette($bg-color, headings);
+    }
+  }
+
+  // color subheading colors
+  @if color-palette($bg-color, subheadings) {
+    #{$subheadings} {
+      color: color-palette($bg-color, subheadings);
     }
   }
 
@@ -142,18 +158,6 @@
       @include hover-focus() {
         color: color-palette($bg-color, link-hover);
       }
-    }
-  }
-  // color link hover
-  @if color-palette($bg-color, slider-button) {
-    .c-slider__button svg {
-      color: color-palette($bg-color, slider-button);
-    }
-  }
-  // color link hover
-  @if color-palette($bg-color, slider-button-background) {
-    .c-slider__button {
-      background-color: color-palette($bg-color, slider-button-background);
     }
   }
 }

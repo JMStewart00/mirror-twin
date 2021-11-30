@@ -1,0 +1,16 @@
+uuid: 32d52976-7fab-4462-bcd6-b57c7b1d7597
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_1550w
+label: responsive_1550w
+effects:
+  ff10a05f-33d0-42b1-996e-3d379656aba5:
+    uuid: ff10a05f-33d0-42b1-996e-3d379656aba5
+    id: image_scale
+    weight: null
+    data:
+      width: 1550
+      height: null
+      upscale: true
+pipeline: __default__

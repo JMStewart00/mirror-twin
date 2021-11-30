@@ -67,3 +67,10 @@ function layout_builder_post_update_section_storage_context_mapping(&$sandbox = 
 
   $config_entity_updater->update($sandbox, 'entity_view_display', $callback);
 }
+
+/**
+ * Clear caches due to config schema addition.
+ */
+function layout_builder_post_update_component_third_party_settings_schema() {
+  // Empty post-update hook.
+}

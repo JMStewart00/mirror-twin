@@ -7,7 +7,6 @@ module:
   automated_cron: 0
   big_pipe: 0
   block: 0
-  block_class: 0
   block_content: 0
   breakpoint: 0
   ckeditor: 0
@@ -48,6 +47,7 @@ module:
   devel: 0
   dropzonejs: 0
   dynamic_page_cache: 0
+  easy_responsive_images: 0
   editor: 0
   entity: 0
   entity_clone: 0
@@ -67,6 +67,8 @@ module:
   history: 0
   honeypot: 0
   image: 0
+  imageapi_optimize: 0
+  imageapi_optimize_webp: 0
   inline_entity_form: 0
   layout_builder: 0
   layout_builder_modal: 0

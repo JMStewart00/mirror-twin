@@ -1,6 +1,6 @@
 uuid: 192b2aec-ba3b-4055-bd2d-4d691006a3cd
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.media.featured_beer

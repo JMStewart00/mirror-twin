@@ -25,21 +25,22 @@
     flex-wrap: wrap;
 
     li {
-      padding: rem-calc(12) rem-calc(16);
+      padding: rem-calc(16) rem-calc(24);
       background-color: $black;
+      border-radius: 25px;
       transition: $project-transition;
-      margin: rem-calc(4);
-      font-family: 'voltage', sans-serif;
-      letter-spacing: 3px;
-      font-size: rem-calc(24);
+      margin: rem-calc(12);
+      font-family: 'ssnickson', sans-serif;
+      font-size: rem-calc(60);
       cursor: pointer;
+      line-height: rem-calc(48);
 
       a {
-        color: get-color(tertiary) !important;
+        color: $white !important;
       }
 
       @include hover-focus() {
-        background-color: $dark-gray;
+        background-color: get-color(tertiary);
       }
     }
   }

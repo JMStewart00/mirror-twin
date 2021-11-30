@@ -1,0 +1,16 @@
+uuid: 856705b2-f251-4ca5-8cc7-df7f8a21b76f
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_3_4_1550w
+label: responsive_3_4_1550w
+effects:
+  10aa56ea-1b4a-4f03-ba62-a772df33a57a:
+    uuid: 10aa56ea-1b4a-4f03-ba62-a772df33a57a
+    id: image_scale_and_crop
+    weight: null
+    data:
+      width: 1550
+      height: 2066
+      anchor: center-center
+pipeline: __default__

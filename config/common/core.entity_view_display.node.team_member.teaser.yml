@@ -24,7 +24,7 @@ content:
     region: content
     label: hidden
     settings:
-      view_mode: team_member_square
+      view_mode: '1_1'
       link: false
     third_party_settings: {  }
   field_professional_title:

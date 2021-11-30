@@ -1,11 +1,6 @@
 name: Animate On Scroll
-description: 'AOS is small library to animate elements on your page as you scroll.'
+description: 'A small library to animate elements as you scroll.'
 type: module
 core_version_requirement: ^8 || ^9
+core: 8.x
 package: User Interface
-
-# Information added by Drupal.org packaging script on 2018-03-19
-version: '8.x-1.0'
-core: '8.x'
-project: 'animate_on_scroll'
-datestamp: 1521456486

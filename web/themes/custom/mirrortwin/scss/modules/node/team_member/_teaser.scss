@@ -2,13 +2,17 @@
   text-align: center;
   padding: rvr(1) rvr(0.5);
 
-  h3 {
+  &__title {
     margin-bottom: 0;
+    font-family: $font-family-bebas;
+    font-size: rem-calc(50) !important;
+    line-height: rem-calc(32) !important;
   }
 
-  h4 {
+  &__subtitle {
     text-transform: uppercase;
-    font-size: 1.2rem;
     color: get-color(secondary);
+    font-family: $font-family-bebas;
+    font-size: rem-calc(33) !important;
   }
 }

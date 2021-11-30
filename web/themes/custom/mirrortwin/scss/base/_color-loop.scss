@@ -3,14 +3,12 @@
 
 // Background Color Map
 // color-name: (
-//  fg: for text/foreground elements,
-//  bg: for solid backgrounds,
-//  link: for link color,
-//  link-hover: for link hover color,
-//  slider-button-background: base background color for slider buttons,
-//  slider-button-background-hover: hover background color for slider buttons,
-//  slider-button-icon: caret color for slider buttons,
-//  slider-pagination: base background color for pagination blocks,
+//   bg
+//   fg
+//   link
+//   link-hover
+//   headings
+//   subheadings
 // )
 $background-color-map: (
   none: (
@@ -18,8 +16,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $link-hover-color,
-    slider-button: $link-color,
-    slider-button-background: $medium-gray
+    headings: $black,
+    subheadings: $text-gray,
   ),
 
   white: (
@@ -27,8 +25,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $link-hover-color,
-    slider-button: $link-color,
-    slider-button-background: $medium-gray
+    headings: $black,
+    subheadings: $text-gray,
   ),
 
   dark-gray: (
@@ -36,8 +34,8 @@ $background-color-map: (
     fg: $white,
     link: $white,
     link-hover: $medium-gray,
-    slider-button: $dark-gray,
-    slider-button-background: $light-gray
+    headings: $white,
+    subheadings: $text-gray,
   ),
 
   black: (
@@ -45,8 +43,8 @@ $background-color-map: (
     fg: $white,
     link: $light-gray,
     link-hover: $medium-gray,
-    slider-button: $link-color,
-    slider-button-background: $light-gray
+    headings: $white,
+    subheadings: $text-gray,
   ),
 
   light-gray: (
@@ -54,8 +52,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $black,
-    slider-button: $link-color,
-    slider-button-background: $white,
+    headings: $black,
+    subheadings: $text-gray,
   ),
 
   medium-gray: (
@@ -63,8 +61,8 @@ $background-color-map: (
     fg: $black,
     link: $link-color,
     link-hover: $black,
-    slider-button: $medium-gray,
-    slider-button-background: $white
+    headings: $white,
+    subheadings: $white,
   ),
 
 );

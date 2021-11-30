@@ -1,6 +1,6 @@
---------------------------------------------------------------------------------
+------------------------------------------------------------------------------
                                  Animate On Scroll
---------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 
 Description
@@ -14,19 +14,22 @@ integration with AOS library.
 Requirements
 ============
 Animate On Scroll Library. (Check demo at: http://michalsnik.github.io/aos/)
-  1) Download AOS libraray from https://github.com/michalsnik/aos
-  2) Copy aos library in your libraries directory, so aos.js will be located
-     at /libraries/aos/dist/aos.js.
+  1) Download AOS libraray from https://github.com/michalsnik/aos/archive/master.zip
+  2) Copy aos library in your libraries directory, so aos.js will be located in libraries at /aos/dist/aos.js.
 
 
 Installation
 ============
-  1) Copy the 'aos' module into your Drupal /modules directory and enable it.
+  1) Copy the 'aos' module into your Drupal modules directory and enable it.
   2) As this module provides the integration of AOS library, to get the
      animations on page simply add `data-aos` attribute to element,
      like <div data-aos="animation_name"></div>  in your html.
-
-     e.g. <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600"></div>
+     e.g.
+     <div data-aos="fade-zoom-in"
+       data-aos-offset="200"
+       data-aos-easing="ease-in-sine"
+       data-aos-duration="600">
+     </div>
 
      You can check all available animations & easing options at
      https://github.com/michalsnik/aos

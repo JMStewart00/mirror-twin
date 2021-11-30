@@ -1,4 +1,20 @@
 .l-section {
+  position: relative;
+
+  &::before,
+  &::after {
+    @include breakpoint(medium up) {
+      position: absolute;
+      content: '';
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: -4800px;
+      width: 9600px;
+      z-index: -1;
+    }
+  }
+
   &__content {
     width: 100%;
     .l-section--100 & {

@@ -1,0 +1,16 @@
+uuid: ec9f2482-9535-43fd-8342-0c6eb195cc77
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_350w
+label: responsive_350w
+effects:
+  6fc68cab-7244-4f97-8726-1ea24267d923:
+    uuid: 6fc68cab-7244-4f97-8726-1ea24267d923
+    id: image_scale
+    weight: null
+    data:
+      width: 350
+      height: null
+      upscale: true
+pipeline: __default__
