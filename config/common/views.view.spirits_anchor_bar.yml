@@ -55,7 +55,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: o-list-inline__item
+          row_class: 'o-list-inline__item o-btn o-btn--primary'
           default_row_class: false
           type: ul
           wrapper_class: item-list

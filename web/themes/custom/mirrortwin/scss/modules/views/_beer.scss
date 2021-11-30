@@ -8,6 +8,16 @@
   &--on_tap_by_locations {
     justify-content: center;
   }
+
+  &--block_2 {
+    display: column;
+    max-width: 900px !important;
+    margin: auto !important;
+
+    h3 {
+      @include section-title();
+    }
+  }
 }
 
 .c-views-blocklatest-mirror-monday-block-1,

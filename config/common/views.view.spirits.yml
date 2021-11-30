@@ -56,7 +56,7 @@ display:
           items_per_page: null
           offset: 0
       style:
-        type: table
+        type: default
         options:
           grouping:
             -
@@ -69,47 +69,6 @@ display:
               rendered_strip: false
           row_class: ''
           default_row_class: false
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            title: title
-            field_price: field_price
-            field_spirit_category: field_spirit_category
-            field_tier: field_tier
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_price:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_spirit_category:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_tier:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
       row:
         type: fields
       fields:

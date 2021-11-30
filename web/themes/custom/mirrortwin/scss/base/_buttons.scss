@@ -1,23 +1,30 @@
 .o-btn {
   cursor: pointer;
   display: inline-block;
-  padding: rvr(0.5) rvr(1.5);
-  transition: background-color 0.2s ease-in;
+  padding: rem-calc(16) rem-calc(24);
+  margin: rem-calc(12);
   text-transform: uppercase;
+  transition: $project-transition;
+  font-family: 'ssnickson', sans-serif;
+
+  a {
+    color: inherit;
+  }
 
   @include hover-focus() {
     text-decoration: none;
   }
 
   &--primary {
-    background-color: $white;
-    border: 0;
-    color: $black;
-    border: 2px solid $black;
+    background-color: $black;
+    color: $white !important;
+    border-radius: 25px;
+    font-size: rem-calc(60);
+    cursor: pointer;
+    line-height: rem-calc(48);
 
     @include hover-focus() {
-      background-color: $dark-gray;
-      color: $white;
+      color: get-color(tertiary) !important;
     }
   }
 

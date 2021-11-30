@@ -8,6 +8,16 @@
   }
 }
 
+@mixin section-title() {
+  margin: rvr(1) 0;
+  width: 100%;
+  text-align: left;
+  border-top: 3px solid $black;
+  border-bottom: 3px solid $black;
+  font-size: rem-calc(50) !important;
+  line-height: rem-calc(60);
+}
+
 
 //=== Drawing effect
 
