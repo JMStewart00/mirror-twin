@@ -1,0 +1,21 @@
+uuid: 670ae5fa-2281-4996-929e-33bb933d9f90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_right_content
+    - paragraphs.paragraphs_type.hops_featured_block
+  module:
+    - text
+id: paragraph.hops_featured_block.field_right_content
+field_name: field_right_content
+entity_type: paragraph
+bundle: hops_featured_block
+label: 'Right Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

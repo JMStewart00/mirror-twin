@@ -1,0 +1,19 @@
+uuid: 85398462-04d9-4c59-9260-06665dbf1c08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_right_subheading
+    - paragraphs.paragraphs_type.hops_featured_block
+id: paragraph.hops_featured_block.field_right_subheading
+field_name: field_right_subheading
+entity_type: paragraph
+bundle: hops_featured_block
+label: 'Right Subheading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

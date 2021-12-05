@@ -1,0 +1,10 @@
+uuid: c61b46e1-6b4a-4536-978d-9f8169274a84
+langcode: en
+status: true
+dependencies: {  }
+id: hops_featured_block
+label: 'Hops Featured Block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

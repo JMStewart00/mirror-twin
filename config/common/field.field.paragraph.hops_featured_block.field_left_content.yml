@@ -1,0 +1,21 @@
+uuid: ffb794c8-e30a-4471-9612-0a4bd6e760b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_left_content
+    - paragraphs.paragraphs_type.hops_featured_block
+  module:
+    - text
+id: paragraph.hops_featured_block.field_left_content
+field_name: field_left_content
+entity_type: paragraph
+bundle: hops_featured_block
+label: 'Left Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

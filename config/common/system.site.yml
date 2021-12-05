@@ -3,8 +3,8 @@ name: 'Mirror Twin Brewing'
 mail: info@mirrortwinbrewing.com
 slogan: ''
 page:
-  403: '/node/228'
-  404: '/node/227'
+  403: /node/228
+  404: /node/227
   front: /node/1
 admin_compact_mode: false
 weight_select_max: 100

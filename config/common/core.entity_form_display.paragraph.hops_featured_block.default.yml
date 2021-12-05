@@ -1,0 +1,130 @@
+uuid: fa78f7a8-ef11-4800-ba90-408f86e6b804
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hops_featured_block.field_left_content
+    - field.field.paragraph.hops_featured_block.field_left_heading
+    - field.field.paragraph.hops_featured_block.field_left_picture
+    - field.field.paragraph.hops_featured_block.field_left_subheading
+    - field.field.paragraph.hops_featured_block.field_right_content
+    - field.field.paragraph.hops_featured_block.field_right_heading
+    - field.field.paragraph.hops_featured_block.field_right_image
+    - field.field.paragraph.hops_featured_block.field_right_subheading
+    - paragraphs.paragraphs_type.hops_featured_block
+  module:
+    - field_group
+    - field_layout
+    - layout_discovery
+    - media_library
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  field_group:
+    group_left:
+      children:
+        - field_left_heading
+        - field_left_subheading
+        - field_left_content
+        - field_left_picture
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Left
+    group_right:
+      children:
+        - field_right_heading
+        - field_right_subheading
+        - field_right_content
+        - field_right_image
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Right
+id: paragraph.hops_featured_block.default
+targetEntityType: paragraph
+bundle: hops_featured_block
+mode: default
+content:
+  field_left_content:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_left_heading:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_left_picture:
+    type: media_library_widget
+    weight: 4
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_left_subheading:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_right_content:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_right_heading:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_right_image:
+    type: media_library_widget
+    weight: 9
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_right_subheading:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

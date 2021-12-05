@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'bb0cc8b4ec3d5ecbf2dd42a4e70f0d6f3d8ad61b',
+    'reference' => '6bc845dfde7cfc80962a6beb9d93bb3334f20056',
     'name' => 'pantheon-systems/example-drops-8-composer',
   ),
   'versions' => 
@@ -152,12 +152,12 @@ private static $installed = array (
     ),
     'consolidation/self-update' => 
     array (
-      'pretty_version' => '2.0.0',
-      'version' => '2.0.0.0',
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7d6877f8006c51069e1469a9c57b1435640f74b7',
+      'reference' => '7b9223bdfc1b23ab93489b580382accb6f0411b6',
     ),
     'consolidation/site-alias' => 
     array (
@@ -1151,12 +1151,12 @@ private static $installed = array (
     ),
     'drupal/honeypot' => 
     array (
-      'pretty_version' => '2.0.1',
-      'version' => '2.0.1.0',
+      'pretty_version' => '2.0.2',
+      'version' => '2.0.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2.0.1',
+      'reference' => '2.0.2',
     ),
     'drupal/image' => 
     array (
@@ -1711,12 +1711,12 @@ private static $installed = array (
     ),
     'drupal/token' => 
     array (
-      'pretty_version' => '1.9.0',
-      'version' => '1.9.0.0',
+      'pretty_version' => '1.10.0',
+      'version' => '1.10.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-1.9',
+      'reference' => '8.x-1.10',
     ),
     'drupal/toolbar' => 
     array (
@@ -1824,12 +1824,12 @@ private static $installed = array (
     ),
     'drupal/webform' => 
     array (
-      'pretty_version' => '6.1.0',
-      'version' => '6.1.0.0',
+      'pretty_version' => '6.1.1',
+      'version' => '6.1.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6.1.0',
+      'reference' => '6.1.1',
     ),
     'drupal/workflows' => 
     array (
@@ -2122,12 +2122,12 @@ private static $installed = array (
     ),
     'nikic/php-parser' => 
     array (
-      'pretty_version' => 'v4.13.1',
-      'version' => '4.13.1.0',
+      'pretty_version' => 'v4.13.2',
+      'version' => '4.13.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '63a79e8daa781cac14e5195e63ed8ae231dd10fd',
+      'reference' => '210577fe3cf7badcc5814d99455df46564f3c077',
     ),
     'npm-asset/sticky-kit' => 
     array (
@@ -2161,7 +2161,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'bb0cc8b4ec3d5ecbf2dd42a4e70f0d6f3d8ad61b',
+      'reference' => '6bc845dfde7cfc80962a6beb9d93bb3334f20056',
     ),
     'pantheon-systems/quicksilver-pushback' => 
     array (
@@ -2435,12 +2435,12 @@ private static $installed = array (
     ),
     'psy/psysh' => 
     array (
-      'pretty_version' => 'v0.10.11',
-      'version' => '0.10.11.0',
+      'pretty_version' => 'v0.10.12',
+      'version' => '0.10.12.0',
       'aliases' => 
       array (
       ),
-      'reference' => '38017532bba35d15d28dcc001b4274df0251c4a1',
+      'reference' => 'a0d9981aa07ecfcbea28e4bfa868031cca121e7d',
     ),
     'ralouphie/getallheaders' => 
     array (

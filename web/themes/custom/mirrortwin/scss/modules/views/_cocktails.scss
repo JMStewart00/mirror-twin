@@ -1,0 +1,12 @@
+.c-view-cocktails,
+.c-view-slushees {
+  &--block_1 {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    max-width: $project-subsection-max-width !important;
+
+    h3 {
+      @include section-title();
+    }
+  }
+}

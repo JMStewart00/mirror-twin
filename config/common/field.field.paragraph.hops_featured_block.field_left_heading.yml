@@ -1,0 +1,19 @@
+uuid: 29ed1fd7-99a1-4547-a1b7-30ae0b34aa07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_left_heading
+    - paragraphs.paragraphs_type.hops_featured_block
+id: paragraph.hops_featured_block.field_left_heading
+field_name: field_left_heading
+entity_type: paragraph
+bundle: hops_featured_block
+label: 'Left Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

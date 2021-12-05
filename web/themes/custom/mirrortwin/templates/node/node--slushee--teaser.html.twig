@@ -2,7 +2,7 @@
   set classes = [
     'c-teaser',
     'c-' ~ node.bundle|clean_class ~ '-' ~ view_mode|clean_class,
-    'columns small-12 medium-4 large-4'
+    'small-12 medium-12 large-12'
   ]
 %}
 
@@ -14,7 +14,7 @@
     {{ label.0['#context'].value }}
   </div>
 
-  <div class="c-slushee-teaser__price">
+  <div class="c-slushee-teaser__price h3">
     {{ content.field_price }}
   </div>
   <div class="c-slushee-teaser__ingredients">

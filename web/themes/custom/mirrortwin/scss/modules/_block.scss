@@ -17,7 +17,7 @@
     color: get-color(secondary);
     text-align: center;
     font-size: rem-calc(24);
-    max-width: 800px;
+    max-width: $project-subsection-max-width;
     margin-left: auto;
     margin-right: auto;
   }

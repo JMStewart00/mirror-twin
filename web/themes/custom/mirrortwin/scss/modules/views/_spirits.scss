@@ -1,6 +1,6 @@
 .c-view-spirits {
   flex-direction: column;
-  max-width: 900px !important;
+  max-width: $project-subsection-max-width !important;
   margin: auto !important;
 
   h2 {

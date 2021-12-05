@@ -11,7 +11,7 @@
 
   &--block_2 {
     display: column;
-    max-width: 900px !important;
+    max-width: $project-subsection-max-width !important;
     margin: auto !important;
 
     h3 {

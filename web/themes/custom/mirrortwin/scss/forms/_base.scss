@@ -261,12 +261,12 @@
 
 .contact-message-feedback-form {
   margin: rvr(3) 0;
-   max-width: 800px;;
+   max-width: $project-subsection-max-width;;
 }
 
 .contact-message-feedback-form {
   margin: rvr(3) auto;
-  max-width: 800px;
+  max-width: $project-subsection-max-width;
 }
 
 .views-field-edit-quantity {

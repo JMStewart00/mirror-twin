@@ -1,0 +1,29 @@
+uuid: 6058f1b7-fcd3-416c-93b2-f569948181d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_left_picture
+    - media.type.image
+    - paragraphs.paragraphs_type.hops_featured_block
+id: paragraph.hops_featured_block.field_left_picture
+field_name: field_left_picture
+entity_type: paragraph
+bundle: hops_featured_block
+label: 'Left Picture'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
