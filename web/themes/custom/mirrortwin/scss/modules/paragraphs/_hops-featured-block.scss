@@ -1,24 +1,33 @@
 .c-hops-featured-block {
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  grid-template-rows: repeat(6, minmax(50px, 1fr));
-  width: 1300px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(large up) {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(50px, 1fr));
+    min-width: 998px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 
   &__left {
-    grid-column: 1/span 5;
-    grid-row: 1/span 4;
+    @include breakpoint(large up) {
+      grid-column: 1/span 5;
+      grid-row: 1/span 4;
+      align-items: flex-start;
+      padding-bottom: rem-calc(16);
+    }
 
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-start;
-    padding-bottom: rem-calc(16);
   }
 
   &__logo {
-    grid-column: 5/span 2;
-    grid-row: 3/span 2;
+    @include breakpoint(large up) {
+      grid-column: 5/span 2;
+      grid-row: 3/span 2;
+    }
 
     display: flex;
     flex-flow: row nowrap;
@@ -36,13 +45,15 @@
   }
 
   &__right {
-    grid-column: 6/span 5;
-    grid-row: 3/span 4;
+    @include breakpoint(large up) {
+      grid-column: 6/span 5;
+      grid-row: 3/span 4;
+      align-items: flex-end;
+      padding-top: rem-calc(16);
+    }
 
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-end;
-    padding-top: rem-calc(16);
   }
 
   &__heading {
@@ -58,8 +69,13 @@
   }
 
   &__content {
-    flex: 0 0 50%;
-    padding: rem-calc(16);
+    padding: 0 rem-calc(16);
+    flex: 0 0 60%;
+
+    @include breakpoint(large up) {
+      padding: rem-calc(16);
+      flex: 0 0 50%;
+    }
 
     &--left {
       text-align: left;
@@ -71,24 +87,38 @@
   }
 
   &__image {
-    flex: 0 0 50%;
+    flex: 0 0 40%;
+
+    @include breakpoint(large up) {
+      flex: 0 0 50%;
+    }
   }
 
   &___sim-border {
     &-top {
-      grid-column: 6/span 4;
-      grid-row: 2/span 1;
-      border-top: 2px solid $black;
-      border-left: 2px solid $black;
-      border-right: 2px solid $black;
+      display: none;
+
+      @include breakpoint(large up) {
+        display: block;
+        grid-column: 6/span 4;
+        grid-row: 2/span 1;
+        border-top: 2px solid $black;
+        border-left: 2px solid $black;
+        border-right: 2px solid $black;
+      }
     }
 
     &-bottom {
-      grid-column: 2/span 4;
-      grid-row: 5/span 1;
-      border-bottom: 2px solid $black;
-      border-left: 2px solid $black;
-      border-right: 2px solid $black;
+      display: none;
+
+      @include breakpoint(large up) {
+        display: block;
+        grid-column: 2/span 4;
+        grid-row: 5/span 1;
+        border-bottom: 2px solid $black;
+        border-left: 2px solid $black;
+        border-right: 2px solid $black;
+      }
     }
   }
 }
