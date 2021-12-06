@@ -41,13 +41,17 @@
 
 {%
   set classes = [
-    'c-wysiwyg',
+    'c-image',
     'u-vr__my--2',
   ]
 %}
 {% set image_uri = file_url(content.field_media[0]['#media'].field_media_image.entity.uri.value) %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
-    <img src="{{ image_uri }}">
+    {% if paragraph.field_aspect_ratio.value != 'original' %}
+      {{ drupal_entity('media', paragraph.field_media.value[0]['target_id'], paragraph.field_aspect_ratio.value) }}
+    {% else %}
+     <img src="{{ image_uri }}" alt="{{ content.field_media[0]['#media'].field_media_image.entity.title }}">
+    {% endif %}
   </div>
 {% endblock paragraph %}

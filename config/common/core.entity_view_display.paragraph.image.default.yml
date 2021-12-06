@@ -3,18 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.image.field_aspect_ratio
     - field.field.paragraph.image.field_media
     - paragraphs.paragraphs_type.image
+  module:
+    - options
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
 mode: default
 content:
+  field_aspect_ratio:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
   field_media:
     weight: 0
     label: hidden
     settings:
-      view_mode: url
+      view_mode: '3_4'
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view

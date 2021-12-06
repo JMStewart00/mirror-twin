@@ -1,0 +1,39 @@
+uuid: 3a488a2c-c561-4dbc-bc78-44243ddd6101
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_aspect_ratio
+field_name: field_aspect_ratio
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1_1'
+      label: 1x1
+    -
+      value: '3_4'
+      label: 3x4
+    -
+      value: '4_3'
+      label: 4x3
+    -
+      value: '3_1'
+      label: 3x1
+    -
+      value: '16_9'
+      label: 16x9
+    -
+      value: original
+      label: 'Original Image'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
