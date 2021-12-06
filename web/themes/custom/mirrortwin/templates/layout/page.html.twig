@@ -126,7 +126,7 @@
       {% endblock %}
 
       <footer class="c-footer">
-      {% if page.footer_first or page.footer_second %}
+      {% if is_front and (page.footer_first or page.footer_second) %}
         <div class="t-background--dark-gray u-vr__py--2 u-vr__px--2">
           <div class="c-footer__top row u-vr__mb--2 align-center">
             <h2>Location and hours</h2>
