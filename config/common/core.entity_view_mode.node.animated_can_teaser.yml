@@ -1,0 +1,10 @@
+uuid: 3f36d7aa-1bb8-42fd-b2d3-b9b561d664cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.animated_can_teaser
+label: 'Animated Can Teaser'
+targetEntityType: node
+cache: true

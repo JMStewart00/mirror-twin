@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display an image.
+ */
+#}
+
+{% set file = media.field_media_image.entity %}
+{% set src = file.uri.value|image_url('rotating_can') %}
+
+<div id="container">
+	<div id="frame">
+		<div class="strip">
+			<div class="a" style="background-image: url('{{ src }}');"></div>
+			<div class="b" style="background-image: url('{{ src }}');"></div>
+			<div class="c" style="background-image: url('{{ src }}');"></div>
+			<div class="d" style="background-image: url('{{ src }}');"></div>
+			<div class="e" style="background-image: url('{{ src }}');"></div>
+			<div class="f" style="background-image: url('{{ src }}');"></div>
+			<div class="g" style="background-image: url('{{ src }}');"></div>
+			<div class="h" style="background-image: url('{{ src }}');"></div>
+			<div class="i" style="background-image: url('{{ src }}');"></div>
+			<div class="j" style="background-image: url('{{ src }}');"></div>
+			<div class="k" style="background-image: url('{{ src }}');"></div>
+			<div class="l" style="background-image: url('{{ src }}');"></div>
+			<div class="m" style="background-image: url('{{ src }}');"></div>
+			<div class="n" style="background-image: url('{{ src }}');"></div>
+			<div class="o" style="background-image: url('{{ src }}');"></div>
+			<div class="p" style="background-image: url('{{ src }}');"></div>
+			<div class="q" style="background-image: url('{{ src }}');"></div>
+			<div class="r" style="background-image: url('{{ src }}');"></div>
+			<div class="s" style="background-image: url('{{ src }}');"></div>
+			<div class="t" style="background-image: url('{{ src }}');"></div>
+			<div class="u" style="background-image: url('{{ src }}');"></div>
+			<div class="v" style="background-image: url('{{ src }}');"></div>
+			<div class="w" style="background-image: url('{{ src }}');"></div>
+			<div class="x" style="background-image: url('{{ src }}');"></div>
+		</div>
+	</div>
+</div>

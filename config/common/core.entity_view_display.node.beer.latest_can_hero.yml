@@ -1,9 +1,9 @@
-uuid: aa96c333-bdd9-48c7-8e80-9901d17f68a7
+uuid: cd752109-1e31-4593-a5ec-6de109167f96
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.flagship
+    - core.entity_view_mode.node.latest_can_hero
     - field.field.node.beer.body
     - field.field.node.beer.field_abv
     - field.field.node.beer.field_aroma
@@ -35,10 +35,10 @@ third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
-id: node.beer.flagship
+id: node.beer.latest_can_hero
 targetEntityType: node
 bundle: beer
-mode: flagship
+mode: latest_can_hero
 content:
   body:
     label: hidden
@@ -84,6 +84,15 @@ content:
     third_party_settings: {  }
     type: daterange_default
     region: content
+  field_hero_media:
+    weight: 119
+    label: hidden
+    settings:
+      view_mode: '16_9'
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   field_hops:
     weight: 111
     label: hidden
@@ -100,6 +109,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
+  field_label_image:
+    type: entity_reference_entity_view
+    weight: 118
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_malts:
     weight: 112
@@ -146,7 +164,7 @@ content:
     weight: 102
     label: hidden
     settings:
-      view_mode: '1_1'
+      view_mode: '16_9'
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -190,6 +208,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_hero_media: true
-  field_label_image: true
+hidden: {  }

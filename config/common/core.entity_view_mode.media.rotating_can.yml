@@ -1,0 +1,10 @@
+uuid: 1429a254-f1bb-4b16-a268-d0874f95de05
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.rotating_can
+label: 'Rotating Can'
+targetEntityType: media
+cache: true

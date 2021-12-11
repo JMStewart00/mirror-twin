@@ -1,0 +1,10 @@
+uuid: 451dfd2c-579b-4cd4-b11e-957225c29f3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.latest_can_hero
+label: 'Latest Can Hero'
+targetEntityType: node
+cache: true

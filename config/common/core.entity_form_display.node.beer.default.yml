@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_hero_media
     - field.field.node.beer.field_hops
     - field.field.node.beer.field_ibu
+    - field.field.node.beer.field_label_image
     - field.field.node.beer.field_malts
     - field.field.node.beer.field_meta_tags
     - field.field.node.beer.field_mirror_monday
@@ -76,7 +78,7 @@ third_party_settings:
       children:
         - title
         - body
-        - field_preview_image
+        - group_images
       parent_name: group_tabs
       weight: 23
       format_type: tab
@@ -92,8 +94,8 @@ third_party_settings:
       children:
         - field_mirror_monday
         - field_release_date
-        - field_dates_available
         - field_availability
+        - field_dates_available
         - field_on_tap_locations
       parent_name: group_tabs
       weight: 25
@@ -120,6 +122,22 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Category & Sorting'
+    group_images:
+      children:
+        - field_preview_image
+        - field_hero_media
+        - field_label_image
+      parent_name: group_general
+      weight: 6
+      format_type: fieldset
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Images
 id: node.beer.default
 targetEntityType: node
 bundle: beer
@@ -142,14 +160,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_abv:
-    weight: 36
+    weight: 35
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_aroma:
-    weight: 34
+    weight: 33
     settings:
       size: 60
       placeholder: ''
@@ -157,32 +175,46 @@ content:
     type: string_textfield
     region: content
   field_availability:
-    weight: 36
+    weight: 35
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_dates_available:
-    weight: 35
+    weight: 36
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
+  field_hero_media:
+    weight: 8
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
   field_hops:
-    weight: 38
+    weight: 37
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_ibu:
-    weight: 37
+    weight: 36
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_label_image:
+    type: media_library_widget
+    weight: 9
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_malts:
-    weight: 39
+    weight: 38
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -208,7 +240,7 @@ content:
     type: options_buttons
     region: content
   field_on_tap_locations:
-    weight: 37
+    weight: 38
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -234,13 +266,13 @@ content:
     type: number
     region: content
   field_style:
-    weight: 33
+    weight: 31
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_taste:
-    weight: 35
+    weight: 34
     settings:
       size: 60
       placeholder: ''
@@ -284,6 +316,11 @@ content:
       placeholder: ''
       match_limit: 10
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   sticky: true

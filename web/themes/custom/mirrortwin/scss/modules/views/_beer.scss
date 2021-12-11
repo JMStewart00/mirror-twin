@@ -18,6 +18,20 @@
       @include section-title();
     }
   }
+
+  &--page_1 {
+    background-color: $dark-gray;
+    color: $white;
+    padding: rvr(2) rvr(1);
+    justify-content: center;
+  }
+
+  &--page_1,
+  &--attachment_1 {
+    &.row {
+      max-width: none !important;
+    }
+  }
 }
 
 .c-views-blocklatest-mirror-monday-block-1,

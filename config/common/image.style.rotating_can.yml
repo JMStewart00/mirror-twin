@@ -1,0 +1,16 @@
+uuid: 9a29d67d-4564-4b2b-8985-8be2431a640c
+langcode: en
+status: true
+dependencies: {  }
+name: rotating_can
+label: 'Rotating Can'
+effects:
+  c46e8ebe-876e-4c7a-8098-93f895aea746:
+    uuid: c46e8ebe-876e-4c7a-8098-93f895aea746
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 396
+      height: 240
+      anchor: center-center
+pipeline: __default__
