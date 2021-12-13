@@ -60,7 +60,7 @@
 
     {% if image %}
       {{ drupal_entity('media', item.content['#media'].id(), '3_1') }}
-      <img src="{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" class="hero-image-overlay"/>
+      <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" class="hero-image-overlay"/>
     {% endif %}
 
     {% if video_local %}
