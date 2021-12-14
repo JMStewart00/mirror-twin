@@ -594,7 +594,7 @@ display:
               field: field_style
               rendered: true
               rendered_strip: false
-          row_class: 'c-beer-teaser u-vr__mb--1 aos-init aos-animate'
+          row_class: 'c-beer-teaser u-vr__mb--1 columns small-12 aos-init aos-animate'
           default_row_class: false
       row:
         type: fields
