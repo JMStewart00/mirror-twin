@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.section.field_background_color
     - field.field.paragraph.section.field_horizontal_alignment
+    - field.field.paragraph.section.field_media
     - field.field.paragraph.section.field_paragraphs
     - field.field.paragraph.section.field_section_width
     - field.field.paragraph.section.field_subheading
@@ -32,6 +33,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_media:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: '16_9'
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     weight: 2

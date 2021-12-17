@@ -17,8 +17,42 @@
     }
   }
 
+  &--has-background-image {
+    font-weight: bold;
+    color: $white !important;
+
+    .l-section__image {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: auto;
+      width: auto;
+      min-height: 100%;
+      min-width: 100vw;
+      transform: translate(-50%, -50%);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        box-shadow: inset 0px 0px 20px rgba(0,0,0,.5);
+        transition: $project-transition;
+
+        @include breakpoint(large up) {
+          box-shadow: inset 0px 0px 75px rgba(0,0,0,.5);
+        }
+      }
+    }
+  }
+
   &__content {
     width: 100%;
+    position: relative;
+    z-index: 2;
+
     .l-section--100 & {
       @include breakpoint(large up) {
         width: 100%;

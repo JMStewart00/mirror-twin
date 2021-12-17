@@ -1,0 +1,14 @@
+uuid: e2073f9c-aab7-48ab-a466-add1c7810060
+langcode: en
+status: true
+dependencies: {  }
+id: sinhalamn
+label: SinhalaMN
+font_family: sinhala_mn
+font_classification:
+  serif: serif
+  sans-serif: '0'
+  slab-serif: '0'
+  handwriting: '0'
+  decorative: '0'
+  monospace: '0'

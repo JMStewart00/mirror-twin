@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.section.field_background_color
     - field.field.paragraph.section.field_horizontal_alignment
+    - field.field.paragraph.section.field_media
     - field.field.paragraph.section.field_paragraphs
     - field.field.paragraph.section.field_section_width
     - field.field.paragraph.section.field_subheading
@@ -13,6 +14,7 @@ dependencies:
   module:
     - field_layout
     - layout_discovery
+    - media_library
     - paragraphs
 third_party_settings:
   field_layout:
@@ -25,20 +27,27 @@ bundle: section
 mode: default
 content:
   field_background_color:
-    weight: 5
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_horizontal_alignment:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_media:
+    weight: 5
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
   field_paragraphs:
     type: paragraphs
-    weight: 4
+    weight: 6
     settings:
       title: Component
       title_plural: Components
@@ -56,7 +65,7 @@ content:
     third_party_settings: {  }
     region: content
   field_section_width:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select

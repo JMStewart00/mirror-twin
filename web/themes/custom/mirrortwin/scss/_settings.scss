@@ -62,7 +62,6 @@
 
 @import 'util/util';
 // ## Hosted Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ruda:wght@500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
@@ -72,7 +71,7 @@ $project-subsection-max-width: rem-calc(900);
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: rem-calc(24);
 $global-width: rem-calc(1440);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -113,7 +112,7 @@ $subheadings: '
 
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Roboto', Roboto, Arial, sans-serif;
+$body-font-family: 'sinhala_mn', serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -205,7 +204,7 @@ $header-styles: (
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-$paragraph-lineheight: 1.6;
+$paragraph-lineheight: 1.4;
 $paragraph-margin-bottom: 0;
 $paragraph-text-rendering: optimizeLegibility;
 $anchor-color: $primary-color;

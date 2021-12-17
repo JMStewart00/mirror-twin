@@ -6,6 +6,10 @@
   text-transform: uppercase;
   transition: $project-transition;
   font-family: 'ssnickson', sans-serif;
+  border-radius: 25px;
+  font-size: rem-calc(60);
+  cursor: pointer;
+  line-height: rem-calc(48);
 
   a {
     color: inherit;
@@ -18,10 +22,6 @@
   &--primary {
     background-color: $black;
     color: $white !important;
-    border-radius: 25px;
-    font-size: rem-calc(60);
-    cursor: pointer;
-    line-height: rem-calc(48);
 
     @include hover-focus() {
       color: get-color(tertiary) !important;
@@ -29,6 +29,15 @@
   }
 
   &--secondary {
+    background-color: transparent;
+    color: $white !important;
+
+    @include hover-focus() {
+      background-color: $dark-gray;
+    }
+  }
+
+  &--tertiary {
     background-color: $black;
     border: 0;
     color: $white !important;

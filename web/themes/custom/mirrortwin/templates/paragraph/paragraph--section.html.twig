@@ -1,14 +1,22 @@
 {# Set background color #}
 {% set bg_color = paragraph.field_background_color.value ? 't-background--' ~ paragraph.field_background_color.value|clean_class : 't-background--none' %}
 
+{% if paragraph.field_media.value is not empty %}
+  {% set class_background_image = 'l-section--has-background-image' %}
+{% endif %}
+
+{% set background_image = file_url(content.field_media[0]['#media'].field_media_image.entity.uri.value) %}
+
 {% set classes = [
   'l-section',
   'l-section--align-' ~ paragraph.field_horizontal_alignment.value,
   'l-section--' ~ paragraph.field_section_width.value,
   'columns',
   'small-12',
-  bg_color
+  bg_color,
+  class_background_image,
 ] %}
+
 
 <div{{ attributes.addClass(classes) }}>
   <div class="l-section__content">
@@ -19,6 +27,9 @@
       <div class="c-block__subheading u-vr__mb--1">{{ content.field_subheading }}</div>
     {% endif %}
   {% endif %}
-  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width', 'field_background_color') }}
+  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width', 'field_background_color', 'field_media') }}
   </div>
+  {% if paragraph.field_media.value is not empty %}
+    <div class="l-section__image" style="background-image: url({{ background_image }})">
+  {% endif %}
 </div>

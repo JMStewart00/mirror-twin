@@ -3,6 +3,7 @@ enabled_fonts:
   - 'local_fonts://voltage_bold'
   - 'local_fonts://voltage_thin'
   - 'local_fonts://s_s_nickson'
+  - 'local_fonts://sinhalamn'
 load_all_enabled_fonts: 1
 load_on_themes: {  }
 _core:
