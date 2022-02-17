@@ -1,6 +1,6 @@
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 theme: mirrortwin
 defaults:
   sender: SMTPMailSystem
   formatter: SMTPMailSystem
-_core:
-  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s

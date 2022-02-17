@@ -15,30 +15,30 @@ bundle: pre_order_beer
 mode: default
 content:
   field_stock_level:
-    weight: 1
+    type: commerce_stock_level_simple
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: commerce_stock_level_simple
+    weight: 1
     region: content
   list_price:
-    label: above
     type: commerce_price_default
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
     weight: -1
     region: content
+  price:
+    type: commerce_price_default
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-  price:
-    label: above
-    type: commerce_price_default
     weight: 0
     region: content
-    settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
-    third_party_settings: {  }
 hidden:
   add_to_cart_link: true
   maximum_order_quantity: true

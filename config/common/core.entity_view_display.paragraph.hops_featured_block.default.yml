@@ -20,67 +20,67 @@ bundle: hops_featured_block
 mode: default
 content:
   field_left_content:
-    weight: 2
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 2
     region: content
   field_left_heading:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_left_picture:
     type: entity_reference_entity_view
-    weight: 3
     label: hidden
     settings:
       view_mode: '3_4'
       link: false
     third_party_settings: {  }
+    weight: 3
     region: content
   field_left_subheading:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
   field_right_content:
-    weight: 6
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 6
     region: content
   field_right_heading:
-    weight: 4
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 4
     region: content
   field_right_image:
     type: entity_reference_entity_view
-    weight: 7
     label: hidden
     settings:
       view_mode: '3_4'
       link: false
     third_party_settings: {  }
+    weight: 7
     region: content
   field_right_subheading:
-    weight: 5
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 5
     region: content
 hidden: {  }

@@ -1,7 +1,16 @@
 uuid: 7b04da4e-07bf-47b5-a8b4-104a7e17d172
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - comment
+    - commerce_checkout
+    - commerce_product
+    - contact
+    - media
+    - search
+    - sitewide_alert
+    - system
 _core:
   default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
 id: anonymous
@@ -14,8 +23,6 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
-  - 'subscribe to newsletters'
-  - 'use text format restricted_html'
   - 'view commerce_product'
   - 'view media'
   - 'view published sitewide alert entities'

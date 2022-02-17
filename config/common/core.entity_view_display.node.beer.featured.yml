@@ -33,22 +33,22 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.beer.featured
 targetEntityType: node
 bundle: beer
 mode: featured
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 101
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 101
     region: content
   field_abv:
-    weight: 104
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -56,132 +56,132 @@ content:
       scale: 1
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 104
     region: content
   field_aroma:
-    weight: 113
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 113
     region: content
   field_availability:
-    weight: 110
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 110
     region: content
   field_dates_available:
-    weight: 109
+    type: daterange_custom
     label: hidden
     settings:
       timezone_override: ''
       date_format: m/d/y
       separator: '-'
     third_party_settings: {  }
-    type: daterange_custom
+    weight: 109
     region: content
   field_hops:
-    weight: 111
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 111
     region: content
   field_ibu:
-    weight: 105
+    type: number_integer
     label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 105
     region: content
   field_malts:
-    weight: 112
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 112
     region: content
   field_meta_tags:
-    weight: 106
+    type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: metatag_empty_formatter
+    weight: 106
     region: content
   field_mirror_monday:
-    weight: 116
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 116
     region: content
   field_mirror_twin_category:
-    weight: 107
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 107
     region: content
   field_preview_image:
-    weight: 102
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: featured_beer
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 102
     region: content
   field_release_date:
-    weight: 108
+    type: datetime_custom
     label: hidden
     settings:
       timezone_override: ''
       date_format: m/d/y
     third_party_settings: {  }
-    type: datetime_custom
+    weight: 108
     region: content
   field_sort_weight:
-    weight: 115
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 115
     region: content
   field_style:
-    weight: 103
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 103
     region: content
   field_taste:
-    weight: 114
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 114
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden:
   field_hero_media: true
   field_label_image: true

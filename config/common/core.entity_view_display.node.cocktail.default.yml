@@ -19,31 +19,31 @@ bundle: cocktail
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 101
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 101
     region: content
   field_ingredients:
-    weight: 102
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 102
     region: content
   field_preview_image:
-    weight: 104
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: featured_beer
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 104
     region: content
   field_price:
-    weight: 103
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -51,20 +51,20 @@ content:
       scale: 0
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 103
     region: content
   field_release_date:
-    weight: 105
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 105
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden: {  }

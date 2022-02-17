@@ -1,12 +1,17 @@
 <?php
 
 /**
+ * @file
+ * Hook theme alters to customize theme suggestions.
+ */
+
+/**
  * Implements hook_theme_suggestions_alter().
  */
 function zurb_foundation_theme_suggestions_alter(&$suggestions, $variables, $hook) {
   if ($hook == 'menu' || $hook == 'block') {
-    // For menu blocks, check to see if the menu block is placed in an off-canvas
-    // region, and if so use our custom template.
+    // For menu blocks, check to see if the menu block is placed in an
+    // off-canvas region, and if so use our custom template.
     $all_blocks = \Drupal::service('block.repository')->getVisibleBlocksPerRegion();
     $off_canvas_blocks = [];
     if (!empty($all_blocks['left_off_canvas'])) {

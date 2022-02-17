@@ -21,23 +21,23 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 1
     target_bundles:
       section: section
       slide: slide
+    negate: 1
     target_bundles_drag_drop:
       image_and_text_2_columns_:
         weight: 6
         enabled: false
       section:
-        enabled: true
         weight: 4
+        enabled: true
       section_heading_subheading:
         weight: 5
         enabled: false
       slide:
-        enabled: true
         weight: 6
+        enabled: true
       wysiwyg:
         weight: 10
         enabled: false

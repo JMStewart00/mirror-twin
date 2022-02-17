@@ -19,34 +19,32 @@ bundle: cocktail
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_summary_or_trimmed
-    weight: 1
+    label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+    weight: 1
     region: content
   field_ingredients:
     type: string
-    weight: 4
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 4
+    region: content
   field_preview_image:
     type: entity_reference_entity_view
-    weight: 2
-    region: content
     label: hidden
     settings:
-      link: true
       view_mode: default
+      link: true
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_price:
     type: number_decimal
-    weight: 3
-    region: content
     label: hidden
     settings:
       thousand_separator: ''
@@ -54,10 +52,12 @@ content:
       scale: 0
       prefix_suffix: true
     third_party_settings: {  }
-  links:
-    weight: 0
+    weight: 3
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_release_date: true

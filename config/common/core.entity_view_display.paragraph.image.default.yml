@@ -14,19 +14,19 @@ bundle: image
 mode: default
 content:
   field_aspect_ratio:
-    weight: 1
+    type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_key
+    weight: 1
     region: content
   field_media:
-    weight: 0
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: '3_4'
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 0
     region: content
 hidden: {  }

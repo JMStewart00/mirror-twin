@@ -10,8 +10,8 @@ dependencies:
     - node.type.wine
   module:
     - node
-id: wine
 label: Wine
+id: wine
 description: ''
 help: ''
 import_period: -1
@@ -26,41 +26,41 @@ parser_configuration:
   line_limit: 100
 processor: 'entity:node'
 processor_configuration:
+  values:
+    type: wine
   langcode: en
   update_existing: 0
   update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
   expire: -1
   owner_feed_author: false
   owner_id: 0
-  authorize: true
-  skip_hash_check: false
-  values:
-    type: wine
 custom_sources:
   title:
-    label: Title
     value: Title
+    label: Title
     machine_name: title
   category:
-    label: Category
     value: Category
+    label: Category
     machine_name: category
   bottle:
-    label: Bottle
     value: Bottle
+    label: Bottle
     machine_name: bottle
   glass:
-    label: Glass
     value: Glass
+    label: Glass
     machine_name: glass
 mappings:
   -
     target: title
     map:
       value: title
-    unique: {  }
     settings:
       language: null
+    unique: {  }
   -
     target: field_wine_category
     map:
@@ -73,13 +73,13 @@ mappings:
     target: field_bottle_price
     map:
       value: bottle
-    unique: {  }
     settings:
       language: null
+    unique: {  }
   -
     target: field_glass_price
     map:
       value: glass
-    unique: {  }
     settings:
       language: null
+    unique: {  }

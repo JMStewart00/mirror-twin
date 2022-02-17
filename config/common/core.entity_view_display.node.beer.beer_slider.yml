@@ -29,8 +29,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.beer.beer_slider
 targetEntityType: node
 bundle: beer
@@ -38,18 +38,18 @@ mode: beer_slider
 content:
   field_preview_image:
     type: entity_reference_entity_view
-    weight: 1
-    region: content
     label: hidden
     settings:
-      link: true
       view_mode: default
+      link: true
     third_party_settings: {  }
-  links:
-    weight: 0
+    weight: 1
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   body: true
   field_abv: true

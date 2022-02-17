@@ -12,8 +12,8 @@ third_party_settings:
       pattern: '[random:number]'
 id: pre_order_beer
 label: 'Pre-Order Beer'
-orderItemType: default
-generateTitle: false
 traits:
   - maximum_order_quantity
 locked: false
+orderItemType: default
+generateTitle: false

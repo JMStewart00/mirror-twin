@@ -29,14 +29,14 @@ content:
       display_label: true
     third_party_settings: {  }
   field_stock_level:
+    type: commerce_stock_level_simple_transaction
     weight: 91
+    region: content
     settings:
+      step: '1'
       custom_transaction_note: false
       default_transaction_note: 'Transaction issued by stock level field.'
-      step: '1'
     third_party_settings: {  }
-    type: commerce_stock_level_simple_transaction
-    region: content
   list_price:
     type: commerce_list_price
     weight: -1
@@ -46,10 +46,10 @@ content:
   maximum_order_quantity:
     type: number
     weight: 1
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    region: content
   price:
     type: commerce_price_default
     weight: 0
@@ -66,10 +66,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 90
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield

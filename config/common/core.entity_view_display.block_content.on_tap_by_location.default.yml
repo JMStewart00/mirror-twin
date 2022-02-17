@@ -11,10 +11,10 @@ bundle: on_tap_by_location
 mode: default
 content:
   field_on_tap_location:
-    weight: 0
+    type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: entity_reference_entity_id
+    weight: 0
     region: content
 hidden: {  }

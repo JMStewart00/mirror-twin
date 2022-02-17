@@ -4,9 +4,9 @@ status: true
 dependencies: {  }
 id: pre_order_beer
 label: 'Pre-Order Beer'
+traits: {  }
+locked: false
 description: ''
 variationType: pre_order_beer
 multipleVariations: true
 injectVariationFields: true
-traits: {  }
-locked: false

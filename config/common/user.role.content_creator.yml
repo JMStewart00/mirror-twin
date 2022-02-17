@@ -1,7 +1,69 @@
 uuid: 81945fa0-7874-40ee-889b-08538bda0ac8
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - core.entity_view_display.node.page.default
+    - filter.format.basic_html
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.beer
+    - node.type.bloody_mary
+    - node.type.cocktail
+    - node.type.page
+    - node.type.slushee
+    - node.type.spirit
+    - node.type.team_member
+    - node.type.wine
+    - taxonomy.vocabulary.availability
+    - taxonomy.vocabulary.beer_style
+    - taxonomy.vocabulary.font_classification
+    - taxonomy.vocabulary.font_designer
+    - taxonomy.vocabulary.font_foundry
+    - taxonomy.vocabulary.font_tags
+    - taxonomy.vocabulary.hops
+    - taxonomy.vocabulary.languages_supported
+    - taxonomy.vocabulary.malts
+    - taxonomy.vocabulary.mirror_twin_category
+    - taxonomy.vocabulary.on_tap_locations
+    - taxonomy.vocabulary.spirits_category
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.team_category
+    - taxonomy.vocabulary.wine_style
+  module:
+    - block
+    - commerce
+    - commerce_order
+    - commerce_product
+    - commerce_store
+    - contact
+    - custom_layout
+    - dropzonejs
+    - entity_clone
+    - file
+    - filter
+    - layout_builder
+    - layout_builder_modal
+    - layout_builder_restrictions
+    - media
+    - media_bulk_upload
+    - node
+    - paragraphs
+    - path
+    - pathauto
+    - profile
+    - quickedit
+    - responsive_image
+    - search
+    - shortcut
+    - sitewide_alert
+    - system
+    - taxonomy
+    - toolbar
+    - view_unpublished
 id: content_creator
 label: 'Content Creator'
 weight: 3
@@ -24,7 +86,6 @@ permissions:
   - 'access user contact forms'
   - 'access user profiles'
   - 'add sitewide alert entities'
-  - 'administer block classes'
   - 'administer blocks'
   - 'administer contact forms'
   - 'administer custom layout'
@@ -37,7 +98,6 @@ permissions:
   - 'administer responsive images'
   - 'administer search'
   - 'administer shortcuts'
-  - 'administer sitemap settings'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer users'
@@ -66,7 +126,6 @@ permissions:
   - 'create page content'
   - 'create pre_order_beer commerce_product'
   - 'create remote_video media'
-  - 'create simplenews_issue content'
   - 'create slushee content'
   - 'create spirit content'
   - 'create team_member content'
@@ -100,7 +159,6 @@ permissions:
   - 'delete any page content'
   - 'delete any pre_order_beer commerce_product'
   - 'delete any remote_video media'
-  - 'delete any simplenews_issue content'
   - 'delete any slushee content'
   - 'delete any spirit content'
   - 'delete any team_member content'
@@ -119,7 +177,6 @@ permissions:
   - 'delete own page content'
   - 'delete own pre_order_beer commerce_product'
   - 'delete own remote_video media'
-  - 'delete own simplenews_issue content'
   - 'delete own slushee content'
   - 'delete own spirit content'
   - 'delete own team_member content'
@@ -150,7 +207,6 @@ permissions:
   - 'edit any image media'
   - 'edit any page content'
   - 'edit any remote_video media'
-  - 'edit any simplenews_issue content'
   - 'edit any slushee content'
   - 'edit any spirit content'
   - 'edit any team_member content'
@@ -164,7 +220,6 @@ permissions:
   - 'edit own image media'
   - 'edit own page content'
   - 'edit own remote_video media'
-  - 'edit own simplenews_issue content'
   - 'edit own slushee content'
   - 'edit own spirit content'
   - 'edit own team_member content'
@@ -193,7 +248,6 @@ permissions:
   - 'revert bloody_mary revisions'
   - 'revert cocktail revisions'
   - 'revert page revisions'
-  - 'revert simplenews_issue revisions'
   - 'revert slushee revisions'
   - 'revert spirit revisions'
   - 'revert team_member revisions'
@@ -223,7 +277,6 @@ permissions:
   - 'view any unpublished cocktail content'
   - 'view any unpublished content'
   - 'view any unpublished page content'
-  - 'view any unpublished simplenews_issue content'
   - 'view any unpublished slushee content'
   - 'view any unpublished spirit content'
   - 'view any unpublished team_member content'
@@ -244,7 +297,6 @@ permissions:
   - 'view page revisions'
   - 'view pre_order_beer commerce_product'
   - 'view published sitewide alert entities'
-  - 'view simplenews_issue revisions'
   - 'view slushee revisions'
   - 'view spirit revisions'
   - 'view team_member revisions'

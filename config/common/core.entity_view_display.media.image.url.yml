@@ -11,8 +11,8 @@ dependencies:
     - svg_image
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 _core:
   default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
 id: media.image.url
@@ -21,11 +21,11 @@ bundle: image
 mode: url
 content:
   field_media_image:
+    type: image_url
     label: visually_hidden
     settings:
       image_style: ''
     third_party_settings: {  }
-    type: image_url
     weight: 1
     region: content
 hidden:

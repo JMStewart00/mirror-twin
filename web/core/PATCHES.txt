@@ -21,10 +21,6 @@ Conflict with field_group, missing options in sidebar when creating/updating a n
 Source: https://www.drupal.org/files/issues/2019-11-29/claro-fix_node_sidebar_accordion_items-3097407-4--fix-only.patch
 
 
-Layout builder incorrectly resolves global contexts values when viewing layouts
-Source: https://www.drupal.org/files/issues/2020-06-19/3099968-35.patch
-
-
 Break long text strings in layout edit
 Source: https://www.drupal.org/files/issues/2020-08-10/break-long-text-strings-in-layout-3016507-32.patch
 
@@ -34,6 +30,6 @@ Source: https://www.drupal.org/files/issues/views-template-suggestions-2839945-2
 
 
 Support third party settings for components within a section
-Source: https://www.drupal.org/files/issues/2021-01-29/3015152-tps-9.2.x-116.patch
+Source: https://www.drupal.org/files/issues/2021-12-13/3015152-tps-9.3.x-128.patch
 
 

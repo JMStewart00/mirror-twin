@@ -2,11 +2,11 @@ uuid: 3e5f7e98-32b5-48ef-ab3f-373feb026c60
 langcode: en
 status: true
 dependencies:
+  module:
+    - profile
   enforced:
     module:
       - commerce_order
-  module:
-    - profile
 _core:
   default_config_hash: yeGwCxbA5dBAS_3eBkfaVrbxkASEM357dkjPZShKiR4
 id: profile.billing

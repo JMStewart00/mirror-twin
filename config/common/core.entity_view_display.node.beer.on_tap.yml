@@ -29,15 +29,15 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.beer.on_tap
 targetEntityType: node
 bundle: beer
 mode: on_tap
 content:
   field_abv:
-    weight: 2
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -45,30 +45,30 @@ content:
       scale: 1
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 2
     region: content
   field_ibu:
-    weight: 3
+    type: number_integer
     label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 3
     region: content
   field_style:
-    weight: 1
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 1
     region: content
   links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   body: true
   field_aroma: true

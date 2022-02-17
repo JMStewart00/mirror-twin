@@ -9,12 +9,12 @@ label: Square
 weight: null
 plugin: square
 configuration:
-  test_location_id: LJWB9KWB90VM2
-  live_location_id: L97Q6TMMFPZEK
   display_label: Square
   mode: live
   payment_method_types:
     - credit_card
   collect_billing_information: true
+  test_location_id: LJWB9KWB90VM2
+  live_location_id: L97Q6TMMFPZEK
 conditions: {  }
 conditionOperator: AND

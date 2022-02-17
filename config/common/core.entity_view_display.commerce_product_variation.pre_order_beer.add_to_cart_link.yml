@@ -11,18 +11,18 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: commerce_product_variation.pre_order_beer.add_to_cart_link
 targetEntityType: commerce_product_variation
 bundle: pre_order_beer
 mode: add_to_cart_link
 content:
   add_to_cart_link:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_stock_level: true
   list_price: true

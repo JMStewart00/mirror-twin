@@ -16,39 +16,39 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: node.cocktail.featured
 targetEntityType: node
 bundle: cocktail
 mode: featured
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 101
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 101
     region: content
   field_ingredients:
-    weight: 102
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 102
     region: content
   field_preview_image:
-    weight: 104
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: featured_cocktail
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 104
     region: content
   field_price:
-    weight: 103
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -56,12 +56,12 @@ content:
       scale: 0
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 103
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden:
   field_release_date: true

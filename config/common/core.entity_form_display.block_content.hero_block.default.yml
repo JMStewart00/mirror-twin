@@ -26,35 +26,35 @@ bundle: hero_block
 mode: default
 content:
   body:
+    type: text_textarea_with_summary
     weight: 2
+    region: main
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: main
   field_background_image:
     type: media_library_widget
     weight: 1
+    region: main
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: main
   field_link:
+    type: link_default
     weight: 3
+    region: main
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: main
   field_text_position:
+    type: options_select
     weight: 0
+    region: main
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: main
 hidden:
   info: true

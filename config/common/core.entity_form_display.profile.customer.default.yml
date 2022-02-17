@@ -5,13 +5,13 @@ dependencies:
   config:
     - field.field.profile.customer.address
     - profile.type.customer
-  enforced:
-    module:
-      - commerce_order
   module:
     - address
     - field_layout
     - layout_discovery
+  enforced:
+    module:
+      - commerce_order
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -27,8 +27,8 @@ content:
   address:
     type: address_default
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   is_default: true

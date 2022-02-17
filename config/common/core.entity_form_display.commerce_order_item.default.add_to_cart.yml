@@ -5,14 +5,14 @@ dependencies:
   config:
     - commerce_order.commerce_order_item_type.default
     - core.entity_form_mode.commerce_order_item.add_to_cart
-  enforced:
-    module:
-      - commerce_cart
-      - commerce_product
   module:
     - commerce_product
     - field_layout
     - layout_discovery
+  enforced:
+    module:
+      - commerce_cart
+      - commerce_product
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -28,9 +28,9 @@ content:
   purchased_entity:
     type: commerce_product_variation_attributes
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   quantity: true

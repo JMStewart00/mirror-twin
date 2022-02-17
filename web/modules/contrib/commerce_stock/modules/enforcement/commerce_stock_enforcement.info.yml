@@ -9,7 +9,7 @@ core: 8.x
 core_version_requirement: ^8 || ^9
 configure: commerce_stock_enforcement.settings
 
-# Information added by Drupal.org packaging script on 2021-11-11
-version: '8.x-1.0-beta1'
+# Information added by Drupal.org packaging script on 2022-01-14
+version: '8.x-1.0'
 project: 'commerce_stock'
-datestamp: 1636657396
+datestamp: 1642166792

@@ -49,47 +49,47 @@ third_party_settings:
         - field_ibu
         - field_hops
         - field_malts
+      label: 'Beer Characteristics'
+      region: content
       parent_name: group_tabs
       weight: 24
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Beer Characteristics'
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_tabs:
       children:
         - group_general
         - group_characteristics
         - group_categorization
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 3
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: vertical
-      label: Tabs
     group_general:
       children:
         - title
         - body
         - group_images
+      label: General
+      region: content
       parent_name: group_tabs
       weight: 23
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: General
     group_categorization:
       children:
         - field_mirror_monday
@@ -97,47 +97,47 @@ third_party_settings:
         - field_availability
         - field_dates_available
         - field_on_tap_locations
+      label: 'Release Dates / Availability'
+      region: content
       parent_name: group_tabs
       weight: 25
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Release Dates / Availability'
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
     group_sorting:
       children:
         - field_mirror_twin_category
         - field_sort_weight
+      label: 'Category & Sorting'
+      region: content
       parent_name: group_characteristics
       weight: 30
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: 'Category & Sorting'
     group_images:
       children:
         - field_preview_image
         - field_hero_media
         - field_label_image
+      label: Images
+      region: content
       parent_name: group_general
       weight: 6
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Images
 id: node.beer.default
 targetEntityType: node
 bundle: beer
@@ -146,13 +146,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 5
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 1
@@ -160,125 +160,125 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_abv:
+    type: number
     weight: 35
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_aroma:
+    type: string_textfield
     weight: 33
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_availability:
-    weight: 35
-    settings: {  }
-    third_party_settings: {  }
     type: options_buttons
+    weight: 35
     region: content
-  field_dates_available:
-    weight: 36
     settings: {  }
     third_party_settings: {  }
+  field_dates_available:
     type: daterange_default
+    weight: 36
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_hero_media:
+    type: media_library_widget
     weight: 8
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    type: media_library_widget
-    region: content
   field_hops:
+    type: options_buttons
     weight: 37
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_ibu:
+    type: number
     weight: 36
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_label_image:
     type: media_library_widget
     weight: 9
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_malts:
+    type: options_buttons
     weight: 38
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_meta_tags:
+    type: metatag_firehose
     weight: 4
+    region: content
     settings:
       sidebar: true
     third_party_settings: {  }
-    type: metatag_firehose
-    region: content
   field_mirror_monday:
+    type: boolean_checkbox
     weight: 33
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_mirror_twin_category:
+    type: options_buttons
     weight: 31
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_on_tap_locations:
+    type: options_buttons
     weight: 38
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_preview_image:
+    type: media_library_widget
     weight: 7
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    type: media_library_widget
-    region: content
   field_release_date:
+    type: datetime_default
     weight: 34
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_sort_weight:
+    type: number
     weight: 32
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_style:
+    type: options_buttons
     weight: 31
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_taste:
+    type: string_textfield
     weight: 34
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   path:
     type: path
     weight: 2
@@ -294,10 +294,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -310,12 +310,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 50
