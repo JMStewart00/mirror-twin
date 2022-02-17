@@ -15,7 +15,7 @@ function mirror_twin_views_cron() {
 /**
  * Implements hook_post_update_NAME().
  */
-function mirror_twin_views_post_update_8001() {
+function mirror_twin_views_post_update_8002() {
   $query = \Drupal::entityQuery('node')
         ->condition('type', 'cocktail')
         ->execute();
