@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.featured
     - field.field.node.cocktail.body
+    - field.field.node.cocktail.field_brunch_only
     - field.field.node.cocktail.field_ingredients
     - field.field.node.cocktail.field_preview_image
     - field.field.node.cocktail.field_price
@@ -64,4 +65,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_brunch_only: true
   field_release_date: true

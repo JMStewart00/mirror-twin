@@ -285,7 +285,8 @@
                 "Conflict with field_group, missing options in sidebar when creating/updating a node": "https://www.drupal.org/files/issues/2019-11-29/claro-fix_node_sidebar_accordion_items-3097407-4--fix-only.patch",
                 "Break long text strings in layout edit": "https://www.drupal.org/files/issues/2020-08-10/break-long-text-strings-in-layout-3016507-32.patch",
                 "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch",
-                "Support third party settings for components within a section": "https://www.drupal.org/files/issues/2021-12-13/3015152-tps-9.3.x-128.patch"
+                "Support third party settings for components within a section": "https://www.drupal.org/files/issues/2021-12-13/3015152-tps-9.3.x-128.patch",
+                "3254245 - TypeError: Argument 1 passed to generateString() must be of the type string, null given": "https://www.drupal.org/files/issues/2022-02-09/3254245-65.patch"
             },
             "drupal/block_class": {
                 "Integration with Drupal core's new Layout Builder": "https://www.drupal.org/files/issues/2019-06-28/block_class-support-layout-builder-2998114-45.patch"

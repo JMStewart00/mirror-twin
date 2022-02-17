@@ -369,8 +369,7 @@ display:
       display_description: ''
       display_extenders:
         ajax_history: {  }
-      displays:
-        page_1: page_1
+      displays: {  }
     cache_metadata:
       max-age: -1
       contexts:

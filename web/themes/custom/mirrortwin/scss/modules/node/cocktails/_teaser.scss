@@ -22,4 +22,9 @@
     font-family: $font-family-bebas !important;
     color: $text-gray !important;
   }
+
+  &__image {
+    max-width: 250px;
+    margin-bottom: rvr(0.5);
+  }
 }

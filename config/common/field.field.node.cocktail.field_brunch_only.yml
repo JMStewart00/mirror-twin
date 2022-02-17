@@ -1,0 +1,23 @@
+uuid: 1eaa6c40-5249-403b-9cc3-f2020d595112
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brunch_only
+    - node.type.cocktail
+id: node.cocktail.field_brunch_only
+field_name: field_brunch_only
+entity_type: node
+bundle: cocktail
+label: 'Brunch Only'
+description: 'Moves cocktail from the general cocktail list to a list that designates those available only at brunch.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

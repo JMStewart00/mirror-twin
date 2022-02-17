@@ -7,7 +7,7 @@
   transition: $project-transition;
   font-family: 'ssnickson', sans-serif;
   border-radius: 25px;
-  font-size: rem-calc(60);
+  font-size: rem-calc(42);
   cursor: pointer;
   line-height: rem-calc(48);
 
@@ -51,6 +51,12 @@
     padding: rvr(1) rvr(1.5);
     font-size: 30px;
     font-weight: bold;
+  }
+
+  &--small {
+    padding: rem-calc(8);
+    font-size: 24px;
+    line-height: 1;
   }
 
   &--active {

@@ -33,3 +33,7 @@ Support third party settings for components within a section
 Source: https://www.drupal.org/files/issues/2021-12-13/3015152-tps-9.3.x-128.patch
 
 
+3254245 - TypeError: Argument 1 passed to generateString() must be of the type string, null given
+Source: https://www.drupal.org/files/issues/2022-02-09/3254245-65.patch
+
+
