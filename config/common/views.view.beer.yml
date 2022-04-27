@@ -348,7 +348,7 @@ display:
       style:
         type: default
         options:
-          row_class: ''
+          row_class: show-for-large
           default_row_class: false
           uses_fields: false
       row:
@@ -365,11 +365,12 @@ display:
         sorts: false
         filters: false
         filter_groups: false
-      css_class: ''
+      css_class: show-for-large
       display_description: ''
       display_extenders:
         ajax_history: {  }
-      displays: {  }
+      displays:
+        page_1: page_1
     cache_metadata:
       max-age: -1
       contexts:

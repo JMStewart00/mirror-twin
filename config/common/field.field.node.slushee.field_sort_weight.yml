@@ -1,0 +1,25 @@
+uuid: 75e893ea-ba59-40d4-a529-d2074fb1043c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sort_weight
+    - node.type.slushee
+id: node.slushee.field_sort_weight
+field_name: field_sort_weight
+entity_type: node
+bundle: slushee
+label: 'Sort Weight'
+description: 'Weight used to sort slushees on slushee blocks. Lighter weight float to the top. Heavier weights drop to the bottom.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

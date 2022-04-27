@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.slushee.field_ingredients
     - field.field.node.slushee.field_preview_image
     - field.field.node.slushee.field_price
+    - field.field.node.slushee.field_sort_weight
     - node.type.slushee
   module:
     - text
@@ -58,4 +59,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_sort_weight: true

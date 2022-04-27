@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.slushee.field_ingredients
     - field.field.node.slushee.field_preview_image
     - field.field.node.slushee.field_price
+    - field.field.node.slushee.field_sort_weight
     - node.type.slushee
   module:
     - text
@@ -50,6 +51,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_sort_weight:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }

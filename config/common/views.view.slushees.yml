@@ -123,7 +123,7 @@ display:
           order: ASC
           expose:
             label: ''
-            field_identifier: field_sort_weight_value
+            field_identifier: ''
           exposed: false
         title:
           id: title
