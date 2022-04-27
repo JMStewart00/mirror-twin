@@ -67,12 +67,12 @@
   transform-style: preserve-3d;
 
   @include breakpoint(medium down) {
-    animation: spin 15s infinite linear;
+    animation: spin 8s infinite linear;
   }
 
   @include breakpoint(medium up) {
     &:hover {
-      animation: spin 15s infinite linear;
+      animation: spin 8s infinite linear;
     }
   }
 

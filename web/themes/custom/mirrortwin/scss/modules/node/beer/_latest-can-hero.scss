@@ -46,6 +46,7 @@
   &__title {
     color: $dark-gray;
     font-size: 30px;
+    line-height: 1;
 
     @include breakpoint(medium up) {
       max-width: 300px;
