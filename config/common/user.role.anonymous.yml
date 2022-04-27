@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - comment
-    - commerce_product
     - contact
     - media
     - search
@@ -21,6 +20,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
-  - 'view commerce_product'
   - 'view media'
   - 'view published sitewide alert entities'

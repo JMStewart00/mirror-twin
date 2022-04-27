@@ -35,10 +35,6 @@ dependencies:
     - taxonomy.vocabulary.wine_style
   module:
     - block
-    - commerce
-    - commerce_order
-    - commerce_product
-    - commerce_store
     - contact
     - custom_layout
     - dropzonejs
@@ -70,11 +66,6 @@ weight: 3
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access commerce administration pages'
-  - 'access commerce_order overview'
-  - 'access commerce_product overview'
-  - 'access commerce_product_attribute overview'
-  - 'access commerce_store overview'
   - 'access content overview'
   - 'access files overview'
   - 'access in-place editing'
@@ -117,9 +108,7 @@ permissions:
   - 'create beer content'
   - 'create bloody_mary content'
   - 'create cocktail content'
-  - 'create commerce_product_attribute'
   - 'create customer profile'
-  - 'create default commerce_order'
   - 'create document media'
   - 'create image media'
   - 'create media'
@@ -164,8 +153,6 @@ permissions:
   - 'delete any team_member content'
   - 'delete any video media'
   - 'delete any wine content'
-  - 'delete commerce_product_attribute'
-  - 'delete default commerce_order'
   - 'delete media'
   - 'delete own audio media'
   - 'delete own beer content'
@@ -260,8 +247,6 @@ permissions:
   - 'update any customer profile'
   - 'update any media'
   - 'update any pre_order_beer commerce_product'
-  - 'update commerce_product_attribute'
-  - 'update default commerce_order'
   - 'update media'
   - 'update own customer profile'
   - 'update own pre_order_beer commerce_product'
@@ -284,13 +269,8 @@ permissions:
   - 'view beer revisions'
   - 'view bloody_mary revisions'
   - 'view cocktail revisions'
-  - 'view commerce_order'
-  - 'view commerce_product_attribute'
-  - 'view commerce_store'
-  - 'view default commerce_order'
   - 'view own customer profile'
   - 'view own profile'
-  - 'view own unpublished commerce_product'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view own unpublished profile'
