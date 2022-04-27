@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - comment
-    - commerce_checkout
     - commerce_product
     - contact
     - media
@@ -18,7 +17,6 @@ label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'access checkout'
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
