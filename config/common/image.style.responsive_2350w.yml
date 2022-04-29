@@ -1,0 +1,16 @@
+uuid: 66f4fe5d-5a90-4717-b9d0-16fb60ace654
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_2350w
+label: responsive_2350w
+effects:
+  cceb8f9c-debd-420b-b248-1487947989a9:
+    uuid: cceb8f9c-debd-420b-b248-1487947989a9
+    id: image_scale
+    weight: null
+    data:
+      width: 2350
+      height: null
+      upscale: true
+pipeline: __default__

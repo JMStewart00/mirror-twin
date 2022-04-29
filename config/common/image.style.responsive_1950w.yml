@@ -1,0 +1,16 @@
+uuid: 72efeb74-1e0a-4de5-a8d0-f22b56115be4
+langcode: en
+status: true
+dependencies: {  }
+name: responsive_1950w
+label: responsive_1950w
+effects:
+  57db055d-c0ae-4e43-97f0-da19d7cb9e7b:
+    uuid: 57db055d-c0ae-4e43-97f0-da19d7cb9e7b
+    id: image_scale
+    weight: null
+    data:
+      width: 1950
+      height: null
+      upscale: true
+pipeline: __default__

@@ -8,12 +8,18 @@
 {{ attach_library('easy_responsive_images/resizer') }}
 
 {% set file = media.field_media_image.entity %}
-{% set src = file.uri.value|image_url('responsive_3_1_350w') %}
+{% set src = file.uri.value|image_url('responsive_3_1_950w') %}
 {% set srcset = [
   file.uri.value|image_url('responsive_3_1_550w')|render ~ ' 550w',
   file.uri.value|image_url('responsive_3_1_750w')|render ~ ' 750w',
-  file.uri.value|image_url('responsive_3_1_950w')|render ~ ' 950w',
+  file.uri.value|image_url('responsive_3_1_350w')|render ~ ' 350w',
   file.uri.value|image_url('responsive_3_1_1150w')|render ~ ' 1150w',
   file.uri.value|image_url('responsive_3_1_1350w')|render ~ ' 1350w',
+  file.uri.value|image_url('responsive_3_1_1550w')|render ~ ' 1550w',
+  file.uri.value|image_url('responsive_3_1_1750w')|render ~ ' 1750w',
+  file.uri.value|image_url('responsive_3_1_1950w')|render ~ ' 1950w',
+  file.uri.value|image_url('responsive_3_1_2150w')|render ~ ' 2150w',
+  file.uri.value|image_url('responsive_3_1_2350w')|render ~ ' 2350w',
+
 ] %}
 <img class="o-img--3-1" src="{{ src }}" data-srcset="{{ srcset|join(',') }}" alt="{{ media.field_media_image.alt }}" loading="lazy" />
