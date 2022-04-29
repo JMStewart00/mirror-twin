@@ -1,0 +1,23 @@
+uuid: 41f0450b-f129-43ba-b249-313344d05544
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bottom_spacing
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_bottom_spacing
+field_name: field_bottom_spacing
+entity_type: paragraph
+bundle: section
+label: 'Bottom Spacing'
+description: 'Units refers to a calculated spacing based on the window size.'
+required: false
+translatable: false
+default_value:
+  -
+    value: '2'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

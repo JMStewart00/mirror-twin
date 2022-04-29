@@ -1,0 +1,23 @@
+uuid: ed66fa26-fb4c-4487-a225-8219a47fc4ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_top_spacing
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_top_spacing
+field_name: field_top_spacing
+entity_type: paragraph
+bundle: section
+label: 'Top Spacing'
+description: 'Units refers to a calculated spacing based on window sizes.'
+required: false
+translatable: false
+default_value:
+  -
+    value: '2'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

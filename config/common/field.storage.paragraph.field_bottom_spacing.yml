@@ -1,0 +1,33 @@
+uuid: 973494a4-80c7-456e-abe2-3cf33ab2ae13
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_bottom_spacing
+field_name: field_bottom_spacing
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: '1 unit'
+    -
+      value: '2'
+      label: '2 units'
+    -
+      value: '3'
+      label: '3 units'
+    -
+      value: '4'
+      label: '4 units'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

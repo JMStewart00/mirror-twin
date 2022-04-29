@@ -1,0 +1,23 @@
+uuid: fca7b283-0ddd-43af-8460-1b5b92616136
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_hero_logo
+    - node.type.page
+id: node.page.field_hide_hero_logo
+field_name: field_hide_hero_logo
+entity_type: node
+bundle: page
+label: 'Hide Hero Logo?'
+description: 'If you want to use the hero for a banner image with information and also want to remove the '
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
