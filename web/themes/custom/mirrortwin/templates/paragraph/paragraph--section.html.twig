@@ -11,6 +11,8 @@
   'l-section',
   'l-section--align-' ~ paragraph.field_horizontal_alignment.value,
   'l-section--' ~ paragraph.field_section_width.value,
+  paragraph.field_top_spacing.value ? 'u-vr__pt--' ~ paragraph.field_top_spacing.value,
+  paragraph.field_bottom_spacing.value ? 'u-vr__pb--' ~ paragraph.field_bottom_spacing.value,
   'columns',
   'small-12',
   bg_color,
@@ -27,7 +29,7 @@
       <div class="c-block__subheading u-vr__mb--1">{{ content.field_subheading }}</div>
     {% endif %}
   {% endif %}
-  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width', 'field_background_color', 'field_media') }}
+  {{ content|without('field_title', 'field_subheading', 'field_horizontal_alignment', 'field_section_width', 'field_background_color', 'field_media', 'field_top_spacing', 'field_bottom_spacing') }}
   </div>
   {% if paragraph.field_media.value is not empty %}
     <div class="l-section__image" style="background-image: url({{ background_image }})">

@@ -60,16 +60,18 @@
 
     {% if image %}
       {{ drupal_entity('media', item.content['#media'].id(), '3_1') }}
-      <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" class="hero-image-overlay"/>
+      {% if element['#object'].field_hide_hero_logo.value != '1' %}
+        <img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}" class="hero-image-overlay"/>
+      {% endif %}
     {% endif %}
 
-    {% if video_local %}
+    {# {% if video_local %}
       {{ drupal_entity('media', item.content['#media'].id(), '3_1') }}
     {% endif %}
 
     {% if video_remote %}
       {{ drupal_entity('media', item.content['#media'].id(), '3_1') }}
-    {% endif %}
+    {% endif %} #}
 
   </div>
 {% endfor %}
