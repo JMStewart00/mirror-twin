@@ -1,0 +1,23 @@
+uuid: 103b7524-8509-4a62-a20d-28f21223dece
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disable_dropped
+    - node.type.beer
+id: node.beer.field_disable_dropped
+field_name: field_disable_dropped
+entity_type: node
+bundle: beer
+label: 'Disable Dropped Label on Can Page'
+description: 'Toggling this on will remove the "Just Dropped" text section on the "Just Dropped" hero. '
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

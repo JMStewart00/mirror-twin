@@ -78,18 +78,21 @@
 %}
 
 <article{{attributes.addClass(classes)}} data-aos="fade-up">
-  {{ title_prefix }}
-  {{ title_suffix }}
-  {{ content.field_hero_media }}
-  <div class="c-beer-latest-can-hero__content">
-    <div class="c-beer-latest-can-hero__just-dropped">
-      Just Dropped
-    </div>
-    <div class="c-beer-latest-can-hero__title">
-      {{ label.0['#context'].value }}
-    </div>
-    <a href="/beer/cans" class="o-btn o-btn--primary o-btn--small">All Cans&nbsp;&nbsp;<i class="fas fa-caret-right o-icon--white"></i></a>
-  </div>
-</article>
+	{{ title_prefix }}
+	{{ title_suffix }}
+	{{ content.field_hero_media }}
 
+	{% if not content.field_disable_dropped.0['#markup'] %}
+		<div class="c-beer-latest-can-hero__content">
+			<div class="c-beer-latest-can-hero__just-dropped">
+				Just Dropped
+			</div>
+			<div class="c-beer-latest-can-hero__title">
+				{{ label.0['#context'].value }}
+			</div>
+			<a href="/beer/cans" class="o-btn o-btn--primary o-btn--small">All Cans&nbsp;&nbsp;<i class="fas fa-caret-right o-icon--white"></i>
+			</a>
+		</div>
+	{% endif %}
+</article>
 

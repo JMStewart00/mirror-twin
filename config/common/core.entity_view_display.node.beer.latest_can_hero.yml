@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_disable_dropped
     - field.field.node.beer.field_hero_media
     - field.field.node.beer.field_hops
     - field.field.node.beer.field_ibu
@@ -45,7 +46,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_abv:
     type: number_decimal
@@ -56,7 +57,7 @@ content:
       scale: 1
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 104
+    weight: 4
     region: content
   field_aroma:
     type: string
@@ -64,7 +65,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 113
+    weight: 13
     region: content
   field_availability:
     type: entity_reference_label
@@ -72,7 +73,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 110
+    weight: 10
     region: content
   field_dates_available:
     type: daterange_default
@@ -82,7 +83,17 @@ content:
       format_type: medium
       separator: '-'
     third_party_settings: {  }
-    weight: 109
+    weight: 9
+    region: content
+  field_disable_dropped:
+    type: boolean
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 20
     region: content
   field_hero_media:
     type: entity_reference_entity_view
@@ -91,7 +102,7 @@ content:
       view_mode: '16_9'
       link: false
     third_party_settings: {  }
-    weight: 119
+    weight: 19
     region: content
   field_hops:
     type: entity_reference_label
@@ -99,7 +110,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 111
+    weight: 11
     region: content
   field_ibu:
     type: number_integer
@@ -108,7 +119,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 105
+    weight: 5
     region: content
   field_label_image:
     type: entity_reference_entity_view
@@ -117,7 +128,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 118
+    weight: 18
     region: content
   field_malts:
     type: entity_reference_label
@@ -125,14 +136,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 112
+    weight: 12
     region: content
   field_meta_tags:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 106
+    weight: 6
     region: content
   field_mirror_monday:
     type: boolean
@@ -142,7 +153,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 116
+    weight: 16
     region: content
   field_mirror_twin_category:
     type: entity_reference_label
@@ -150,7 +161,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 107
+    weight: 7
     region: content
   field_on_tap_locations:
     type: entity_reference_label
@@ -158,7 +169,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 117
+    weight: 17
     region: content
   field_preview_image:
     type: entity_reference_entity_view
@@ -167,7 +178,7 @@ content:
       view_mode: '16_9'
       link: false
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   field_release_date:
     type: datetime_default
@@ -176,7 +187,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 108
+    weight: 8
     region: content
   field_sort_weight:
     type: number_integer
@@ -185,7 +196,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 115
+    weight: 15
     region: content
   field_style:
     type: entity_reference_label
@@ -193,7 +204,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 103
+    weight: 3
     region: content
   field_taste:
     type: string
@@ -201,11 +212,11 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 114
+    weight: 14
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden: {  }

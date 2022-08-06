@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_disable_dropped
     - field.field.node.beer.field_hero_media
     - field.field.node.beer.field_hops
     - field.field.node.beer.field_ibu
@@ -77,6 +78,16 @@ content:
       separator: '-'
     third_party_settings: {  }
     weight: 109
+    region: content
+  field_disable_dropped:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 120
     region: content
   field_hero_media:
     type: entity_reference_label

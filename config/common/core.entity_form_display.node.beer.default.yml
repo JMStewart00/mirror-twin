@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_disable_dropped
     - field.field.node.beer.field_hero_media
     - field.field.node.beer.field_hops
     - field.field.node.beer.field_ibu
@@ -127,6 +128,7 @@ third_party_settings:
         - field_preview_image
         - field_hero_media
         - field_label_image
+        - field_disable_dropped
       label: Images
       region: content
       parent_name: group_general
@@ -182,9 +184,16 @@ content:
     third_party_settings: {  }
   field_dates_available:
     type: daterange_default
-    weight: 36
+    weight: 37
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_disable_dropped:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_hero_media:
     type: media_library_widget
@@ -225,6 +234,7 @@ content:
     region: content
     settings:
       sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_mirror_monday:
     type: boolean_checkbox

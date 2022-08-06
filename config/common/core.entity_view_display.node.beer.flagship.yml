@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.beer.field_aroma
     - field.field.node.beer.field_availability
     - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_disable_dropped
     - field.field.node.beer.field_hero_media
     - field.field.node.beer.field_hops
     - field.field.node.beer.field_ibu
@@ -191,5 +192,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_disable_dropped: true
   field_hero_media: true
   field_label_image: true
