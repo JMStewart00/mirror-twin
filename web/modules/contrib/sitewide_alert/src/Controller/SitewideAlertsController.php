@@ -5,19 +5,19 @@ namespace Drupal\sitewide_alert\Controller;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Render\RendererInterface;
 use Drupal\sitewide_alert\SitewideAlertManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Render\Renderer;
 
 /**
- * Class SitewideAlertsController.
+ * Controller for callback that loads the alerts visible as JSON object.
  */
 class SitewideAlertsController extends ControllerBase {
 
   /**
    * The renderer.
    *
-   * @var \Drupal\Core\Render\Renderer
+   * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
 
@@ -29,12 +29,12 @@ class SitewideAlertsController extends ControllerBase {
   /**
    * Constructs a new SitewideAlertsController.
    *
-   * @param \Drupal\Core\Render\Renderer $renderer
+   * @param \Drupal\Core\Render\RendererInterface $renderer
    *   The renderer.
    * @param \Drupal\sitewide_alert\SitewideAlertManager $sitewideAlertManager
    *   The sitewide alert manager.
    */
-  public function __construct(Renderer $renderer, SitewideAlertManager $sitewideAlertManager) {
+  public function __construct(RendererInterface $renderer, SitewideAlertManager $sitewideAlertManager) {
     $this->renderer = $renderer;
     $this->sitewideAlertManager = $sitewideAlertManager;
   }
@@ -42,7 +42,7 @@ class SitewideAlertsController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): SitewideAlertsController {
     return new static(
       $container->get('renderer'),
       $container->get('sitewide_alert.sitewide_alert_manager')

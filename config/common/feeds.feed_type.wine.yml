@@ -10,8 +10,8 @@ dependencies:
     - node.type.wine
   module:
     - node
-label: Wine
 id: wine
+label: Wine
 description: ''
 help: ''
 import_period: -1
@@ -36,23 +36,28 @@ processor_configuration:
   expire: -1
   owner_feed_author: false
   owner_id: 0
+  insert_new: 1
 custom_sources:
   title:
     value: Title
     label: Title
     machine_name: title
+    type: csv
   category:
     value: Category
     label: Category
     machine_name: category
+    type: csv
   bottle:
     value: Bottle
     label: Bottle
     machine_name: bottle
+    type: csv
   glass:
     value: Glass
     label: Glass
     machine_name: glass
+    type: csv
 mappings:
   -
     target: title

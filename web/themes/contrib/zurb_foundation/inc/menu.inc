@@ -74,10 +74,7 @@ function zurb_foundation_preprocess_menu__main(&$variables) {
       $top_bar_attributes->addClass('sticky');
       $top_bar_attributes->setAttribute('data-sticky', TRUE);
       $top_bar_attributes->setAttribute('data-top-anchor', 'top-bar-sticky-container');
-      // 9999999(px) is used as no other bottom anchor stopped the top-bar from
-      // jumping back to the top of the screen after scrolling past 50% of the
-      // screen. Super silly, but hours of work led to this.
-      $top_bar_attributes->setAttribute('data-btm-anchor', 9999999);
+      $top_bar_attributes->setAttribute('data-btm-anchor', 'main:bottom');
       $top_bar_attributes->setAttribute('data-margin-top', 0);
       $top_bar_attributes->setAttribute('data-margin-bottom', 0);
       $top_bar_attributes->setAttribute('data-options', 'stickyOn:small');

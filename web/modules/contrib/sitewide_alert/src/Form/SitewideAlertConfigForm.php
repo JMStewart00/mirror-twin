@@ -1,19 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SitewideAlertConfigForm.
+ * Form controller for the module's config/settings admin page.
  */
 class SitewideAlertConfigForm extends ConfigFormBase {
 
   /**
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  private ModuleHandlerInterface $moduleHandler;
+
+  /**
+   * SitewideAlertConfigForm constructor.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The factory for configuration objects.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
+   *   The module handler for determining which modules are installed.
+   */
+  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $moduleHandler) {
+    parent::__construct($config_factory);
+    $this->moduleHandler = $moduleHandler;
+  }
+
+  /**
    * {@inheritdoc}
    */
-  protected function getEditableConfigNames() {
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory'),
+      $container->get('module_handler')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames(): array {
     return [
       'sitewide_alert.settings',
     ];
@@ -22,20 +56,34 @@ class SitewideAlertConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
+  public function getFormId(): string {
     return 'sitewide_alert_config_form';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $config = $this->config('sitewide_alert.settings');
+
+    // Config options change if block submodule is enabled.
+    $block_submodule_enabled = $this->moduleHandler->moduleExists('sitewide_alert_block');
+
+    if ($block_submodule_enabled) {
+      $this->messenger()->addMessage(
+        $this->t(
+          'The Sitewide Alert Block submodule is enabled. Make sure to <a href="@block_link">configure Sitewide Alert block placement within the theme(s)</a>. Note that conditional visibility of Sitewide Alert blocks depends on both block visibility and the visibility configured below. In most cases, the block should be set to always be visible and any visibility conditions configured when creating or editing each Sitewide Alert.',
+          ['@block_link' => Url::fromRoute('block.admin_display')->toString()]
+        )
+      );
+    }
+
     $form['show_on_admin'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show on Administration Pages'),
       '#description' => $this->t('This will allow the alerts to show on backend admin pages as well as the frontend.'),
       '#default_value' => $config->get('show_on_admin'),
+      '#access' => !$block_submodule_enabled,
     ];
 
     $form['alert_styles'] = [
@@ -44,7 +92,7 @@ class SitewideAlertConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('alert_styles'),
       '#description' => '<p>' . $this->t(
           'Enter the list of key|value pairs of alert styles separated by new line, where key is the alert style class name without prefix, and the value is displayed to the alert editor. <br/><strong>For example:</strong><ul><li>To add the class <em>alert-info</em>, use <code>info|Info</code></li><li>To add the class <em>alert-danger</em>, use <code>danger|Very Important</code></li></ul><strong>Warning!</strong> Pre-existing values will be reset.'
-        ) . '<br><br></p>',
+      ) . '<br><br></p>',
     ];
 
     $form['automatic_refresh'] = [
@@ -72,7 +120,7 @@ class SitewideAlertConfigForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state): void {
     parent::submitForm($form, $form_state);
 
     $this->config('sitewide_alert.settings')

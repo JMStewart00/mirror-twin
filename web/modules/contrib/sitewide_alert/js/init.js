@@ -6,7 +6,7 @@
 **/
 
 (function (Drupal, drupalSettings, once) {
-  const sitewideAlertsId = 'sitewide-alert';
+  const sitewideAlertsSelector = '[data-sitewide-alert]';
 
   const shouldShowOnThisPage = (pages = [], negate = true) => {
     if (pages.length === 0) {
@@ -50,8 +50,13 @@
 
   const dismissAlert = alert => {
     window.localStorage.setItem(`alert-dismissed-${alert.uuid}`, String(Math.round(new Date().getTime() / 1000)));
-    const alertElement = document.querySelector(`[data-uuid="${alert.uuid}"]`);
-    alertElement.remove();
+    document.querySelectorAll(`[data-uuid="${alert.uuid}"]`).forEach(alert => {
+      alert.dispatchEvent(new CustomEvent('sitewide-alert-dismissed', {
+        bubbles: true,
+        composed: true
+      }));
+      removeAlert(alert);
+    });
   };
 
   const buildAlertElement = alert => {
@@ -69,6 +74,14 @@
     return alertElement.firstElementChild;
   };
 
+  const removeAlert = alert => {
+    alert.dispatchEvent(new CustomEvent('sitewide-alert-removed', {
+      bubbles: true,
+      composed: true
+    }));
+    alert.remove();
+  };
+
   const fetchAlerts = () => {
     return fetch(`${window.location.origin + drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix}sitewide_alert/load`).then(res => res.json()).then(result => result.sitewideAlerts, error => {
       console.error(error);
@@ -76,37 +89,45 @@
   };
 
   const removeStaleAlerts = alerts => {
-    const root = document.getElementById(sitewideAlertsId);
-    const existingAlerts = root.querySelectorAll('[data-uuid]');
-    const alertsToBeRemoved = Array.from(existingAlerts).filter(alert => !alerts.includes(alert.getAttribute('data-uuid')));
-    alertsToBeRemoved.forEach(alert => alert.remove());
+    const roots = document.querySelectorAll(sitewideAlertsSelector);
+    roots.forEach(root => {
+      const existingAlerts = root.querySelectorAll('[data-uuid]');
+      const alertsToBeRemoved = Array.from(existingAlerts).filter(alert => !alerts.includes(alert.getAttribute('data-uuid')));
+      alertsToBeRemoved.forEach(alert => removeAlert(alert));
+    });
   };
 
   const initAlerts = () => {
-    const root = document.getElementById(sitewideAlertsId);
+    const roots = document.querySelectorAll(sitewideAlertsSelector);
     fetchAlerts().then(alerts => {
       removeStaleAlerts(alerts);
       alerts.forEach(alert => {
         const dismissed = alertWasDismissed(alert);
         const showOnThisPage = shouldShowOnThisPage(alert.showOnPages, alert.negateShowOnPages);
-        const existingAlertElement = root.querySelector(`[data-uuid="${alert.uuid}"]`);
+        roots.forEach(root => {
+          const existingAlertElement = root.querySelector(`[data-uuid="${alert.uuid}"]`);
 
-        if (showOnThisPage && !dismissed) {
-          const renderableAlertElement = buildAlertElement(alert);
-          existingAlertElement ? root.replaceChild(renderableAlertElement, existingAlertElement) : root.appendChild(renderableAlertElement);
-          return;
-        }
+          if (showOnThisPage && !dismissed) {
+            const renderableAlertElement = buildAlertElement(alert);
+            existingAlertElement ? root.replaceChild(renderableAlertElement, existingAlertElement) : root.appendChild(renderableAlertElement);
+            renderableAlertElement.dispatchEvent(new CustomEvent('sitewide-alert-rendered', {
+              bubbles: true,
+              composed: true
+            }));
+            return;
+          }
 
-        if ((dismissed || !showOnThisPage) && existingAlertElement) {
-          existingAlertElement.remove();
-        }
+          if ((dismissed || !showOnThisPage) && existingAlertElement) {
+            removeAlert(existingAlertElement);
+          }
+        });
       });
     });
   };
 
   Drupal.behaviors.sitewide_alert_init = {
     attach: (context, settings) => {
-      once('sitewide_alerts_init', `#${sitewideAlertsId}`, context).forEach(element => {
+      once('sitewide_alerts_init', 'html', context).forEach(element => {
         initAlerts();
 
         if (drupalSettings.sitewideAlert.automaticRefresh === true) {

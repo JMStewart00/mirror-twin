@@ -1,5 +1,5 @@
 (function(Drupal, drupalSettings, once) {
-  const sitewideAlertsId = 'sitewide-alert';
+  const sitewideAlertsSelector = '[data-sitewide-alert]';
 
   const shouldShowOnThisPage = (pages = [], negate = true) => {
     if (pages.length === 0) {
@@ -49,8 +49,14 @@
       `alert-dismissed-${alert.uuid}`,
       String(Math.round(new Date().getTime() / 1000)),
     );
-    const alertElement = document.querySelector(`[data-uuid="${alert.uuid}"]`);
-    alertElement.remove();
+    document.querySelectorAll(`[data-uuid="${alert.uuid}"]`)
+        .forEach(alert => {
+          alert.dispatchEvent(new CustomEvent('sitewide-alert-dismissed', {
+            bubbles: true,
+            composed: true
+          }));
+          removeAlert(alert);
+        });
   };
 
   const buildAlertElement = alert => {
@@ -65,6 +71,15 @@
     }
 
     return alertElement.firstElementChild;
+  }
+
+  const removeAlert = alert => {
+    alert.dispatchEvent(new CustomEvent('sitewide-alert-removed', {
+      bubbles: true,
+      composed: true
+    }));
+
+    alert.remove();
   }
 
   const fetchAlerts = () => {
@@ -86,22 +101,24 @@
   };
 
   const removeStaleAlerts = alerts => {
-    const root = document.getElementById(sitewideAlertsId);
-    const existingAlerts = root.querySelectorAll('[data-uuid]');
+    const roots = document.querySelectorAll(sitewideAlertsSelector);
+    roots.forEach(root => {
+      const existingAlerts = root.querySelectorAll('[data-uuid]');
 
-    // We have to convert and filter existing alerts based on newly fetched alerts.
-    // This can be done by comparing uuids.
-    // If the uuid can't be found in fetched alerts,
-    // the alert with the same uuid should be removed.
-    const alertsToBeRemoved = Array.from(existingAlerts).filter(
-      alert => !alerts.includes(alert.getAttribute('data-uuid')),
-    );
+      // We have to convert and filter existing alerts based on newly fetched alerts.
+      // This can be done by comparing uuids.
+      // If the uuid can't be found in fetched alerts,
+      // the alert with the same uuid should be removed.
+      const alertsToBeRemoved = Array.from(existingAlerts).filter(
+        alert => !alerts.includes(alert.getAttribute('data-uuid')),
+      );
 
-    alertsToBeRemoved.forEach(alert => alert.remove());
+      alertsToBeRemoved.forEach(alert => removeAlert(alert));
+    });
   };
 
   const initAlerts = () => {
-    const root = document.getElementById(sitewideAlertsId);
+    const roots = document.querySelectorAll(sitewideAlertsSelector);
     // Fetch alerts and prepare rendering.
     fetchAlerts().then(alerts => {
       removeStaleAlerts(alerts);
@@ -113,33 +130,40 @@
           alert.showOnPages,
           alert.negateShowOnPages,
         );
+        roots.forEach(root => {
+          // Check for existing alert element.
+          const existingAlertElement = root.querySelector(
+            `[data-uuid="${alert.uuid}"]`,
+          );
 
-        // Check for existing alert element.
-        const existingAlertElement = root.querySelector(
-          `[data-uuid="${alert.uuid}"]`,
-        );
+          if (showOnThisPage && !dismissed) {
+            const renderableAlertElement = buildAlertElement(alert);
+            // To prevent an alert from being rendered multiple times
+            // replace the old alert with the new one when new alerts are being fetched.
+            existingAlertElement
+              ? root.replaceChild(renderableAlertElement, existingAlertElement)
+              : root.appendChild(renderableAlertElement);
 
-        if (showOnThisPage && !dismissed) {
-          const renderableAlertElement = buildAlertElement(alert);
-          // To prevent an alert from being rendered multiple times
-          // replace the old alert with the new one when new alerts are being fetched.
-          existingAlertElement
-            ? root.replaceChild(renderableAlertElement, existingAlertElement)
-            : root.appendChild(renderableAlertElement);
-          return;
-        }
+            renderableAlertElement.dispatchEvent(new CustomEvent('sitewide-alert-rendered', {
+              bubbles: true,
+              composed: true
+            }));
 
-        // Remove alert if it is on the page and should no longer be.
-        if ((dismissed || !showOnThisPage) && existingAlertElement) {
-          existingAlertElement.remove();
-        }
+            return;
+          }
+
+          // Remove alert if it is on the page and should no longer be.
+          if ((dismissed || !showOnThisPage) && existingAlertElement) {
+            removeAlert(existingAlertElement);
+          }
+        });
       });
     });
   };
 
   Drupal.behaviors.sitewide_alert_init = {
     attach: (context, settings) => {
-      once('sitewide_alerts_init', `#${  sitewideAlertsId}`, context).forEach(element => {
+      once('sitewide_alerts_init', 'html', context).forEach(element => {
         // On load.
         initAlerts();
 

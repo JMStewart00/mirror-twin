@@ -4,10 +4,11 @@ namespace Drupal\sitewide_alert\Controller;
 
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Datetime\DateFormatter;
+use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Link;
-use Drupal\Core\Render\Renderer;
+use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
 use Drupal\sitewide_alert\Entity\SitewideAlertInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -19,11 +20,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class SitewideAlertController extends ControllerBase implements ContainerInjectionInterface {
 
-
   /**
    * The date formatter.
    *
-   * @var \Drupal\Core\Datetime\DateFormatter
+   * @var \Drupal\Core\Datetime\DateFormatterInterface
    */
   protected $dateFormatter;
 
@@ -37,12 +37,12 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
   /**
    * Constructs a new SitewideAlertController.
    *
-   * @param \Drupal\Core\Datetime\DateFormatter $date_formatter
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter.
-   * @param \Drupal\Core\Render\Renderer $renderer
+   * @param \Drupal\Core\Render\RendererInterface $renderer
    *   The renderer.
    */
-  public function __construct(DateFormatter $date_formatter, Renderer $renderer) {
+  public function __construct(DateFormatterInterface $date_formatter, RendererInterface $renderer) {
     $this->dateFormatter = $date_formatter;
     $this->renderer = $renderer;
   }
@@ -50,7 +50,7 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): SitewideAlertController {
     return new static(
       $container->get('date.formatter'),
       $container->get('renderer')
@@ -65,13 +65,17 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
    *
    * @return array
    *   An array suitable for drupal_render().
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function revisionShow($sitewide_alert_revision) {
+  public function revisionShow(int $sitewide_alert_revision): array {
     $sitewide_alert = $this->entityTypeManager()->getStorage('sitewide_alert')
       ->loadRevision($sitewide_alert_revision);
-    $view_builder = $this->entityTypeManager()->getViewBuilder('sitewide_alert');
-
-    return $view_builder->view($sitewide_alert);
+    return $this
+      ->entityTypeManager()
+      ->getViewBuilder('sitewide_alert')
+      ->view($sitewide_alert);
   }
 
   /**
@@ -80,10 +84,13 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
    * @param int $sitewide_alert_revision
    *   The Sitewide Alert revision ID.
    *
-   * @return string
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup
    *   The page title.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function revisionPageTitle($sitewide_alert_revision) {
+  public function revisionPageTitle(int $sitewide_alert_revision): TranslatableMarkup {
     $sitewide_alert = $this->entityTypeManager()->getStorage('sitewide_alert')
       ->loadRevision($sitewide_alert_revision);
     return $this->t('Revision of %title from %date', [
@@ -101,9 +108,11 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
    * @return array
    *   An array as expected by drupal_render().
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
-  public function revisionOverview(SitewideAlertInterface $sitewide_alert) {
+  public function revisionOverview(SitewideAlertInterface $sitewide_alert): array {
     $account = $this->currentUser();
     $sitewide_alert_storage = $this->entityTypeManager()->getStorage('sitewide_alert');
 
@@ -119,12 +128,17 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
 
     $rows = [];
 
-    $vids = $sitewide_alert_storage->revisionIds($sitewide_alert);
+    $vids = array_column($sitewide_alert_storage->getAggregateQuery()
+      ->allRevisions()
+      ->condition('id', $sitewide_alert->id())
+      ->groupBy('vid')
+      ->accessCheck(TRUE)
+      ->execute(), 'vid');
 
     $latest_revision = TRUE;
 
     foreach (array_reverse($vids) as $vid) {
-      /** @var \Drupal\sitewide_alert\SitewideAlertInterface $revision */
+      /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $revision */
       $revision = $sitewide_alert_storage->loadRevision($vid);
       // Only show revisions that are affected by the language that is being
       // displayed.
@@ -134,25 +148,19 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
           '#account' => $revision->getRevisionUser(),
         ];
 
-        // Use revision link to link to revisions that are not active.
-        $date = $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short');
-        if ($vid != $sitewide_alert->getRevisionId()) {
-          $link = Link::fromTextAndUrl($date, new Url('entity.sitewide_alert.revision', [
-            'sitewide_alert' => $sitewide_alert->id(),
-            'sitewide_alert_revision' => $vid,
-          ]))->toString();
-        }
-        else {
-          $link = $sitewide_alert->toLink($date)->toString();
-        }
-
         $row = [];
         $column = [
           'data' => [
             '#type' => 'inline_template',
             '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
             '#context' => [
-              'date' => $link,
+              'date' => Link::fromTextAndUrl(
+                $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short'),
+                new Url('entity.sitewide_alert.revision', [
+                  'sitewide_alert' => $sitewide_alert->id(),
+                  'sitewide_alert_revision' => $vid,
+                  ])
+              )->toString(),
               'username' => $this->renderer->renderPlain($username),
               'message' => [
                 '#markup' => $revision->getRevisionLogMessage(),
@@ -174,6 +182,7 @@ class SitewideAlertController extends ControllerBase implements ContainerInjecti
           foreach ($row as &$current) {
             $current['class'] = ['revision-current'];
           }
+          unset($current);
           $latest_revision = FALSE;
         }
         else {

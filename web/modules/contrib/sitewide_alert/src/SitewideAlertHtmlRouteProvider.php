@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
 use Symfony\Component\Routing\Route;
+use Drupal\sitewide_alert\Form\SitewideAlertRevisionDeleteForm;
+use Drupal\sitewide_alert\Form\SitewideAlertRevisionRevertTranslationForm;
 
 /**
  * Provides routes for Sitewide Alert entities.
@@ -58,7 +62,7 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getHistoryRoute(EntityTypeInterface $entity_type) {
+  protected function getHistoryRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('version-history')) {
       $route = new Route($entity_type->getLinkTemplate('version-history'));
       $route
@@ -71,6 +75,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
   /**
@@ -82,7 +88,7 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getRevisionRoute(EntityTypeInterface $entity_type) {
+  protected function getRevisionRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('revision')) {
       $route = new Route($entity_type->getLinkTemplate('revision'));
       $route
@@ -95,6 +101,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
   /**
@@ -106,7 +114,7 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getRevisionRevertRoute(EntityTypeInterface $entity_type) {
+  protected function getRevisionRevertRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('revision_revert')) {
       $route = new Route($entity_type->getLinkTemplate('revision_revert'));
       $route
@@ -119,6 +127,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
   /**
@@ -130,12 +140,12 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getRevisionDeleteRoute(EntityTypeInterface $entity_type) {
+  protected function getRevisionDeleteRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('revision_delete')) {
       $route = new Route($entity_type->getLinkTemplate('revision_delete'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\sitewide_alert\Form\SitewideAlertRevisionDeleteForm',
+          '_form' => SitewideAlertRevisionDeleteForm::class,
           '_title' => 'Delete earlier revision',
         ])
         ->setRequirement('_permission', 'delete all sitewide alert revisions')
@@ -143,6 +153,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
   /**
@@ -154,12 +166,12 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getRevisionTranslationRevertRoute(EntityTypeInterface $entity_type) {
+  protected function getRevisionTranslationRevertRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('translation_revert')) {
       $route = new Route($entity_type->getLinkTemplate('translation_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\sitewide_alert\Form\SitewideAlertRevisionRevertTranslationForm',
+          '_form' => SitewideAlertRevisionRevertTranslationForm::class,
           '_title' => 'Revert to earlier revision of a translation',
         ])
         ->setRequirement('_permission', 'revert all sitewide alert revisions')
@@ -167,6 +179,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
   /**
@@ -178,7 +192,7 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getSettingsFormRoute(EntityTypeInterface $entity_type) {
+  protected function getSettingsFormRoute(EntityTypeInterface $entity_type): ?Route {
     if (!$entity_type->getBundleEntityType()) {
       $route = new Route("/admin/content/{$entity_type->id()}/settings");
       $route
@@ -191,6 +205,8 @@ class SitewideAlertHtmlRouteProvider extends AdminHtmlRouteProvider {
 
       return $route;
     }
+
+    return NULL;
   }
 
 }

@@ -5,14 +5,18 @@
  * Install, update and uninstall functions for the sitewide_alert module.
  */
 
-use Drupal\Core\Session\AccountInterface;
+use Drupal\user\Entity\Role;
+use Drupal\user\RoleInterface;
 
 /**
  * Implements hook_install().
  */
 function sitewide_alert_install() {
-  // By default allow anonymous users to view Sitewide Alerts.
-  user_role_grant_permissions(AccountInterface::ANONYMOUS_ROLE, ['view published sitewide alert entities']);
+  // Grant the "view published sitewide alert entities" permission to all users by default.
+  if (\Drupal::moduleHandler()->moduleExists('user')) {
+    user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['view published sitewide alert entities']);
+    user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['view published sitewide alert entities']);
+  }
 }
 
 /**
@@ -47,6 +51,18 @@ function sitewide_alert_update_9001() {
   // 6. Update the column name in the database table.
   if (!empty($field_schema)) {
     $schema->changeField($table_name, $current_field_name, $target_field_name, $field_schema);
+  }
+}
+
+/**
+ * Add the 'view published sitewide alert entities' permission for roles that
+ * have the 'access content' permission.
+ */
+function sitewide_alert_update_9002() {
+  foreach (array_filter(Role::loadMultiple(), static fn($role) => $role->hasPermission('access content')) as $role) {
+    $role
+      ->grantPermission('view published sitewide alert entities')
+      ->save();
   }
 }
 

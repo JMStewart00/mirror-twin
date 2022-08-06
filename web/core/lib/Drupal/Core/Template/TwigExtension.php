@@ -183,7 +183,7 @@ class TwigExtension extends AbstractExtension {
    * @param $name
    *   The name of the route.
    * @param array $parameters
-   *   An associative array of route parameters names and values.
+   *   (optional) An associative array of route parameters names and values.
    * @param array $options
    *   (optional) An associative array of additional options. The 'absolute'
    *   option is forced to be FALSE.
@@ -281,9 +281,9 @@ class TwigExtension extends AbstractExtension {
    * @return string
    *   The file URL.
    */
-  public function getFileUrl(?string $uri) {
+  public function getFileUrl(?string $uri): string {
     if (is_null($uri)) {
-      return NULL;
+      return '';
     }
     return $this->fileUrlGenerator->generateString($uri);
   }

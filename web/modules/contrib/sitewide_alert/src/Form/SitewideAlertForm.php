@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Form;
 
 use Drupal\Component\Datetime\TimeInterface;
@@ -36,9 +38,8 @@ class SitewideAlertForm extends ContentEntityForm {
    * @param \Drupal\Core\Session\AccountProxyInterface $account
    *   The current user account.
    */
-  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info = NULL, TimeInterface $time = NULL, AccountProxyInterface $account) {
+  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, TimeInterface $time, AccountProxyInterface $account) {
     parent::__construct($entity_repository, $entity_type_bundle_info, $time);
-
     $this->account = $account;
   }
 
@@ -46,7 +47,6 @@ class SitewideAlertForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    // Instantiates this form class.
     return new static(
       $container->get('entity.repository'),
       $container->get('entity_type.bundle.info'),
@@ -80,15 +80,15 @@ class SitewideAlertForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $entity */
+  public function buildForm(array $form, FormStateInterface $form_state): array {
+    /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $entity */
     $entity = $this->entity;
     $form = parent::buildForm($form, $form_state);
 
     // Make the scheduled alert dates conditional on the checkbox.
     $form['scheduled_date']['#states'] = [
       'visible' => [
-        ':input[name="scheduled_alert[value]"]' => ['checked' => TRUE]
+        ':input[name="scheduled_alert[value]"]' => ['checked' => TRUE],
       ],
     ];
 
@@ -119,9 +119,9 @@ class SitewideAlertForm extends ContentEntityForm {
         '#weight' => -9,
         '#states' => [
           'visible' => [
-            ':input[name="dismissible[value]"]' => ['checked' => TRUE]
+            ':input[name="dismissible[value]"]' => ['checked' => TRUE],
           ],
-        ]
+        ],
       ];
     }
 
@@ -137,7 +137,6 @@ class SitewideAlertForm extends ContentEntityForm {
     ];
     $form['dismissible']['#group'] = 'dismissible_options';
     $form['dismissible_ignore_previous']['#group'] = 'dismissible_options';
-
 
     // Group scheduling fields.
     $form['scheduling_options'] = [
@@ -177,15 +176,14 @@ class SitewideAlertForm extends ContentEntityForm {
     $form['limit_to_pages_negate']['#group'] = 'page_visibility_options';
     $form['limit_to_pages']['#states'] = [
       'visible' => [
-        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE]
+        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE],
       ],
     ];
     $form['limit_to_pages_negate']['#states'] = [
       'visible' => [
-        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE]
+        ':input[name="limit_alert_by_pages"]' => ['checked' => TRUE],
       ],
     ];
-
 
     // Order the advanced form elements.
     $form = self::orderFormElements([
@@ -217,8 +215,8 @@ class SitewideAlertForm extends ContentEntityForm {
       $entity->setDismissibleIgnoreBeforeTime($this->time->getRequestTime());
     }
 
-    // Clear any previously set limit by pages if the option to limit them is not set.
-    if (!$form_state->isValueEmpty('limit_alert_by_pages') && !$form_state->getValue('limit_alert_by_pages')) {
+    // Clear previously set limit by pages if checkbox to limit them is not set.
+    if ($form_state->isValueEmpty('limit_alert_by_pages') && !$form_state->getValue('limit_alert_by_pages')) {
       $entity->set('limit_to_pages', '');
     }
 

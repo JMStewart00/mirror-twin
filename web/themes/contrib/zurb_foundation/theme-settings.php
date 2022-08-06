@@ -23,18 +23,6 @@ function zurb_foundation_form_system_theme_settings_alter(&$form, FormStateInter
     '#default_value' => theme_get_setting('zurb_foundation_status_in_reveal'),
   ];
 
-  $form['theme_javascript'] = [
-    '#type' => 'details',
-    '#title' => t('Javascript Files'),
-  ];
-
-  $form['theme_javascript']['zurb_foundation_use_respondjs'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Implement Respond.js'),
-    '#description' => t('Foundation 4.x does not support IE8, but you can include Respond.js to add additional support for Internet Explorer.'),
-    '#default_value' => theme_get_setting('zurb_foundation_use_respondjs'),
-  ];
-
   $form['region_settings'] = [
     '#type' => 'details',
     '#title' => t('Region Settings'),
@@ -151,13 +139,6 @@ function zurb_foundation_form_system_theme_settings_alter(&$form, FormStateInter
     '#type' => 'details',
     '#title' => t('Page Elements'),
     '#description' => t('Contains settings to toggle hard-coded elements in the page template.'),
-  ];
-
-  $form['page_elements']['zurb_foundation_page_account_info'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Show Login/Signup information'),
-    '#description' => t('Determines if the hard-coded login block should be displayed.'),
-    '#default_value' => theme_get_setting('zurb_foundation_page_account_info'),
   ];
 
   /*

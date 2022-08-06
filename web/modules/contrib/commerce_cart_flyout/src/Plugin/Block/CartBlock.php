@@ -52,7 +52,9 @@ class CartBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
-   *   The request stack.
+   *   The route match.
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   *   The renderer.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, RendererInterface $renderer) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);

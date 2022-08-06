@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
@@ -20,7 +22,7 @@ class ScheduledDateProvidedConstraintValidator extends ConstraintValidator {
   /**
    * {@inheritdoc}
    */
-  public function validate($entity, Constraint $constraint) {
+  public function validate($entity, Constraint $constraint): void {
     if ($entity->isScheduled() &&
       ($entity->getScheduledStartDateTime() === NULL ||
       $entity->getScheduledEndDateTime() === NULL)) {

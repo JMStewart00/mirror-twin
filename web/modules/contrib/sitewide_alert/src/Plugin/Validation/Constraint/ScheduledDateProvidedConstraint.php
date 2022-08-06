@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Plugin\Validation\Constraint;
 
 use Drupal\Core\Entity\Plugin\Validation\Constraint\CompositeConstraintBase;
@@ -29,7 +31,7 @@ class ScheduledDateProvidedConstraint extends CompositeConstraintBase {
    * @return string[]
    *   An array of field names.
    */
-  public function coversFields() {
+  public function coversFields(): array {
     return ['scheduled_alert', 'scheduled_date'];
   }
 

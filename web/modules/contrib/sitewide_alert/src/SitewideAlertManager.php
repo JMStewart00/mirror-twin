@@ -8,6 +8,9 @@ use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
+/**
+ * Manager for working with sitewide alert entities.
+ */
 class SitewideAlertManager {
 
   /**
@@ -53,9 +56,11 @@ class SitewideAlertManager {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function activeSitewideAlerts() {
+  public function activeSitewideAlerts(): array {
     /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface[] $sitewideAlerts */
-    $sitewideAlerts =  $this->entityTypeManager->getStorage('sitewide_alert')->loadByProperties(['status' => 1]);
+    $sitewideAlerts = $this->entityTypeManager
+      ->getStorage('sitewide_alert')
+      ->loadByProperties(['status' => 1]);
     return $sitewideAlerts;
   }
 
@@ -68,7 +73,7 @@ class SitewideAlertManager {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function activeVisibleSitewideAlerts() {
+  public function activeVisibleSitewideAlerts(): array {
     /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface[] $activeVisibleSitewideAlerts */
     $activeVisibleSitewideAlerts = $this->activeSitewideAlerts();
 
@@ -88,8 +93,11 @@ class SitewideAlertManager {
    *
    * @return \Drupal\Core\Datetime\DrupalDateTime|null
    *   Time of next scheduled change of alerts; null if nothing is scheduled to change.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function nextScheduledChange() {
+  public function nextScheduledChange(): ?DrupalDateTime {
     $nextExpiring = $this->soonestExpiringVisibleScheduledAlertDateTime();
     $nextShowing = $this->soonestAppearingScheduledAlertDateTime();
 
@@ -113,9 +121,12 @@ class SitewideAlertManager {
    *
    * @return \Drupal\Core\Datetime\DrupalDateTime|null
    *   The datetime of the soonest expiring scheduled alert; null if none of the alerts are scheduled to expire.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  private function soonestExpiringVisibleScheduledAlertDateTime() {
-    /** @var DrupalDateTime|null $soonestScheduledEndDate */
+  private function soonestExpiringVisibleScheduledAlertDateTime(): ?DrupalDateTime {
+    /** @var \Drupal\Core\Datetime\DrupalDateTime||null $soonestScheduledEndDate */
     $soonestScheduledEndDate = NULL;
 
     foreach ($this->activeVisibleSitewideAlerts() as $sitewideAlert) {
@@ -123,7 +134,7 @@ class SitewideAlertManager {
         continue;
       }
 
-      if (! $endDateTime = $sitewideAlert->getScheduledEndDateTime()) {
+      if (!$endDateTime = $sitewideAlert->getScheduledEndDateTime()) {
         continue;
       }
 
@@ -145,9 +156,12 @@ class SitewideAlertManager {
    *
    * @return \Drupal\Core\Datetime\DrupalDateTime|null
    *   The datetime of the soonest expiring scheduled alert; null if none of the alerts are scheduled to expire.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  private function soonestAppearingScheduledAlertDateTime() {
-    /** @var DrupalDateTime|null $soonestScheduledEndDate */
+  private function soonestAppearingScheduledAlertDateTime(): ?DrupalDateTime {
+    /** @var \Drupal\Core\Datetime\DrupalDateTime|null $soonestScheduledEndDate */
     $soonestScheduledStartDate = NULL;
 
     foreach ($this->activeSitewideAlerts() as $sitewideAlert) {
@@ -155,7 +169,7 @@ class SitewideAlertManager {
         continue;
       }
 
-      if (! $startDateTime = $sitewideAlert->getScheduledStartDateTime()) {
+      if (!$startDateTime = $sitewideAlert->getScheduledStartDateTime()) {
         continue;
       }
 
@@ -182,12 +196,13 @@ class SitewideAlertManager {
    * @return \DateTime
    *   The DateTime of the current request.
    */
-  protected function requestDateTime() {
-    if (! $this->requestDateTime) {
+  protected function requestDateTime(): \DateTime {
+    if (!$this->requestDateTime) {
       $this->requestDateTime = new \DateTime();
       $this->requestDateTime->setTimestamp($this->time->getRequestTime());
     }
 
     return $this->requestDateTime;
   }
+
 }

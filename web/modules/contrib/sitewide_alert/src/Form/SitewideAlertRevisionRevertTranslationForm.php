@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Form;
 
 use Drupal\Component\Datetime\TimeInterface;
@@ -7,6 +9,7 @@ use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\sitewide_alert\Entity\SitewideAlertInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -52,7 +55,7 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
    *   The time service.
    */
   public function __construct(EntityStorageInterface $entity_storage, DateFormatterInterface $date_formatter, LanguageManagerInterface $language_manager, TimeInterface $time) {
-    parent::__construct($entity_storage, $date_formatter);
+    parent::__construct($entity_storage, $date_formatter, $time);
     $this->languageManager = $language_manager;
     $this->time = $time;
   }
@@ -73,14 +76,14 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
+  public function getFormId(): string {
     return 'sitewide_alert_revision_revert_translation_confirm';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getQuestion() {
+  public function getQuestion(): TranslatableMarkup {
     return $this->t('Are you sure you want to revert @language translation to the revision from %revision-date?', [
       '@language' => $this->languageManager->getLanguageName($this->langcode),
       '%revision-date' => $this->dateFormatter->format($this->revision->getRevisionCreationTime()),
@@ -90,7 +93,7 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $sitewide_alert_revision = NULL, $langcode = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $sitewide_alert_revision = NULL, $langcode = NULL): array {
     $this->langcode = $langcode;
     $form = parent::buildForm($form, $form_state, $sitewide_alert_revision);
 
@@ -106,11 +109,11 @@ class SitewideAlertRevisionRevertTranslationForm extends SitewideAlertRevisionRe
   /**
    * {@inheritdoc}
    */
-  protected function prepareRevertedRevision(SitewideAlertInterface $revision, FormStateInterface $form_state) {
+  protected function prepareRevertedRevision(SitewideAlertInterface $revision, FormStateInterface $form_state): SitewideAlertInterface {
     $revert_untranslated_fields = $form_state->getValue('revert_untranslated_fields');
 
-    /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $default_revision */
-    $latest_revision = $this->SitewideAlertStorage->load($revision->id());
+    /** @var \Drupal\sitewide_alert\Entity\SitewideAlertInterface $latest_revision */
+    $latest_revision = $this->sitewideAlertStorage->load($revision->id());
     $latest_revision_translation = $latest_revision->getTranslation($this->langcode);
 
     $revision_translation = $revision->getTranslation($this->langcode);

@@ -2,9 +2,10 @@ name: mirror-twin-brewing
 recipe: drupal8
 
 config:
-  php: "7.3"
+  php: "8.0"
   webroot: web
   xdebug: false
+  database: "mariadb:10.4"
 
 events:
   # Clear cache after a database import
@@ -17,12 +18,16 @@ services:
       - cd $LANDO_MOUNT && composer install
 
   nodejs:
-    type: node:10
+    type: node:14
     globals:
       gulp-cli: latest
 
   phpmyadmin:
     type: phpmyadmin
+
+  database:
+    overrides:
+        image: bitnami/mariadb:10.4.12
 
 tooling:
   gulp:

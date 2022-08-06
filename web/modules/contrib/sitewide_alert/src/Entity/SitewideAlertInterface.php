@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Entity;
 
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -26,7 +28,7 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
    * @return string
    *   Name of the Sitewide Alert.
    */
-  public function getName();
+  public function getName(): string;
 
   /**
    * Sets the Sitewide Alert name.
@@ -37,7 +39,7 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
    * @return \Drupal\sitewide_alert\Entity\SitewideAlertInterface
    *   The called Sitewide Alert entity.
    */
-  public function setName($name);
+  public function setName(string $name): SitewideAlertInterface;
 
   /**
    * Gets the Sitewide Alert creation timestamp.
@@ -56,45 +58,7 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
    * @return \Drupal\sitewide_alert\Entity\SitewideAlertInterface
    *   The called Sitewide Alert entity.
    */
-  public function setCreatedTime($timestamp);
-
-  /**
-   * Gets the Sitewide Alert revision creation timestamp.
-   *
-   * @return int
-   *   The UNIX timestamp of when this revision was created.
-   */
-  public function getRevisionCreationTime();
-
-  /**
-   * Sets the Sitewide Alert revision creation timestamp.
-   *
-   * @param int $timestamp
-   *   The UNIX timestamp of when this revision was created.
-   *
-   * @return \Drupal\sitewide_alert\Entity\SitewideAlertInterface
-   *   The called Sitewide Alert entity.
-   */
-  public function setRevisionCreationTime($timestamp);
-
-  /**
-   * Gets the Sitewide Alert revision author.
-   *
-   * @return \Drupal\user\UserInterface
-   *   The user entity for the revision author.
-   */
-  public function getRevisionUser();
-
-  /**
-   * Sets the Sitewide Alert revision author.
-   *
-   * @param int $uid
-   *   The user ID of the revision author.
-   *
-   * @return \Drupal\sitewide_alert\Entity\SitewideAlertInterface
-   *   The called Sitewide Alert entity.
-   */
-  public function setRevisionUserId($uid);
+  public function setCreatedTime(int $timestamp): SitewideAlertInterface;
 
   /**
    * Returns weather or not the Sitewide Alert is scheduled.
@@ -102,7 +66,7 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
    * @return bool
    *   TRUE if the sitewide alert is scheduled, FALSE otherwise.
    */
-  public function isScheduled();
+  public function isScheduled(): bool;
 
   /**
    * Determines if this SitewideAlert should be shown at the given time.
@@ -113,7 +77,7 @@ interface SitewideAlertInterface extends ContentEntityInterface, RevisionLogInte
    * @return bool
    *   TRUE if this Alert should show at the given time, FALSE otherwise.
    */
-  public function isScheduledToShowAt(\DateTime $dateTime);
+  public function isScheduledToShowAt(\DateTime $dateTime): bool;
 
   /**
    * Gets the start date of this Sitewide Alert.

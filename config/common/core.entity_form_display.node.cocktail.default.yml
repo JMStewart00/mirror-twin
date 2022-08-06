@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.cocktail.field_preview_image
     - field.field.node.cocktail.field_price
     - field.field.node.cocktail.field_release_date
+    - field.field.node.cocktail.field_sort_weight
     - node.type.cocktail
   module:
     - datetime
@@ -77,6 +78,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_sort_weight:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path

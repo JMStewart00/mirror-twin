@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class SitewideAlertSettingsForm.
+ * Form controller for the sitewide alerts.
  *
  * @ingroup sitewide_alert
  */
@@ -18,7 +20,7 @@ class SitewideAlertSettingsForm extends FormBase {
    * @return string
    *   The unique string identifying the form.
    */
-  public function getFormId() {
+  public function getFormId(): string {
     return 'sitewidealert_settings';
   }
 
@@ -30,7 +32,7 @@ class SitewideAlertSettingsForm extends FormBase {
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state): void {
     // Empty implementation of the abstract submit class.
   }
 
@@ -45,7 +47,7 @@ class SitewideAlertSettingsForm extends FormBase {
    * @return array
    *   Form definition array.
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $form['sitewidealert_settings']['#markup'] = 'Settings form for Sitewide Alert entities. Manage field settings here.';
     return $form;
   }

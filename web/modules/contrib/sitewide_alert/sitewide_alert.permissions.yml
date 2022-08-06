@@ -17,7 +17,8 @@ edit sitewide alert entities:
   title: 'Edit Sitewide Alert entities'
 
 view published sitewide alert entities:
-  title: 'View published Sitewide Alert entities'
+  title: 'View published (active) Sitewide Alert entities'
+  description: 'This permission should be given to all roles that should be able to see active alerts.'
 
 view unpublished sitewide alert entities:
   title: 'View unpublished Sitewide Alert entities'

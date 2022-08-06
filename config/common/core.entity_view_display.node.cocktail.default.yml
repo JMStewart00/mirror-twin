@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.cocktail.field_preview_image
     - field.field.node.cocktail.field_price
     - field.field.node.cocktail.field_release_date
+    - field.field.node.cocktail.field_sort_weight
     - node.type.cocktail
   module:
     - datetime
@@ -72,6 +73,15 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_sort_weight:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   links:
     settings: {  }

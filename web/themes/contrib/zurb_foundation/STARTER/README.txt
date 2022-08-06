@@ -32,7 +32,7 @@ included in the repository by default.
 
 **Drush and Gulp**
 
-The `gulpfile.js` includes drush commands that can be run every time scss/css
+The `gulpfile.babel.js` includes drush commands that can be run every time scss/css
 is updated. To use drush, edit the `config.js` file. In the `drush` option:
 
 1. Set `enabled: false` to `enabled: true`

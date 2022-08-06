@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Entity;
 
 use Drupal\Component\Utility\Html;
@@ -8,8 +10,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Entity\RevisionableInterface;
-use Drupal\Core\Entity\EntityChangedTrait;
-use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
@@ -26,7 +26,7 @@ use Drupal\user\UserInterface;
  *   label_plural = @Translation("Sitewide Alerts"),
  *   label_collection = @Translation("Sitewide Alerts"),
  *   handlers = {
- *     "storage" = "Drupal\sitewide_alert\SitewideAlertStorage",
+ *     "storage" = "\Drupal\Core\Entity\Sql\SqlContentEntityStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\sitewide_alert\SitewideAlertListBuilder",
  *     "views_data" = "Drupal\sitewide_alert\Entity\SitewideAlertViewsData",
@@ -66,7 +66,7 @@ use Drupal\user\UserInterface;
  *   links = {
  *     "canonical" = "/admin/content/sitewide_alert/{sitewide_alert}",
  *     "add-form" = "/admin/content/sitewide_alert/add",
- *     "edit-form" = "/admin/content/sitewide_alert/{sitewide_alert}/edit",
+ *     "edit-form" = "/admin/content/sitewide_alert/{sitewide_alert}",
  *     "delete-form" = "/admin/content/sitewide_alert/{sitewide_alert}/delete",
  *     "version-history" = "/admin/content/sitewide_alert/{sitewide_alert}/revisions",
  *     "revision" = "/admin/content/sitewide_alert/{sitewide_alert}/revisions/{sitewide_alert_revision}/view",
@@ -83,14 +83,11 @@ use Drupal\user\UserInterface;
  */
 class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertInterface {
 
-  use EntityChangedTrait;
-  use EntityPublishedTrait;
-
   /**
    * {@inheritdoc}
    */
-  public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
-    parent::preCreate($storage_controller, $values);
+  public static function preCreate(EntityStorageInterface $storage, array &$values): void {
+    parent::preCreate($storage, $values);
     $values += [
       'user_id' => \Drupal::currentUser()->id(),
     ];
@@ -99,7 +96,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  protected function urlRouteParameters($rel) {
+  protected function urlRouteParameters($rel): array {
     $uri_route_parameters = parent::urlRouteParameters($rel);
 
     if ($rel === 'revision_revert' && $this instanceof RevisionableInterface) {
@@ -115,7 +112,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  public function preSave(EntityStorageInterface $storage) {
+  public function preSave(EntityStorageInterface $storage): void {
     parent::preSave($storage);
 
     foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
@@ -143,14 +140,14 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  public function getName() {
+  public function getName(): string {
     return $this->get('name')->value;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setName($name) {
+  public function setName(string $name): SitewideAlertInterface {
     $this->set('name', $name);
     return $this;
   }
@@ -158,14 +155,14 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  public function getCreatedTime() {
+  public function getCreatedTime(): int {
     return $this->get('created')->value;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setCreatedTime($timestamp) {
+  public function setCreatedTime(int $timestamp): SitewideAlertInterface {
     $this->set('created', $timestamp);
     return $this;
   }
@@ -203,11 +200,8 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
     $fields = parent::baseFieldDefinitions($entity_type);
-
-    // Add the published field.
-    $fields += static::publishedBaseFieldDefinitions($entity_type);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
@@ -265,7 +259,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ->setLabel(new TranslatableMarkup('Alert Style'))
       ->setDescription(new TranslatableMarkup('The style of this alert. This mainly can be used to change the color of the alert.'))
       ->setSettings([
-        'allowed_values_function' => '\Drupal\sitewide_alert\AlertStyleProvider::alertStyles'
+        'allowed_values_function' => '\Drupal\sitewide_alert\AlertStyleProvider::alertStyles',
       ])
       ->setDisplayOptions('form', [
         'type' => 'options_select',
@@ -301,7 +295,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
 
     $fields['limit_to_pages'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Pages'))
-      ->setDescription(new TranslatableMarkup('Specify pages by using their paths. Enter one path per line. The \'*\' character is a wildcard. An example path is /user/* for every user page. / is the front page.'))
+      ->setDescription(new TranslatableMarkup("Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. An example path is /user/* for every user page. / is the front page."))
       ->setTranslatable(FALSE)
       ->setRevisionable(TRUE)
       ->setSettings([
@@ -345,10 +339,6 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
       ->setLabel(t('Alert Message'))
       ->setTranslatable(TRUE)
       ->setRevisionable(TRUE)
-      ->setSettings([
-        'default_value' => '',
-        'text_processing' => 0,
-      ])
       ->setDefaultValue('')
       ->setDisplayOptions('form', [
         'type' => 'text_textarea',
@@ -422,8 +412,8 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
   /**
    * {@inheritdoc}
    */
-  public function isScheduledToShowAt(\DateTime $dateTime) {
-    // If this Sitewide Alert is not a scheduled alert, it should show regardless of time.
+  public function isScheduledToShowAt(\DateTime $dateTime): bool {
+    // If Sitewide Alert is not a scheduled alert, show regardless of time.
     if (!$this->isScheduled()) {
       return TRUE;
     }
@@ -431,7 +421,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
     $startTime = $this->getScheduledStartDateTime();
     $endTime = $this->getScheduledEndDateTime();
 
-    // The Sitewide Alert is marked as scheduled but dates have not been provided.
+    // Sitewide Alert is marked as scheduled but dates have not been provided.
     if ($startTime === NULL || $endTime === NULL) {
       return FALSE;
     }
@@ -439,7 +429,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
     // Convert to a DrupalDatetime.
     $dateTimeToCompare = DrupalDateTime::createFromDateTime($dateTime);
 
-    return $dateTimeToCompare >= $startTime && $dateTimeToCompare <= $endTime;
+    return $dateTimeToCompare >= $startTime && $dateTimeToCompare < $endTime;
   }
 
   /**
@@ -479,7 +469,7 @@ class SitewideAlert extends EditorialContentEntityBase implements SitewideAlertI
    * {@inheritdoc}
    */
   public function getDismissibleIgnoreBeforeTime(): int {
-    return $this->get('dismissible_ignore_before_time')->value;
+    return (int) $this->get('dismissible_ignore_before_time')->value;
   }
 
   /**

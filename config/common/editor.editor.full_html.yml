@@ -50,14 +50,7 @@ settings:
           items:
             - ShowBlocks
             - Source
-  plugins:
-    language:
-      language_list: un
-    stylescombo:
-      styles: ''
-    font:
-      font_names: ''
-      font_sizes: ''
+  plugins: {  }
 image_upload:
   status: true
   scheme: public

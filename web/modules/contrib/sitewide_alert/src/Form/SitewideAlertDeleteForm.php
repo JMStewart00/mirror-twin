@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert\Form;
 
 use Drupal\Core\Entity\ContentEntityDeleteForm;
@@ -10,6 +12,5 @@ use Drupal\Core\Entity\ContentEntityDeleteForm;
  * @ingroup sitewide_alert
  */
 class SitewideAlertDeleteForm extends ContentEntityDeleteForm {
-
 
 }

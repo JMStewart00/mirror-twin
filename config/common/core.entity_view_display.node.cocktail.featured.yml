@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.cocktail.field_preview_image
     - field.field.node.cocktail.field_price
     - field.field.node.cocktail.field_release_date
+    - field.field.node.cocktail.field_sort_weight
     - node.type.cocktail
   module:
     - layout_builder
@@ -67,3 +68,4 @@ content:
 hidden:
   field_brunch_only: true
   field_release_date: true
+  field_sort_weight: true

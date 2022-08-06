@@ -87,25 +87,10 @@ function sitewide_alert_theme_suggestions_sitewide_alert(array $variables) {
  * Implements hook_page_top().
  */
 function sitewide_alert_page_top(array &$page_top) {
-
-  // Do not show alert on admin pages if we are not configured to do so.
-  if (\Drupal::service('router.admin_context')->isAdminRoute() &&
-    !\Drupal::config('sitewide_alert.settings')->get('show_on_admin')) {
+  // Bail out if block submodule is enabled.
+  if (\Drupal::service('module_handler')->moduleExists('sitewide_alert_block')) {
     return;
   }
 
-  $page_top['sitewide_alert'] = [
-    '#markup' => '<div id="sitewide-alert"></div>',
-    '#attached' => [
-      'library' => [
-        'sitewide_alert/init',
-      ],
-      'drupalSettings' => [
-        'sitewideAlert' => [
-          'refreshInterval' => (\Drupal::config('sitewide_alert.settings')->get('refresh_interval') ?? 15) * 1000,
-          'automaticRefresh' => (\Drupal::config('sitewide_alert.settings')->get('automatic_refresh') == 1),
-        ],
-      ],
-    ],
-  ];
+  $page_top['sitewide_alert'] = \Drupal::service('sitewide_alert.sitewide_alert_renderer')->build();
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert;
 
 use Drupal\Core\Entity\EntityInterface;
@@ -16,7 +18,7 @@ class SitewideAlertListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    */
-  public function buildHeader() {
+  public function buildHeader(): array {
     $header['name'] = $this->t('Name');
     $header['style'] = $this->t('Style');
     $header['active'] = $this->t('Active');
@@ -27,11 +29,11 @@ class SitewideAlertListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    */
-  public function buildRow(EntityInterface $entity) {
-    /* @var \Drupal\sitewide_alert\Entity\SitewideAlert $entity */
+  public function buildRow(EntityInterface $entity): array {
+    /** @var \Drupal\sitewide_alert\Entity\SitewideAlert $entity */
     $row['name'] = Link::createFromRoute(
       $entity->label(),
-      'entity.sitewide_alert.edit_form',
+      'entity.sitewide_alert.canonical',
       ['sitewide_alert' => $entity->id()]
     );
     $row['style'] = AlertStyleProvider::alertStyleName($entity->getStyle());

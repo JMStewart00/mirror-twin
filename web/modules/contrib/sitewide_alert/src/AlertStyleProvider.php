@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
- * Class AlertStyleProvider.
+ * Provides information on the alert styles.
  */
 class AlertStyleProvider {
 
@@ -47,7 +49,7 @@ class AlertStyleProvider {
    * @return \Drupal\Core\StringTranslation\TranslatableMarkup
    *   Renderable label for class.
    */
-  public static function alertStyleName(string $class) {
+  public static function alertStyleName(string $class): TranslatableMarkup {
     $alertStyle = self::alertStyles();
     if (isset($alertStyle[$class])) {
       return new TranslatableMarkup($alertStyle[$class]);

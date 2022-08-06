@@ -49,4 +49,11 @@ class PreparedAttributeNormalizer extends NormalizerBase {
     return $data;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function hasCacheableSupportsMethod(): bool {
+    return FALSE;
+  }
+
 }

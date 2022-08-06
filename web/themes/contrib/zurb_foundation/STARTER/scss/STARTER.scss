@@ -31,26 +31,6 @@
 // Note: The following include statements import sass partials for corresponding
 // Foundation 6 features and components. If you do not need any of the features
 // listed below feel free to comment each line out and re-compile.
-//
-// We are using Foundation's Float Grid (Legacy) for layout as our default.
-// https://get.foundation/sites/docs/grid.html
-//
-// Why not use the new XY Grid? The XY Grid system is a major update that has new
-// markup requirements which would break other module integrations that currently
-// work with ZURB Foundation for Drupal. Because we don't like to introduce breaking
-// changes for websites we have elected to take this route for greater support.
-//
-// Note: This will likely change in future releases as the XY Grid becomes the
-// new standard.
-//
-// Still want to use the XY Grid? Uncomment the foundation-xy-grid-classes include
-// statement and recompile css.  You can now use the new XY Grid!
-//
-// https://get.foundation/sites/docs/xy-grid.html
-//
-// WARNING: Including the XY Grid and disabling Float Grid will require that base
-// theme provided template files be copied to your sub-theme and modified accordingly
-// to match XY Grid markup requirements.
 // =========
 
 // Make sure the charset is set appropriately
@@ -77,10 +57,10 @@
 @include foundation-forms;
 @include foundation-typography;
 
-// Grids (Choose one)
-//@include foundation-grid;
-//@include foundation-flex-grid;
+// Grids (choose one)
 @include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
 
 // Generic components
 @include foundation-button;
@@ -89,9 +69,9 @@
 @include foundation-label;
 @include foundation-progress-bar;
 @include foundation-slider;
+@include foundation-range-input;
 @include foundation-switch;
 @include foundation-table;
-@include foundation-range-input;
 // Basic components
 @include foundation-badge;
 @include foundation-breadcrumbs;
@@ -140,7 +120,7 @@
 // Custom Components
 //
 // This is where to include any and all custom components for this
-// sub-theme. These can build off of, or overwrite Zurb Foundation's components.
+// sub-theme. These can build off of, or overwrite Foundation's components.
 // As long as files start with an underscore, all the variables set in the
 // _settings.scss file can be used.
 // =========

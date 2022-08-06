@@ -10,8 +10,8 @@ dependencies:
     - node.type.spirit
   module:
     - node
-label: 'Spirits Import'
 id: spirits_import
+label: 'Spirits Import'
 description: ''
 help: ''
 import_period: -1
@@ -36,23 +36,28 @@ processor_configuration:
   expire: -1
   owner_feed_author: false
   owner_id: 0
+  insert_new: 1
 custom_sources:
   title:
     value: Title
     label: Title
     machine_name: title
+    type: csv
   price:
     value: Price
     label: Price
     machine_name: price
+    type: csv
   tier:
     value: Tier
     label: Tier
     machine_name: tier
+    type: csv
   spirit:
     value: Spirit
     label: Spirit
     machine_name: spirit
+    type: csv
 mappings:
   -
     target: title

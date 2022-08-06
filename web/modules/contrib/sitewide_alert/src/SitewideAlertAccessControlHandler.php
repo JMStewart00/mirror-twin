@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\sitewide_alert;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;

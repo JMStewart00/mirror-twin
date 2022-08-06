@@ -74,24 +74,11 @@ function zurb_foundation_preprocess_block(&$variables) {
  * Implements template_preprocess_field().
  */
 function zurb_foundation_preprocess_field(&$variables) {
-  if (!isset($variables['title_attributes']['class'])) {
-    $variables['title_attributes']['class'] = [];
-  }
-  if (!isset($variables['content_attributes']['class'])) {
-    $variables['content_attributes']['class'] = [];
-  }
-  $variables['title_attributes']['class'][] = 'field-label';
 
   // Convenience variables.
   $mode = $variables['element']['#view_mode'];
   $classes = &$variables['attributes']['class'];
-  $content_classes = &$variables['content_attributes']['class'];
   $item_classes = [];
-
-  // Global field classes.
-  $classes[] = 'field-wrapper';
-  $content_classes[] = 'field-items';
-  $item_classes[] = 'field-item';
 
   // Add specific classes to targeted fields.
   if (isset($field)) {
@@ -141,11 +128,6 @@ function zurb_foundation_preprocess_field(&$variables) {
 
     default:
       break;
-  }
-
-  // Add classes to body based on content type and view mode.
-  if ($variables['element']['#field_name'] == 'body') {
-    $classes[] = 'field';
   }
 }
 
@@ -290,9 +272,6 @@ function zurb_foundation_preprocess_page(&$variables) {
   // Check to see if the Meta Header should be in the Grid.
   $variables['meta_header_grid'] = theme_get_setting('zurb_foundation_meta_header_grid');
 
-  // Variable to disable hard-coded login elements.
-  $variables['show_account_info'] = theme_get_setting('zurb_foundation_page_account_info');
-
   // Copyright block settings.
   // boolean if any of the region should render.
   $variables['block_copyright_show'] = theme_get_setting('zurb_foundation_block_copyright_show');
@@ -364,5 +343,5 @@ function zurb_foundation_preprocess_status_messages(&$variables) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function zurb_foundation_theme_suggestions_field_alter(&$suggestions, $variables) {
-  $suggestions[] = 'field__node__' . $variables['element']['#field_name'] . '__' . $variables['element']['#bundle'] . '__' . $variables['element']['#view_mode'];
+  $suggestions[] = 'field__' . $variables['element']['#entity_type']  . '__' . $variables['element']['#field_name'] . '__' . $variables['element']['#bundle'] . '__' . $variables['element']['#view_mode'];
 }

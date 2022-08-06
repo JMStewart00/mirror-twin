@@ -11,11 +11,6 @@ entity.sitewide_alert.collection:
 entity.sitewide_alert.canonical:
   route_name: entity.sitewide_alert.canonical
   base_route: entity.sitewide_alert.canonical
-  title: 'View'
-
-entity.sitewide_alert.edit_form:
-  route_name: entity.sitewide_alert.edit_form
-  base_route: entity.sitewide_alert.canonical
   title: 'Edit'
 
 entity.sitewide_alert.version_history:
