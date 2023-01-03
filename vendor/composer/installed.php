@@ -3,7 +3,7 @@
         'name' => 'pantheon-systems/example-drops-8-composer',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9a7023a9f46b7d112a60de594f7c97888aa998aa',
+        'reference' => '7e0a987fb6a5fba6312dd5a80a08d534c66797eb',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -863,6 +863,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/google_analytics' => array(
+            'pretty_version' => '4.0.2',
+            'version' => '4.0.2.0',
+            'reference' => '4.0.2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/google_analytics',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/google_tag' => array(
             'pretty_version' => '1.6.0',
             'version' => '1.6.0.0',
@@ -1508,7 +1517,7 @@
         'pantheon-systems/example-drops-8-composer' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9a7023a9f46b7d112a60de594f7c97888aa998aa',
+            'reference' => '7e0a987fb6a5fba6312dd5a80a08d534c66797eb',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
