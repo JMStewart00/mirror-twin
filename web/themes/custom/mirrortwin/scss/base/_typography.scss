@@ -28,7 +28,7 @@ h1,
 h2,
 .h2 {
   font-size: rem-calc(40);
-  line-height: (34/24);
+  line-height: calc(34/24);
   font-weight: $global-weight-normal;
   font-family: $font-family-ssnickson;
 

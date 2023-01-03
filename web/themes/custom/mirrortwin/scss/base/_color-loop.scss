@@ -69,7 +69,7 @@ $background-color-map: (
 
 @each $class, $colors in $background-color-map {
   // Layout styles
-  .t-layout-background--#{$class} {
+  .t-layout-background--#{"" + $class} {
     @include traverse-color-map($class);
   }
 }
@@ -79,7 +79,7 @@ $background-color-map: (
 // the color order in the colors array would determine the specificty.
 @each $class, $colors in $background-color-map {
   // Component styles
-  .t-background--#{$class} {
+  .t-background--#{"" + $class} {
     @include traverse-color-map($class);
   }
 }

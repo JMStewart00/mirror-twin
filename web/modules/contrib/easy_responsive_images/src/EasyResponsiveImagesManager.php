@@ -2,6 +2,7 @@
 
 namespace Drupal\easy_responsive_images;
 
+use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
@@ -128,11 +129,11 @@ class EasyResponsiveImagesManager implements EasyResponsiveImagesManagerInterfac
    */
   public function getImagesByAspectRatio(string $uri, string $aspect_ratio): array {
     $images_configuration = $this->initialImagesConfiguration();
-    $style_infos = $images_configuration[$aspect_ratio] ?? NULL;
+    $style_infos = $images_configuration[$aspect_ratio] ?? [];
     $style_urls = [];
 
     foreach ($style_infos as $style_info) {
-      $style_url = $this->fileUrlGenerator->transformRelative(($style_info['style']->buildUrl($uri)));
+      $style_url = $this->fileUrlGenerator->transformRelative($style_info['style']->buildUrl($uri));
       $style_url = $this->getWebpDerivatives($style_url, $uri);
 
       $style_urls[] = [
@@ -153,11 +154,11 @@ class EasyResponsiveImagesManager implements EasyResponsiveImagesManagerInterfac
    */
   public function getImagesByScale(string $uri): array {
     $images_configuration = $this->initialImagesConfiguration();
-    $style_infos = $images_configuration['scale'] ?? NULL;
+    $style_infos = $images_configuration['scale'] ?? [];
     $style_urls = [];
 
     foreach ($style_infos as $style_info) {
-      $style_url = $this->fileUrlGenerator->transformRelative(($style_info['style']->buildUrl($uri)));
+      $style_url = $this->fileUrlGenerator->transformRelative($style_info['style']->buildUrl($uri));
       $style_url = $this->getWebpDerivatives($style_url, $uri);
 
       $style_urls[] = [
@@ -187,17 +188,26 @@ class EasyResponsiveImagesManager implements EasyResponsiveImagesManagerInterfac
    *   Returns a WebP Derivative as a string.
    */
   protected function getWebpDerivatives(string $url, string $uri): string {
-    // If the imageapi_optimize_webp module is installed and the browser
-    // supports webp, return the webp version of the image.
-    if ($this->moduleHandler->moduleExists('imageapi_optimize_webp')) {
-      if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== FALSE) {
-        $path_parts = pathinfo($uri);
-        $original_extension = '.' . $path_parts['extension'];
-        $pos = strrpos($url, $original_extension);
-        if ($pos !== FALSE) {
-          $url = substr_replace($url, $original_extension . '.webp', $pos, strlen($original_extension));
-        }
-      }
+    // Check if a module creating WebP derivatives is available.
+    if (!$this->moduleHandler->moduleExists('imageapi_optimize_webp') && !$this->moduleHandler->moduleExists('webp')) {
+      return $url;
+    }
+
+    // Check if the browser supports WebP images.
+    if (!isset($_SERVER['HTTP_ACCEPT']) || strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') === FALSE) {
+      return $url;
+    }
+
+    // Check if we have a local image with an extension.
+    $path_parts = pathinfo($uri);
+    if (UrlHelper::isExternal($uri) || !isset($path_parts['extension'])) {
+      return $url;
+    }
+
+    $original_extension = '.' . $path_parts['extension'];
+    $pos = strrpos($url, $original_extension);
+    if ($pos !== FALSE) {
+      $url = substr_replace($url, $original_extension . '.webp', $pos, strlen($original_extension));
     }
 
     return $url;

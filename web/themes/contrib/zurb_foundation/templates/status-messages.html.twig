@@ -26,47 +26,52 @@
 {% endif %}
 
   <div data-drupal-messages>
-    {% for type, messages in message_list %}
-      {%
-        set classes = [
-          'zurb-foundation-callout',
-          'callout',
-          zurb_status_class_mapping[type] ? zurb_status_class_mapping[type]
-        ]
-      %}
-      <div role="contentinfo" aria-label="{{ status_headings[type] }}" data-closable="fade-out"{{ attributes.addClass(classes)|without('role', 'aria-label', 'data-closable') }}>
+  {% block messages %}
+  {% for type, messages in message_list %}
+    {%
+      set classes = [
+        'zurb-foundation-callout',
+        'callout',
+        'messages',
+        'messages--' ~ type,
+        zurb_status_class_mapping[type] ? zurb_status_class_mapping[type]
+      ]
+    %}
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}" data-closable="fade-out"{{ attributes.addClass(classes)|without('role', 'aria-label', 'data-closable') }}>
 
-        {% if not zurb_foundation_status_in_reveal %}
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
+      {% if not zurb_foundation_status_in_reveal %}
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      {% endif %}
+
+      {% if type == 'error' %}
+        <div role="alert">
+      {% endif %}
+
+        {% if status_headings[type] %}
+          <h2 class="show-for-sr">{{ status_headings[type] }}</h2>
         {% endif %}
 
-        {% if type == 'error' %}
-          <div role="alert">
+        {% if messages|length > 1 %}
+          <ul class="messages__list">
+            {% for message in messages %}
+              <li class="messages__item">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ messages|first }}
         {% endif %}
 
-          {% if status_headings[type] %}
-            <h2 class="show-for-sr">{{ status_headings[type] }}</h2>
-          {% endif %}
+      {% if type == 'error' %}
+        </div>
+      {% endif %}
+    </div>
 
-          {% if messages|length > 1 %}
-            <ul class="messages__list">
-              {% for message in messages %}
-                <li class="messages__item">{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% else %}
-            {{ messages|first }}
-          {% endif %}
-
-        {% if type == 'error' %}
-          </div>
-        {% endif %}
-      </div>
-
-    {% endfor %}
-
+    {# Remove type specific classes. #}
+    {% set attributes = attributes.removeClass(classes) %}
+  {% endfor %}
+  {% endblock messages %}
   </div>
 
 {% if zurb_foundation_status_in_reveal %}

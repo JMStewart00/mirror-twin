@@ -39,8 +39,7 @@
     attach: function (context, drupalSettings) {
       // Init the current page too, because the first loaded pager element do
       // not have loadable history and will not work the back button.
-      var $body = $('body').once('views-ajax-history-first-page-load');
-      if ($body.length) {
+      if (once('body', 'views-ajax-history-first-page-load').length) {
         drupalSettings.viewsAjaxHistory.onloadPageItem = drupalSettings.viewsAjaxHistory.renderPageItem;
       }
     }
@@ -112,7 +111,7 @@
         value = viewArgs[name];
       }
       if ($.isArray(value)) {
-        $.merge(query, $.map(value, function (sub) {
+        $.merge(query, $.map($.unique(value), function (sub) {
           return name + '=' + encodeURIComponent(sub);
         }));
       }
@@ -123,6 +122,25 @@
 
     url = window.location.href.split('?');
     return url[0] + (query.length ? '?' + query.join('&') : '');
+  };
+
+  /**
+   * Remove the functions from the state. They can't been pushed into the history.
+   *
+   * @param state
+   *  Object containing the state to be cleaned.
+   *
+   * @return state
+   *  Object that has been cleaned up.
+   */
+  var cleanStateForHistory = function (state) {
+    var stateWithNoFunctions = {};
+    for (var key in state) {
+      if (typeof state[key] !== "function") {
+        stateWithNoFunctions[key] = state[key];
+      }
+    }
+    return stateWithNoFunctions;
   };
 
   /**
@@ -152,17 +170,12 @@
    */
   var addState = function (options, url) {
     // The data in the history state must be serializable.
-    var historyOptions = $.extend({}, options)
-    delete historyOptions.beforeSend;
-    delete historyOptions.beforeSerialize;
-    delete historyOptions.beforeSubmit;
-    delete historyOptions.complete;
-    delete historyOptions.success;
+    var historyOptions = $.extend({}, options);
 
     // Store the actual view's dom id.
     drupalSettings.viewsAjaxHistory.lastViewDomID = options.data.view_dom_id;
     $(window).unbind('popstate', loadView);
-    history.pushState(historyOptions, document.title, cleanURL(url, options.data));
+    history.pushState(cleanStateForHistory(historyOptions), document.title, cleanURL(url, options.data));
     $(window).bind('popstate', loadView);
   };
 
@@ -177,6 +190,8 @@
       var viewsAjaxSettingsKey = 'views_dom_id:' + drupalSettings.viewsAjaxHistory.lastViewDomID;
       if (drupalSettings.views.ajaxViews.hasOwnProperty(viewsAjaxSettingsKey)) {
         var viewsAjaxSettings = drupalSettings.views.ajaxViews[viewsAjaxSettingsKey];
+        var initialExposedInput = drupalSettings.viewsAjaxHistory.initialExposedInput[viewsAjaxSettingsKey];
+        $.extend(viewsAjaxSettings,initialExposedInput);
         viewsAjaxSettings.page = drupalSettings.viewsAjaxHistory.onloadPageItem;
         options = {
           data: viewsAjaxSettings,
@@ -254,7 +269,7 @@
    */
   Drupal.Ajax.prototype.beforeSubmit = function (form_values, element, options) {
     if (options && options.data && options.data.view_name) {
-      var url = original.path + '?' + element.formSerialize();
+      var url = original.path + '?' + new URLSearchParams(new FormData(element.get(0))).toString();
       var currentQuery = parseQueryString(window.location.href);
 
       // Remove the page number from the query string, as a new filter has been

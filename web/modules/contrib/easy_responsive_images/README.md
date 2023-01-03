@@ -63,13 +63,18 @@ for a `16_9` view mode, containing the following code:
   src="{{ src }}"
   data-srcset="{{ srcset|join(',') }}"
   alt="{{ media.field_media_image.alt }}"
-  loading="lazy" />
+  loading="lazy"
+  width="50"
+  height="50"
+  />
 ```
 
 Each time media is displayed using the view mode, the JavaScript will check the
 available width for the image container, and load the optimized image style.
 Also notice the HTML5 "loading" attribute to enable lazy loading of images for
-even more optimization.
+even more optimization. The default width/height attributes are temporarily set
+to make the browser render the image more efficiently. The width and height
+will be updated by the resizer JavaScript.
 
 SUPPORTED MODULES
 ------------

@@ -46,7 +46,7 @@ class ImageUrl extends AbstractExtension {
    */
   public static function createImageUrl(string $uri, string $style): array {
     $image_style = ImageStyle::load($style);
-    if (!$uri || !$image_style || !$image_style->supportsUri($uri)) {
+    if (!$uri || !$image_style) {
       return [];
     }
 
@@ -64,11 +64,11 @@ class ImageUrl extends AbstractExtension {
       return [];
     }
 
-    $file_url = file_url_transform_relative($image_style->buildUrl($uri));
+    $file_url = \Drupal::service('file_url_generator')->transformRelative($image_style->buildUrl($uri));
 
     // If the imageapi_optimize_webp module is installed and the browser
     // supports webp, return the webp version of the image.
-    if (\Drupal::moduleHandler()->moduleExists('imageapi_optimize_webp')) {
+    if (\Drupal::moduleHandler()->moduleExists('imageapi_optimize_webp') || \Drupal::moduleHandler()->moduleExists('webp')) {
       if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== FALSE) {
         $path_parts = pathinfo($uri);
         $original_extension = '.' . $path_parts['extension'];
@@ -79,8 +79,11 @@ class ImageUrl extends AbstractExtension {
       }
     }
 
+    // Cache the output using the accept header since we use it to detect
+    // support for WebP images.
     $build['#markup'] = $file_url;
     $build['#cache']['contexts'] = ['headers:accept'];
+
     return $build;
   }
 

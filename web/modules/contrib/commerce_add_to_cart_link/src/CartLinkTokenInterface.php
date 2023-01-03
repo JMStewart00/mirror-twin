@@ -44,6 +44,7 @@ interface CartLinkTokenInterface {
    *
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The user account. If left NULL, the current user will be taken.
+   *
    * @return bool
    *   TRUE, if add to cart and wishlist links should be CSRF protected, FALSE
    *   otherwise.

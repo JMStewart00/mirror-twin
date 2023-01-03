@@ -34,7 +34,7 @@ rules:
   no-empty-rulesets: 1
   no-extends: 0
   no-ids: 0
-  no-important: 1
+  no-important: 0
   no-invalid-hex: 1
   no-mergeable-selectors: 1
   no-misspelled-properties: 1
@@ -66,7 +66,7 @@ rules:
   variable-name-format: 1
 
   # Style Guide
-  attribute-quotes: 1
+  attribute-quotes: 0
   bem-depth: 0
   border-zero: 1
   brace-style: 1
@@ -80,7 +80,7 @@ rules:
   max-file-line-count: 0
   nesting-depth: 1
   property-sort-order:
-    - 1
+    - 0
     -
       ignore-custom-properties: true
       order:
@@ -317,7 +317,7 @@ rules:
   pseudo-element: 0
   quotes:
     - 1
-    - style: double
+    - style: single
   shorthand-values: 1
   url-quotes: 1
   variable-for-property: 1

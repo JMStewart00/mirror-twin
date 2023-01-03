@@ -25,7 +25,7 @@ class AdminSettingsForm extends ConfigFormBase {
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    */
   public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
@@ -110,7 +110,10 @@ class AdminSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $roles = array_values(array_filter($form_state->getValue(['csrf_token', 'roles'])));
+    $roles = array_values(array_filter($form_state->getValue([
+      'csrf_token',
+      'roles',
+    ])));
     $this->config('commerce_add_to_cart_link.settings')
       ->set('csrf_token.roles', $roles)
       ->set('redirect_back', $form_state->getValue('redirect_back'))

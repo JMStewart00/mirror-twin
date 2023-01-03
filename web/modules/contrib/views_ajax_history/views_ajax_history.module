@@ -39,5 +39,15 @@ function views_ajax_history_views_pre_render(ViewExecutable $view) {
     $view->element['#attached']['library'][] = 'views_ajax_history/history';
     $view->element['#attached']['drupalSettings']['viewsAjaxHistory'] = ['renderPageItem' => \Drupal::service('pager.parameters')->findPage()];
     $view->element['#cache']['contexts'][] = 'url.query_args.pagers';
+
+    // Save the initial exposed input on first page load
+    if (!\Drupal::request()->isXmlHttpRequest()) {
+      $exposed = $view->getExposedInput();
+      $dom_id = $view->dom_id;
+      $settings = &$view->element['#attached']['drupalSettings']['viewsAjaxHistory']['initialExposedInput']['views_dom_id:' . $dom_id];
+      foreach ($exposed as $key => $value) {
+        $settings[$key] = $value;
+      }
+    }
   }
 }

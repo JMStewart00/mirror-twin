@@ -147,33 +147,36 @@ class EasyResponsiveImagesFormatter extends ImageFormatter {
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
     $elements = parent::viewElements($items, $langcode);
+    /** @var \Drupal\file\Entity\File[] $files */
     $files = $this->getEntitiesToView($items, $langcode);
 
     foreach ($elements as $delta => $element) {
-      $elements[$delta]['#item_attributes'] = new Attribute();
-      $elements[$delta]['#item_attributes']['class'] = ['easy_responsive_images'];
       $elements[$delta]['#theme'] = 'easy_responsive_images_formatter';
 
-      // Get original image data. (non cropped, non processed) This is useful
-      // when implementing lightbox plugins that show the original image.
-      $elements[$delta]['#width'] = $element['#item']->getValue()['width'];
-      $elements[$delta]['#height'] = $element['#item']->getValue()['height'];
-
-      // Adding additional image attributes.
-      $elements[$delta]['#alt'] = $element['#item']->getValue()['alt'];
-      $elements[$delta]['#loading_method'] = $this->getSetting('image_loading')['attribute'] ?? 'lazy';
+      $elements[$delta]['#item_attributes'] = new Attribute($elements[$delta]['#item_attributes']);
+      $elements[$delta]['#item_attributes']->setAttribute('alt', $element['#item']->getValue()['alt'] ?? NULL);
+      $elements[$delta]['#item_attributes']->setAttribute('width', $element['#item']->getValue()['width'] ?? NULL);
+      $elements[$delta]['#item_attributes']->setAttribute('height', $element['#item']->getValue()['height'] ?? NULL);
 
       // Add image_handling and specific data for the type of handling.
       $elements[$delta]['#data']['image_handling'] = $this->getSetting('image_handling');
       switch ($elements[$delta]['#data']['image_handling']) {
         case 'aspect_ratio':
+          $aspect_ratio = $this->getSetting('aspect_ratio');
+          [$aspect_ratio_w, $aspect_ratio_h] = explode('_', $aspect_ratio);
           $elements[$delta]['#data'] = [
             'uri' => $files[$delta]->getFileUri(),
             'url' => $this->fileUrlGenerator->transformRelative($this->fileUrlGenerator->generateAbsoluteString($files[$delta]->getFileUri())),
             'aspect_ratio' => $this->getSetting('aspect_ratio'),
           ];
           $elements[$delta]['#srcset'] = $this->easyResponsiveImagesManager->getImagesByAspectRatio($elements[$delta]['#data']['uri'], $elements[$delta]['#data']['aspect_ratio']);
-          $elements[$delta]['#src'] = $elements[$delta]['#srcset'][0]['url'];
+          $elements[$delta]['#src'] = $elements[$delta]['#srcset'][0]['url'] ?? $this->fileUrlGenerator->generateString($files[$delta]->getFileUri());
+          // Temporarily set a width and height to make the browser render the
+          // image more efficiently. The width and height will be updated by the
+          // resizer JavaScript.
+          $elements[$delta]['#item_attributes']->setAttribute('width', $elements[$delta]['#srcset'][0]['width']);
+          $height = $elements[$delta]['#srcset'][0]['width'] ? ($elements[$delta]['#srcset'][0]['width'] * $aspect_ratio_h) / $aspect_ratio_w : NULL;
+          $elements[$delta]['#item_attributes']->setAttribute('height', $height);
           break;
 
         case 'scale':
@@ -182,6 +185,12 @@ class EasyResponsiveImagesFormatter extends ImageFormatter {
             'url' => $this->fileUrlGenerator->transformRelative($this->fileUrlGenerator->generateAbsoluteString($files[$delta]->getFileUri())),
           ];
           $elements[$delta]['#srcset'] = $this->easyResponsiveImagesManager->getImagesByScale($elements[$delta]['#data']['uri']);
+          $elements[$delta]['#src'] = $elements[$delta]['#srcset'][0]['url'] ?? $this->fileUrlGenerator->generateString($files[$delta]->getFileUri());
+          // Temporarily set a width and height to make the browser render the
+          // image more efficiently. The width and height will be updated by the
+          // resizer JavaScript.
+          $elements[$delta]['#item_attributes']->setAttribute('width', $elements[$delta]['#srcset'][0]['width']);
+          $elements[$delta]['#item_attributes']->setAttribute('height', $elements[$delta]['#srcset'][0]['width']);
           break;
 
         default:
@@ -189,6 +198,10 @@ class EasyResponsiveImagesFormatter extends ImageFormatter {
           break;
       }
     }
+
+    // Cache the output using the accept header since we use it to detect
+    // support for WebP images.
+    $elements['#cache']['contexts'] = ['headers:accept'];
 
     return $elements;
   }

@@ -79,8 +79,6 @@ function commerce_add_to_wishlist_link_theme_suggestions_commerce_add_to_wishlis
 function commerce_add_to_wishlist_link_commerce_product_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   /** @var \Drupal\commerce_product\Entity\ProductInterface $entity */
   if ($display->getComponent('add_to_wishlist_link')) {
-    /** @var \Drupal\commerce_add_to_cart_link\CartLinkTokenInterface $cart_link_token_service */
-    $cart_link_token_service = \Drupal::service('commerce_add_to_cart_link.token');
     $variation = $entity->getDefaultVariation();
     if (empty($variation)) {
       // Avoid errors, if the product has no (active) variations.
