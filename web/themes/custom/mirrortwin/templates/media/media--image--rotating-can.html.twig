@@ -8,8 +8,8 @@
 {% set file = media.field_media_image.entity %}
 {% set src = file.uri.value|image_url('rotating_can') %}
 
-<div id="container">
-	<div id="frame">
+<div class="animated-can-container">
+	<div class="animated-can-frame">
 		<div class="strip">
 			<div class="a" style="background-image: url('{{ src }}');"></div>
 			<div class="b" style="background-image: url('{{ src }}');"></div>

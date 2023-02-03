@@ -19,7 +19,8 @@
     }
   }
 
-  &--page_1 {
+  &--page_1,
+  &--page_2 {
     background-color: $black;
     color: $white;
     padding: rvr(2) rvr(1);

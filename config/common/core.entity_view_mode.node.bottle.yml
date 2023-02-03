@@ -1,0 +1,10 @@
+uuid: f01744d1-370b-4700-8d00-2b20118fa4ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.bottle
+label: Bottle
+targetEntityType: node
+cache: true

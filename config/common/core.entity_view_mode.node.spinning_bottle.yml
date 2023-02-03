@@ -1,0 +1,10 @@
+uuid: 8204c3f8-f637-42c8-85b3-380ee387cff9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.spinning_bottle
+label: 'Spinning Bottle'
+targetEntityType: node
+cache: true

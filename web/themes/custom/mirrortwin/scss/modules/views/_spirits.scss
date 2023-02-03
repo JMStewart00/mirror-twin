@@ -4,7 +4,7 @@
   margin: auto !important;
 
   h2 {
-    @include section-title();
+    @include section-title;
   }
 
   h3 {
@@ -42,7 +42,7 @@
     flex-wrap: wrap;
 
     li {
-      @include hover-focus() {
+      @include hover-focus {
         background-color: get-color(tertiary);
       }
 

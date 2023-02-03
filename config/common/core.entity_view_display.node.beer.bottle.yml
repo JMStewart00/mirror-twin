@@ -1,0 +1,221 @@
+uuid: 7093065e-adea-4ff4-a61f-d5ef50accd51
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.bottle
+    - field.field.node.beer.body
+    - field.field.node.beer.field_abv
+    - field.field.node.beer.field_aroma
+    - field.field.node.beer.field_availability
+    - field.field.node.beer.field_dates_available
+    - field.field.node.beer.field_disable_dropped
+    - field.field.node.beer.field_hero_media
+    - field.field.node.beer.field_hops
+    - field.field.node.beer.field_ibu
+    - field.field.node.beer.field_label_image
+    - field.field.node.beer.field_malts
+    - field.field.node.beer.field_meta_tags
+    - field.field.node.beer.field_mirror_monday
+    - field.field.node.beer.field_mirror_twin_category
+    - field.field.node.beer.field_on_tap_locations
+    - field.field.node.beer.field_preview_image
+    - field.field.node.beer.field_release_date
+    - field.field.node.beer.field_sort_weight
+    - field.field.node.beer.field_style
+    - field.field.node.beer.field_taste
+    - node.type.beer
+  module:
+    - datetime
+    - datetime_range
+    - layout_builder
+    - metatag
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.beer.bottle
+targetEntityType: node
+bundle: beer
+mode: bottle
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_abv:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 1
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_aroma:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_availability:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_dates_available:
+    type: daterange_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      separator: '-'
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_disable_dropped:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_hero_media:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_hops:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_ibu:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_label_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_malts:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_mirror_monday:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_mirror_twin_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_on_tap_locations:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_preview_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_release_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_sort_weight:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_style:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_taste:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
