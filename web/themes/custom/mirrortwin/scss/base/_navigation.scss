@@ -23,6 +23,10 @@
       width: rem-calc(150);
       margin: 0;
     }
+
+    svg {
+      filter: drop-shadow(1px 3px 2px rgb(0 0 0 / 0.4));
+    }
   }
 
   a:not(.site-logo):not(.cart-block--link__expand) {
