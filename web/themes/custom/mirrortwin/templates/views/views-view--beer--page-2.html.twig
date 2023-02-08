@@ -50,26 +50,28 @@
         <h1 class="c-block__title h1">BOTTLES</h1>
     </div>
   </div>
+  <div class="l-section l-section--align-center l-section--100 u-vr__pt--2 u-vr__pb--1 columns small-12 t-background--black">
+    {% if rows %}
+        <div{{create_attribute().addClass(classes)}}>
+            {{ rows }}
+        </div>
+    {% elseif empty %}
+        <div class="view-empty">
+        {{ empty }}
+        </div>
+    {% endif %}
+
+    {% if footer %}
+        <div class="view-footer">
+        {{ footer }}
+        </div>
+    {% endif %}
+
+    {% if pager %}
+        {{ pager }}
+    {% endif %}
+  </div>
   
 
 
-  {% if rows %}
-    <div{{create_attribute().addClass(classes)}}>
-        {{ rows }}
-    </div>
-  {% elseif empty %}
-    <div class="view-empty">
-      {{ empty }}
-    </div>
-  {% endif %}
-
-  {% if footer %}
-    <div class="view-footer">
-      {{ footer }}
-    </div>
-  {% endif %}
-
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
 
