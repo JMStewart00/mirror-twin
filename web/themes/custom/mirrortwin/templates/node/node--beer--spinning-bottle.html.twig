@@ -81,7 +81,7 @@
 <article{{attributes.addClass(classes)}} data-aos="fade-up">
   {{ title_prefix }}
   {{ title_suffix }}
-  {% if content.field_label_image|render|trim|striptags and content.field_preview_image|render|trim|striptags %}
+  {% if content.field_label_image|render|trim|striptags %}
     {{ content.field_label_image }}
     <img src="/themes/custom/mirrortwin/images/blank-bottle-new.webp" class="c-beer-spinning-bottle__blank-can" alt="Blank Can">
   {% else %}
