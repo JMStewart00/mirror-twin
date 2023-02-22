@@ -72,23 +72,17 @@
 #}
 {%
   set classes = [
-    'c-' ~ node.bundle|clean_class ~ '-' ~ view_mode|clean_class
+    'c-' ~ node.bundle|clean_class ~ '-' ~ view_mode|clean_class,
+    'text-center'
   ]
 %}
 
 
-<a href="{{ url }}">
+<a href="{{ url }}" class="columns medium-4 small-12">
 <article{{attributes.addClass(classes)}} data-aos="fade-up">
   {{ title_prefix }}
   {{ title_suffix }}
-  {% if content.field_label_image|render|trim|striptags %}
-    {{ content.field_label_image }}
-    <img src="/themes/custom/mirrortwin/images/blank-bottle-new.webp" class="c-beer-spinning-bottle__blank-can" alt="Blank Can">
-  {% else %}
-    <div class="c-beer-spinning-bottle__default-image">
-      {% include base_path ~ directory ~ '/templates/media/hops.svg.twig' %}
-    </div>
-  {% endif %}
+  {{ content.field_preview_image }}
   <h2 class="c-beer-spinning-bottle__title h3">
     {{ label.0['#context'].value }}
   </h2>
