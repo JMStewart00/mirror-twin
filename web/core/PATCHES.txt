@@ -30,6 +30,6 @@ Source: https://www.drupal.org/files/issues/views-template-suggestions-2839945-2
 
 
 Support third party settings for components within a section
-Source: https://www.drupal.org/files/issues/2021-12-13/3015152-tps-9.3.x-128.patch
+Source: https://www.drupal.org/files/issues/2023-02-03/3015152-191.patch
 
 

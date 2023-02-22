@@ -7726,6 +7726,7 @@ class ComposerStaticInitb54e11ce24bafb54b5f381fc5d3f8c68
         'mglaman\\PHPStanDrupal\\Type\\DrupalServiceDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalServiceDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\DrupalStaticEntityQueryDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalStaticEntityQueryDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityAccessControlHandlerReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityAccessControlHandlerReturnTypeExtension.php',
+        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\AccessCheckTypeSpecifyingExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/AccessCheckTypeSpecifyingExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ConfigEntityQueryType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ConfigEntityQueryType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ContentEntityQueryType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ContentEntityQueryType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryAccessCheckDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryAccessCheckDynamicReturnTypeExtension.php',

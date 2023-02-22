@@ -65,7 +65,7 @@ class LayoutSectionTest extends BrowserTestBase {
       [
         [
           'section' => new Section('layout_onecol', [], [
-            'baz' => SectionComponent::create('baz', 'content', [
+            'baz' => new SectionComponent('baz', 'content', [
               'id' => 'test_context_aware',
               'context_mapping' => [
                 'user' => '@user.current_user_context:current_user',
@@ -89,7 +89,7 @@ class LayoutSectionTest extends BrowserTestBase {
       [
         [
           'section' => new Section('layout_onecol', [], [
-            'baz' => SectionComponent::create('baz', 'content', [
+            'baz' => new SectionComponent('baz', 'content', [
               'id' => 'field_block:node:bundle_with_section_field:body',
               'context_mapping' => [
                 'entity' => 'layout_builder.entity',
@@ -114,7 +114,7 @@ class LayoutSectionTest extends BrowserTestBase {
       [
         [
           'section' => new Section('layout_onecol', [], [
-            'baz' => SectionComponent::create('baz', 'content', [
+            'baz' => new SectionComponent('baz', 'content', [
               'id' => 'system_powered_by_block',
             ]),
           ]),
@@ -130,18 +130,18 @@ class LayoutSectionTest extends BrowserTestBase {
       [
         [
           'section' => new Section('layout_onecol', [], [
-            'baz' => SectionComponent::create('baz', 'content', [
+            'baz' => new SectionComponent('baz', 'content', [
               'id' => 'system_powered_by_block',
             ]),
           ]),
         ],
         [
           'section' => new Section('layout_twocol', [], [
-            'foo' => SectionComponent::create('foo', 'first', [
+            'foo' => new SectionComponent('foo', 'first', [
               'id' => 'test_block_instantiation',
               'display_message' => 'foo text',
             ]),
-            'bar' => SectionComponent::create('bar', 'second', [
+            'bar' => new SectionComponent('bar', 'second', [
               'id' => 'test_block_instantiation',
               'display_message' => 'bar text',
             ]),
@@ -187,7 +187,7 @@ class LayoutSectionTest extends BrowserTestBase {
     $node = $this->createSectionNode([
       [
         'section' => new Section('layout_onecol', [], [
-          'baz' => SectionComponent::create('baz', 'content', [
+          'baz' => new SectionComponent('baz', 'content', [
             'id' => 'test_access',
           ]),
         ]),

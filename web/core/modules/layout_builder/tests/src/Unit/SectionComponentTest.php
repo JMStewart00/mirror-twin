@@ -34,10 +34,11 @@ class SectionComponentTest extends UnitTestCase {
   protected function setUp(): void {
     parent::setUp();
 
-    $component = SectionComponent::create(
+    $component = new SectionComponent(
       'some-uuid',
       'some-region',
       ['id' => 'existing-block-id'],
+      [],
       [
         'Initech' => [
           'Bill Lumbergh' => 'TPS reports',
@@ -55,7 +56,7 @@ class SectionComponentTest extends UnitTestCase {
   /**
    * @covers ::toRenderArray
    */
-  public function testToRenderArray() {
+  public function testToRenderArray(): void {
     $existing_block = $this->prophesize(BlockPluginInterface::class);
     $existing_block->getPluginId()->willReturn('block_plugin_id');
 
@@ -95,7 +96,7 @@ class SectionComponentTest extends UnitTestCase {
       '#markup' => 'block_plugin_id',
     ];
 
-    $component = SectionComponent::create('some-uuid', 'some-region', ['id' => 'some_block_id']);
+    $component = new SectionComponent('some-uuid', 'some-region', ['id' => 'some_block_id']);
     $result = $component->toRenderArray();
     $this->assertEquals($expected, $result);
   }
@@ -104,14 +105,17 @@ class SectionComponentTest extends UnitTestCase {
    * @covers ::getThirdPartySettings
    * @dataProvider providerTestGetThirdPartySettings
    */
-  public function testGetThirdPartySettings($provider, $expected) {
+  public function testGetThirdPartySettings($provider, $expected): void {
     $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySettings($provider));
   }
 
   /**
    * Provides test data for ::testGetThirdPartySettings().
+   *
+   * @return array
+   *   Third party settings.
    */
-  public function providerTestGetThirdPartySettings() {
+  public function providerTestGetThirdPartySettings(): array {
     $data = [];
     $data['Initech third party settings'] = [
       'Initech',
@@ -135,19 +139,21 @@ class SectionComponentTest extends UnitTestCase {
    * @covers ::getThirdPartySetting
    * @dataProvider providerTestGetThirdPartySetting
    */
-  public function testGetThirdPartySetting($provider, $key, $expected, $default = FALSE) {
+  public function testGetThirdPartySetting($provider, $key, $expected, $default = FALSE): void {
     if ($default) {
       $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySetting($provider, $key, $default));
+      return;
     }
-    else {
-      $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySetting($provider, $key));
-    }
+    $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySetting($provider, $key));
   }
 
   /**
    * Provides test data for ::testGetThirdPartySetting().
+   *
+   * @return array
+   *   Third party settings.
    */
-  public function providerTestGetThirdPartySetting() {
+  public function providerTestGetThirdPartySetting(): array {
     $data = [];
     $data['Initech third party setting for "Bill Lumbergh" key'] = [
       'Initech',
@@ -182,15 +188,18 @@ class SectionComponentTest extends UnitTestCase {
    * @covers ::setThirdPartySetting
    * @dataProvider providerTestSetThirdPartySetting
    */
-  public function testSetThirdPartySetting($provider, $key, $value, $expected) {
+  public function testSetThirdPartySetting($provider, $key, $value, $expected): void {
     $this->section->getComponent('some-uuid')->setThirdPartySetting($provider, $key, $value);
     $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySettings($provider));
   }
 
   /**
    * Provides test data for ::testSetThirdPartySettings().
+   *
+   * @return array
+   *   Third party settings.
    */
-  public function providerTestSetThirdPartySetting() {
+  public function providerTestSetThirdPartySetting(): array {
     $data = [];
     $data['Override "Milton Waddams" third party setting for Initech provider'] = [
       'Initech',
@@ -226,15 +235,18 @@ class SectionComponentTest extends UnitTestCase {
    * @covers ::unsetThirdPartySetting
    * @dataProvider providerTestUnsetThirdPartySetting
    */
-  public function testUnsetThirdPartySetting($provider, $key, $expected) {
+  public function testUnsetThirdPartySetting($provider, $key, $expected): void {
     $this->section->getComponent('some-uuid')->unsetThirdPartySetting($provider, $key);
     $this->assertSame($expected, $this->section->getComponent('some-uuid')->getThirdPartySettings($provider));
   }
 
   /**
    * Provides test data for ::testUnsetThirdPartySetting().
+   *
+   * @return array
+   *   Third party settings.
    */
-  public function providerTestUnsetThirdPartySetting() {
+  public function providerTestUnsetThirdPartySetting(): array {
     $data = [];
     $data['Key with values'] = [
       'Initech',
@@ -266,7 +278,7 @@ class SectionComponentTest extends UnitTestCase {
   /**
    * @covers ::getThirdPartyProviders
    */
-  public function testGetThirdPartyProviders() {
+  public function testGetThirdPartyProviders(): void {
     $this->assertSame(['Initech', 'Chotchkies'], $this->section->getComponent('some-uuid')->getThirdPartyProviders());
     $this->section->getComponent('some-uuid')->unsetThirdPartySetting('Chotchkies', 'flair');
     $this->assertSame(['Initech'], $this->section->getComponent('some-uuid')->getThirdPartyProviders());
@@ -277,16 +289,14 @@ class SectionComponentTest extends UnitTestCase {
    *
    * @group legacy
    *
-   * @todo Remove below test when the drupal:10.0.x branch is opened.
+   * @todo Remove below test when the drupal:10.1.x branch is opened.
    * @see https://www.drupal.org/project/drupal/issues/3160644
    */
-  public function testDeprecationNotices() {
-    $this->expectDeprecation('Setting additional properties is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. Additional component properties should be set via ::setThirdPartySetting(). See https://www.drupal.org/node/3100177');
-    $this->expectDeprecation('Instantiating a SectionComponent object directly is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. SectionComponents should be instantiated using the SectionComponent::create() method instead. See https://www.drupal.org/node/3100177');
-    $this->expectDeprecation('Setting additional properties is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. Additional component properties should be set via ::setThirdPartySetting(). See https://www.drupal.org/node/3100177');
-    $this->expectDeprecation('Getting additional properties is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. Additional component properties should be gotten via ::setThirdPartySetting(). See https://www.drupal.org/node/3100177');
+  public function testDeprecationNotices(): void {
+    $this->expectDeprecation('Setting random section component properties is deprecated in drupal:9.4.0 and is removed from drupal:11.0.0. Component properties should be set via dedicated setters. See https://www.drupal.org/node/3100177');
+    $this->expectDeprecation('Getting additional properties is deprecated in drupal:9.4.0 and is removed from drupal:11.0.0. Additional component properties should be gotten via ::setThirdPartySetting(). See https://www.drupal.org/node/3100177');
 
-    // Instantiate SectionComponent object directly, which is deprecated.
+    // Instantiate SectionComponent with additional settings is deprecated.
     new SectionComponent(
       'some-uuid',
       'some-region',
@@ -303,7 +313,7 @@ class SectionComponentTest extends UnitTestCase {
     );
 
     // Instantiate SectionComponent object with preferred create() method.
-    $component = SectionComponent::create(
+    $component = new SectionComponent(
       'some-uuid',
       'some-region',
       [],

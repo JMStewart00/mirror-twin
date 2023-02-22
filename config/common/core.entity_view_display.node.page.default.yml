@@ -25,10 +25,10 @@ third_party_settings:
       -
         layout_id: custom_layout__one_column
         layout_settings:
-          context_mapping: {  }
           background_color: none
           class: null
           hero: true
+          context_mapping: {  }
         components:
           fd792770-7f73-4188-bb71-85120ea2528d:
             uuid: fd792770-7f73-4188-bb71-85120ea2528d
@@ -52,10 +52,10 @@ third_party_settings:
       -
         layout_id: custom_layout__one_column
         layout_settings:
-          context_mapping: {  }
           background_color: none
           class: null
           hero: false
+          context_mapping: {  }
         components:
           58fc9c00-f12e-46f2-a122-ffb1373f3a7d:
             uuid: 58fc9c00-f12e-46f2-a122-ffb1373f3a7d

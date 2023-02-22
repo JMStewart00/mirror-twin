@@ -1,8 +1,0 @@
---- aos.info.yml
-+++ aos.info.yml
-@@ -1,4 +1,5 @@
- name: Animate On Scroll
- description: 'AOS is small library to animate elements on your page as you scroll.'
- type: module
-+core_version_requirement: ^8 || ^9
- package: User Interface

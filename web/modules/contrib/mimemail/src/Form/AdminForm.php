@@ -124,7 +124,7 @@ class AdminForm extends ConfigFormBase {
     $theme = $this->themeHandler->getDefault();
     // @todo Searching the path is not what we want - this is how it was done
     // in D7, but that's not how assets should be handled in D8.
-    $mailstyle = drupal_get_path('theme', $theme) . '/mail.css';
+    $mailstyle = \Drupal::service('extension.list.theme')->getPath($theme) . '/mail.css';
     // Disable site style sheets including option if found.
     if (is_file($mailstyle)) {
       $config->set('sitestyle', FALSE);

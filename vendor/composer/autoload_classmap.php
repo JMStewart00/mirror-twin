@@ -7078,6 +7078,7 @@ return array(
     'mglaman\\PHPStanDrupal\\Type\\DrupalServiceDynamicReturnTypeExtension' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/DrupalServiceDynamicReturnTypeExtension.php',
     'mglaman\\PHPStanDrupal\\Type\\DrupalStaticEntityQueryDynamicReturnTypeExtension' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/DrupalStaticEntityQueryDynamicReturnTypeExtension.php',
     'mglaman\\PHPStanDrupal\\Type\\EntityAccessControlHandlerReturnTypeExtension' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/EntityAccessControlHandlerReturnTypeExtension.php',
+    'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\AccessCheckTypeSpecifyingExtension' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/EntityQuery/AccessCheckTypeSpecifyingExtension.php',
     'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ConfigEntityQueryType' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ConfigEntityQueryType.php',
     'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ContentEntityQueryType' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ContentEntityQueryType.php',
     'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryAccessCheckDynamicReturnTypeExtension' => $vendorDir . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryAccessCheckDynamicReturnTypeExtension.php',
