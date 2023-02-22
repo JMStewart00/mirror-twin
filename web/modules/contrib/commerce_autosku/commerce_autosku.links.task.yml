@@ -1,3 +1,0 @@
-commerce_autosku.config:
-  class: \Drupal\Core\Menu\LocalTaskDefault
-  deriver: \Drupal\commerce_autosku\Plugin\Derivative\CommerceAutoSkuConfigTask
