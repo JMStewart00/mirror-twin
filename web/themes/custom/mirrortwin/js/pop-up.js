@@ -14,7 +14,7 @@
   
           if (!$.cookie("mirrorTwinPopUp") || $.cookie("mirrorTwinPopUp") === 'false') {
             $("#popUp").modal({
-              escapeClose: false,
+              escapeClose: true,
               clickClose: false,
               showClose: false,
               fadeDuration: 500,
