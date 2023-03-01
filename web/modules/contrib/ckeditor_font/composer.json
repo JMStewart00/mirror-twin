@@ -14,6 +14,6 @@
 	},
 	"require": {
 		"drupal-ckeditor-libraries-group/font": "^4.13.1",
-		"drupal/core": "^8 || ^9"
+		"drupal/core": "^9.3 || ^10"
 	}
 }

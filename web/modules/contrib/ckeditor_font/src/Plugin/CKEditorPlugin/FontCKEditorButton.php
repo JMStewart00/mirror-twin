@@ -31,7 +31,7 @@ class FontCKEditorButton extends CKEditorPluginBase implements CKEditorPluginCon
   public function getButtons() {
     // Make sure that the path to the image matches the file structure of
     // the CKEditor plugin you are implementing.
-    $modulePath = drupal_get_path('module', 'ckeditor_font');
+    $modulePath = \Drupal::service('extension.list.module')->getPath('ckeditor_font');
     return array(
       'Font' => array(
         'label' => $this->t('Font Families'),
@@ -59,14 +59,14 @@ class FontCKEditorButton extends CKEditorPluginBase implements CKEditorPluginCon
     // https://git.drupalcode.org/project/drupal/commit/1edf15f
     // -----------------------------------------------------------------------
     // Search sites/<domain>/*.
-    $directories[] = \Drupal::service('site.path') . "/libraries/";
+    $directories[] = \Drupal::getContainer()->getParameter('site.path') . "/libraries/";
 
     // Always search the root 'libraries' directory.
     $directories[] = 'libraries/';
 
     // Installation profiles can place libraries into a 'libraries' directory.
     if ($installProfile = \Drupal::installProfile()) {
-      $profile_path = drupal_get_path('profile', $installProfile);
+      $profile_path = \Drupal::service('extension.list.profile')->getPath($installProfile);
       $directories[] = "$profile_path/libraries/";
     }
 
@@ -237,9 +237,10 @@ class FontCKEditorButton extends CKEditorPluginBase implements CKEditorPluginCon
           $pattern = '@^\s*[a-zA-Z0-9\,\-\s]+\s*\|\s*.+\s*$@';
           break;
         case 'size':
-          // Match for patterns:
+          // Match for patterns and font size keywords:
           // 123px/pt/em/rem/%|Label
-          $pattern = '@^\s*\d+(\.?\d+)?(px|em|%|pt|rem)\|.*$@';
+          $fontSizeKeywords = ['xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', 'xxx-large', 'larger', 'smaller', 'inherit', 'initial', 'revert', 'revert-layer', 'unset'];
+          $pattern = '@^(\s*\d+(\.?\d+)?(px|em|%|pt|rem)|('.implode('|', $fontSizeKeywords).'))\|.*$@';
           break;
       }
 
