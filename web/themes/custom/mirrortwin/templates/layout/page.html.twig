@@ -45,160 +45,183 @@
 #}
 
 <div class="off-canvas-wrapper">
-  <div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
-    <div class="off-canvas-content" data-off-canvas-content>
-      {% if page.meta_header %}
-        {% if meta_header_grid %}
-          <div class="row">
-            <div class="large-12 columns">
-        {% endif %}
-        {{ page.meta_header }}
-        {% if meta_header_grid %}
-            </div>
-          </div>
-        {% endif %}
-      {% endif %}
+	<div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
+		<div class="off-canvas-content" data-off-canvas-content>
+			{% if page.meta_header %}
+				{% if meta_header_grid %}
+					<div class="row">
+						<div class="large-12 columns">
+						{% endif %}
+						{{ page.meta_header }}
+						{% if meta_header_grid %}
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}
 
-      <header class="row t-background--black c-header-mobile-wrapper" role="banner" aria-label="{{ 'Site header'|t }}">
-        <div class="c-header-mobile">
-          <a href="#mobile-menu" class="c-header__hamburger mburger mburger--collapse">
-            <b></b>
-            <b></b>
-            <b></b>
-          </a>
-          <a href="{{ path('<front>') }}" rel="home" class="site-logo site-log--mobile">
-            {% include base_path ~ directory ~ '/templates/media/hops.svg.twig' %}
-          </a>
-        </div>
-      </header>
+			<header class="row t-background--black c-header-mobile-wrapper" role="banner" aria-label="{{ 'Site header'|t }}">
+				<div class="c-header-mobile">
+					<a href="#mobile-menu" class="c-header__hamburger mburger mburger--collapse">
+						<b></b>
+						<b></b>
+						<b></b>
+					</a>
+					<a href="{{ path('<front>') }}" rel="home" class="site-logo site-log--mobile">
+						{% include base_path ~ directory ~ '/templates/media/hops.svg.twig' %}
+					</a>
+				</div>
+			</header>
 
-      <nav class="c-mobile-menu" id="mobile-menu">
-        {{ drupal_block('mirrortwin_mobile_menu_block') }}
-      </nav>
+			<nav class="c-mobile-menu" id="mobile-menu">
+				{{ drupal_block('mirrortwin_mobile_menu_block') }}
+			</nav>
 
-      {% if page.header %}
-      <div class="row top-bar-wrapper">
-        <div class="large-12">
-          {{ page.header }}
-        </div>
-      </div>
-      {% endif %}
+			{% if page.header %}
+				<div class="row top-bar-wrapper">
+					<div class="large-12">
+						{{ page.header }}
+					</div>
+				</div>
+			{% endif %}
 
-      {% if messages and not zurb_foundation_messages_modal %}
-      <div class="l-messages row">
-        <div class="large-12 columns">
-          {{ messages }}
-        </div>
-      </div>
-      {% endif %}
+			{% if messages and not zurb_foundation_messages_modal %}
+				<div class="l-messages row">
+					<div class="large-12 columns">
+						{{ messages }}
+					</div>
+				</div>
+			{% endif %}
 
-      {% if page.help %}
-      <div class="l-help row">
-        <div class="large-12 columns">
-          {{ page.help }}
-        </div>
-      </div>
-      {% endif %}
+			{% if page.help %}
+				<div class="l-help row">
+					<div class="large-12 columns">
+						{{ page.help }}
+					</div>
+				</div>
+			{% endif %}
 
-      {% block content %}
-        <main id="main" role="main">
-          {% if page.highlighted %}
-            {% apply spaceless %}
-              {{ page.highlighted }}
-            {% endapply %}
-          {% endif %}
-          <a id="main-content"></a>
-          {% if breadcrumb %} {{ breadcrumb }} {% endif %}
-          <section>
-            {{ page.content }}
-          </section>
-        </main>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
-        {% endif %}
-        {% if page.sidebar_second %}
-          <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
-            {{ page.sidebar_second }}
-          </div>
-        {% endif %}
-      {% endblock %}
+			{% block content %}
+				<main id="main" role="main">
+					{% if page.highlighted %}
+						{% apply spaceless %}
+						{{ page.highlighted }}
+						{% endapply %}
+					{% endif %}
+					<a id="main-content"></a>
+					{% if breadcrumb %}
+						{{ breadcrumb }}
+					{% endif %}
+					<section>
+						{{ page.content }}
+					</section>
+				</main>
+				{% if page.sidebar_first %}
+					<div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+						{{ page.sidebar_first }}
+					</div>
+				{% endif %}
+				{% if page.sidebar_second %}
+					<div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+						{{ page.sidebar_second }}
+					</div>
+				{% endif %}
+			{% endblock %}
 
-      <footer class="c-footer t-background--black u-vr__pt--2">
-        <div class="row u-vr__pb--2">
-          <div class="c-footer__logo columns small-12 medium-3 align-middle u-vr__mb--1">
-            <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-              <img src="{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}"/>
-            </a>
-          </div>
-          <div class="c-footer__hours columns small-12 medium-6 text-center">
-            <div class="row align-spaced">
-            {% if page.footer_first or page.footer_second %}
-              {% if page.footer_first %}
-                <div id="footer-first" class="c-footer__left columns small-12 medium-6 medium-centered u-vr__mb--1">
-                  {{ page.footer_first }}
-                </div>
-              {% endif %}
-              {% if page.footer_second %}
-                <div id="footer-middle" class="c-footer__right columns small-12 medium-6 medium-centered u-vr__mb--1">
-                  {{ page.footer_second }}
-                </div>
-              {% endif %}
-            {% endif %}
-            </div>
-          </div>
-          <div class="columns small-12 medium-3">
-            <div class="row align-middle" style="height: 100%;">
-              <div class="columns small-12 text-center u-vr__mb--1">
-                <a href="tel:8594478146">(859) 447-8146</a>
-              </div>
-              <div class="columns small-12 text-center u-vr__mb--1">
-                <a href="mailto:info@mirrortwinbrewing.com">info@mirrortwinbrewing.com</a>
-              </div>
-              <div class="columns small-12 text-center u-vr__my--1">
-                <div class="row align-center">
-                  <div class="columns small-4 medium-3 small-centered">
-                    <a href="https://www.facebook.com/Mirrortwinbrewingco" target="_blank">
-                      <i class="fab fa-facebook fa-2x c-footer__icon"></i>
-                    </div>
-                    <div class="columns small-4 medium-3 small-centered"></a>
-                    <a href="https://instagram.com/mirrortwinbrewing" target="_blank">
-                      <i class="fab fa-instagram fa-2x c-footer__icon"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+			<footer class="c-footer t-background--black u-vr__pt--2">
+				<div class="row u-vr__pb--2">
+					<div class="c-footer__logo columns small-12 medium-3 align-middle u-vr__mb--1">
+						<a href="{{ path('<front>') }}" rel="home" class="site-logo">
+							<img src="{{ base_path ~ directory }}/logo.svg" alt="{{ 'Home'|t }}"/>
+						</a>
+					</div>
+					<div class="c-footer__hours columns small-12 medium-6 text-center">
+						<div class="row align-spaced">
+							{% if page.footer_first or page.footer_second %}
+								{% if page.footer_first %}
+									<div id="footer-first" class="c-footer__left columns small-12 medium-6 medium-centered u-vr__mb--1">
+										{{ page.footer_first }}
+									</div>
+								{% endif %}
+								{% if page.footer_second %}
+									<div id="footer-middle" class="c-footer__right columns small-12 medium-6 medium-centered u-vr__mb--1">
+										{{ page.footer_second }}
+									</div>
+								{% endif %}
+							{% endif %}
+						</div>
+					</div>
+					<div class="columns small-12 medium-3">
+						<div class="row align-middle" style="height: 100%;">
+							<div class="columns small-12 text-center u-vr__mb--1">
+								<a href="tel:8594478146">(859) 447-8146</a>
+							</div>
+							<div class="columns small-12 text-center u-vr__mb--1">
+								<a href="mailto:info@mirrortwinbrewing.com">info@mirrortwinbrewing.com</a>
+							</div>
+							<div class="columns small-12 text-center u-vr__my--1">
+								<div class="row align-center">
+									<div class="columns small-4 medium-3 small-centered">
+										<a href="https://www.facebook.com/Mirrortwinbrewingco" target="_blank">
+											<i class="fab fa-facebook fa-2x c-footer__icon"></i>
+										</div>
+										<div class="columns small-4 medium-3 small-centered"></a>
+										<a href="https://instagram.com/mirrortwinbrewing" target="_blank">
+											<i class="fab fa-instagram fa-2x c-footer__icon"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="row u-vr__pb--1">
-          <div class="columns small-12 medium-5 align-center text-center">
-            <p>&copy;
-              {{ "now"|date('Y') }}
-              {{"Mirror Twin Brewing"}}
-              {{ 'All rights reserved.'|t }}</p>
-          </div>
-        </div>
-      </footer>
+				<div class="row u-vr__pb--1">
+					<div class="columns small-12 medium-5 align-center text-center">
+						<p>&copy;
+							{{ "now"|date('Y') }}
+							{{"Mirror Twin Brewing"}}
+							{{ 'All rights reserved.'|t }}</p>
+					</div>
+				</div>
+			</footer>
 
-    </div>
-  </div>
-    <!-- Modal HTML embedded directly into document -->
-  <div id="ageGate" class="modal age-gate t-background--black">
-    <div class="u-vr__mb--1"><img src="/themes/custom/mirrortwin/images/mirror-twin.png" alt="Mirror Twin Logo"></div>
-    <div class="h2">{{"Are you 21 or older?"|t}}</div>
-    <div class="row align-center">
-      {{"You must be of legal drinking age to enter this site."|t}}
-    </div>
-    <div class="row align-center">
-      <button id="ageGateYes" class="o-btn o-btn--primary o-btn--large draw-border">
-        {{"I sure am!"|t}}
-      </button>
-    </div>
+		</div>
+	</div>
 
-  </div>
+	<div id="popUp" class="modal pop-up t-background--black">
+		<div class="u-vr__mb--1">
+			<a target="_blank" href="https://www.toasttab.com/mirror-twin-brewing-723/marketing-signup">
+				<img src="/themes/custom/mirrortwin/images/KaneBrownGiveaway.png" alt="Kane Brown Giveaway">
+			</a>
+		</div>
+		<div class="h2">{{"Sign up for the MTB Newsletter to enter!"|t}}</div>
+		<div class="row align-center">
+			<a id="popUpYes" class="o-btn o-btn--gold" target="_blank" href="https://www.toasttab.com/mirror-twin-brewing-723/marketing-signup">
+				{{"Sign Me Up!"|t}}
+			</a>
+			<button id="popUpNo" class="o-btn o-btn--primary o-btn--small">
+				{{"No, thanks."|t}}
+			</button>
+		</div>
+	</div>
+
+	<!-- Modal HTML embedded directly into document -->
+	<div id="ageGate" class="modal age-gate t-background--black">
+		<div class="u-vr__mb--1">
+			<img src="/themes/custom/mirrortwin/images/mirror-twin.png" alt="Mirror Twin Logo">
+		</div>
+		<div class="h2">{{"Are you 21 or older?"|t}}</div>
+		<div class="row align-center">
+			{{"You must be of legal drinking age to enter this site."|t}}
+		</div>
+		<div class="row align-center">
+			<button id="ageGateYes" class="o-btn o-btn--primary o-btn--large draw-border">
+				{{"I sure am!"|t}}
+			</button>
+		</div>
+
+	</div>
 </div>
 
 {{ attach_library('mirrortwin/sticky-nav' )}}
+

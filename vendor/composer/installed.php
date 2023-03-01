@@ -3,7 +3,7 @@
         'name' => 'pantheon-systems/example-drops-8-composer',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9b5f3dec5d2cce59d364c83544d938ed1ee40fcc',
+        'reference' => '96a87da15d78823d6d7fd1e05176cf6ceeabfb5e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1317,7 +1317,7 @@
         'pantheon-systems/example-drops-8-composer' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9b5f3dec5d2cce59d364c83544d938ed1ee40fcc',
+            'reference' => '96a87da15d78823d6d7fd1e05176cf6ceeabfb5e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -36,6 +36,7 @@ jquery-modal:
   js:
     /libraries/jquery-modal/jquery.modal.min.js: { weight: -1 }
     js/age-gate.js: { weight: 0 }
+    js/pop-up.js: { weight: 0 }
   dependencies:
     - core/drupal
     - core/jquery
